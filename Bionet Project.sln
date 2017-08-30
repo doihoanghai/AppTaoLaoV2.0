@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionet App", "BioNetSangLocSoSinh\Bionet App.csproj", "{00597C1C-6B26-4103-8448-1E57BDC669D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BioNetModel", "BioNetDataModel\BioNetModel.csproj", "{B6D73129-7B88-4532-A380-D2D5CE214664}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BioNetDAL", "BioNetDAL\BioNetDAL.csproj", "{6582988D-53F5-488D-AFD0-D7BDF5DAAEF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BioNetBLL", "BioNetBLL\BioNetBLL.csproj", "{F0DF1FE9-42B8-430D-9362-735A29E8DE28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSync", "DataSync\DataSync.csproj", "{67B2B6BE-7B98-4568-BC08-48A8CC510E2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00597C1C-6B26-4103-8448-1E57BDC669D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00597C1C-6B26-4103-8448-1E57BDC669D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00597C1C-6B26-4103-8448-1E57BDC669D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00597C1C-6B26-4103-8448-1E57BDC669D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6D73129-7B88-4532-A380-D2D5CE214664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6D73129-7B88-4532-A380-D2D5CE214664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6D73129-7B88-4532-A380-D2D5CE214664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6D73129-7B88-4532-A380-D2D5CE214664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6582988D-53F5-488D-AFD0-D7BDF5DAAEF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6582988D-53F5-488D-AFD0-D7BDF5DAAEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6582988D-53F5-488D-AFD0-D7BDF5DAAEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6582988D-53F5-488D-AFD0-D7BDF5DAAEF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0DF1FE9-42B8-430D-9362-735A29E8DE28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0DF1FE9-42B8-430D-9362-735A29E8DE28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0DF1FE9-42B8-430D-9362-735A29E8DE28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0DF1FE9-42B8-430D-9362-735A29E8DE28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B2B6BE-7B98-4568-BC08-48A8CC510E2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B2B6BE-7B98-4568-BC08-48A8CC510E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B2B6BE-7B98-4568-BC08-48A8CC510E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B2B6BE-7B98-4568-BC08-48A8CC510E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = ..\..
+	EndGlobalSection
+EndGlobal

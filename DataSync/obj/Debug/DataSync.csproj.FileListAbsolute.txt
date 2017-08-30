@@ -1,0 +1,525 @@
+D:\Data\code\PowerSoft\ihis_BionetAppv2\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.dll
+D:\Data\code\PowerSoft\ihis_BionetAppv2\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.pdb
+D:\Data\code\PowerSoft\ihis_BionetAppv2\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.dll
+D:\Data\code\PowerSoft\ihis_BionetAppv2\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.dll
+D:\Data\code\PowerSoft\ihis_BionetAppv2\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.pdb
+D:\Data\code\PowerSoft\ihis_BionetAppv2\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.pdb
+D:\Data\code\PowerSoft\ihis_BionetAppv2\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csprojResolveAssemblyReference.cache
+D:\Data\code\PowerSoft\ihis_BionetAppv2\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.Properties.Resources.resources
+D:\Data\code\PowerSoft\ihis_BionetAppv2\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
+D:\Data\code\PowerSoft\ihis_BionetAppv2\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.dll
+D:\Data\code\PowerSoft\ihis_BionetAppv2\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.pdb
+D:\Data\code\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.dll
+D:\Data\code\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.pdb
+D:\Data\code\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.dll
+D:\Data\code\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.dll
+D:\Data\code\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.pdb
+D:\Data\code\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.pdb
+D:\Data\code\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csprojResolveAssemblyReference.cache
+D:\Data\code\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.Properties.Resources.resources
+D:\Data\code\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
+D:\Data\code\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.dll
+D:\Data\code\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.pdb
+D:\Data\code\PowerSoft\BioNEt\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.dll
+D:\Data\code\PowerSoft\BioNEt\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.pdb
+D:\Data\code\PowerSoft\BioNEt\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.dll
+D:\Data\code\PowerSoft\BioNEt\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.dll
+D:\Data\code\PowerSoft\BioNEt\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.pdb
+D:\Data\code\PowerSoft\BioNEt\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.pdb
+D:\Data\code\PowerSoft\BioNEt\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csprojResolveAssemblyReference.cache
+D:\Data\code\PowerSoft\BioNEt\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.Properties.Resources.resources
+D:\Data\code\PowerSoft\BioNEt\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
+D:\Data\code\PowerSoft\BioNEt\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.dll
+D:\Data\code\PowerSoft\BioNEt\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.pdb
+D:\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.dll
+D:\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.pdb
+D:\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.dll
+D:\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.dll
+D:\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.pdb
+D:\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.pdb
+D:\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csprojResolveAssemblyReference.cache
+D:\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.Properties.Resources.resources
+D:\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
+D:\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.dll
+D:\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.pdb
+D:\BionetApp20-07-2017\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.dll
+D:\BionetApp20-07-2017\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.pdb
+D:\BionetApp20-07-2017\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.dll
+D:\BionetApp20-07-2017\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.dll
+D:\BionetApp20-07-2017\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.pdb
+D:\BionetApp20-07-2017\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.pdb
+D:\BionetApp20-07-2017\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csprojResolveAssemblyReference.cache
+D:\BionetApp20-07-2017\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.Properties.Resources.resources
+D:\BionetApp20-07-2017\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
+D:\BionetApp20-07-2017\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.dll
+D:\BionetApp20-07-2017\BionetApp20-07-2017\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.pdb
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.exe.config
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.exe
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.pdb
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Data.v15.2.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Office.v15.2.Core.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Utils.v15.2.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraBars.v15.2.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraPrinting.v15.2.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.pdb
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.pdb
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Data.v15.2.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Office.v15.2.Core.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Core.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Utils.v15.2.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraBars.v15.2.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraPrinting.v15.2.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraRichEdit.v15.2.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Drawing.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraLayout.v15.2.xml
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Office.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Office.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Office.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Office.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraBars.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraBars.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraBars.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraBars.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraLayout.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csprojResolveAssemblyReference.cache
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.FrmStartupSync.resources
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.Properties.Resources.resources
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.exe.licenses
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.exe
+D:\GitHub\Bionet App\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.pdb
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.exe.config
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.exe
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.pdb
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.exe
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.pdb
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Data.v15.2.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Office.v15.2.Core.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Utils.v15.2.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraBars.v15.2.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraPrinting.v15.2.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.pdb
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.pdb
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Data.v15.2.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Office.v15.2.Core.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Core.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Utils.v15.2.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraBars.v15.2.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraPrinting.v15.2.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraRichEdit.v15.2.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Drawing.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraLayout.v15.2.xml
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Office.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Office.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Office.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Office.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraBars.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraBars.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraBars.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraBars.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraLayout.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csprojResolveAssemblyReference.cache
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.FrmStartupSync.resources
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.Properties.Resources.resources
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
+D:\BioCuaAnh\BioCuaAnh\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.exe.licenses
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.exe.config
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.exe
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.pdb
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csprojResolveAssemblyReference.cache
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.FrmStartupSync.resources
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.Properties.Resources.resources
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\obj\Debug\DataSync.exe.licenses
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.exe
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DataSync.pdb
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Data.v15.2.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Office.v15.2.Core.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Utils.v15.2.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraBars.v15.2.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraPrinting.v15.2.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetDAL.pdb
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\BioNetModel.pdb
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Data.v15.2.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Office.v15.2.Core.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Core.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Utils.v15.2.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraBars.v15.2.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraPrinting.v15.2.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraRichEdit.v15.2.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Drawing.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\DevExpress.XtraLayout.v15.2.xml
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Office.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Office.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Office.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Office.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraBars.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraBars.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraBars.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraBars.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\de\DevExpress.XtraLayout.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
+D:\work\BionetApp\BionetApp\BioNetSangLocSoSinh\DataSync\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DataSync.exe.config
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DataSync.exe
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DataSync.pdb
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\BioNetDAL.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\BioNetModel.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Data.v15.2.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Office.v15.2.Core.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Utils.v15.2.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraBars.v15.2.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraPrinting.v15.2.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\BioNetDAL.pdb
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\BioNetModel.pdb
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Data.v15.2.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Office.v15.2.Core.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Core.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Utils.v15.2.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraBars.v15.2.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraPrinting.v15.2.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraRichEdit.v15.2.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Drawing.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraLayout.v15.2.xml
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Office.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Office.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Office.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Office.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Pdf.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.RichEdit.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraBars.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraBars.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraBars.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraBars.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraPrinting.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraRichEdit.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraTreeList.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraLayout.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.csprojResolveAssemblyReference.cache
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.FrmStartupSync.resources
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.Properties.Resources.resources
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.exe.licenses
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.exe
+D:\Bionet-Git\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.pdb
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DataSync.exe.config
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.exe
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.pdb
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DataSync.exe
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DataSync.pdb
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\BioNetDAL.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\BioNetModel.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Data.v15.2.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Office.v15.2.Core.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Utils.v15.2.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraBars.v15.2.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraPrinting.v15.2.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\BioNetDAL.pdb
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\BioNetModel.pdb
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Data.v15.2.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Office.v15.2.Core.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Core.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Printing.v15.2.Core.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Utils.v15.2.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraBars.v15.2.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraEditors.v15.2.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraPrinting.v15.2.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraRichEdit.v15.2.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Pdf.v15.2.Drawing.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.Sparkline.v15.2.Core.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\DevExpress.XtraLayout.v15.2.xml
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Data.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Data.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Data.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Data.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Office.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Office.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Office.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Office.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Pdf.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Pdf.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Pdf.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Pdf.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Printing.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Printing.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Printing.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Printing.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.RichEdit.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.RichEdit.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.RichEdit.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.RichEdit.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Utils.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Utils.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Utils.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Utils.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraBars.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraBars.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraBars.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraBars.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraEditors.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraEditors.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraEditors.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraEditors.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraPrinting.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraPrinting.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraPrinting.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraPrinting.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraRichEdit.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraRichEdit.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraRichEdit.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraRichEdit.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.Sparkline.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.Sparkline.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.Sparkline.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.Sparkline.v15.2.Core.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraTreeList.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\de\DevExpress.XtraLayout.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.csprojResolveAssemblyReference.cache
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.FrmStartupSync.resources
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.Properties.Resources.resources
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
+C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.exe.licenses

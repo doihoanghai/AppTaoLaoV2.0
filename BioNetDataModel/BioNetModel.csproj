@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B6D73129-7B88-4532-A380-D2D5CE214664}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BioNetModel</RootNamespace>
+    <AssemblyName>BioNetModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIViewModel\AccountViewModel.cs" />
+    <Compile Include="APIViewModel\ApplicationGroupViewModel.cs" />
+    <Compile Include="APIViewModel\ApplicationRoleViewModel.cs" />
+    <Compile Include="APIViewModel\ApplicationUserViewModel.cs" />
+    <Compile Include="APIViewModel\ChiDinhDichVuChiTietViewModel.cs" />
+    <Compile Include="APIViewModel\ChiDinhDichVuViewModel.cs" />
+    <Compile Include="APIViewModel\ChiTietGoiDichVuViewModel.cs" />
+    <Compile Include="APIViewModel\DanhMucChiCucViewModel.cs" />
+    <Compile Include="APIViewModel\DanhMucChuongTrinhViewModel.cs" />
+    <Compile Include="APIViewModel\DanhMucDanhGiaChatLuongViewModel.cs" />
+    <Compile Include="APIViewModel\DanhMucDichVuViewModel.cs" />
+    <Compile Include="APIViewModel\DanhMucDonViCoSoViewModel.cs" />
+    <Compile Include="APIViewModel\DanhMucGoiDichVuChungViewModel.cs" />
+    <Compile Include="APIViewModel\DanhMucKyThuatXNViewModel.cs" />
+    <Compile Include="APIViewModel\DanhMucThongSoXNViewModel.cs" />
+    <Compile Include="APIViewModel\DanhMucTrungTamSangLocViewModel.cs" />
+    <Compile Include="APIViewModel\GoiDichVuTrungTamViewModel.cs" />
+    <Compile Include="APIViewModel\MapsXetNghiem_ThongSoViewModel.cs" />
+    <Compile Include="APIViewModel\Model1.cs" />
+    <Compile Include="APIViewModel\Model1.Designer.cs" />
+    <Compile Include="APIViewModel\Patient_XN_ListTraKQChiTietViewModel.cs" />
+    <Compile Include="APIViewModel\Patient_XN_TraKQ_ChiTietViewModel.cs" />
+    <Compile Include="APIViewModel\PhieuSangLocViewModel.cs" />
+    <Compile Include="APIViewModel\ThongSoKyThuatViewModel.cs" />
+    <Compile Include="APIViewModel\TiepNhanViewModel.cs" />
+    <Compile Include="APIViewModel\XN_KetQuaViewModel.cs" />
+    <Compile Include="APIViewModel\XN_KetQua_ChiTietViewModel.cs" />
+    <Compile Include="APIViewModel\XN_TraKetQuaViewModel.cs" />
+    <Compile Include="APIViewModel\XN_TraKQ_ChiTietViewModel.cs" />
+    <Compile Include="ClassDieuKienLocBaoCao.cs" />
+    <Compile Include="Data\BioNetDBContext.cs">
+      <DependentUpon>BioNetDBContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BioNetDBContext.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BioNetDBContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataContext.cs" />
+    <Compile Include="KetLuan.cs" />
+    <Compile Include="KetQua_XetNghiem.cs" />
+    <Compile Include="PsChiDinhvsDanhGia.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="PsBenhNhan.cs" />
+    <Compile Include="PsChiDinhTrenPhieu.cs" />
+    <Compile Include="PsDanhGiaMauSoBo.cs" />
+    <Compile Include="PsDanhSachCapMa.cs" />
+    <Compile Include="PsDichVu.cs" />
+    <Compile Include="PsDsDaTiepNhan.cs" />
+    <Compile Include="PsDuLieuThongSo_CAH.cs" />
+    <Compile Include="PsDuLieuThongSo_CH.cs" />
+    <Compile Include="PsDuLieuThongSo_G6PD_GAL_PUK.cs" />
+    <Compile Include="PsEmployeePosition.cs" />
+    <Compile Include="PSKetQuaXetNghiem.cs" />
+    <Compile Include="PsKetQua_ChiTiet.cs" />
+    <Compile Include="PsPhieuLoiKhiDanhGia.cs" />
+    <Compile Include="PsNguoi.cs" />
+    <Compile Include="PsPhieu.cs" />
+    <Compile Include="PsPhieuChiDinh.cs" />
+    <Compile Include="PsReponse.cs" />
+    <Compile Include="PsRptDanhSachDaCapMaXetNghiem.cs" />
+    <Compile Include="PsRptTraKetQuaSangLoc.cs" />
+    <Compile Include="PsRPTTraKetQuaSangLocChiTiet.cs" />
+    <Compile Include="PsThongTinDonVi.cs" />
+    <Compile Include="PsThongTinTrungTam.cs" />
+    <Compile Include="PsTinhTrangPhieu.cs" />
+    <Compile Include="rptBaoCaoTongHop.cs" />
+    <Compile Include="rptChiTietTrungTam.cs" />
+    <Compile Include="rptChiTietTrungTam_ChiTiet.cs" />
+    <Compile Include="ServerInfo.cs" />
+    <Compile Include="TraKetQua_XetNghiem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Data\BioNetDBContext.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>BioNetDBContext.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\BioNetDBContext.dbml.layout">
+      <DependentUpon>BioNetDBContext.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
