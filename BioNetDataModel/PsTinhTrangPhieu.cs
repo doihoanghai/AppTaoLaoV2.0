@@ -23,5 +23,7 @@ namespace BioNetModel
         public string SdtMe { get; set; }
         public string SdtCha { get; set; }
         public DateTime  NamSinhCha { get; set; }
+        public string MaChiCuc { get; set; } 
+        public string TenChiCuc { get; set; }
     }
 }

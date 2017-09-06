@@ -15,6 +15,7 @@ using BioNetBLL;
 using DevExpress.XtraEditors;
 using DataSync;
 using System.Threading;
+using BioNetSangLocSoSinh.FrmReports;
 
 namespace BioNetSangLocSoSinh
 {
@@ -612,5 +613,18 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             }
             catch { }
         }
+
+        private void btnMail_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                SplashScreenManager.ShowForm(this, typeof(DiaglogFrm.Waitingfrom), true, true, false);
+                FrmReports.FrmGuiMail frm = new FrmReports.FrmGuiMail();
+                TabCreating(xTabMain, "Gửi mail cho khách hàng", frm);
+                SplashScreenManager.CloseForm();
+            }
+            catch { }
+        }
+
     }
 }

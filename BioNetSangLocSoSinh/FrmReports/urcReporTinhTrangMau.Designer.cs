@@ -101,15 +101,17 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(309, 8);
+            this.labelControl9.Location = new System.Drawing.Point(360, 10);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(41, 13);
+            this.labelControl9.Size = new System.Drawing.Size(54, 17);
             this.labelControl9.TabIndex = 1058;
             this.labelControl9.Text = "Chi cục :";
             // 
             // txtChiCuc
             // 
-            this.txtChiCuc.Location = new System.Drawing.Point(354, 5);
+            this.txtChiCuc.Location = new System.Drawing.Point(413, 6);
+            this.txtChiCuc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtChiCuc.Name = "txtChiCuc";
             this.txtChiCuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -121,7 +123,7 @@
             this.txtChiCuc.Properties.ShowFooter = false;
             this.txtChiCuc.Properties.ValueMember = "MaChiCuc";
             this.txtChiCuc.Properties.View = this.gridView2;
-            this.txtChiCuc.Size = new System.Drawing.Size(175, 20);
+            this.txtChiCuc.Size = new System.Drawing.Size(204, 22);
             this.txtChiCuc.TabIndex = 1059;
             this.txtChiCuc.EditValueChanged += new System.EventHandler(this.txtChiCuc_EditValueChanged);
             // 
@@ -137,20 +139,23 @@
             this.PanelSingle.Controls.Add(this.GC_DanhSachPhieu);
             this.PanelSingle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelSingle.Location = new System.Drawing.Point(0, 0);
+            this.PanelSingle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PanelSingle.Name = "PanelSingle";
-            this.PanelSingle.Size = new System.Drawing.Size(923, 306);
+            this.PanelSingle.Size = new System.Drawing.Size(1077, 376);
             this.PanelSingle.TabIndex = 5;
             // 
             // GC_DanhSachPhieu
             // 
             this.GC_DanhSachPhieu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GC_DanhSachPhieu.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GC_DanhSachPhieu.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.GC_DanhSachPhieu.Location = new System.Drawing.Point(0, 0);
             this.GC_DanhSachPhieu.MainView = this.GV_DanhSachPhieu;
+            this.GC_DanhSachPhieu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GC_DanhSachPhieu.Name = "GC_DanhSachPhieu";
             this.GC_DanhSachPhieu.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpDonVi});
-            this.GC_DanhSachPhieu.Size = new System.Drawing.Size(923, 306);
+            this.GC_DanhSachPhieu.Size = new System.Drawing.Size(1077, 376);
             this.GC_DanhSachPhieu.TabIndex = 0;
             this.GC_DanhSachPhieu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_DanhSachPhieu});
@@ -302,9 +307,9 @@
             // 
             this.dllNgay.BackColor = System.Drawing.Color.Transparent;
             this.dllNgay.Location = new System.Drawing.Point(0, 0);
-            this.dllNgay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dllNgay.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.dllNgay.Name = "dllNgay";
-            this.dllNgay.Size = new System.Drawing.Size(295, 73);
+            this.dllNgay.Size = new System.Drawing.Size(344, 90);
             this.dllNgay.TabIndex = 1053;
             // 
             // panelControl2
@@ -322,20 +327,22 @@
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(923, 72);
+            this.panelControl2.Size = new System.Drawing.Size(1077, 89);
             this.panelControl2.TabIndex = 4;
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(312, 34);
+            this.labelControl16.Location = new System.Drawing.Point(364, 42);
+            this.labelControl16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(38, 13);
+            this.labelControl16.Size = new System.Drawing.Size(49, 17);
             this.labelControl16.TabIndex = 1060;
             this.labelControl16.Text = "Đơn vị :";
             // 
             // txtDonVi
             // 
-            this.txtDonVi.Location = new System.Drawing.Point(354, 31);
+            this.txtDonVi.Location = new System.Drawing.Point(413, 38);
+            this.txtDonVi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDonVi.Name = "txtDonVi";
             this.txtDonVi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -347,7 +354,7 @@
             this.txtDonVi.Properties.ShowFooter = false;
             this.txtDonVi.Properties.ValueMember = "MaDVCS";
             this.txtDonVi.Properties.View = this.gridView1;
-            this.txtDonVi.Size = new System.Drawing.Size(175, 20);
+            this.txtDonVi.Size = new System.Drawing.Size(204, 22);
             this.txtDonVi.TabIndex = 1061;
             // 
             // gridView1
@@ -379,9 +386,10 @@
             // 
             this.butPrint.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.butPrint.Image = ((System.Drawing.Image)(resources.GetObject("butPrint.Image")));
-            this.butPrint.Location = new System.Drawing.Point(551, 40);
+            this.butPrint.Location = new System.Drawing.Point(643, 49);
+            this.butPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butPrint.Name = "butPrint";
-            this.butPrint.Size = new System.Drawing.Size(80, 26);
+            this.butPrint.Size = new System.Drawing.Size(93, 32);
             this.butPrint.TabIndex = 1055;
             this.butPrint.Text = "In";
             // 
@@ -389,9 +397,10 @@
             // 
             this.butOK.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.butOK.Image = ((System.Drawing.Image)(resources.GetObject("butOK.Image")));
-            this.butOK.Location = new System.Drawing.Point(551, 8);
+            this.butOK.Location = new System.Drawing.Point(643, 10);
+            this.butOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butOK.Name = "butOK";
-            this.butOK.Size = new System.Drawing.Size(80, 26);
+            this.butOK.Size = new System.Drawing.Size(93, 32);
             this.butOK.TabIndex = 1054;
             this.butOK.Text = "Lấy số liệu";
             this.butOK.Click += new System.EventHandler(this.butOK_Click);
@@ -400,23 +409,24 @@
             // 
             this.panel1.Controls.Add(this.PanelSingle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 72);
+            this.panel1.Location = new System.Drawing.Point(0, 89);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(923, 306);
+            this.panel1.Size = new System.Drawing.Size(1077, 376);
             this.panel1.TabIndex = 6;
             // 
             // urcReporTinhTrangMau
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelControl2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "urcReporTinhTrangMau";
-            this.Size = new System.Drawing.Size(923, 378);
+            this.Size = new System.Drawing.Size(1077, 465);
             this.Load += new System.EventHandler(this.urcReportTrungTam_SoBo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChiCuc.Properties)).EndInit();
