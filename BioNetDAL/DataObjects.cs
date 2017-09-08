@@ -806,7 +806,10 @@ namespace BioNetDAL
                     maDonVi = "";
                 }
 
-                var data = db.pro_Report_TrungTamTinhTrangMau(startdate, enddate, donvi).ToList();
+                var data = db.pro_Report_TrungTamTinhTrangMauMail(startdate, enddate, donvi).ToList();
+               
+
+
                 if (data.Count > 0)
                 {
                     foreach (var _data in data)
@@ -827,6 +830,12 @@ namespace BioNetDAL
                         tt.TenDonVi = _data.TenDVCS;
                         tt.TinhTrangMau_Text = _data.TrangThaiMau_Text;
                         tt.TinhTrangMau = _data.TrangThaiMau ?? 0;
+                        tt.Chon = 0;
+                        tt.TenChiCuc = _data.TenChiCuc;
+                        tt.Email = _data.Email;
+                    
+                       
+                       
                         lst.Add(tt);
                     }
                 }

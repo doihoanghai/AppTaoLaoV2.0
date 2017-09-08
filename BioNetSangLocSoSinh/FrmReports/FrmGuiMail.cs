@@ -16,6 +16,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
 using System.Diagnostics;
+using DevExpress.DashboardCommon.Native.DashboardRestfulService;
 
 namespace BioNetSangLocSoSinh.FrmReports
 {
@@ -24,13 +25,27 @@ namespace BioNetSangLocSoSinh.FrmReports
         public FrmGuiMail()
         {
             InitializeComponent();
-            
+
         }
+
+
 
         private void LoadDuLieuBaoCao()
         {
             this.GC_DSPhieuMail.DataSource = BioNet_Bus.GetTinhTrangPhieu(this.dllNgay.tungay.Value, this.dllNgay.denngay.Value, txtDonVi.EditValue.ToString());
+            try
+            {
+                for (int i = 0; i < GV_DSPhieuMail.DataRowCount; i++)
+                {
+                    string machicuc = GV_DSPhieuMail.GetRowCellValue(i, this.col_MaDV).ToString();
+                    string mcc = machicuc.Substring(0, 5);
+                   
+                   
+                }
+            }
+            catch(Exception ex) { return; }
             
+
         }
 
 
@@ -39,7 +54,6 @@ namespace BioNetSangLocSoSinh.FrmReports
             this.txtChiCuc.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_ChiCuc();
             this.txtDonVi.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_DonVi("all");
             this.txtDonVi.EditValue = "all";
-            
         }
 
         private void txtChiCuc_EditValueChanged(object sender, EventArgs e)
@@ -54,7 +68,7 @@ namespace BioNetSangLocSoSinh.FrmReports
             catch { }
         }
 
-       
+
 
         private void butOK_Click(object sender, EventArgs e)
         {
@@ -63,18 +77,44 @@ namespace BioNetSangLocSoSinh.FrmReports
 
         private void bttPDF_Click(object sender, EventArgs e)
         {
-            //DevExpress.XtraGrid.Views.Grid.GridView View = GC_DSPhieuMail.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
-            GridView View = GC_DSPhieuMail.MainView as GridView;
-            if (View != null)
+
+            GridView view = GC_DSPhieuMail.MainView as GridView;
+            if (view != null)
             {
-                View.ExportToPdf("MainViewData.pdf");
-                Process pdfExport = new Process();
-                pdfExport.StartInfo.FileName = "AcroRd32.exe";
-                pdfExport.StartInfo.Arguments = "MainViewData.pdf";
-                pdfExport.Start();
+                view.ExportToPdf("mainviewdata.pdf");
+                Process pdfexport = new Process();
+                pdfexport.StartInfo.FileName = "acrord32.exe";
+                pdfexport.StartInfo.Arguments = "mainviewdata.pdf";
+                pdfexport.Start();
             }
+            else
+                MessageBox.Show("không có nội dung xuất", "cảnh báo");
         }
-       
-        
+
+        private void ckkTatCa_CheckedChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                this.ckkTatCa.Text = ckkTatCa.Checked ? "Bỏ chọn" : "Chọn tất cả";
+                for (int i = 0; i < GV_DSPhieuMail.DataRowCount; i++)
+                {
+                    if (this.ckkTatCa.Checked)
+                    {
+
+                        GV_DSPhieuMail.SetRowCellValue(i, col_Chon, 1);
+
+                    }
+                    else
+                    {
+                        GV_DSPhieuMail.SetRowCellValue(i, col_Chon, 0);
+                    }
+                }
+
+            }
+            catch { }
+
+
+        }
     }
 }

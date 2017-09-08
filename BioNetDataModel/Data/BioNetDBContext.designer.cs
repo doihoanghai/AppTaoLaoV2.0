@@ -618,14 +618,20 @@ namespace BioNetModel.Data
 			return ((ISingleResult<pro_Report_TrungTamChiTietTheoTungChiCucResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.pro_Report_TrungTamTinhTrangMau")]
-		public ISingleResult<pro_Report_TrungTamTinhTrangMauResult> pro_Report_TrungTamTinhTrangMau([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FromDate", DbType="Date")] System.Nullable<System.DateTime> fromDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ToDate", DbType="Date")] System.Nullable<System.DateTime> toDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDonVi", DbType="NVarChar(50)")] string maDonVi)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fromDate, toDate, maDonVi);
-			return ((ISingleResult<pro_Report_TrungTamTinhTrangMauResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.pro_Report_ChiCucCoBan")]
+		//[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.pro_Report_TrungTamTinhTrangMau")]
+		//public ISingleResult<pro_Report_TrungTamTinhTrangMauResult> pro_Report_TrungTamTinhTrangMau([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FromDate", DbType="Date")] System.Nullable<System.DateTime> fromDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ToDate", DbType="Date")] System.Nullable<System.DateTime> toDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDonVi", DbType="NVarChar(50)")] string maDonVi)
+		//{
+		//	IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fromDate, toDate, maDonVi);
+		//	return ((ISingleResult<pro_Report_TrungTamTinhTrangMauResult>)(result.ReturnValue));
+		//}
+        //Mail
+        [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.pro_Report_TrungTamTinhTrangMauMail")]
+        public ISingleResult<pro_Report_TrungTamTinhTrangMauResult> pro_Report_TrungTamTinhTrangMauMail([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "FromDate", DbType = "Date")] System.Nullable<System.DateTime> fromDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ToDate", DbType = "Date")] System.Nullable<System.DateTime> toDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "MaDonVi", DbType = "NVarChar(50)")] string maDonVi)
+        {
+            IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fromDate, toDate, maDonVi);
+            return ((ISingleResult<pro_Report_TrungTamTinhTrangMauResult>)(result.ReturnValue));
+        }
+        [global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.pro_Report_ChiCucCoBan")]
 		public ISingleResult<pro_Report_ChiCucCoBanResult> pro_Report_ChiCucCoBan([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FromDate", DbType="Date")] System.Nullable<System.DateTime> fromDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ToDate", DbType="Date")] System.Nullable<System.DateTime> toDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaChiCuc", DbType="VarChar(50)")] string maChiCuc)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fromDate, toDate, maChiCuc);
@@ -18297,8 +18303,9 @@ namespace BioNetModel.Data
 		private string _MaDVCS;
 		
 		private string _TenDVCS;
-		
-		private string _IDPhieu;
+        private string _TenChiCuc;
+
+        private string _IDPhieu;
 		
 		private System.Nullable<System.DateTime> _NgayNhanMau;
 		
@@ -18325,6 +18332,8 @@ namespace BioNetModel.Data
 		private System.Nullable<byte> _TrangThaiMau;
 		
 		private string _TrangThaiMau_Text;
+        private string _Email;
+        
 		
 		public pro_Report_TrungTamTinhTrangMauResult()
 		{
@@ -18361,8 +18370,41 @@ namespace BioNetModel.Data
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPhieu", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Email", DbType = "NVarChar(50)")]
+        public string Email
+        {
+            get
+            {
+                return this._Email;
+            }
+            set
+            {
+                if ((this._Email != value))
+                {
+                    this._Email = value;
+                }
+            }
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TenChiCuc", DbType = "NVarChar(50)")]
+        public string TenChiCuc
+        {
+            get
+            {
+                return this._TenChiCuc;
+            }
+            set
+            {
+                if ((this._TenChiCuc != value))
+                {
+                    this._TenChiCuc = value;
+                }
+            }
+        }
+
+
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPhieu", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
 		public string IDPhieu
 		{
 			get
