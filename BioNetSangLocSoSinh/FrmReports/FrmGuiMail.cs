@@ -28,24 +28,14 @@ namespace BioNetSangLocSoSinh.FrmReports
 
         }
 
-
+      
+ 
 
         private void LoadDuLieuBaoCao()
         {
-            this.GC_DSPhieuMail.DataSource = BioNet_Bus.GetTinhTrangPhieu(this.dllNgay.tungay.Value, this.dllNgay.denngay.Value, txtDonVi.EditValue.ToString());
-            try
-            {
-                for (int i = 0; i < GV_DSPhieuMail.DataRowCount; i++)
-                {
-                    string machicuc = GV_DSPhieuMail.GetRowCellValue(i, this.col_MaDV).ToString();
-                    string mcc = machicuc.Substring(0, 5);
-                   
-                   
-                }
-            }
-            catch(Exception ex) { return; }
-            
-
+            this.GC_DSPhieuMail.DataSource = BioNet_Bus.GetTinhTrangPhieuMail(this.dllNgay.tungay.Value, this.dllNgay.denngay.Value, txtDonVi.EditValue.ToString());
+                
+            DemChon();
         }
 
 
@@ -91,6 +81,8 @@ namespace BioNetSangLocSoSinh.FrmReports
                 MessageBox.Show("không có nội dung xuất", "cảnh báo");
         }
 
+
+    //Chọn tắt cả
         private void ckkTatCa_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -110,11 +102,26 @@ namespace BioNetSangLocSoSinh.FrmReports
                         GV_DSPhieuMail.SetRowCellValue(i, col_Chon, 0);
                     }
                 }
+                DemChon();
 
             }
-            catch { }
-
+            catch (Exception ex){ return; }
 
         }
+        private void DemChon()
+        {
+            string tong = GV_DSPhieuMail.DataRowCount.ToString();
+            int chon = 0;
+            for (int i=0;i<GV_DSPhieuMail.DataRowCount;i++)
+            {
+                
+                if (Int32.Parse(GV_DSPhieuMail.GetRowCellValue(i, col_Chon).ToString()) == 1)
+                {
+                    chon=chon+1;
+                }                                    
+            }
+            lblDemChon.Text = "Số phiếu được chon:"+chon.ToString() +"/"+ tong;
+            lblDemChon.Visible = true;
+        }      
     }
 }

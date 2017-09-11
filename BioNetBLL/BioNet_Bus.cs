@@ -536,6 +536,11 @@ namespace BioNetBLL
             var db = new DataObjects();
             return db.GetTinhTrangPhieu(startdate, enddate, maDonVi);
         }
+        public static List<PsTinhTrangPhieu> GetTinhTrangPhieuMail(DateTime startdate, DateTime enddate, string maDonVi)
+        {
+            var db = new DataObjects();
+            return db.GetTinhTrangPhieuMail(startdate, enddate, maDonVi);
+        }
         public static List<PSDotChuanDoan> GetDanhSachDotChanDoanCuaBenhNhan(long rowID)
         {
             var db = new DataObjects();
@@ -665,7 +670,7 @@ namespace BioNetBLL
                         rptKQ.TenTre = phieu.BenhNhan.TenBenhNhan;
                         rptKQ.NgaySinh = (phieu.BenhNhan.NgayGioSinh ?? DateTime.Now).ToString("dd/MM/yyyy");
                     // rptKQ.GioiTinh = phieu.BenhNhan.GioiTinh == true ? "Nam" : "Nữ";
-                    if (phieu.BenhNhan.GioiTinh == 1)
+                   if (phieu.BenhNhan.GioiTinh == 1)
                     {
                         rptKQ.GioiTinh = "Nam";
                     }
@@ -1354,6 +1359,7 @@ namespace BioNetBLL
                         PSChiDinhTrenPhieu cd = new PSChiDinhTrenPhieu();
                         cd.RowID = chiDinh.RowID;
                         cd.MaPhieu = chiDinh.MaPhieu;
+                        cd.MaDonVi = chiDinh.MaDonVi;
                         cd.MaDichVu = chiDinh.MaDichVu;
                         lst.Add(cd);
                     }

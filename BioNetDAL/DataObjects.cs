@@ -806,8 +806,56 @@ namespace BioNetDAL
                     maDonVi = "";
                 }
 
-                var data = db.pro_Report_TrungTamTinhTrangMauMail(startdate, enddate, donvi).ToList();
+                var data = db.pro_Report_TrungTamTinhTrangMau(startdate, enddate, donvi).ToList();
                
+
+
+                if (data.Count > 0)
+                {
+                    foreach (var _data in data)
+                    {
+                        PsTinhTrangPhieu tt = new PsTinhTrangPhieu();
+                        tt.DiaChi = _data.DiaChi;
+                        tt.IDPhieu = _data.IDPhieu;
+                        tt.MaBenhNhan = _data.MaBenhNhan;
+                        tt.MaDonVi = _data.MaDVCS;
+                        tt.MaKhachHang = _data.MaKhachHang;
+                        tt.NamSinhCha = _data.FatherBirthday ?? DateTime.Now;
+                        tt.NamSinhMe = _data.MotherBirthday ?? DateTime.Now;
+                        tt.NgayNhanMau = _data.NgayNhanMau ?? DateTime.Now;
+                        tt.SdtCha = _data.FatherPhoneNumber;
+                        tt.SdtMe = _data.MotherPhoneNumber;
+                        tt.TenMe = _data.MotherName;
+                        tt.TenBenhNhan = _data.TenBenhNhan;
+                        tt.TenDonVi = _data.TenDVCS;
+                        tt.TinhTrangMau_Text = _data.TrangThaiMau_Text;
+                        tt.TinhTrangMau = _data.TrangThaiMau ?? 0;                     
+                        lst.Add(tt);
+                    }
+                }
+            }
+            catch {  }
+            return lst;
+        }
+        public List<PsTinhTrangPhieu> GetTinhTrangPhieuMail(DateTime startdate, DateTime enddate, string maDonVi)
+        {
+            string donvi = "";
+            List<PsTinhTrangPhieu> lst = new List<PsTinhTrangPhieu>();
+            try
+            {
+
+                if (maDonVi != null && !maDonVi.Equals("all"))
+                {
+                    donvi = maDonVi;
+                    //return db.PSPhieuSangLocs.Where(p => p.NgayNhanMau.Value.Date >= startdate.Date && p.NgayNhanMau.Value.Date <= enddate.Date && p.IDCoSo == maDonVi).ToList();
+                }
+                else
+                {
+                    maDonVi = "";
+                }
+
+                var data = db.pro_Report_TrungTamTinhTrangMauMail(startdate, enddate, donvi).ToList();
+
 
 
                 if (data.Count > 0)
@@ -833,14 +881,14 @@ namespace BioNetDAL
                         tt.Chon = 0;
                         tt.TenChiCuc = _data.TenChiCuc;
                         tt.Email = _data.Email;
-                    
-                       
-                       
+
+
+
                         lst.Add(tt);
                     }
                 }
             }
-            catch {  }
+            catch { }
             return lst;
         }
 

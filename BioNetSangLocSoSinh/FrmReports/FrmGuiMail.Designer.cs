@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGuiMail));
             this.checkChon = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lblDemChon = new System.Windows.Forms.Label();
             this.txtDonVi = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.TenDVCS = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -85,6 +86,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.lblDemChon);
             this.panelControl1.Controls.Add(this.txtDonVi);
             this.panelControl1.Controls.Add(this.ckkTatCa);
             this.panelControl1.Controls.Add(this.bttPDF);
@@ -98,6 +100,15 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1328, 103);
             this.panelControl1.TabIndex = 1;
+            // 
+            // lblDemChon
+            // 
+            this.lblDemChon.AutoSize = true;
+            this.lblDemChon.Location = new System.Drawing.Point(618, 75);
+            this.lblDemChon.Name = "lblDemChon";
+            this.lblDemChon.Size = new System.Drawing.Size(0, 17);
+            this.lblDemChon.TabIndex = 1070;
+            this.lblDemChon.Visible = false;
             // 
             // txtDonVi
             // 
@@ -154,8 +165,7 @@
             // 
             // bttPDF
             // 
-            this.bttPDF.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
-            this.bttPDF.Appearance.Options.UseFont = true;
+            this.bttPDF.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.bttPDF.Location = new System.Drawing.Point(844, 54);
             this.bttPDF.Name = "bttPDF";
             this.bttPDF.Size = new System.Drawing.Size(177, 39);
@@ -455,5 +465,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit checkChon;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckChon;
         private DevExpress.XtraGrid.Columns.GridColumn col_MaDV;
+        private System.Windows.Forms.Label lblDemChon;
     }
 }

@@ -159,6 +159,24 @@ namespace DataSync
 
             this.rtbStatus.ScrollToCaret();
         }
+        private void PostKQPDF()
+        {
+            this.rtbStatus.SelectionColor = Color.LightYellow;
+            this.rtbStatus.AppendText(string.Concat(new object[] { DateTime.Now + " :Đang đồng bộ dữ liệu danh sách ket qua PDF\r\n " }));
+            var res = KetQuaSync.PostKQPDF();
+            if (string.IsNullOrEmpty(res.StringError))
+            {
+                this.rtbStatus.SelectionColor = Color.LightYellow;
+                this.rtbStatus.AppendText(string.Concat(new object[] { DateTime.Now + " :đồng bộ dữ liệu danh sách ket qua PDF thành công \r\n " }));
+            }
+            else
+            {
+                this.rtbStatus.SelectionColor = Color.Red;
+                this.rtbStatus.AppendText(string.Concat(new object[] { DateTime.Now + ":Thông tin chi tiết khi đồng bộ dữ liệu danh sách ket qua PDF \r\n" + res.StringError + "\r\n" }));
+            }
+
+            this.rtbStatus.ScrollToCaret();
+        }
 
         private void PostBenhNhanNguyCoCao()
         {

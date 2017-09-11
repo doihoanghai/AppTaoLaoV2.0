@@ -129,7 +129,7 @@ namespace BioNetSangLocSoSinh.FrmReports
             List<BioNetModel.rptBaoCaoTongHop> lstResult = new List<BioNetModel.rptBaoCaoTongHop>();
             lstResult.Add(dataResult);
             datarp.DataSource = lstResult;
-            Reports.frmReportEditGeneral rept = new Reports.frmReportEditGeneral(datarp, "BaoCaoTrungTamSoBo");
+            Reports.frmReportEditGeneral rept = new Reports.frmReportEditGeneral(datarp, "BaoCaoTrungTamSoBo",null,null);
             rept.ShowDialog();
         }
 

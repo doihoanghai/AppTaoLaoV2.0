@@ -617,13 +617,13 @@ namespace BioNetModel.Data
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fromDate, toDate);
 			return ((ISingleResult<pro_Report_TrungTamChiTietTheoTungChiCucResult>)(result.ReturnValue));
 		}
-		
-		//[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.pro_Report_TrungTamTinhTrangMau")]
-		//public ISingleResult<pro_Report_TrungTamTinhTrangMauResult> pro_Report_TrungTamTinhTrangMau([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FromDate", DbType="Date")] System.Nullable<System.DateTime> fromDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ToDate", DbType="Date")] System.Nullable<System.DateTime> toDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDonVi", DbType="NVarChar(50)")] string maDonVi)
-		//{
-		//	IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fromDate, toDate, maDonVi);
-		//	return ((ISingleResult<pro_Report_TrungTamTinhTrangMauResult>)(result.ReturnValue));
-		//}
+
+        [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.pro_Report_TrungTamTinhTrangMau")]
+        public ISingleResult<pro_Report_TrungTamTinhTrangMauResult> pro_Report_TrungTamTinhTrangMau([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "FromDate", DbType = "Date")] System.Nullable<System.DateTime> fromDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ToDate", DbType = "Date")] System.Nullable<System.DateTime> toDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "MaDonVi", DbType = "NVarChar(50)")] string maDonVi)
+        {
+            IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fromDate, toDate, maDonVi);
+            return ((ISingleResult<pro_Report_TrungTamTinhTrangMauResult>)(result.ReturnValue));
+        }
         //Mail
         [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.pro_Report_TrungTamTinhTrangMauMail")]
         public ISingleResult<pro_Report_TrungTamTinhTrangMauResult> pro_Report_TrungTamTinhTrangMauMail([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "FromDate", DbType = "Date")] System.Nullable<System.DateTime> fromDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ToDate", DbType = "Date")] System.Nullable<System.DateTime> toDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "MaDonVi", DbType = "NVarChar(50)")] string maDonVi)
