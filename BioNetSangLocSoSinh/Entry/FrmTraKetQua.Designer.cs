@@ -1008,11 +1008,11 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(132, 3);
+            this.simpleButton1.Location = new System.Drawing.Point(109, 3);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(141, 25);
             this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Text = "Lưu Nhiều File PDF";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // btnDuyetKQ
@@ -1021,7 +1021,7 @@
             this.btnDuyetKQ.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.btnDuyetKQ.Enabled = false;
             this.btnDuyetKQ.Image = ((System.Drawing.Image)(resources.GetObject("btnDuyetKQ.Image")));
-            this.btnDuyetKQ.Location = new System.Drawing.Point(256, 0);
+            this.btnDuyetKQ.Location = new System.Drawing.Point(289, 0);
             this.btnDuyetKQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDuyetKQ.Name = "btnDuyetKQ";
             this.btnDuyetKQ.Size = new System.Drawing.Size(117, 28);

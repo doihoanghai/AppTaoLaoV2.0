@@ -2943,5 +2943,3 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\De
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\es\DevExpress.ExpressApp.v15.2.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ja\DevExpress.ExpressApp.v15.2.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ru\DevExpress.ExpressApp.v15.2.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\itextsharp.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\itextsharp.xml

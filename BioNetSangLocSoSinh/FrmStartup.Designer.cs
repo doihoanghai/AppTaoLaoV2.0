@@ -88,6 +88,7 @@
             this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnMail = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -98,7 +99,7 @@
             this.xTabMain = new DevExpress.XtraTab.XtraTabControl();
             this.Start = new DevExpress.XtraTab.XtraTabPage();
             this.picBackgroun = new System.Windows.Forms.PictureBox();
-            this.btnMail = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDongBo = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xTabMain)).BeginInit();
             this.xTabMain.SuspendLayout();
@@ -178,7 +179,7 @@
             this.ribbonPage1,
             this.ribbonPage2});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.ribbon.Size = new System.Drawing.Size(1301, 94);
+            this.ribbon.Size = new System.Drawing.Size(1486, 94);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // barButtonItem1
@@ -734,6 +735,13 @@
             this.barButtonItem32.Id = 45;
             this.barButtonItem32.Name = "barButtonItem32";
             // 
+            // btnMail
+            // 
+            this.btnMail.Caption = "Mail";
+            this.btnMail.Id = 49;
+            this.btnMail.Name = "btnMail";
+            this.btnMail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMail_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -799,11 +807,11 @@
             this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem8, true);
             this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem9);
             this.ribbonStatusBar.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 622);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 697);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1301, 36);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1486, 36);
             // 
             // xTabMain
             // 
@@ -814,7 +822,7 @@
             this.xTabMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xTabMain.Name = "xTabMain";
             this.xTabMain.SelectedTabPage = this.Start;
-            this.xTabMain.Size = new System.Drawing.Size(1301, 528);
+            this.xTabMain.Size = new System.Drawing.Size(1486, 603);
             this.xTabMain.TabIndex = 2;
             this.xTabMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.Start});
@@ -827,7 +835,7 @@
             this.Start.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Start.Name = "Start";
             this.Start.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.Start.Size = new System.Drawing.Size(1294, 493);
+            this.Start.Size = new System.Drawing.Size(1479, 568);
             this.Start.Text = "Trang chủ";
             // 
             // picBackgroun
@@ -837,23 +845,26 @@
             this.picBackgroun.Location = new System.Drawing.Point(0, 0);
             this.picBackgroun.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picBackgroun.Name = "picBackgroun";
-            this.picBackgroun.Size = new System.Drawing.Size(1294, 493);
+            this.picBackgroun.Size = new System.Drawing.Size(1479, 568);
             this.picBackgroun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBackgroun.TabIndex = 0;
             this.picBackgroun.TabStop = false;
             // 
-            // btnMail
+            // btnDongBo
             // 
-            this.btnMail.Caption = "Mail";
-            this.btnMail.Id = 49;
-            this.btnMail.Name = "btnMail";
-            this.btnMail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMail_ItemClick);
+            this.btnDongBo.Location = new System.Drawing.Point(1190, 32);
+            this.btnDongBo.Name = "btnDongBo";
+            this.btnDongBo.Size = new System.Drawing.Size(104, 27);
+            this.btnDongBo.TabIndex = 5;
+            this.btnDongBo.Text = "Đồng bộ";
+            this.btnDongBo.Click += new System.EventHandler(this.btnDongBo_Click);
             // 
             // FrmStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1301, 658);
+            this.ClientSize = new System.Drawing.Size(1486, 733);
+            this.Controls.Add(this.btnDongBo);
             this.Controls.Add(this.xTabMain);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
@@ -948,5 +959,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem31;
         private DevExpress.XtraBars.BarButtonItem barButtonItem32;
         private DevExpress.XtraBars.BarButtonItem btnMail;
+        private DevExpress.XtraEditors.SimpleButton btnDongBo;
     }
 }

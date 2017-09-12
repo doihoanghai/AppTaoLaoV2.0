@@ -557,12 +557,14 @@ namespace BioNetSangLocSoSinh.Entry
                         this.btnLuu.Enabled = false;
                         this.btnDuyetKQ.Enabled = false;
                         this.btnInKQ.Enabled = true;
+                        this.DSPhieuTraDongBo(KQ.maPhieu);
                         LuuPDF();
                     }
                     else
                     {
                         XtraMessageBox.Show("Đã lưu kết quả cuối của phiếu :" + this.txtMaPhieu.Text, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.btnLuu.Enabled = false;
+                        this.DSPhieuTraDongBo(KQ.maPhieu);
                         LuuPDF();
                     }
                     if (isDuyet)
@@ -1705,40 +1707,39 @@ namespace BioNetSangLocSoSinh.Entry
         private void LuuNhieuPDF(string maDonVi, string maPhieu, string MaTiepNhan)
         {
             PsRptTraKetQuaSangLoc data = new PsRptTraKetQuaSangLoc();
-            try
-            {
-                var donvi = BioNet_Bus.GetThongTinDonViCoSo(maDonVi.Trim());
-                if (donvi != null)
-                {
-                    var kieuTraKQ = donvi.KieuTraKetQua ?? 1;
-                    data = BioNet_Bus.GetDuLieuInKetQuaSangLoc(txtMaPhieu.Text.Trim(), txtMaTiepNhan.Text.Trim(), "MaBsi", this.txtMadonVi.Text.Trim());
-                    data = BioNet_Bus.GetDuLieuInKetQuaSangLoc(maPhieu, MaTiepNhan, "MaBsi", maDonVi);
-                    if (kieuTraKQ == 1) // Cần sửa chỗ này, cho chọn động loat report theo cấu hình của đơn vị
-                    {
 
-                        Reports.rptPhieuTraKetQua datarp = new Reports.rptPhieuTraKetQua();
-                        frmReportEditGeneral.FileLuuPDF(datarp, data);
-                    }
-                    else
-                    if (kieuTraKQ == 2)
-                    {
-                        Reports.rptPhieuTraKetQua_TheoDonVi datarp = new Reports.rptPhieuTraKetQua_TheoDonVi();
-                        frmReportEditGeneral.FileLuuPDF(datarp, data);
-                    }
-                    else
-                    {
-                        Reports.rptPhieuTraKetQua_TheoDonVi2 datarp = new Reports.rptPhieuTraKetQua_TheoDonVi2();
-                        frmReportEditGeneral.FileLuuPDF(datarp, data);
-                    }
+            var donvi = BioNet_Bus.GetThongTinDonViCoSo(maDonVi.Trim());
+            if (donvi != null)
+            {
+                var kieuTraKQ = donvi.KieuTraKetQua ?? 1;
+                data = BioNet_Bus.GetDuLieuInKetQuaSangLoc(txtMaPhieu.Text.Trim(), txtMaTiepNhan.Text.Trim(), "MaBsi", this.txtMadonVi.Text.Trim());
+                data = BioNet_Bus.GetDuLieuInKetQuaSangLoc(maPhieu, MaTiepNhan, "MaBsi", maDonVi);
+                if (kieuTraKQ == 1) // Cần sửa chỗ này, cho chọn động loat report theo cấu hình của đơn vị
+                {
+
+                    Reports.rptPhieuTraKetQua datarp = new Reports.rptPhieuTraKetQua();
+                    frmReportEditGeneral.FileLuuPDF(datarp, data);
+                }
+                else
+                if (kieuTraKQ == 2)
+                {
+                    Reports.rptPhieuTraKetQua_TheoDonVi datarp = new Reports.rptPhieuTraKetQua_TheoDonVi();
+                    frmReportEditGeneral.FileLuuPDF(datarp, data);
                 }
                 else
                 {
-
-                    Reports.rptPhieuTraKetQua rp = new Reports.rptPhieuTraKetQua();
-                    frmReportEditGeneral.FileLuuPDF(rp, data);
+                    Reports.rptPhieuTraKetQua_TheoDonVi2 datarp = new Reports.rptPhieuTraKetQua_TheoDonVi2();
+                    frmReportEditGeneral.FileLuuPDF(datarp, data);
                 }
             }
-            catch (Exception ex) { XtraMessageBox.Show("Lỗi phát sinh khi lấy dữ liệu in \r\n Lỗi chi tiết :" + ex.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            else
+            {
+
+                Reports.rptPhieuTraKetQua rp = new Reports.rptPhieuTraKetQua();
+                frmReportEditGeneral.FileLuuPDF(rp, data);
+            }
+
+
 
         }
         //Lưu file PDF vào thư mục       
@@ -1751,19 +1752,26 @@ namespace BioNetSangLocSoSinh.Entry
                     List<PSXN_TraKetQua> lst = this.LayDanhSachInHangLoat();
                     if (lst.Count > 0)
                     {
+                        bool loi = false;
                         foreach (var kq in lst)
                         {
                             try
                             {
                                 this.LuuNhieuPDF(kq.IDCoSo, kq.MaPhieu, kq.MaTiepNhan);
+                                
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("Lỗi" + ex, "Thông Báo", MessageBoxButtons.OK);
+                                XtraMessageBox.Show("Lỗi phát sinh khi lấy dữ liệu in \r\n Lỗi chi tiết :" + ex.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                loi = true;
                                 break;
                             }
                         }
-                        MessageBox.Show("Lưu thành công: " + lst.Count + "phiếu ", "Thông Báo", MessageBoxButtons.OK);
+                        if (loi == false)
+                        {
+                            MessageBox.Show("Lưu thành công: " + lst.Count + "phiếu ", "Thông Báo", MessageBoxButtons.OK);
+                        }
+
                     }
                     else XtraMessageBox.Show("Vui lòng tick chọn các phiếu cần in", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -1772,6 +1780,32 @@ namespace BioNetSangLocSoSinh.Entry
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi" + ex, "Thông Báo", MessageBoxButtons.OK);
+            }
+        }
+
+        private void DSPhieuTraDongBo(string maphieu)
+        {
+            string pathtxt = Application.StartupPath + "\\\\";
+            System.IO.Directory.CreateDirectory(pathtxt);
+            //Đường dẫn file txt
+            string path = Application.StartupPath + "\\DSPhieuDongBo\\dsPhieuDongBo.txt";
+            string[] Maphieucu = System.IO.File.ReadAllLines(path);
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
+            {
+                bool test = false;
+                foreach (string maphieucu in Maphieucu)
+                {
+                    if (maphieu == maphieucu)
+                    {
+                        test = true;
+                        break;
+                    }
+                }
+                if (test == false)
+                {
+                    file.WriteLine(maphieu);
+                }
+                file.Close();
             }
         }
     }

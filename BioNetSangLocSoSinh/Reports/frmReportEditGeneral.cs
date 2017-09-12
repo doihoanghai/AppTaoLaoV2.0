@@ -34,7 +34,7 @@ namespace BioNetSangLocSoSinh.Reports
             this.sheetname = _sheetname;
             NameFile = name;
             NameDVCS = madvcs;
-            string pathpdf = Application.StartupPath + "\\"+ NameDVCS + "\\";           
+            string pathpdf = Application.StartupPath + "\\PhieuKetQua\\" + "\\" + NameDVCS + "\\";
             System.IO.Directory.CreateDirectory(pathpdf);
             //DataTable dt= rpt.DataSource as DataTable;
             //name = dt.Rows[10][0].ToString();
@@ -97,9 +97,9 @@ namespace BioNetSangLocSoSinh.Reports
         {
             try
             {
-               // string path = Application.StartupPath + "\\EditReport\\" + this.rpt.GetType().Name + ".repx";
-                string path = Application.StartupPath +"\\" + NameDVCS + @"\"+NameFile + ".pdf";
-                
+                // string path = Application.StartupPath + "\\EditReport\\" + this.rpt.GetType().Name + ".repx";
+                string path = Application.StartupPath + "\\PhieuKetQua\\" + NameDVCS + @"\" + NameFile + ".pdf";
+
                 this.rpt.CreateDocument(true);
                 this.documentView.DocumentSource = this.rpt;
                 try
@@ -128,20 +128,18 @@ namespace BioNetSangLocSoSinh.Reports
             string name = data.MaPhieu.ToString();
             string madvcs = data.MaDonVi.ToString();
             //Tạo thư mục có tên là mã đơn vị cơ sở
-            string pathpdf = Application.StartupPath + "\\" + name + "\\";
+            string pathpdf = Application.StartupPath + "\\PhieuKetQua\\" + "\\" + madvcs + "\\";
             System.IO.Directory.CreateDirectory(pathpdf);
             //Đường dẫn file pdf
-            string path = Application.StartupPath + "\\" + madvcs + @"\" + name + ".pdf";
+            string path = Application.StartupPath + "\\PhieuKetQua\\" + madvcs + @"\" + name + ".pdf";
             try
             {
                 //Lưu file pdf phiếu kết quả theo tên mã phiếu
                 datarp.ExportToPdf(path);
                 Process pdfexport = new Process();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi" + ex, "Thông Báo", MessageBoxButtons.OK);
-            }
+            catch
+            { }
         }
     }
 }
