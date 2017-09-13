@@ -191,6 +191,7 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.popupMenuGVChuaKetQua = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuGVDaCoKetQua = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupKetQua)).BeginInit();
@@ -997,6 +998,7 @@
             // panelControl14
             // 
             this.panelControl14.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl14.Controls.Add(this.simpleButton2);
             this.panelControl14.Controls.Add(this.simpleButton1);
             this.panelControl14.Controls.Add(this.btnDuyetKQ);
             this.panelControl14.Controls.Add(this.btnHuyMau);
@@ -1021,7 +1023,7 @@
             this.btnDuyetKQ.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.btnDuyetKQ.Enabled = false;
             this.btnDuyetKQ.Image = ((System.Drawing.Image)(resources.GetObject("btnDuyetKQ.Image")));
-            this.btnDuyetKQ.Location = new System.Drawing.Point(289, 0);
+            this.btnDuyetKQ.Location = new System.Drawing.Point(256, 0);
             this.btnDuyetKQ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDuyetKQ.Name = "btnDuyetKQ";
             this.btnDuyetKQ.Size = new System.Drawing.Size(117, 28);
@@ -2102,6 +2104,15 @@
             this.popupMenuGVDaCoKetQua.Manager = this.barManager1;
             this.popupMenuGVDaCoKetQua.Name = "popupMenuGVDaCoKetQua";
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(379, 3);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(46, 23);
+            this.simpleButton2.TabIndex = 2;
+            this.simpleButton2.Text = "simpleButton2";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
             // FrmTraKetQua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -2393,5 +2404,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit2;
         private DevExpress.XtraEditors.ImageComboBoxEdit txtGioiTinh;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

@@ -16,6 +16,8 @@ using DevExpress.XtraEditors;
 using DataSync;
 using System.Threading;
 using BioNetSangLocSoSinh.FrmReports;
+using System.IO;
+using System.IO.Compression;
 
 namespace BioNetSangLocSoSinh
 {
@@ -607,7 +609,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             try
             {
                 SplashScreenManager.ShowForm(this, typeof(DiaglogFrm.Waitingfrom), true, true, false);
-                FrmReports.FrmTinhTrangMau frm= new FrmReports.FrmTinhTrangMau();
+                FrmReports.FrmTinhTrangMau frm = new FrmReports.FrmTinhTrangMau();
                 TabCreating(xTabMain, "Báo cáo  tình trạng mẫu", frm);
                 SplashScreenManager.CloseForm();
             }
@@ -628,7 +630,75 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
 
         private void btnDongBo_Click(object sender, EventArgs e)
         {
+            NenFileDongBo();
+            DataSync.BioNetSync.KetQuaSync.PostKQPDF();
 
+        }
+        public static void NenFileDongBo()
+        {
+            string pathtxt = Application.StartupPath + "\\DSPhieuChuaDongBo\\dsPhieuChuaDongBo.txt";
+            string path = Application.StartupPath + "\\PhieuKetQua\\";
+            IEnumerable<string> linkthunucdvcs = Directory.EnumerateDirectories(path);
+            List<string> filedvcs = new List<string>(linkthunucdvcs);
+            string[] Phieuchuadb;
+            try
+            {
+                Phieuchuadb = System.IO.File.ReadAllLines(pathtxt);
+            }
+            catch
+            {
+                MessageBox.Show("Không tồn tại phiếu đồng bộ", "Thông Báo", MessageBoxButtons.OK);
+                return;
+            }
+                foreach (string dvcs in filedvcs)
+                {
+                    DirectoryInfo linkpdfs = new DirectoryInfo(dvcs + "\\");
+                    int dau = dvcs.Length;
+                    string tendvcs = dvcs.Substring(dau - 8, 8);
+                    // Danh sách thư mục đơn vị cơ sở               
+                    FileInfo[] linkpdf = linkpdfs.GetFiles();
+                    string zipPath = Application.StartupPath + "\\DSNenDongBo\\" + tendvcs + ".zip";
+                    foreach (FileInfo childFile in linkpdf)
+                    {
+                        string[] maphieu = childFile.Name.Split('.');
+                        foreach (string phieuchuadb in Phieuchuadb)
+                        {
+                            if (phieuchuadb == maphieu[0])
+                            {
+                                string startPath = childFile.FullName;
+                                try
+                                {
+                                    //Nén File
+                                    using (ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Update))
+                                    {
+                                        archive.CreateEntryFromFile(startPath, maphieu[0] + ".pdf");
+                                    }
+                                }
+                                catch { }
+                            }
+                        }
+                    }
+                    FileInfo zip_info = new FileInfo(zipPath);
+                    int FileLength = int.Parse(zip_info.Length.ToString());
+                    if (FileLength == 0)
+                    {
+                        try
+                        {
+                            File.Delete(zipPath);
+
+                        }
+                        catch { }
+                    }
+                }
+            try
+            {
+                //File.Delete(pathtxt);
+                //StreamWriter file = new StreamWriter(pathtxt, true);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

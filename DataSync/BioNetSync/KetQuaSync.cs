@@ -3,16 +3,22 @@ using BioNetModel;
 using BioNetModel.Data;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
+using System.Windows.Forms;
 
 namespace DataSync.BioNetSync
 {
-    class KetQuaSync
+    public class KetQuaSync
     {
         private static BioNetDBContextDataContext db = null;
         private static string linkPost = "/api/xnketqua/AddUpFromApp";
+        private static string linkPDF = "/api/patient/pushlistfilekq";
 
 
         public static PsReponse UpdateChiDinh(PSXN_KetQua ketqua)
@@ -112,10 +118,32 @@ namespace DataSync.BioNetSync
                 var account = db.PSAccount_Syncs.FirstOrDefault();
                 if (account != null)
                 {
+                    
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!String.IsNullOrEmpty(token))
                     {
-                        
+                        string path = Application.StartupPath + "\\DSNenDongBo\\";
+                        IEnumerable<string> linkfiledb = Directory.EnumerateDirectories(path);
+                        // Danh sách thư mục đơn vị cơ sở
+                       
+                        DirectoryInfo linkpdfs = new DirectoryInfo(path);
+
+                        FileInfo[] linkpdf = linkpdfs.GetFiles();
+                        foreach (FileInfo filedongbo in linkpdf )
+                        {
+                            
+                            long numBytes = filedongbo.Length;
+                            FileStream fStream = new FileStream(filedongbo.FullName, FileMode.Open, FileAccess.Read);
+
+                            BinaryReader br = new BinaryReader(fStream);
+
+                            byte[] bdata = br.ReadBytes((int)numBytes);
+
+                            br.Close();
+                            
+                            var result = cn.PostPDF(cn.CreateLink(linkPDF), token, bdata);
+                           
+                        }
                     }
                 }
             }
@@ -127,7 +155,7 @@ namespace DataSync.BioNetSync
             }
             return res;
         }
-        
+       
     }
 }
 
