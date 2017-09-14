@@ -106,55 +106,7 @@ namespace DataSync.BioNetSync
             }
             return res;
         }
-        public static PsReponse PostKQPDF()
-        {
-            PsReponse res = new PsReponse();
-            res.Result = true;
-
-            try
-            {
-                ProcessDataSync cn = new ProcessDataSync();
-                db = cn.db;
-                var account = db.PSAccount_Syncs.FirstOrDefault();
-                if (account != null)
-                {
-                    
-                    string token = cn.GetToken(account.userName, account.passWord);
-                    if (!String.IsNullOrEmpty(token))
-                    {
-                        string path = Application.StartupPath + "\\DSNenDongBo\\";
-                        IEnumerable<string> linkfiledb = Directory.EnumerateDirectories(path);
-                        // Danh sách thư mục đơn vị cơ sở
-                       
-                        DirectoryInfo linkpdfs = new DirectoryInfo(path);
-
-                        FileInfo[] linkpdf = linkpdfs.GetFiles();
-                        foreach (FileInfo filedongbo in linkpdf )
-                        {
-                            
-                            long numBytes = filedongbo.Length;
-                            FileStream fStream = new FileStream(filedongbo.FullName, FileMode.Open, FileAccess.Read);
-
-                            BinaryReader br = new BinaryReader(fStream);
-
-                            byte[] bdata = br.ReadBytes((int)numBytes);
-
-                            br.Close();
-                            
-                            var result = cn.PostPDF(cn.CreateLink(linkPDF), token, bdata);
-                           
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                res.Result = false;
-                res.StringError += DateTime.Now.ToString() + "Lỗi khi đồng bộ dữ liệu danh sách bệnh nhân nguy cơ cao Lên Tổng Cục \r\n " + ex.Message;
-
-            }
-            return res;
-        }
+       
        
     }
 }

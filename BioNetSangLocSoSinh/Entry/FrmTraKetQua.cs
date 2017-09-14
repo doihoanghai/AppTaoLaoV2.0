@@ -1699,7 +1699,6 @@ namespace BioNetSangLocSoSinh.Entry
                 }
                 else
                 {
-
                     Reports.rptPhieuTraKetQua rp = new Reports.rptPhieuTraKetQua();
                     frmReportEditGeneral.FileLuuPDF(rp, data);
                 }

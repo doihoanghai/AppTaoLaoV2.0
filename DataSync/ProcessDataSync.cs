@@ -300,44 +300,7 @@ namespace DataSync
             return res;
 
             }
-        public int PostPDF(string link, string token, byte[] file)
-        {
-            ObjectModel.ResultReponse res = new ObjectModel.ResultReponse();
-            try
-            {
-                string result = string.Empty;
-                WebClient webClient = new WebClient();
-
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create(link);
-                httpWebRequest.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
-                httpWebRequest.Headers.Add("Authorization", token);
-                httpWebRequest.Method = "POST";
-                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-                {
-                    streamWriter.Write(Encoding.Unicode.GetChars(file), 0, file.Length);
-                }
-
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-
-
-                if (httpResponse.StatusCode == HttpStatusCode.OK)
-                {
-                    res.Result = true;
-                }
-                else
-                {
-                    res.ErorrResult = httpResponse.StatusDescription;
-                }
-            }
-            catch (Exception ex)
-            {
-                res.Result = false;
-                res.ValueResult = ex.Message;
-                res.ErorrResult = ex.Message;
-            }
-            return 1;
-
-        }
+      
     }
 
 }

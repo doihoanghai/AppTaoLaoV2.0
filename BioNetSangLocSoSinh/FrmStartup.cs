@@ -24,6 +24,12 @@ namespace BioNetSangLocSoSinh
     public partial class FrmStartup : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private string empCode = string.Empty;
+        //path file txt ds phiếu chưa đồng bộ
+        string pathtxt = Application.StartupPath + "\\DSPhieuChuaDongBo\\dsPhieuChuaDongBo.txt";
+        //path phiếu kết quả xét nghiệm
+        string pathkq = Application.StartupPath + "\\PhieuKetQua\\";
+        //path nơi luuw file đã nén để đồng bộ
+        string pathdongbo = Application.StartupPath + "\\DSNenDongBo\\";
         public FrmStartup()
         {
             InitializeComponent();
@@ -195,8 +201,6 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             SplashScreenManager.CloseForm();
         }
 
-
-
         private void btnNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
             SplashScreenManager.ShowForm(this, typeof(DiaglogFrm.Waitingfrom), true, true, false);
@@ -285,6 +289,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                 }
             }
         }
+
         public void SetPermisonInPage(string menuname, RibbonPage page, ref bool visibleMenu)
         {
             if (page.Groups != null)
@@ -302,6 +307,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                     page.Visible = true;
             }
         }
+
         public void SetPermisonInPageGroup(string menuname, RibbonPageGroup page, ref bool visiblePage)
         {
             if (page != null)
@@ -321,6 +327,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                 }
             }
         }
+
         public void SetPermisonInBarItemLink(string menuname, BarItemLink page, ref bool visibleGroup)
         {
             BarItem barItem = page.Item;
@@ -631,14 +638,39 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
         private void btnDongBo_Click(object sender, EventArgs e)
         {
             NenFileDongBo();
-            DataSync.BioNetSync.KetQuaSync.PostKQPDF();
-
+            var res = DBPhieuKQDataSync.PostKQPDF();
+            if (string.IsNullOrEmpty(res.StringError))
+            {               
+                try
+                {
+                    //Xóa file txt
+                    File.Delete(pathtxt);
+                    //Tạo lại file txt trắng
+                    StreamWriter file = new StreamWriter(pathtxt, true);
+                    DirectoryInfo dirInfo = new DirectoryInfo(pathdongbo);
+                    FileInfo[] childFiles = dirInfo.GetFiles();
+                    foreach (FileInfo childFile in childFiles)
+                    {
+                        //Xóa các file nén đã đồng bộ
+                        File.Delete(childFile.FullName);
+                    }
+                    MessageBox.Show(DateTime.Now + " :đồng bộ dữ liệu danh sách phiếu trả kết quả thành công \r\n ", "Thông Báo", MessageBoxButtons.OK);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Lỗi"+ex, "Thông Báo", MessageBoxButtons.OK);
+                }
+                                                       
+            }
+            else
+            {
+                MessageBox.Show(DateTime.Now + ":Thông tin chi tiết khi đồng bộ dữ liệu danh sách bệnh nhân nguy cơ cao \r\n" + res.StringError + "\r\n", "Thông Báo", MessageBoxButtons.OK);
+            }
         }
-        public static void NenFileDongBo()
+        private void NenFileDongBo()
         {
-            string pathtxt = Application.StartupPath + "\\DSPhieuChuaDongBo\\dsPhieuChuaDongBo.txt";
-            string path = Application.StartupPath + "\\PhieuKetQua\\";
-            IEnumerable<string> linkthunucdvcs = Directory.EnumerateDirectories(path);
+            
+            IEnumerable<string> linkthunucdvcs = Directory.EnumerateDirectories(pathkq);
             List<string> filedvcs = new List<string>(linkthunucdvcs);
             string[] Phieuchuadb;
             try
@@ -657,7 +689,8 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                     string tendvcs = dvcs.Substring(dau - 8, 8);
                     // Danh sách thư mục đơn vị cơ sở               
                     FileInfo[] linkpdf = linkpdfs.GetFiles();
-                    string zipPath = Application.StartupPath + "\\DSNenDongBo\\" + tendvcs + ".zip";
+
+                    string zipPath = pathdongbo + tendvcs + ".zip";
                     foreach (FileInfo childFile in linkpdf)
                     {
                         string[] maphieu = childFile.Name.Split('.');

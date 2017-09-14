@@ -3843,6 +3843,7 @@ namespace BioNetModel.Data
 		private System.Nullable<bool> _isDongBo;
 		
 		private string _TenBacSiDaiDien;
+        private string _Email;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -4140,8 +4141,27 @@ namespace BioNetModel.Data
 				}
 			}
 		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Email", DbType = "NVarChar(200)")]
+        public string Email
+        {
+            get
+            {
+                return this._Email;
+            }
+            set
+            {
+                if ((this._Email != value))
+                {
+                    this.OnTenBacSiDaiDienChanging(value);
+                    this.SendPropertyChanging();
+                    this._Email = value;
+                    this.SendPropertyChanged("Email");
+                    this.OnTenBacSiDaiDienChanged();
+                }
+            }
+        }
+
+        public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
 		

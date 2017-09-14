@@ -37,7 +37,7 @@
             this.TenDVCS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaDVCS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ckkTatCa = new System.Windows.Forms.CheckBox();
-            this.bttPDF = new DevExpress.XtraEditors.SimpleButton();
+            this.bttGuiMail = new DevExpress.XtraEditors.SimpleButton();
             this.dllNgay = new UserControlDate.dllNgay();
             this.txtChiCuc = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -89,7 +89,7 @@
             this.panelControl1.Controls.Add(this.lblDemChon);
             this.panelControl1.Controls.Add(this.txtDonVi);
             this.panelControl1.Controls.Add(this.ckkTatCa);
-            this.panelControl1.Controls.Add(this.bttPDF);
+            this.panelControl1.Controls.Add(this.bttGuiMail);
             this.panelControl1.Controls.Add(this.dllNgay);
             this.panelControl1.Controls.Add(this.txtChiCuc);
             this.panelControl1.Controls.Add(this.butOK);
@@ -163,15 +163,15 @@
             this.ckkTatCa.UseVisualStyleBackColor = true;
             this.ckkTatCa.CheckedChanged += new System.EventHandler(this.ckkTatCa_CheckedChanged);
             // 
-            // bttPDF
+            // bttGuiMail
             // 
-            this.bttPDF.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.bttPDF.Location = new System.Drawing.Point(844, 54);
-            this.bttPDF.Name = "bttPDF";
-            this.bttPDF.Size = new System.Drawing.Size(177, 39);
-            this.bttPDF.TabIndex = 1067;
-            this.bttPDF.Text = "Lưu File Thành PDF";
-            this.bttPDF.Click += new System.EventHandler(this.bttPDF_Click);
+            this.bttGuiMail.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.bttGuiMail.Location = new System.Drawing.Point(844, 54);
+            this.bttGuiMail.Name = "bttGuiMail";
+            this.bttGuiMail.Size = new System.Drawing.Size(177, 39);
+            this.bttGuiMail.TabIndex = 1067;
+            this.bttGuiMail.Text = "Gửi Mail";
+            this.bttGuiMail.Click += new System.EventHandler(this.bttGuiMail_Click);
             // 
             // dllNgay
             // 
@@ -394,6 +394,8 @@
             this.col_MaDV.Caption = "Mã Đơn Vị";
             this.col_MaDV.FieldName = "MaDonVi";
             this.col_MaDV.Name = "col_MaDV";
+            this.col_MaDV.Visible = true;
+            this.col_MaDV.VisibleIndex = 7;
             // 
             // FrmGuiMail
             // 
@@ -455,7 +457,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn col_MaDVCS;
         private DevExpress.XtraGrid.Columns.GridColumn col_TenDVCS;
         private UserControlDate.dllNgay dllNgay;
-        private DevExpress.XtraEditors.SimpleButton bttPDF;
+        private DevExpress.XtraEditors.SimpleButton bttGuiMail;
         private System.Windows.Forms.CheckBox ckkTatCa;
         private DevExpress.XtraGrid.Columns.GridColumn MaChiCuc;
         private DevExpress.XtraEditors.SearchLookUpEdit txtDonVi;

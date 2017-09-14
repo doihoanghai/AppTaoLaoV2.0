@@ -766,6 +766,20 @@ namespace BioNetDAL
             }
             catch { return false; }
         }
+        public string GetThongTinMaTiepNhan(string maPhieu, string maDonVi)
+        {
+            
+            try
+            {           
+                var phieu = db.PSXN_TraKetQuas.FirstOrDefault(p => p.MaPhieu == maPhieu && p.IDCoSo == maDonVi && p.isXoa == false);
+                if (phieu != null)
+                {
+                    return phieu.MaTiepNhan;
+                }
+                else { return null; }
+            }
+            catch { return null; }
+        }
         public PSDanhMucGhiChu GetThongTinHienThiGhiChu(string maGhiChu)
         {
             PSDanhMucGhiChu gc = new PSDanhMucGhiChu();
@@ -1045,6 +1059,11 @@ namespace BioNetDAL
         {
             PSDanhMucDonViCoSo donvi = db.PSDanhMucDonViCoSos.FirstOrDefault(p => p.MaDVCS == maDovi);
             return donvi;
+        }
+        public string  GetThongTinMailDonViCoSo(string maDovi)
+        {
+            PSDanhMucDonViCoSo donvi = db.PSDanhMucDonViCoSos.FirstOrDefault(p => p.MaDVCS == maDovi);
+            return donvi.Email;
         }
         public List<PSChiDinhDichVuChiTiet> GetThongTinChiDinhDichVuChiTiet(string maCD)
         {
@@ -5336,5 +5355,6 @@ namespace BioNetDAL
             //put a breakpoint here and check datatable
             return dataTable;
         }
+        
     }
 }

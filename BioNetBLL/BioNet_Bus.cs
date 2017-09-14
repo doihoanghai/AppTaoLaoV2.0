@@ -1097,7 +1097,20 @@ namespace BioNetBLL
             var db = new DataObjects();
             return db.GetThongTinDonViCoSo(maDonViCoSo);
         }
-        
+        public static string GetThongTinMailDonViCoSo(string maDonViCoSo)
+        {
+         
+            var db = new DataObjects();
+            return db.GetThongTinMailDonViCoSo(maDonViCoSo);
+        }
+        public static  string GetThongTinMaTiepNhan(string maphieu ,string maDonViCoSo)
+        {
+     
+            var db = new DataObjects();
+            return db.GetThongTinMaTiepNhan(maphieu,maDonViCoSo);
+        }
+
+
         public static List<PSTiepNhan>GetDanhSachPhieuDaTiepNhan(string maDonvi, DateTime tuNgay, DateTime denNgay)
         {
             List<PSTiepNhan> lst = new List<PSTiepNhan>();
