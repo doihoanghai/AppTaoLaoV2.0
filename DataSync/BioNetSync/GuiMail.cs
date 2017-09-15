@@ -43,7 +43,7 @@ namespace DataSync.BioNetSync
                 }
             }
 
-            public static string Send_Email_With_Attachment(string SendTo, string SendFrom, string AttachmentPath)
+            public static int Send_Email_With_Attachment(string SendTo, string SendFrom, string AttachmentPath)
             {
                 try
                 {
@@ -57,7 +57,8 @@ namespace DataSync.BioNetSync
                     bool result = regex.IsMatch(to);
                     if (result == false)
                     {
-                        return "Địa chỉ email không hợp lệ.";
+                    //Lỗi địa chỉ mail
+                        return 2;
                     }
                     else
                     {
@@ -71,17 +72,18 @@ namespace DataSync.BioNetSync
                             smtp.EnableSsl = true;
                             smtp.Credentials = new NetworkCredential(from, "bionetbenhvien");
                             smtp.Send(em);
-                            return "Gửi Mail thành công";
+                            em.Dispose();
+                        return 0;
                         }
-                        catch (Exception ex)
+                        catch 
                         {
-                            return ex.Message;
+                            return 1;
                         }
                     }
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    return ex.Message;
+                    return 1;
                 }
             }
             public string Send_Email_With_BCC_Attachment(string SendTo, string SendBCC, string SendFrom, string Subject, string Body, string AttachmentPath)

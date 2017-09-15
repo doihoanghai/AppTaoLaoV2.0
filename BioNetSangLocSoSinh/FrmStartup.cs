@@ -635,53 +635,17 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             catch { }
         }
 
-        private void btnDongBo_Click(object sender, EventArgs e)
-        {
-            NenFileDongBo();
-            var res = DBPhieuKQDataSync.PostKQPDF();
-            if (string.IsNullOrEmpty(res.StringError))
-            {               
-                try
-                {
-                    //Xóa file txt
-                    File.Delete(pathtxt);
-                    //Tạo lại file txt trắng
-                    StreamWriter file = new StreamWriter(pathtxt, true);
-                    DirectoryInfo dirInfo = new DirectoryInfo(pathdongbo);
-                    FileInfo[] childFiles = dirInfo.GetFiles();
-                    foreach (FileInfo childFile in childFiles)
-                    {
-                        //Xóa các file nén đã đồng bộ
-                        File.Delete(childFile.FullName);
-                    }
-                    MessageBox.Show(DateTime.Now + " :đồng bộ dữ liệu danh sách phiếu trả kết quả thành công \r\n ", "Thông Báo", MessageBoxButtons.OK);
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Lỗi"+ex, "Thông Báo", MessageBoxButtons.OK);
-                }
-                                                       
-            }
-            else
-            {
-                MessageBox.Show(DateTime.Now + ":Thông tin chi tiết khi đồng bộ dữ liệu danh sách bệnh nhân nguy cơ cao \r\n" + res.StringError + "\r\n", "Thông Báo", MessageBoxButtons.OK);
-            }
-        }
-        private void NenFileDongBo()
+   
+        private int  NenFileDongBo()
         {
             
-            IEnumerable<string> linkthunucdvcs = Directory.EnumerateDirectories(pathkq);
-            List<string> filedvcs = new List<string>(linkthunucdvcs);
+            IEnumerable<string> linkthumucdvcs = Directory.EnumerateDirectories(pathkq);
+            List<string> filedvcs = new List<string>(linkthumucdvcs);
             string[] Phieuchuadb;
+            int kq=0;
             try
             {
                 Phieuchuadb = System.IO.File.ReadAllLines(pathtxt);
-            }
-            catch
-            {
-                MessageBox.Show("Không tồn tại phiếu đồng bộ", "Thông Báo", MessageBoxButtons.OK);
-                return;
-            }
                 foreach (string dvcs in filedvcs)
                 {
                     DirectoryInfo linkpdfs = new DirectoryInfo(dvcs + "\\");
@@ -689,7 +653,6 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                     string tendvcs = dvcs.Substring(dau - 8, 8);
                     // Danh sách thư mục đơn vị cơ sở               
                     FileInfo[] linkpdf = linkpdfs.GetFiles();
-
                     string zipPath = pathdongbo + tendvcs + ".zip";
                     foreach (FileInfo childFile in linkpdf)
                     {
@@ -704,34 +667,60 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                                     //Nén File
                                     using (ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Update))
                                     {
-                                        archive.CreateEntryFromFile(startPath, maphieu[0] + ".pdf");
+                                        archive.CreateEntryFromFile(startPath, maphieu[0] + ".pdf");                                        
                                     }
                                 }
-                                catch { }
+                                catch { kq=2;}
                             }
                         }
                     }
-                    FileInfo zip_info = new FileInfo(zipPath);
-                    int FileLength = int.Parse(zip_info.Length.ToString());
-                    if (FileLength == 0)
-                    {
-                        try
-                        {
-                            File.Delete(zipPath);
-
-                        }
-                        catch { }
-                    }
+                    //FileInfo zip_info = new FileInfo(zipPath);
+                    //int FileLength = int.Parse(zip_info.Length.ToString());
+                    //if (FileLength == 0) {   File.Delete(zipPath);  }//Xóa file nén dvcs có dữ liệu = 0
                 }
-            try
-            {
-                //File.Delete(pathtxt);
-                //StreamWriter file = new StreamWriter(pathtxt, true);
             }
-            catch (Exception ex)
-            {
+            catch { kq=1; }
+            return kq; 
+        }
 
+        private void barButtonItem35_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            int kq=NenFileDongBo();
+            if (kq == 0)
+            {
+                var res = DBPhieuKQDataSync.PostKQPDF();
+                if (string.IsNullOrEmpty(res.StringError))
+                {
+                    try
+                    {
+                        //Xóa file txt
+                        File.Delete(pathtxt);
+                        //Tạo lại file txt trắng
+                        StreamWriter file = new StreamWriter(pathtxt, true);
+                        DirectoryInfo dirInfo = new DirectoryInfo(pathdongbo);
+                        FileInfo[] childFiles = dirInfo.GetFiles();
+                        foreach (FileInfo childFile in childFiles)
+                        { 
+                            File.Delete(childFile.FullName); //Xóa các file nén đã đồng bộ
+                        }
+                        MessageBox.Show(DateTime.Now +"Đồng bộ phiếu kết quả thành công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi" + ex, "Thông Báo", MessageBoxButtons.OK);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show(DateTime.Now + ":Thông tin chi tiết khi đồng bộ dữ liệu danh sách bệnh nhân nguy cơ cao \r\n" + res.StringError + "\r\n", "Thông Báo", MessageBoxButtons.OK);
+                }
             }
+            else if(kq==1)
+            { MessageBox.Show("Không có dữ liệu phiếu cần đồng bộ", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
+            else if(kq==2)
+            { MessageBox.Show("Nén dữ liệu đồng bộ bị lỗi", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
+
         }
     }
 }

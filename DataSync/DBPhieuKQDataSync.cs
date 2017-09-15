@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
+using System.Web;
 
 namespace DataSync
 {
@@ -18,7 +19,6 @@ namespace DataSync
         {
             PsReponse res = new PsReponse();
             res.Result = true;
-
             try
             {
                 ProcessDataSync cn = new ProcessDataSync();
@@ -26,30 +26,37 @@ namespace DataSync
                 var account = db.PSAccount_Syncs.FirstOrDefault();
                 if (account != null)
                 {
-
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!String.IsNullOrEmpty(token))
                     {
                         string path = Application.StartupPath + "\\DSNenDongBo\\";
                         IEnumerable<string> linkfiledb = Directory.EnumerateDirectories(path);
                         // Danh sách thư mục đơn vị cơ sở
-
                         DirectoryInfo linkpdfs = new DirectoryInfo(path);
-
                         FileInfo[] linkpdf = linkpdfs.GetFiles();
                         foreach (FileInfo filedongbo in linkpdf)
                         {
-
                             long numBytes = filedongbo.Length;
                             FileStream fStream = new FileStream(filedongbo.FullName, FileMode.Open, FileAccess.Read);
-
                             BinaryReader br = new BinaryReader(fStream);
-
-                            byte[] bdata = br.ReadBytes((int)numBytes);
-
+                            //Identificate separator
+                            string boundary = filedongbo.FullName + DateTime.Now.Ticks.ToString("x");
+                            //Encoding                          
+                            byte[] boundarybytes = File.ReadAllBytes(filedongbo.FullName);
                             br.Close();
+                            string link;
+                            link = linkPDF + "?mabenhnhan=" + filedongbo.Name.Substring(0, 8);
 
-                            var result = PostPDF(cn.CreateLink(linkPDF), token, bdata);
+                            var result = PostPDF(cn.CreateLink(link), token, boundarybytes);
+                            if (string.IsNullOrEmpty(result.ErorrResult))
+                            {
+                                res.Result=true;
+                            }
+                            else
+                            {
+                                res.Result = false;
+                                res.StringError += DateTime.Now.ToString() + "Lỗi khi đồng bộ dữ liệu lên sever lỗi \r\n ";
+                            }
                         }
                     }
                 }
@@ -58,7 +65,6 @@ namespace DataSync
             {
                 res.Result = false;
                 res.StringError += DateTime.Now.ToString() + "Lỗi khi đồng bộ dữ liệu danh sách bệnh nhân nguy cơ cao Lên Tổng Cục \r\n " + ex.Message;
-
             }
             return res;
         }
@@ -74,9 +80,10 @@ namespace DataSync
                 httpWebRequest.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
                 httpWebRequest.Headers.Add("Authorization", token);
                 httpWebRequest.Method = "POST";
-                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+             
+                using (Stream streamWriter = httpWebRequest.GetRequestStream())
                 {
-                    streamWriter.Write(Encoding.Unicode.GetChars(file), 0, file.Length);
+                    streamWriter.Write(file, 0, file.Length);
                 }
 
                 var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
@@ -100,5 +107,6 @@ namespace DataSync
             return res;
 
         }
+ 
     }
 }
