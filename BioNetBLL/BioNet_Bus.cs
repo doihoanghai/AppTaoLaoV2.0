@@ -559,14 +559,14 @@ namespace BioNetBLL
             public static List<PSBenhNhanNguyCoCao> GetDanhSachBenhNhanNguyCoCao(string madonvi)
         {
             var db = new DataObjects();
-            if (madonvi.Equals("ALL") || string.IsNullOrEmpty(madonvi))
+            if (madonvi.Equals("all") || string.IsNullOrEmpty(madonvi))
                 madonvi = string.Empty;
             return db.GetDanhSachBenhNhanNguyCoCao(madonvi, true);
         }
         public static List<PSBenhNhanNguyCoCao> GetDanhSachBenhNhanNguyCoGia(string madonvi)
         {
             var db = new DataObjects();
-            if (madonvi.Equals("ALL") || string.IsNullOrEmpty(madonvi))
+            if (madonvi.Equals("all") || string.IsNullOrEmpty(madonvi))
                 madonvi = string.Empty;
             return db.GetDanhSachBenhNhanNguyCoCao(madonvi, false);
         }
@@ -670,11 +670,11 @@ namespace BioNetBLL
                         rptKQ.TenTre = phieu.BenhNhan.TenBenhNhan;
                         rptKQ.NgaySinh = (phieu.BenhNhan.NgayGioSinh ?? DateTime.Now).ToString("dd/MM/yyyy");
                     // rptKQ.GioiTinh = phieu.BenhNhan.GioiTinh == true ? "Nam" : "Nữ";
-                   if (phieu.BenhNhan.GioiTinh == 1)
+                   if (phieu.BenhNhan.GioiTinh == 0)
                     {
                         rptKQ.GioiTinh = "Nam";
                     }
-                    else if (phieu.BenhNhan.GioiTinh == 0)
+                    else if (phieu.BenhNhan.GioiTinh == 1)
                         rptKQ.GioiTinh = "Nữ";
                     else rptKQ.GioiTinh = "N/a";
                         rptKQ.CanNang = phieu.BenhNhan.CanNang.ToString();
@@ -774,7 +774,7 @@ namespace BioNetBLL
         public static List<PSXN_TraKetQua> GetDanhSachChoTraKetQua(DateTime tuNgay, DateTime denNgay, string maDonVi)
         {
             var db = new DataObjects();
-            if (maDonVi.Equals("ALL")) maDonVi = string.Empty;
+            if (maDonVi.Equals("all")) maDonVi = string.Empty;
             return db.GetDanhSachChoTraKetQua(tuNgay, denNgay, maDonVi, false);
         } 
         public static List<PSXN_TraKetQua> GetDanhSachDaDuyetTraKetQua(DateTime tuNgay, DateTime denNgay, string maDonVi)
@@ -920,7 +920,7 @@ namespace BioNetBLL
         public static List<PSXN_KetQua> GetDanhSachChoKetQuaXN(DateTime tuNgay,DateTime denNgay,string maDonVi)
         {
             var db = new DataObjects();
-            if (maDonVi.Equals("ALL"))
+            if (maDonVi.Equals("all"))
                 maDonVi = string.Empty;
             return db.GetDanhSachChoNhanKetQua(tuNgay, denNgay, maDonVi,false);
         }
@@ -987,7 +987,7 @@ namespace BioNetBLL
         {
             List<PSChiDinhDichVu> lst = new List<PSChiDinhDichVu>();
             var db = new DataObjects();
-            if (maDonVi.Equals("ALL"))
+            if (maDonVi.Equals("all"))
                 maDonVi = string.Empty;
             var results = db.GetDanhSachDichVuDaChiDinh(1, maDonVi, tuNgay, denNgay,true);
             if (results != null)
@@ -1009,7 +1009,7 @@ namespace BioNetBLL
         {
             List<PSChiDinhDichVu> lst = new List<PSChiDinhDichVu>();
             var db = new DataObjects();
-            if (maDonVi.Equals("ALL"))
+            if (maDonVi.Equals("all"))
                 maDonVi = string.Empty;
             var results = db.GetDanhSachDichVuDaChiDinh(-1, maDonVi, tuNgay, denNgay,false);
             if (results != null)
@@ -1138,7 +1138,7 @@ namespace BioNetBLL
         {
             List<PSTiepNhan> lst = new List<PSTiepNhan>();
             var db = new DataObjects();
-            if(maDonvi.Equals("ALL"))
+            if(maDonvi.Equals("all"))
             {
                 var results = db.GetDanhSachPhieuDaTiepNhan(null, false,tuNgay,denNgay);
                 if( results!=null)
@@ -1162,7 +1162,7 @@ namespace BioNetBLL
         {
             List<PSTiepNhan> lst = new List<PSTiepNhan>();
             var db = new DataObjects();
-            if (maDonvi.Equals("ALL"))
+            if (maDonvi.Equals("all"))
             {
                 var results = db.GetDanhSachPhieuDaTiepNhan(null, true,tuNgay,denNgay);
                 if (results != null)

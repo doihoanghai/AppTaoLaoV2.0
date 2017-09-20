@@ -1684,7 +1684,7 @@ namespace BioNetDAL
         {
             List<PSXN_KetQua> lst = new List<PSXN_KetQua>();
             try
-            { if (string.IsNullOrEmpty(maDonVi) || maDonVi.Equals("ALL"))
+            { if (string.IsNullOrEmpty(maDonVi) || maDonVi.Equals("all"))
                 {
                     var results = db.PSXN_KetQuas.Where(p => p.isXoa == false && p.isCoKQ == isCoKQ && p.NgayTiepNhan.Value.Date >= tuNgay.Date && p.NgayTiepNhan.Value.Date <= denNgay.Date).ToList();
                     if (results.Count > 0)
@@ -1777,7 +1777,7 @@ namespace BioNetDAL
             List<PSXN_TraKetQua> lst = new List<PSXN_TraKetQua>();
             try
             {
-                if (string.IsNullOrEmpty(maDonVi) || maDonVi.Equals("ALL"))
+                if (string.IsNullOrEmpty(maDonVi) || maDonVi.Equals("all"))
                 {
                     var results = db.PSXN_TraKetQuas.Where(p => p.isXoa == false && p.isTraKQ == isTraKQ && p.NgayTiepNhan.Value.Date >= tuNgay.Date && p.NgayTiepNhan.Value.Date <= denNgay.Date).ToList();
                     if (results.Count > 0)

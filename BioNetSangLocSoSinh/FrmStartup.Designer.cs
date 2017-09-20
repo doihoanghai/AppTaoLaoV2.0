@@ -100,6 +100,9 @@
             this.xTabMain = new DevExpress.XtraTab.XtraTabControl();
             this.Start = new DevExpress.XtraTab.XtraTabPage();
             this.picBackgroun = new System.Windows.Forms.PictureBox();
+            this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xTabMain)).BeginInit();
             this.xTabMain.SuspendLayout();
@@ -171,10 +174,13 @@
             this.barButtonItem33,
             this.barButtonItem34,
             this.btnMail,
-            this.barButtonItem35});
+            this.barButtonItem35,
+            this.barSubItem6,
+            this.barButtonItem36,
+            this.barButtonItem37});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbon.MaxItemId = 51;
+            this.ribbon.MaxItemId = 54;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -792,6 +798,7 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem35);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnLogout, true);
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem11);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barSubItem6);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Quản trị và Tiện ích";
             this.ribbonPageGroup3.Visible = false;
@@ -861,6 +868,28 @@
             this.picBackgroun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBackgroun.TabIndex = 0;
             this.picBackgroun.TabStop = false;
+            // 
+            // barSubItem6
+            // 
+            this.barSubItem6.Caption = "Đồng Bộ";
+            this.barSubItem6.Id = 51;
+            this.barSubItem6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem36),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem37)});
+            this.barSubItem6.Name = "barSubItem6";
+            // 
+            // barButtonItem36
+            // 
+            this.barButtonItem36.Caption = "Đồng Bộ Toàn Bộ Dữ Liệu";
+            this.barButtonItem36.Id = 52;
+            this.barButtonItem36.Name = "barButtonItem36";
+            // 
+            // barButtonItem37
+            // 
+            this.barButtonItem37.Caption = "Đồng Bộ Phiếu Trả Kết Quả";
+            this.barButtonItem37.Id = 53;
+            this.barButtonItem37.Name = "barButtonItem37";
+            this.barButtonItem37.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem37_ItemClick);
             // 
             // FrmStartup
             // 
@@ -962,5 +991,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem32;
         private DevExpress.XtraBars.BarButtonItem btnMail;
         private DevExpress.XtraBars.BarButtonItem barButtonItem35;
+        private DevExpress.XtraBars.BarSubItem barSubItem6;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem36;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem37;
     }
 }

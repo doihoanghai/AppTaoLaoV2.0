@@ -100,7 +100,7 @@
     <Compile Include="BioNetSync\ThongTinTrungTamSync.cs" />
     <Compile Include="BioNetSync\TiepNhanSync.cs" />
     <Compile Include="BioNetSync\TraKetQuaSync.cs" />
-    <Compile Include="DBPhieuKQDataSync.cs" />
+    <Compile Include="BioNetSync\DBPhieuKQDataSync.cs" />
     <Compile Include="FrmStartupSync.cs">
       <SubType>Form</SubType>
     </Compile>

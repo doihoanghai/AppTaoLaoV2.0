@@ -64,8 +64,8 @@ namespace BioNetSangLocSoSinh
             //    FrmStartupSync dl = new FrmStartupSync();
             //    dl.GetDuLieuBanDau();
             //}
-            FrmStartupSync dl = new FrmStartupSync();
-            dl.DongBoDuLieu();
+            //FrmStartupSync dl = new FrmStartupSync();
+           //dl.DongBoDuLieu();
         }
 
         private void GetLogin()
@@ -638,14 +638,15 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
    
         private int  NenFileDongBo()
         {
-            
+            string pathlock = pathtxt + (".{2231a1f2-21d7-11d4-bdaf-00c04f60b9f0}");
+            this.unFile(pathlock);
             IEnumerable<string> linkthumucdvcs = Directory.EnumerateDirectories(pathkq);
             List<string> filedvcs = new List<string>(linkthumucdvcs);
             string[] Phieuchuadb;
             int kq=0;
             try
             {
-                Phieuchuadb = System.IO.File.ReadAllLines(pathtxt);
+                Phieuchuadb = File.ReadAllLines(pathtxt);
                 foreach (string dvcs in filedvcs)
                 {
                     DirectoryInfo linkpdfs = new DirectoryInfo(dvcs + "\\");
@@ -697,13 +698,14 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                         File.Delete(pathtxt);
                         //Tạo lại file txt trắng
                         StreamWriter file = new StreamWriter(pathtxt, true);
+                        this.lockFile(pathtxt);
                         DirectoryInfo dirInfo = new DirectoryInfo(pathdongbo);
                         FileInfo[] childFiles = dirInfo.GetFiles();
                         foreach (FileInfo childFile in childFiles)
                         { 
                             File.Delete(childFile.FullName); //Xóa các file nén đã đồng bộ
                         }
-                        MessageBox.Show(DateTime.Now +"Đồng bộ phiếu kết quả thành công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                        MessageBox.Show(DateTime.Now +" Đồng bộ phiếu kết quả thành công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
                     }
                     catch (Exception ex)
                     {
@@ -713,7 +715,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                 }
                 else
                 {
-                    MessageBox.Show(DateTime.Now + ":Thông tin chi tiết khi đồng bộ dữ liệu danh sách bệnh nhân nguy cơ cao \r\n" + res.StringError + "\r\n", "Thông Báo", MessageBoxButtons.OK);
+                    MessageBox.Show( res.StringError + "\r\n", "Thông Báo", MessageBoxButtons.OK);
                 }
             }
             else if(kq==1)
@@ -722,5 +724,31 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             { MessageBox.Show("Nén dữ liệu đồng bộ bị lỗi", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
 
         }
+
+        private void barButtonItem37_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            
+        }
+        private string lockFile(String pathtxt)
+        {
+
+            DirectoryInfo dInfo = new DirectoryInfo(pathtxt);
+            string filePath = dInfo.FullName;
+            string fileName = filePath.ToString() + ".{2231a1f2-21d7-11d4-bdaf-00c04f60b9f0}";
+            Directory.Move(filePath.ToString(), fileName.ToString());
+
+            return fileName;
+
+
+        }
+        private void unFile(String pathlock)
+        {
+            DirectoryInfo dInfo = new DirectoryInfo(pathlock);
+            string filePath = dInfo.FullName;
+            string fileName = filePath.ToString().Replace(".{2231a1f2-21d7-11d4-bdaf-00c04f60b9f0}", "");
+            Directory.Move(filePath.ToString(), fileName.ToString());
+
+        }
+
     }
 }

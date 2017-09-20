@@ -29,10 +29,15 @@ namespace BioNetSangLocSoSinh.Entry
         private List<PSDanhMucDonViCoSo> lstDVCS = new List<PSDanhMucDonViCoSo>();
         private void Load_Frm()
         {
+            this.LoadsearchLookUpChiCuc();
             this.LoadRespositoryDonVi();
-            this.LoadSearchLookUpDoViCoSo();
+            //this.LoadSearchLookUpDoViCoSo();
             this.LoadDanhSachCho();
             this.loadDanhSachBNNguyCoGia();
+            this.txtDenNgay_ChuaKQ.EditValue = DateTime.Now;
+            this.txtTuNgay_ChuaKQ.EditValue = DateTime.Now;
+
+
         }
         private void LoadSearchLookUpDoViCoSo()
         {
@@ -54,7 +59,7 @@ namespace BioNetSangLocSoSinh.Entry
             this.lstDMDonViCoSo = BioNet_Bus.GetDanhSachDonViCoSo();
             this.txtMaDonVi.Properties.DataSource = null;
             this.repositoryLookupDonVi.DataSource = null;
-            this.repositoryLookupDonVi.DataSource = this.lstDMDonViCoSo;
+           this.repositoryLookupDonVi.DataSource = this.lstDMDonViCoSo;
             this.txtMaDonVi.Properties.DataSource = this.lstDMDonViCoSo;
             this.repositoryItemLookUpDonVi.DataSource = null;
             this.repositoryItemLookUpDonVi.DataSource = this.lstDMDonViCoSo;
@@ -184,6 +189,7 @@ namespace BioNetSangLocSoSinh.Entry
                     this.txtDiaChi.Text = bn.DiaChi;
                     this.txtGioiTinh.SelectedIndex = bn.GioiTinh??2;
                     this.txtMaDonVi.EditValue = maDonVi;
+                    
                     this.txtNgaySinh.EditValue = bn.NgayGioSinh;
                     this.txtSDT.Text = string.IsNullOrEmpty(bn.MotherPhoneNumber.ToString()) ? bn.FatherPhoneNumber.ToString() : bn.MotherPhoneNumber.ToString();
                     this.txtTenBN.Text = string.IsNullOrEmpty(bn.TenBenhNhan.ToString()) ? "CB_" + bn.MotherName: bn.TenBenhNhan.ToString();
@@ -207,6 +213,7 @@ namespace BioNetSangLocSoSinh.Entry
                     {   string rowID = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_rowID).ToString();
                         string maBenhNhan = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaBenhNhan).ToString();
                         string maDonVi = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_DonVi).ToString();
+                        
                         string maKhachHang = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaKhachHang).ToString();
                      //   string maThongTin = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaThongTin).ToString();
                         string maTiepNhan = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaTiepNhan).ToString();
@@ -420,5 +427,33 @@ namespace BioNetSangLocSoSinh.Entry
 
             }
         }
+
+        private void searchLookUpChiCuc_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                SearchLookUpEdit sear = sender as SearchLookUpEdit;
+                var value = sear.EditValue.ToString();
+                this.searchLookUpDonViCoSo.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_DonVi(value.ToString());
+                this.searchLookUpDonViCoSo.EditValue = "all";
+            }
+            catch { }
+        }
+        private void LoadsearchLookUpChiCuc()
+        {
+            try
+            {
+                this.searchLookUpChiCuc.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_ChiCuc();
+                this.searchLookUpChiCuc.EditValue = "all";
+                this.searchLookUpDonViCoSo.EditValue = "all";
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi load danh sách chi cục \r\n Lỗi chi tiết :" + ex.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.searchLookUpChiCuc.Focus();
+            }
+        }
+
+     
     }
 }

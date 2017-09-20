@@ -166,9 +166,10 @@
             // bttGuiMail
             // 
             this.bttGuiMail.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.bttGuiMail.Image = global::BioNetSangLocSoSinh.Properties.Resources.email;
             this.bttGuiMail.Location = new System.Drawing.Point(844, 54);
             this.bttGuiMail.Name = "bttGuiMail";
-            this.bttGuiMail.Size = new System.Drawing.Size(177, 39);
+            this.bttGuiMail.Size = new System.Drawing.Size(177, 32);
             this.bttGuiMail.TabIndex = 1067;
             this.bttGuiMail.Text = "Gửi Mail";
             this.bttGuiMail.Click += new System.EventHandler(this.bttGuiMail_Click);

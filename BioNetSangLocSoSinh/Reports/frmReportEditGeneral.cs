@@ -106,10 +106,10 @@ namespace BioNetSangLocSoSinh.Reports
                 {
                     //Lưu file pdf phiếu kết quả theo tên mã phiếu
                   
-                    this.rpt.ExportToPdf(path);
+                   // this.rpt.ExportToPdf(path);
                  
                     Process pdfexport = new Process();
-                    MessageBox.Show("Lưu thành công file: " + NameFile + ".pdf", "Thông Báo", MessageBoxButtons.OK);
+                    //MessageBox.Show("Lưu thành công file: " + NameFile + ".pdf", "Thông Báo", MessageBoxButtons.OK);
                 }
                 catch (Exception ex) { }
 
@@ -122,6 +122,7 @@ namespace BioNetSangLocSoSinh.Reports
             
             
         }
+        //Lưu phiếu trả kết quả pdf
         public static void FileLuuPDF(DevExpress.XtraReports.UI.XtraReport datarp, PsRptTraKetQuaSangLoc data)
         {
             datarp.DataSource = data;
@@ -129,7 +130,7 @@ namespace BioNetSangLocSoSinh.Reports
             string madvcs = data.MaDonVi.ToString();
             //Tạo thư mục có tên là mã đơn vị cơ sở
             string pathpdf = Application.StartupPath + "\\PhieuKetQua\\" + "\\" + madvcs + "\\";
-            System.IO.Directory.CreateDirectory(pathpdf);
+            Directory.CreateDirectory(pathpdf);
             //Đường dẫn file pdf
             string path = Application.StartupPath + "\\PhieuKetQua\\" + madvcs + @"\" + name + ".pdf";
             try

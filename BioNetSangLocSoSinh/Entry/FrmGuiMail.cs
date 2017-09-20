@@ -132,7 +132,7 @@ namespace BioNetSangLocSoSinh.FrmReports
                         //Noi lưu phiếu trả kết quả                               
                         string pathpdf = Application.StartupPath + "\\PhieuKetQua\\" + maDVCS + "\\" + maPhieu + ".pdf";
                         //Kiểm tra đường dẫn tồn tại ko                     
-                        if (Directory.Exists(pathpdf)) { LuuPDF(maPhieu, maDVCS); }//Nếu ko có phiếu thì in lại phiếu 
+                        if (!Directory.Exists(pathpdf)) { LuuPDF(maPhieu, maDVCS); }//Nếu ko có phiếu thì in lại phiếu 
                         NenGuiMail(pathpdf, maPhieu, maDVCS);
                     }
                 }
@@ -229,7 +229,15 @@ namespace BioNetSangLocSoSinh.FrmReports
             {
                 using (ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Update))
                 {
-                    archive.CreateEntryFromFile(startPath, maphieu + ".pdf");
+                    try
+                    {
+                        archive.CreateEntryFromFile(startPath, maphieu + ".pdf");
+                    }
+                    catch(Exception ex)
+                    {
+                        
+                    }
+               
                 }
             }
         }

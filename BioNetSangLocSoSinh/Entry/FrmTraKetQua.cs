@@ -23,6 +23,9 @@ namespace BioNetSangLocSoSinh.Entry
 {
     public partial class FrmTraKetQua : DevExpress.XtraEditors.XtraForm
     {
+        string pathtxt = Application.StartupPath + "\\DSPhieuChuaDongBo\\dsPhieuChuaDongBo.txt";
+        string path = Application.StartupPath + "\\DSPhieuChuaDongBo\\";
+
         public FrmTraKetQua(string maNvDangNhap)
         {
             InitializeComponent();
@@ -53,10 +56,11 @@ namespace BioNetSangLocSoSinh.Entry
         }
         private void LoadFrm()
         {
+            this.LoadsearchLookUpChiCuc();
             this.LoadRepositoryLookupDonViCoSo();
-            this.LoadSearchLookupDonVi();
+           // this.LoadSearchLookupDonVi();
             this.LoadGoiDichVuXetNGhiem();
-            this.searchLookUpDonViCoSo.EditValue = "ALL";
+            //this.searchLookUpDonViCoSo.EditValue = "ALL";
             this.txtTuNgay_ChuaKQ.EditValue = DateTime.Now;
             this.txtDenNgay_ChuaKQ.EditValue = DateTime.Now;
             this.LoadDanhSachChoTraKetQua();
@@ -467,6 +471,7 @@ namespace BioNetSangLocSoSinh.Entry
                                 catch { };
                                 this.btnLuu.Enabled = true;
                                 this.btnDuyetKQ.Enabled = true;
+                                this.btnLuuNhieuPDF.Enabled = true;
                                 //  this.btnHuyDuyet.Enabled = true;
                                 this.btnHuyMau.Enabled = true;
                                 this.btnInKQ.Enabled = false;
@@ -1323,6 +1328,8 @@ namespace BioNetSangLocSoSinh.Entry
                     this.btnLuu.Enabled = false;
                     this.btnInKQ.Enabled = true;
                     this.btnSua.Enabled = true;
+                    this.btnLuuNhieuPDF.Enabled = true;
+
                 }
                 else
                 {
@@ -1543,6 +1550,7 @@ namespace BioNetSangLocSoSinh.Entry
                             try
                             {
                                 PSXN_TraKetQua kq = new PSXN_TraKetQua();
+
                                 string MaTiepNhan = this.GVChuaKQ.GetRowCellValue(index, this.col_MaTiepNhan_DaTraKQ).ToString();
                                 string MaPhieu = this.GVChuaKQ.GetRowCellValue(index, this.col_MaPhieu_GCChuaCoKQ).ToString();
                                 kq.MaTiepNhan = MaTiepNhan;
@@ -1745,8 +1753,8 @@ namespace BioNetSangLocSoSinh.Entry
 
 
         }
-        //Lưu file PDF vào thư mục       
-        private void simpleButton1_Click(object sender, EventArgs e)
+        //Lưu file PDF vào thư mục   
+        private void btnLuuNhieuPDF_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1786,113 +1794,173 @@ namespace BioNetSangLocSoSinh.Entry
             }
         }
 
+
+
         private void DSPhieuTraDongBo(string maphieu)
         {
-            string path = Application.StartupPath + "\\DSPhieuChuaDongBo\\";
+
             if (!System.IO.Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
-            }           
+            }
+            string pathlock = pathtxt + (".{2231a1f2-21d7-11d4-bdaf-00c04f60b9f0}");
+            unFile(pathlock);
             //Đường dẫn file txt
-            string pathtxt = Application.StartupPath + "\\DSPhieuChuaDongBo\\dsPhieuChuaDongBo.txt";
+
             StreamWriter file = new StreamWriter(pathtxt, true);
 
-            try {
-                string[] Maphieucu = System.IO.File.ReadAllLines(pathtxt);          
-                    bool test = false;
-                    foreach (string maphieucu in Maphieucu)
-                    {
 
-                        if (maphieu == maphieucu)
-                        {
-                            test = true;
-                            break;
-                        }
-                    }
-                    if (test == false)
+            try
+            {
+                string[] Maphieucu = File.ReadAllLines(pathtxt);
+                bool test = false;
+                foreach (string maphieucu in Maphieucu)
+                {
+
+                    if (maphieu == maphieucu)
                     {
-                        file.WriteLine(maphieu);
+                        test = true;
+                        break;
                     }
-                    file.Close();
-                
+                }
+                if (test == false)
+                {
+                    file.WriteLine(maphieu);
+                }
+                file.Close();
+
             }
             catch
             {
-                file.WriteLine(maphieu);
+
                 file.Close();
             }
-           
+            lockFile(pathtxt);
+
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            string pathtxt = Application.StartupPath + "\\DSPhieuChuaDongBo\\dsPhieuChuaDongBo.txt";
-            string path = Application.StartupPath + "\\PhieuKetQua\\";
-            IEnumerable<string> linkthunucdvcs = Directory.EnumerateDirectories(path);
-            // Danh sách thư mục đơn vị cơ sở
-            List<string> filedvcs = new List<string>(linkthunucdvcs);
-            string[] Phieuchuadb;
-                      
-            try {
-                //danh sách phiếu chưa đồng bộ
-                Phieuchuadb = File.ReadAllLines(pathtxt);
-            }
-            catch
-            {
-                MessageBox.Show("Không tồn tại phiếu đồng bộ", "Thông Báo", MessageBoxButtons.OK);
-                return;               
-            }           
-                         
-                foreach (string dvcs in filedvcs)
-                {
-                    DirectoryInfo linkpdfs = new DirectoryInfo(dvcs + "\\");
-                    int dau = dvcs.Length;
-                    string tendvcs = dvcs.Substring(dau - 8, 8);
-                    // Danh sách thư mục đơn vị cơ sở               
-                    FileInfo[] linkpdf = linkpdfs.GetFiles();
-                    string zipPath = Application.StartupPath + "\\DSNenDongBo\\" + tendvcs + ".zip";
-                    foreach (FileInfo childFile in linkpdf)
-                    {
-                        string[] maphieu = childFile.Name.Split('.');
-                        foreach (string phieuchuadb in Phieuchuadb)
-                        {
-                            if (phieuchuadb == maphieu[0])
-                            {
-                                string startPath = childFile.FullName;
-                                try
-                                {
-                                    //Nén File
-                                    using (ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Update))
-                                    {
-                                        archive.CreateEntryFromFile(startPath, maphieu[0] + ".pdf");
-                                    }
-                                }
-                                catch { }
-                            }
-                        }
-                    }                                    
-                    FileInfo zip_info = new FileInfo(zipPath);
-                    int FileLength = int.Parse(zip_info.Length.ToString());
-                    if (FileLength == 0)
-                    {
-                        try
-                        {
-                            File.Delete(zipPath);
-                          
-                        }
-                        catch { }
-                    }
-                }
+            DSPhieuTraDongBo("");
+
+            //IEnumerable<string> linkthunucdvcs = Directory.EnumerateDirectories(path);
+            //// Danh sách thư mục đơn vị cơ sở
+            //List<string> filedvcs = new List<string>(linkthunucdvcs);
+            //string[] Phieuchuadb;
+
+            //try
+            //{
+            //    //danh sách phiếu chưa đồng bộ
+            //    Phieuchuadb = File.ReadAllLines(pathtxt);
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Không tồn tại phiếu đồng bộ", "Thông Báo", MessageBoxButtons.OK);
+            //    return;
+            //}
+
+            //foreach (string dvcs in filedvcs)
+            //{
+            //    DirectoryInfo linkpdfs = new DirectoryInfo(dvcs + "\\");
+            //    int dau = dvcs.Length;
+            //    string tendvcs = dvcs.Substring(dau - 8, 8);
+            //    // Danh sách thư mục đơn vị cơ sở               
+            //    FileInfo[] linkpdf = linkpdfs.GetFiles();
+            //    string zipPath = Application.StartupPath + "\\DSNenDongBo\\" + tendvcs + ".zip";
+            //    foreach (FileInfo childFile in linkpdf)
+            //    {
+            //        string[] maphieu = childFile.Name.Split('.');
+            //        foreach (string phieuchuadb in Phieuchuadb)
+            //        {
+            //            if (phieuchuadb == maphieu[0])
+            //            {
+            //                string startPath = childFile.FullName;
+            //                try
+            //                {
+            //                    //Nén File
+            //                    using (ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Update))
+            //                    {
+            //                        archive.CreateEntryFromFile(startPath, maphieu[0] + ".pdf");
+            //                    }
+            //                }
+            //                catch { }
+            //            }
+            //        }
+            //    }
+            //    FileInfo zip_info = new FileInfo(zipPath);
+            //    int FileLength = int.Parse(zip_info.Length.ToString());
+            //    if (FileLength == 0)
+            //    {
+            //        try
+            //        {
+            //            File.Delete(zipPath);
+
+            //        }
+            //        catch { }
+            //    }
+            //}
+            //try
+            //{
+            //    File.Delete(pathtxt);
+            //    StreamWriter file = new StreamWriter(pathtxt, true);
+
+            //}
+            //catch (Exception ex)
+            //{
+
+            //}
+        }
+
+        private string lockFile(String pathtxt)
+        {
+
+            DirectoryInfo dInfo = new DirectoryInfo(pathtxt);
+            string filePath = dInfo.FullName;
+            string fileName = filePath.ToString() + ".{2231a1f2-21d7-11d4-bdaf-00c04f60b9f0}";
+            Directory.Move(filePath.ToString(), fileName.ToString());
+
+            return fileName;
+
+
+        }
+        private void unFile(String pathlock)
+        {
+            DirectoryInfo dInfo = new DirectoryInfo(pathlock);
+            string filePath = dInfo.FullName;
+            string fileName = filePath.ToString().Replace(".{2231a1f2-21d7-11d4-bdaf-00c04f60b9f0}", "");
+            Directory.Move(filePath.ToString(), fileName.ToString());
+
+        }
+
+        private void searchLookUpChiCuc_EditValueChanged(object sender, EventArgs e)
+        {
             try
             {
-                File.Delete(pathtxt);
-                StreamWriter file = new StreamWriter(pathtxt, true);
-
+                SearchLookUpEdit sear = sender as SearchLookUpEdit;
+                var value = sear.EditValue.ToString();
+                this.searchLookUpDonViCoSo.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_DonVi(value.ToString());
+                this.searchLookUpDonViCoSo.EditValue = "all";
+            }
+            catch { }
+        }
+        private void LoadsearchLookUpChiCuc()
+        {
+            try
+            {
+                this.searchLookUpChiCuc.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_ChiCuc();
+                this.searchLookUpChiCuc.EditValue = "all";
+                this.searchLookUpDonViCoSo.EditValue = "all";
             }
             catch (Exception ex)
             {
-
+                XtraMessageBox.Show("Lỗi khi load danh sách chi cục \r\n Lỗi chi tiết :" + ex.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.searchLookUpChiCuc.Focus();
             }
         }
-    }
+
+        private void labelControl37_Click(object sender, EventArgs e)
+        {
+
+        }
+    } 
 }

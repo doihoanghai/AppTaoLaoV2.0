@@ -446,26 +446,58 @@ namespace BioNetSangLocSoSinh.Entry
                     }
                     catch { }
                     this.LoadDanhSachDichVu();
-                    if (phieu.maGoiXetNghiem.Equals("DVGXN0001"))
+                    switch (this.radioGroupGoiXN.EditValue.ToString())
                     {
-                        foreach (var item in this.lstDichVu)
-                        {
-                            foreach (var dv in phieu.lstChiDinh)
+                        case "DVGXN0001":
                             {
-
-                                if (item.IDDichVu == dv.MaDichVu)
+                                radioGroupGoiXN.SelectedIndex = 2;
+                                foreach (var item in this.lstDichVu)
                                 {
-                                    item.isChecked = true;
+                                    foreach (var dv in phieu.lstChiDinh)
+                                    {
+
+                                        if (item.IDDichVu == dv.MaDichVu)
+                                        {
+                                            item.isChecked = true;
+                                        }
+                                    }
                                 }
+                                this.checkedListBoxXN.DataSource = null;
+                                this.checkedListBoxXN.DataSource = this.lstDichVu;
+                                break;
                             }
-                        }
-                        this.checkedListBoxXN.DataSource = null;
-                        this.checkedListBoxXN.DataSource = this.lstDichVu;
+                        case "DVGXN0005":
+                            radioGroupGoiXN.SelectedIndex = 1;
+                            break;
+                        case "DVGXN0003":
+                            radioGroupGoiXN.SelectedIndex = 0;
+                            break;
+                        case "DVGXN0002":
+                            radioGroupGoiXN.SelectedIndex = 3;
+                            break;
+                        default:
+                            break;
                     }
-                    else
-                    {
-                        this.checkedListBoxXN.DataSource = null;
-                    }
+                    //if (phieu.maGoiXetNghiem.Equals("DVGXN0001"))
+                    //{
+                    //    foreach (var item in this.lstDichVu)
+                    //    {
+                    //        foreach (var dv in phieu.lstChiDinh)
+                    //        {
+
+                    //            if (item.IDDichVu == dv.MaDichVu)
+                    //            {
+                    //                item.isChecked = true;
+                    //            }
+                    //        }
+                    //    }
+                    //    this.checkedListBoxXN.DataSource = null;
+                    //    this.checkedListBoxXN.DataSource = this.lstDichVu;
+                    //}
+                    //else
+                    //{
+                    //    this.checkedListBoxXN.DataSource = null;
+                    //}
 
                     this.ValidateThuMauSom(this.ngayGioSinh, this.ngayGioLayMau);
                 }
