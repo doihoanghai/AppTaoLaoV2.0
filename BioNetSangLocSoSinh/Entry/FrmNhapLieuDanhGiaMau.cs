@@ -102,19 +102,19 @@ namespace BioNetSangLocSoSinh.Entry
             this.lstDichVu.Clear();
             this.lstTiepNhan.Clear();
             //this.LoadDanhSachChuongTrinhSangLoc();
-            //this.LoadRepositoryLookupDonViCoSo();
+            this.LoadRepositoryLookupDonViCoSo();
             //this.LoadSearchLookUpDoViCoSo();
             this.LoadsearchLookUpChiCuc();
-            //this.LoadGoiDichVuXetNGhiem();
-            //this.LoadDanhSachDichVu();
+            this.LoadGoiDichVuXetNGhiem();
+            this.LoadDanhSachDichVu();
             //this.LoadLookupDanToc();
             //this.LoadLookupDonViCoSo();
-            //this.LoadListDanhGiaSoBo();
+            this.LoadListDanhGiaSoBo();
             //this.searchLookUpDonViCoSo.EditValue = "ALL";
             this.txtTuNgay_DsCho.EditValue = DateTime.Now;
             this.txtDenNgay_DsCho.EditValue = DateTime.Now;
-            //this.sourceListDanhGiaChatLuong = BioNet_Bus.GetDanhMucDanhGiaChatLuong();
-            //  this.LoadGoiXetNghiem();
+            this.sourceListDanhGiaChatLuong = BioNet_Bus.GetDanhMucDanhGiaChatLuong();
+            //this.LoadGoiXetNghiem();
         }
        
         private void LoadDanhSachChuongTrinhSangLoc()
@@ -2281,6 +2281,7 @@ namespace BioNetSangLocSoSinh.Entry
                         catch { };
                         this.ngayTiepNhan = _ngayTiepNhan;
                         this.txtNgayNhanMau.EditValue = _ngayTiepNhan;
+                        this.LoadGoiXetNghiem(maDonVi);
                         this.HienThiThongTinChiDinh(maPhieu, maDonVi, maTiepNhan,maChiDinh, false);
                         this.btnDuyet.Text = "Lưu";
                       //  this.btnDuyet.Enabled = true;
