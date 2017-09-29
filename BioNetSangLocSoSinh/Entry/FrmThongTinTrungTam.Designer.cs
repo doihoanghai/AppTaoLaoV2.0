@@ -52,6 +52,12 @@
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.checkBoxCapMaXnTheoMaPhieu = new DevExpress.XtraEditors.CheckEdit();
+            this.txtEmail = new DevExpress.XtraEditors.TextEdit();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtPassEmail = new DevExpress.XtraEditors.TextEdit();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrungTam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
@@ -64,6 +70,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUp_HienThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxCapMaXnTheoMaPhieu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassEmail.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureEdit1
@@ -109,34 +117,34 @@
             // 
             this.txtTrungTam.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTrungTam.Enabled = false;
             this.txtTrungTam.Location = new System.Drawing.Point(327, 25);
             this.txtTrungTam.Name = "txtTrungTam";
-            this.txtTrungTam.Size = new System.Drawing.Size(453, 20);
+            this.txtTrungTam.Size = new System.Drawing.Size(446, 20);
             this.txtTrungTam.TabIndex = 3;
-            this.txtTrungTam.Validated += new System.EventHandler(this.txtTrungTam_Validated);
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDiaChi.Enabled = false;
             this.txtDiaChi.Location = new System.Drawing.Point(327, 64);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(453, 20);
+            this.txtDiaChi.Size = new System.Drawing.Size(446, 20);
             this.txtDiaChi.TabIndex = 3;
-            this.txtDiaChi.Validated += new System.EventHandler(this.txtDiaChi_Validated);
             // 
             // txtSoDT
             // 
+            this.txtSoDT.Enabled = false;
             this.txtSoDT.Location = new System.Drawing.Point(327, 103);
             this.txtSoDT.Name = "txtSoDT";
-            this.txtSoDT.Size = new System.Drawing.Size(158, 20);
+            this.txtSoDT.Size = new System.Drawing.Size(208, 20);
             this.txtSoDT.TabIndex = 3;
-            this.txtSoDT.Validated += new System.EventHandler(this.txtSoDT_Validated);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(324, 126);
+            this.label2.Location = new System.Drawing.Point(568, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 2;
@@ -145,20 +153,20 @@
             // txtMaVietTat
             // 
             this.txtMaVietTat.Enabled = false;
-            this.txtMaVietTat.Location = new System.Drawing.Point(327, 142);
+            this.txtMaVietTat.Location = new System.Drawing.Point(571, 103);
             this.txtMaVietTat.Name = "txtMaVietTat";
             this.txtMaVietTat.Properties.AllowFocused = false;
-            this.txtMaVietTat.Size = new System.Drawing.Size(158, 20);
+            this.txtMaVietTat.Size = new System.Drawing.Size(202, 20);
             this.txtMaVietTat.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tekton Pro Ext", 18F);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.label5.ForeColor = System.Drawing.Color.Blue;
             this.label5.Location = new System.Drawing.Point(12, 221);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 29);
+            this.label5.Size = new System.Drawing.Size(119, 29);
             this.label5.TabIndex = 2;
             this.label5.Text = "Cấu hình :";
             // 
@@ -185,11 +193,11 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tekton Pro Ext", 13F);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label6.Location = new System.Drawing.Point(12, 338);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(271, 22);
+            this.label6.Size = new System.Drawing.Size(251, 22);
             this.label6.TabIndex = 2;
             this.label6.Text = "Cấu hình nội dung trả kết quả:";
             // 
@@ -286,7 +294,7 @@
             this.btnLuu.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnLuu.Enabled = false;
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(709, 338);
+            this.btnLuu.Location = new System.Drawing.Point(612, 324);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(75, 23);
             this.btnLuu.TabIndex = 6;
@@ -304,11 +312,79 @@
             this.checkBoxCapMaXnTheoMaPhieu.CheckedChanged += new System.EventHandler(this.checkChoPhepThuMauLai_CheckedChanged);
             this.checkBoxCapMaXnTheoMaPhieu.EditValueChanged += new System.EventHandler(this.checkBoxCapMaXnTheoMaPhieu_EditValueChanged);
             // 
+            // txtEmail
+            // 
+            this.txtEmail.Enabled = false;
+            this.txtEmail.Location = new System.Drawing.Point(327, 145);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Properties.AllowFocused = false;
+            this.txtEmail.Size = new System.Drawing.Size(208, 20);
+            this.txtEmail.TabIndex = 8;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(324, 127);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "EMAIL TRUNG TÂM";
+            // 
+            // txtPassEmail
+            // 
+            this.txtPassEmail.Enabled = false;
+            this.txtPassEmail.Location = new System.Drawing.Point(571, 145);
+            this.txtPassEmail.Name = "txtPassEmail";
+            this.txtPassEmail.Properties.AllowFocused = false;
+            this.txtPassEmail.Properties.PasswordChar = '*';
+            this.txtPassEmail.Size = new System.Drawing.Size(202, 20);
+            this.txtPassEmail.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(568, 127);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "MẬT KHẨU EMAIL";
+            // 
+            // btnSua
+            // 
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSua.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnSua.Image = global::BioNetSangLocSoSinh.Properties.Resources.Edit;
+            this.btnSua.Location = new System.Drawing.Point(522, 324);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnSua.TabIndex = 11;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHuy.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnHuy.Enabled = false;
+            this.btnHuy.Image = global::BioNetSangLocSoSinh.Properties.Resources.del;
+            this.btnHuy.Location = new System.Drawing.Point(698, 324);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy.TabIndex = 12;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
             // FrmThongTinTrungTam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 472);
+            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.txtPassEmail);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.GCGhiChu);
@@ -340,6 +416,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUp_HienThi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxCapMaXnTheoMaPhieu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassEmail.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,5 +448,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn col_KieuHienThi;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUp_HienThi;
+        private DevExpress.XtraEditors.TextEdit txtEmail;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.TextEdit txtPassEmail;
+        private System.Windows.Forms.Label label8;
+        private DevExpress.XtraEditors.SimpleButton btnSua;
+        private DevExpress.XtraEditors.SimpleButton btnHuy;
     }
 }

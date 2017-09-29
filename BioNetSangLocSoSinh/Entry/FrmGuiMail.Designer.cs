@@ -64,6 +64,7 @@
             this.col_Chon = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckChon = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.col_MaDV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_TinhTrangMau = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.checkChon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -97,23 +98,23 @@
             this.panelControl1.Controls.Add(this.label3);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1328, 103);
+            this.panelControl1.Size = new System.Drawing.Size(1138, 84);
             this.panelControl1.TabIndex = 1;
             // 
             // lblDemChon
             // 
             this.lblDemChon.AutoSize = true;
-            this.lblDemChon.Location = new System.Drawing.Point(618, 75);
+            this.lblDemChon.Location = new System.Drawing.Point(530, 61);
             this.lblDemChon.Name = "lblDemChon";
-            this.lblDemChon.Size = new System.Drawing.Size(0, 17);
+            this.lblDemChon.Size = new System.Drawing.Size(0, 13);
             this.lblDemChon.TabIndex = 1070;
             this.lblDemChon.Visible = false;
             // 
             // txtDonVi
             // 
-            this.txtDonVi.Location = new System.Drawing.Point(453, 40);
-            this.txtDonVi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDonVi.Location = new System.Drawing.Point(388, 32);
             this.txtDonVi.Name = "txtDonVi";
             this.txtDonVi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -125,7 +126,7 @@
             this.txtDonVi.Properties.ShowFooter = false;
             this.txtDonVi.Properties.ValueMember = "MaDVCS";
             this.txtDonVi.Properties.View = this.gridView2;
-            this.txtDonVi.Size = new System.Drawing.Size(313, 22);
+            this.txtDonVi.Size = new System.Drawing.Size(268, 20);
             this.txtDonVi.TabIndex = 1069;
             // 
             // gridView2
@@ -155,9 +156,10 @@
             // ckkTatCa
             // 
             this.ckkTatCa.AutoSize = true;
-            this.ckkTatCa.Location = new System.Drawing.Point(453, 75);
+            this.ckkTatCa.Location = new System.Drawing.Point(388, 61);
+            this.ckkTatCa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ckkTatCa.Name = "ckkTatCa";
-            this.ckkTatCa.Size = new System.Drawing.Size(107, 21);
+            this.ckkTatCa.Size = new System.Drawing.Size(86, 17);
             this.ckkTatCa.TabIndex = 1068;
             this.ckkTatCa.Text = "Chọn Tất Cả";
             this.ckkTatCa.UseVisualStyleBackColor = true;
@@ -167,9 +169,10 @@
             // 
             this.bttGuiMail.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.bttGuiMail.Image = global::BioNetSangLocSoSinh.Properties.Resources.email;
-            this.bttGuiMail.Location = new System.Drawing.Point(844, 54);
+            this.bttGuiMail.Location = new System.Drawing.Point(723, 44);
+            this.bttGuiMail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bttGuiMail.Name = "bttGuiMail";
-            this.bttGuiMail.Size = new System.Drawing.Size(177, 32);
+            this.bttGuiMail.Size = new System.Drawing.Size(152, 26);
             this.bttGuiMail.TabIndex = 1067;
             this.bttGuiMail.Text = "Gửi Mail";
             this.bttGuiMail.Click += new System.EventHandler(this.bttGuiMail_Click);
@@ -177,16 +180,15 @@
             // dllNgay
             // 
             this.dllNgay.BackColor = System.Drawing.Color.Transparent;
-            this.dllNgay.Location = new System.Drawing.Point(12, 6);
-            this.dllNgay.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.dllNgay.Location = new System.Drawing.Point(10, 5);
+            this.dllNgay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dllNgay.Name = "dllNgay";
-            this.dllNgay.Size = new System.Drawing.Size(363, 90);
+            this.dllNgay.Size = new System.Drawing.Size(311, 73);
             this.dllNgay.TabIndex = 1066;
             // 
             // txtChiCuc
             // 
-            this.txtChiCuc.Location = new System.Drawing.Point(453, 10);
-            this.txtChiCuc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtChiCuc.Location = new System.Drawing.Point(388, 8);
             this.txtChiCuc.Name = "txtChiCuc";
             this.txtChiCuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -198,7 +200,7 @@
             this.txtChiCuc.Properties.ShowFooter = false;
             this.txtChiCuc.Properties.ValueMember = "MaChiCuc";
             this.txtChiCuc.Properties.View = this.gridView3;
-            this.txtChiCuc.Size = new System.Drawing.Size(313, 22);
+            this.txtChiCuc.Size = new System.Drawing.Size(268, 20);
             this.txtChiCuc.TabIndex = 1065;
             this.txtChiCuc.EditValueChanged += new System.EventHandler(this.txtChiCuc_EditValueChanged);
             // 
@@ -229,10 +231,9 @@
             // 
             this.butOK.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.butOK.Image = ((System.Drawing.Image)(resources.GetObject("butOK.Image")));
-            this.butOK.Location = new System.Drawing.Point(844, 15);
-            this.butOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.butOK.Location = new System.Drawing.Point(723, 12);
             this.butOK.Name = "butOK";
-            this.butOK.Size = new System.Drawing.Size(177, 32);
+            this.butOK.Size = new System.Drawing.Size(152, 26);
             this.butOK.TabIndex = 1055;
             this.butOK.Text = "Lấy số liệu";
             this.butOK.Click += new System.EventHandler(this.butOK_Click);
@@ -240,18 +241,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(388, 45);
+            this.label4.Location = new System.Drawing.Point(333, 37);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 17);
+            this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Đơn Vị";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(381, 13);
+            this.label3.Location = new System.Drawing.Point(327, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 17);
+            this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Chi Cục";
             // 
@@ -279,20 +280,23 @@
             // 
             this.panel1.Controls.Add(this.GC_DSPhieuMail);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 103);
+            this.panel1.Location = new System.Drawing.Point(0, 84);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1328, 625);
+            this.panel1.Size = new System.Drawing.Size(1138, 508);
             this.panel1.TabIndex = 2;
             // 
             // GC_DSPhieuMail
             // 
             this.GC_DSPhieuMail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GC_DSPhieuMail.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GC_DSPhieuMail.Location = new System.Drawing.Point(0, 0);
             this.GC_DSPhieuMail.MainView = this.GV_DSPhieuMail;
+            this.GC_DSPhieuMail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GC_DSPhieuMail.Name = "GC_DSPhieuMail";
             this.GC_DSPhieuMail.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckChon});
-            this.GC_DSPhieuMail.Size = new System.Drawing.Size(1328, 625);
+            this.GC_DSPhieuMail.Size = new System.Drawing.Size(1138, 508);
             this.GC_DSPhieuMail.TabIndex = 0;
             this.GC_DSPhieuMail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_DSPhieuMail});
@@ -308,9 +312,11 @@
             this.col_IDPhieu,
             this.col_TinhTrangMau_Text,
             this.col_Chon,
-            this.col_MaDV});
+            this.col_MaDV,
+            this.col_TinhTrangMau});
             this.GV_DSPhieuMail.GridControl = this.GC_DSPhieuMail;
             this.GV_DSPhieuMail.Name = "GV_DSPhieuMail";
+            this.GV_DSPhieuMail.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.GV_DSPhieuMail_RowCellStyle);
             // 
             // col_MaChiCuc
             // 
@@ -395,19 +401,24 @@
             this.col_MaDV.Caption = "Mã Đơn Vị";
             this.col_MaDV.FieldName = "MaDonVi";
             this.col_MaDV.Name = "col_MaDV";
-            this.col_MaDV.Visible = true;
-            this.col_MaDV.VisibleIndex = 7;
+            // 
+            // col_TinhTrangMau
+            // 
+            this.col_TinhTrangMau.Caption = "ID Tình Trạng Mẫu";
+            this.col_TinhTrangMau.FieldName = "TinhTrangMau";
+            this.col_TinhTrangMau.Name = "col_TinhTrangMau";
             // 
             // FrmGuiMail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1328, 728);
+            this.ClientSize = new System.Drawing.Size(1138, 592);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelControl1);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmGuiMail";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -469,5 +480,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckChon;
         private DevExpress.XtraGrid.Columns.GridColumn col_MaDV;
         private System.Windows.Forms.Label lblDemChon;
+        private DevExpress.XtraGrid.Columns.GridColumn col_TinhTrangMau;
     }
 }

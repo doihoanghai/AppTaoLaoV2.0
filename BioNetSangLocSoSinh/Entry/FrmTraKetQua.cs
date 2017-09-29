@@ -23,7 +23,7 @@ namespace BioNetSangLocSoSinh.Entry
 {
     public partial class FrmTraKetQua : DevExpress.XtraEditors.XtraForm
     {
-        string pathtxt = Application.StartupPath + "\\DSPhieuChuaDongBo\\dsPhieuChuaDongBo.txt";
+        string pathtxt = Application.StartupPath + @"\DSPhieuChuaDongBo\dsPhieuChuaDongBo.txt";
         string path = Application.StartupPath + "\\DSPhieuChuaDongBo\\";
 
         public FrmTraKetQua(string maNvDangNhap)
@@ -1799,20 +1799,20 @@ namespace BioNetSangLocSoSinh.Entry
         private void DSPhieuTraDongBo(string maphieu)
         {
 
-            if (!System.IO.Directory.Exists(path))
+            if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            string pathlock = pathtxt + (".{2231a1f2-21d7-11d4-bdaf-00c04f60b9f0}");
-            unFile(pathlock);
-            //Đường dẫn file txt
 
-            StreamWriter file = new StreamWriter(pathtxt, true);
+          
 
+
+            
 
             try
             {
-                string[] Maphieucu = File.ReadAllLines(pathtxt);
+                string[] Maphieucu = System.IO.File.ReadAllLines(pathtxt);
+                StreamWriter file = new StreamWriter(pathtxt, true);
                 bool test = false;
                 foreach (string maphieucu in Maphieucu)
                 {
@@ -1825,17 +1825,19 @@ namespace BioNetSangLocSoSinh.Entry
                 }
                 if (test == false)
                 {
+                   
                     file.WriteLine(maphieu);
+                   
                 }
                 file.Close();
 
             }
-            catch
+            catch(Exception ex)
             {
 
-                file.Close();
+             
             }
-            lockFile(pathtxt);
+      
 
         }
 

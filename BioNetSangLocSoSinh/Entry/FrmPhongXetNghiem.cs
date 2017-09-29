@@ -52,7 +52,7 @@ namespace BioNetSangLocSoSinh.Entry
         private void LoadFrm()
         {
             this.LoadsearchLookUpChiCuc();
-            //this.LoadSearchLookupDonVi();
+            this.LoadSearchLookupDonVi();
             this.LoadGoiDichVuXetNGhiem();
             //this.searchLookUpDonViCoSo.EditValue = "ALL";
             this.txtTuNgay_ChuaKQ.EditValue = DateTime.Now.Date;
@@ -244,7 +244,7 @@ namespace BioNetSangLocSoSinh.Entry
         {
             this.lstDonVi.Clear();
             this.lstDonVi = BioNet_Bus.GetDanhSachDonVi_Searchlookup();
-            this.searchLookUpDonViCoSo.Properties.DataSource = this.lstDonVi;
+           // this.searchLookUpDonViCoSo.Properties.DataSource = this.lstDonVi;
         }
         private void GVChuaKQ_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {

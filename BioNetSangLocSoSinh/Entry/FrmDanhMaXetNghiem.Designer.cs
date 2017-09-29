@@ -498,7 +498,8 @@
             this.searchLookUpDonViCoSo.Properties.View = this.searchLookUpEdit1View;
             this.searchLookUpDonViCoSo.Size = new System.Drawing.Size(392, 22);
             this.searchLookUpDonViCoSo.TabIndex = 0;
-            this.searchLookUpDonViCoSo.EditValueChanged += new System.EventHandler(this.searchLookUpDonViCoSo_EditValueChanged);
+    
+
             // 
             // searchLookUpEdit1View
             // 

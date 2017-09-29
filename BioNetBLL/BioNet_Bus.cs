@@ -541,6 +541,12 @@ namespace BioNetBLL
             var db = new DataObjects();
             return db.GetTinhTrangPhieuMail(startdate, enddate, maDonVi);
         }
+        public static List<PSTKKQPhieuMail> GetThongKePhieuMail(string[] maphieu)
+        {
+            var db = new DataObjects();
+            return db.GetThongKePhieuMail(maphieu);
+        }
+
         public static List<PSDotChuanDoan> GetDanhSachDotChanDoanCuaBenhNhan(long rowID)
         {
             var db = new DataObjects();
@@ -556,19 +562,19 @@ namespace BioNetBLL
             var db = new DataObjects();
             return db.KiemTraPhieuDaDuyetHayChua(maPhieu, maTiepNhan);
         }
-            public static List<PSBenhNhanNguyCoCao> GetDanhSachBenhNhanNguyCoCao(string madonvi)
+            public static List<PSBenhNhanNguyCoCao> GetDanhSachBenhNhanNguyCoCao(string madonvi,DateTime tungay,DateTime denngay)
         {
             var db = new DataObjects();
             if (madonvi.Equals("all") || string.IsNullOrEmpty(madonvi))
                 madonvi = string.Empty;
-            return db.GetDanhSachBenhNhanNguyCoCao(madonvi, true);
+            return db.GetDanhSachBenhNhanNguyCoCao(madonvi, true,tungay,denngay);
         }
-        public static List<PSBenhNhanNguyCoCao> GetDanhSachBenhNhanNguyCoGia(string madonvi)
+        public static List<PSBenhNhanNguyCoCao> GetDanhSachBenhNhanNguyCoGia(string madonvi, DateTime tungay, DateTime denngay)
         {
             var db = new DataObjects();
             if (madonvi.Equals("all") || string.IsNullOrEmpty(madonvi))
                 madonvi = string.Empty;
-            return db.GetDanhSachBenhNhanNguyCoCao(madonvi, false);
+            return db.GetDanhSachBenhNhanNguyCoCao(madonvi, false,tungay,denngay);
         }
         public static string GetMaXNTrongBangGhi()
         {

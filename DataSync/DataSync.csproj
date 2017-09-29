@@ -91,7 +91,6 @@
     <Compile Include="BioNetSync\DanhMucKyThuatSync.cs" />
     <Compile Include="BioNetSync\DanhMucThongSoSync.cs" />
     <Compile Include="BioNetSync\DotChuanDoanSync.cs" />
-    <Compile Include="BioNetSync\GuiMail.cs" />
     <Compile Include="BioNetSync\KetQuaSync.cs" />
     <Compile Include="BioNetSync\MappingKyThuat_DichVuSync.cs" />
     <Compile Include="BioNetSync\MappingThongso_KyThuatSync.cs" />
@@ -107,6 +106,7 @@
     <Compile Include="FrmStartupSync.Designer.cs">
       <DependentUpon>FrmStartupSync.cs</DependentUpon>
     </Compile>
+    <Compile Include="BioNetSync\GuiMail.cs" />
     <Compile Include="ObjectModel.cs" />
     <Compile Include="ProcessDataSync.cs" />
     <Compile Include="Program.cs" />

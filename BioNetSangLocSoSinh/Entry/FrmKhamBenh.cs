@@ -29,15 +29,14 @@ namespace BioNetSangLocSoSinh.Entry
         private List<PSDanhMucDonViCoSo> lstDVCS = new List<PSDanhMucDonViCoSo>();
         private void Load_Frm()
         {
+            this.txtDenNgay_ChuaKQ.EditValue = DateTime.Now;
+            this.txtTuNgay_ChuaKQ.EditValue = DateTime.Now;
             this.LoadsearchLookUpChiCuc();
             this.LoadRespositoryDonVi();
             //this.LoadSearchLookUpDoViCoSo();
             this.LoadDanhSachCho();
             this.loadDanhSachBNNguyCoGia();
-            this.txtDenNgay_ChuaKQ.EditValue = DateTime.Now;
-            this.txtTuNgay_ChuaKQ.EditValue = DateTime.Now;
-
-
+            
         }
         private void LoadSearchLookUpDoViCoSo()
         {
@@ -84,14 +83,14 @@ namespace BioNetSangLocSoSinh.Entry
         {
             this.lstBenhNhanNguyCoGia.Clear();
             var dv = this.searchLookUpDonViCoSo.EditValue ?? string.Empty;
-            this.lstBenhNhanNguyCoGia = BioNet_Bus.GetDanhSachBenhNhanNguyCoGia(dv.ToString());
+            this.lstBenhNhanNguyCoGia = BioNet_Bus.GetDanhSachBenhNhanNguyCoGia(dv.ToString(),txtTuNgay_ChuaKQ.DateTime,txtDenNgay_ChuaKQ.DateTime);
             this.LoadGCBenhNhanNguyCoGia();
         }
         private void LoadDanhSachCho()
         {
             this.lstBenhNhan.Clear();
             var dv = this.searchLookUpDonViCoSo.EditValue ?? string.Empty;
-            this.lstBenhNhan = BioNet_Bus.GetDanhSachBenhNhanNguyCoCao(dv.ToString());
+            this.lstBenhNhan = BioNet_Bus.GetDanhSachBenhNhanNguyCoCao(dv.ToString(),txtTuNgay_ChuaKQ.DateTime, txtDenNgay_ChuaKQ.DateTime);
             this.LoadGCBenhNhanNguyCoCao();
         }
         private void txtTuNgay_ChuaKQ_EditValueChanged(object sender, EventArgs e)
@@ -130,14 +129,21 @@ namespace BioNetSangLocSoSinh.Entry
             this.treeviewDotKham.Nodes.Clear();
             TreeNode rootNode = new TreeNode("Lịch sử khám bệnh");
             rootNode.ExpandAll();
-            if(this.lstDotChanDoan.Count>0)
-            foreach (var item in this.lstDotChanDoan)
+            if (this.lstDotChanDoan.Count > 0)
             {
-                TreeNode childNode = new TreeNode(item.NgayChanDoan.ToString());
-                childNode.Tag = item.rowIDDotChanDoan;
-                rootNode.Nodes.Add(childNode);
+                foreach (var item in this.lstDotChanDoan)
+                {
+                    TreeNode childNode = new TreeNode(item.NgayChanDoan.ToString());
+                    childNode.Tag = item.rowIDDotChanDoan;
+                    rootNode.Nodes.Add(childNode);
+                }
+                this.treeviewDotKham.Nodes.Add(rootNode);
             }
-            this.treeviewDotKham.Nodes.Add(rootNode);
+            else
+            {
+                MessageBox.Show("Bệnh nhân chưa có chẩn đoán trước đó.", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+            }
+           
         }
         private void HienThiThongTinBenhNhan(string maBenhNhan, string maDonVi, string maKhachHang, string maTiepNhan,string rowID,string maTiepNhan2,bool isBNNguyCo)
         {
@@ -219,6 +225,10 @@ namespace BioNetSangLocSoSinh.Entry
                         string maTiepNhan = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaTiepNhan).ToString();
                         string maTiepNhan2 = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaTiepNhan2)==null? string.Empty: this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaTiepNhan2).ToString();
                         this.HienThiThongTinBenhNhan(maBenhNhan, maDonVi, maKhachHang, maTiepNhan,rowID,maTiepNhan2,true);
+                        this.txtGhiChu.ResetText();
+                        this.txtKetQua.ResetText();
+                        this.txtChanDoan.ResetText();
+
                     }
                 }
             }
@@ -276,6 +286,8 @@ namespace BioNetSangLocSoSinh.Entry
                 dot.ChanDoan = this.txtChanDoan.Text;
                 dot.GhiChu = this.txtGhiChu.Text;
                 dot.KetQua = this.txtKetQua.Text;
+                dot.isDongBo = false;
+                dot.isXoa = false;
                 dot.rowIDDotChanDoan = string.IsNullOrEmpty(this.txtRowIDDotKham.Text) == true ? 0 : long.Parse(this.txtRowIDDotKham.Text);
                 var result = BioNet_Bus.InsertDotChanDoan(dot);
                 if (result.Result)
@@ -284,9 +296,10 @@ namespace BioNetSangLocSoSinh.Entry
                     this.btnLuu.Enabled = false;
                     this.Reset();
                     this.btnMoi.Enabled = true;
-                    this.LoadListTreeView();
-                    this.LoadGCKQChiTiet();this.LoadGCKQChiTietCu();
-                    
+                    this.LoadGCKQChiTiet();
+                    this.LoadGCKQChiTietCu();
+                   // this.LoadListTreeView();
+
                 }
                 else MessageBox.Show("Lưu không thành công! \r\n Lỗi chi tiết : " + result.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }catch(Exception ex)

@@ -116,6 +116,7 @@
     <Compile Include="PsThongTinDonVi.cs" />
     <Compile Include="PsThongTinTrungTam.cs" />
     <Compile Include="PsTinhTrangPhieu.cs" />
+    <Compile Include="PSTKKQPhieuMail.cs" />
     <Compile Include="rptBaoCaoTongHop.cs" />
     <Compile Include="rptChiTietTrungTam.cs" />
     <Compile Include="rptChiTietTrungTam_ChiTiet.cs" />

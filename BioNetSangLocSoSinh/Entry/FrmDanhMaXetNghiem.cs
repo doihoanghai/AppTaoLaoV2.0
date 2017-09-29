@@ -59,7 +59,7 @@ namespace BioNetSangLocSoSinh.Entry
         private void LoadFrm()
         {
             this.LoadsearchLookUpChiCuc();
-            //this.LoadLookupDonVi();
+            this.LoadLookupDonVi();
             this.LoadGoiDichVuXetNGhiem();
             //this.searchLookUpDonViCoSo.EditValue = "ALL";
             this.txtTuNgay_ChuaKQ.EditValue = DateTime.Now;
@@ -71,8 +71,8 @@ namespace BioNetSangLocSoSinh.Entry
         {
             this.lstDonVi.Clear();
             this.lstDonVi = BioNet_Bus.GetDanhSachDonVi_Searchlookup();
-            this.searchLookUpDonViCoSo.Properties.DataSource = null;
-            this.searchLookUpDonViCoSo.Properties.DataSource = this.lstDonVi;
+            //this.searchLookUpDonViCoSo.Properties.DataSource = null;
+            //this.searchLookUpDonViCoSo.Properties.DataSource = this.lstDonVi;
         }
         private void LoadGCDanhSachDaDanhMa()
         {
@@ -450,12 +450,12 @@ namespace BioNetSangLocSoSinh.Entry
             }
             catch { }
         }
-        private void searchLookUpDonViCoSo_EditValueChanged(object sender, EventArgs e)
-        {
+        //private void searchLookUpDonViCoSo_EditValueChanged(object sender, EventArgs e)
+        //{
 
-            if (this.txtDenNgay_ChuaKQ.EditValue != null && this.txtTuNgay_ChuaKQ.EditValue != null)
-                    this.LoadListDSCho();                               
-        }
+        //    if (this.txtDenNgay_ChuaKQ.EditValue != null && this.txtTuNgay_ChuaKQ.EditValue != null)
+        //            this.LoadListDSCho();                               
+        //}
         private void txtTuNgay_ChuaKQ_EditValueChanged(object sender, EventArgs e)
         {
             if (this.txtDenNgay_ChuaKQ.EditValue != null)

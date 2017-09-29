@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="xrLabel30.Text" xml:space="preserve">
-    <value>Xét nghiệm sàng lọc sơ sinh chỉ đánh giá nguy co mắc bệnh của trẻ, đây không phải là xét nghiệm chẩn đoán, do đó kết quả sàng lọc nguy cơ thấp KHÔNg loại trừ khả năng trẻ có thể mắc bệnh và kết quả sàng lọc nguy cơ cao thì trẻ cần tiếp tục được xét nghiệm chẩn đoán !</value>
+    <value>Xét nghiệm sàng lọc sơ sinh chỉ đánh giá nguy cơ mắc bệnh của trẻ, đây không phải là xét nghiệm chẩn đoán, do đó kết quả sàng lọc nguy cơ thấp KHÔNG loại trừ khả năng trẻ có thể mắc bệnh và kết quả sàng lọc nguy cơ cao thì trẻ cần tiếp tục được xét nghiệm chẩn đoán !</value>
   </data>
   <metadata name="objectDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>

@@ -638,8 +638,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
    
         private int  NenFileDongBo()
         {
-            string pathlock = pathtxt + (".{2231a1f2-21d7-11d4-bdaf-00c04f60b9f0}");
-            this.unFile(pathlock);
+           
             IEnumerable<string> linkthumucdvcs = Directory.EnumerateDirectories(pathkq);
             List<string> filedvcs = new List<string>(linkthumucdvcs);
             string[] Phieuchuadb;
@@ -698,7 +697,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                         File.Delete(pathtxt);
                         //Tạo lại file txt trắng
                         StreamWriter file = new StreamWriter(pathtxt, true);
-                        this.lockFile(pathtxt);
+                        //this.lockFile(pathtxt);
                         DirectoryInfo dirInfo = new DirectoryInfo(pathdongbo);
                         FileInfo[] childFiles = dirInfo.GetFiles();
                         foreach (FileInfo childFile in childFiles)
@@ -729,26 +728,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
         {
             
         }
-        private string lockFile(String pathtxt)
-        {
-
-            DirectoryInfo dInfo = new DirectoryInfo(pathtxt);
-            string filePath = dInfo.FullName;
-            string fileName = filePath.ToString() + ".{2231a1f2-21d7-11d4-bdaf-00c04f60b9f0}";
-            Directory.Move(filePath.ToString(), fileName.ToString());
-
-            return fileName;
-
-
-        }
-        private void unFile(String pathlock)
-        {
-            DirectoryInfo dInfo = new DirectoryInfo(pathlock);
-            string filePath = dInfo.FullName;
-            string fileName = filePath.ToString().Replace(".{2231a1f2-21d7-11d4-bdaf-00c04f60b9f0}", "");
-            Directory.Move(filePath.ToString(), fileName.ToString());
-
-        }
+     
 
     }
 }

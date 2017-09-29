@@ -103,12 +103,12 @@ namespace BioNetSangLocSoSinh.Entry
             this.lstTiepNhan.Clear();
             //this.LoadDanhSachChuongTrinhSangLoc();
             this.LoadRepositoryLookupDonViCoSo();
-            //this.LoadSearchLookUpDoViCoSo();
+            this.LoadSearchLookUpDoViCoSo();
             this.LoadsearchLookUpChiCuc();
             this.LoadGoiDichVuXetNGhiem();
             this.LoadDanhSachDichVu();
             //this.LoadLookupDanToc();
-            //this.LoadLookupDonViCoSo();
+            this.LoadLookupDonViCoSo();
             this.LoadListDanhGiaSoBo();
             //this.searchLookUpDonViCoSo.EditValue = "ALL";
             this.txtTuNgay_DsCho.EditValue = DateTime.Now;
@@ -209,12 +209,12 @@ namespace BioNetSangLocSoSinh.Entry
             this.txtMaBenhNhan.ResetText();
             this.txtCanNang.ResetText();
             this.txtGioiTinh.ResetText();
-            this.txtGioSinhBenhNhan.ResetText();
-            this.txtNamSinhBenhNhan.ResetText();
+            this.txtNamSinhBenhNhan.ResetText(); ;
+            this.txtGioSinhBenhNhan.ResetText(); ;           
             this.txtNamSinhCha.ResetText();
             this.txtNamSinhMe.ResetText();
             this.txtNgayTruyenMau.ResetText();
-           // this.txtNoiSinh.ResetText();
+           this.txtNoiSinh.ResetText();
             this.txtSDTCha.ResetText();
             this.txtSDTMe.ResetText();
             this.txtSoLuongTruyenMau.ResetText();
@@ -230,15 +230,15 @@ namespace BioNetSangLocSoSinh.Entry
             this.lookUpDanToc.ResetText();
             this.lookupChuongTrinh.ResetText();
             this.txtGioSinhBenhNhan.ResetText();
-            this.txtGioLayMau.ResetText();
+           this.txtGioLayMau.ResetText();
            this.txtDiaChiDonVi.ResetText();
-          //  this.txtNguoiLayMau.ResetText();
-            this.txtNoiLayMau.ResetText();
-         //   this.txtSDTNguoiLayMau.ResetText();
-          //  this.txtNgayLayMau.ResetText();
-            this.txtGioSinhBenhNhan.ResetText();
-           // this.txtGioLayMau.ResetText();
-          //  this.cboPhuongPhapSinh.ResetText();
+          this.txtNguoiLayMau.ResetText();
+           // this.txtNoiLayMau.ResetText();
+            //   this.txtSDTNguoiLayMau.ResetText();
+           this.txtNgayLayMau.ResetText();
+            // this.txtGioSinhBenhNhan.ResetText();
+            this.txtGioLayMau.ResetText(); ;
+            //  this.cboPhuongPhapSinh.ResetText();
             this.checkedListBoxXN.Enabled = false;
             this.LoadListDanhGiaSoBo();
             this.txtLuuY.ResetText();
@@ -969,7 +969,10 @@ namespace BioNetSangLocSoSinh.Entry
                 phieu.ngayNhanMau = this.txtNgayNhanMau.DateTime;
                 phieu.maPhieu = this.barCodePhieu.Text;
                // if (!string.IsNullOrEmpty(this.txtNgayTruyenMau.EditValue.ToString()))
-                phieu.ngayTruyenMau = string.IsNullOrEmpty(this.txtNgayTruyenMau.EditValue.ToString()) == true ? DateTime.Now : (DateTime)this.txtNgayTruyenMau.EditValue;
+               if(radioGroupTinhTrangTre.EditValue.ToString()=="4")
+                {
+                    phieu.ngayTruyenMau = string.IsNullOrEmpty(this.txtNgayTruyenMau.EditValue.ToString()) == true ? DateTime.Now : (DateTime)this.txtNgayTruyenMau.EditValue;
+                }
                 phieu.SoDTNhanVienLayMau = this.txtSDTNguoiLayMau.Text;
                 if (!string.IsNullOrEmpty(this.txtSoLuongTruyenMau.Text))
                     phieu.soLuongTruyenMau = short.Parse(this.txtSoLuongTruyenMau.Text);
@@ -1028,8 +1031,8 @@ namespace BioNetSangLocSoSinh.Entry
                 DotchiDinh.MaTiepNhan = this.txtMaTiepNhan.Text.Trim();
                 DotchiDinh.MaPhieu = this.txtMaPhieu.Text.Trim();
                 DotchiDinh.MaPhieuLan1 = this.txtMaPhieuLan1.Text.Trim();
-                DotchiDinh.NgayChiDinhHienTai = DateTime.Now.Date;
-                DotchiDinh.NgayChiDinhLamViec = DateTime.Now.Date;
+                DotchiDinh.NgayChiDinhHienTai = DateTime.Now;
+                DotchiDinh.NgayChiDinhLamViec = DateTime.Now;
                 DotchiDinh.NgayTiepNhan = this.ngayTiepNhan;
                 DotchiDinh.SoLuong = 1;
                // DotchiDinh.TrangThaiChiDinh = 1;
@@ -1412,7 +1415,7 @@ namespace BioNetSangLocSoSinh.Entry
         private void KiemTraNhapNgaySinh()
         {
             DateTime ngayhientai = BioNet_Bus.GetDateTime();
-            if ((DateTime)txtNamSinhBenhNhan.EditValue == ngayhientai.Date)
+          if ((DateTime)txtNamSinhBenhNhan.EditValue == ngayhientai.Date)
             {
                 this.txtNamSinhBenhNhan.EditValue = this.txtNgayLayMau.EditValue;
             }
@@ -1942,7 +1945,7 @@ namespace BioNetSangLocSoSinh.Entry
 
         private void btnRefesh_Click(object sender, EventArgs e)
         {
-            this.LoadLookupDonViCoSo();
+
             this.LoadDanhSachChuongTrinhSangLoc();
             this.LoadLookupDanToc();
             this.LoadListDanhGiaSoBo();              
@@ -2586,7 +2589,8 @@ namespace BioNetSangLocSoSinh.Entry
 
                             }
                             catch { };
-                            this.ngayTiepNhan = _ngayTiepNhan;
+               
+                            this.ngayTiepNhan = _ngayTiepNhan;                            
                             this.txtNgayNhanMau.EditValue = _ngayTiepNhan;
                             this.HienThiThongTinPhieu(maPhieu, maDonVi, maTiepNhan, true);
                             this.btnDuyet.Enabled = true;

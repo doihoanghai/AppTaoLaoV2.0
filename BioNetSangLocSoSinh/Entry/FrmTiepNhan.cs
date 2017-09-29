@@ -43,11 +43,11 @@ namespace BioNetSangLocSoSinh.Entry
             //this.lstDVCS.Clear();
             //this.lstPhieu.Clear();
             //this.lstPhieuTaiDVCS.Clear();
-            //this.LoadLookupDonViCoSo();
+            this.LoadLookupDonViCoSo();
             //this.searchLookUpDonViCoSo.EditValue = "ALL";
           
             this.LoadsearchLookUpChiCucPhieu();
-            //this.LoadRepositoryLookupDonViCoSo();
+            this.LoadRepositoryLookupDonViCoSo();
             //this.LoadSearchLookUpDonViCoSoTiepNhan();
             //this.LoadSearchLookupDonViCoSo();
             this.LoadsearchLookUpChiCuc();
@@ -350,6 +350,7 @@ namespace BioNetSangLocSoSinh.Entry
         private void HienThiThongTinPhieu(string maPhieu, string maDonvi)
         {
             PsPhieu phieu = BioNet_Bus.GetThongTinPhieu(maPhieu, maDonvi);
+            this.lookupDonVi.EditValue = maDonvi;
             this.LoadGoiXetNghiem(maDonvi);
             this.LoadNew();
             if (phieu != null)
@@ -371,7 +372,7 @@ namespace BioNetSangLocSoSinh.Entry
                             this.txtCanNang.Text = phieu.BenhNhan.CanNang.ToString();
                             //this.txtGioiTinh.EditValue = phieu.BenhNhan.GioiTinh??2;
                             this.txtGioiTinh.SelectedIndex = phieu.BenhNhan.GioiTinh ?? 2;
-
+                         
                             this.cboPhuongPhapSinh.SelectedIndex = Convert.ToInt16(phieu.BenhNhan.PhuongPhapSinh);
                             this.lookUpDanToc.EditValue = phieu.BenhNhan.DanTocID;
                             this.txtNoiSinh.Text = phieu.BenhNhan.NoiSinh;
