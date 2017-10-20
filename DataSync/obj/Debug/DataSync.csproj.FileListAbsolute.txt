@@ -524,8 +524,6 @@ C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangL
 C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
 C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\DataSync\obj\Debug\DataSync.exe.licenses
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DataSync.exe.config
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSync.exe
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSync.pdb
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DataSync.exe
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DataSync.pdb
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\BioNetDAL.dll
@@ -617,3 +615,7 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSyn
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSync.Properties.Resources.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSync.csproj.GenerateResource.Cache
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSync.exe.licenses
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSync.exe
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSync.pdb
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\BioNetBLL.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\BioNetBLL.pdb

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStartup));
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -80,6 +82,7 @@
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem38 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
@@ -89,9 +92,10 @@
             this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
             this.btnMail = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem40 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -103,6 +107,7 @@
             this.xTabMain = new DevExpress.XtraTab.XtraTabControl();
             this.Start = new DevExpress.XtraTab.XtraTabPage();
             this.picBackgroun = new System.Windows.Forms.PictureBox();
+            this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xTabMain)).BeginInit();
             this.xTabMain.SuspendLayout();
@@ -112,6 +117,7 @@
             // 
             // ribbon
             // 
+            this.ribbon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -174,12 +180,15 @@
             this.barButtonItem33,
             this.barButtonItem34,
             this.btnMail,
-            this.barButtonItem35,
             this.barSubItem6,
             this.barButtonItem36,
-            this.barButtonItem37});
+            this.barButtonItem37,
+            this.barButtonItem38,
+            this.barButtonItem39,
+            this.barButtonItem40,
+            this.barSubItem7});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 54;
+            this.ribbon.MaxItemId = 58;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -656,7 +665,8 @@
             this.barSubItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSubItem1.LargeGlyph")));
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem33),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem34)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem34),
+            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.Caption | DevExpress.XtraBars.BarLinkUserDefines.PaintStyle))), this.barButtonItem38, "Thông kế TT Phiếu", false, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barSubItem1.Name = "barSubItem1";
             // 
             // barButtonItem33
@@ -676,6 +686,13 @@
             this.barButtonItem34.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem34.LargeGlyph")));
             this.barButtonItem34.Name = "barButtonItem34";
             this.barButtonItem34.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem34_ItemClick);
+            // 
+            // barButtonItem38
+            // 
+            this.barButtonItem38.Caption = "Thông kế TT Phiếu";
+            this.barButtonItem38.Id = 54;
+            this.barButtonItem38.Name = "barButtonItem38";
+            this.barButtonItem38.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem38_ItemClick);
             // 
             // barSubItem5
             // 
@@ -750,32 +767,48 @@
             this.btnMail.Name = "btnMail";
             this.btnMail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMail_ItemClick);
             // 
-            // barButtonItem35
-            // 
-            this.barButtonItem35.Caption = "Đồng Bộ";
-            this.barButtonItem35.Glyph = global::BioNetSangLocSoSinh.Properties.Resources.sync;
-            this.barButtonItem35.Id = 50;
-            this.barButtonItem35.Name = "barButtonItem35";
-            this.barButtonItem35.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem35_ItemClick);
-            // 
             // barSubItem6
             // 
             this.barSubItem6.Caption = "Đồng Bộ";
+            this.barSubItem6.Glyph = global::BioNetSangLocSoSinh.Properties.Resources.sync;
             this.barSubItem6.Id = 51;
             this.barSubItem6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.Caption | DevExpress.XtraBars.BarLinkUserDefines.PaintStyle))), this.barButtonItem39, "Đồng Bộ TT Trung Tâm", false, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem36),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem40),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem37)});
             this.barSubItem6.Name = "barSubItem6";
+            toolTipTitleItem1.Appearance.Image = global::BioNetSangLocSoSinh.Properties.Resources.sync;
+            toolTipTitleItem1.Appearance.Options.UseImage = true;
+            toolTipTitleItem1.Image = global::BioNetSangLocSoSinh.Properties.Resources.sync;
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            this.barSubItem6.SuperTip = superToolTip1;
+            // 
+            // barButtonItem39
+            // 
+            this.barButtonItem39.Caption = "Đồng Bộ TT Trung Tâm";
+            this.barButtonItem39.Id = 55;
+            this.barButtonItem39.LargeGlyph = global::BioNetSangLocSoSinh.Properties.Resources.sync;
+            this.barButtonItem39.Name = "barButtonItem39";
+            this.barButtonItem39.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem39_ItemClick);
             // 
             // barButtonItem36
             // 
-            this.barButtonItem36.Caption = "Đồng Bộ Toàn Bộ Dữ Liệu";
+            this.barButtonItem36.Caption = "Đồng Bộ Danh Mục ";
             this.barButtonItem36.Id = 52;
             this.barButtonItem36.Name = "barButtonItem36";
+            this.barButtonItem36.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem36_ItemClick);
+            // 
+            // barButtonItem40
+            // 
+            this.barButtonItem40.Caption = "Đồng Bộ Dữ Liệu Tiếp Nhận";
+            this.barButtonItem40.Id = 56;
+            this.barButtonItem40.Name = "barButtonItem40";
+            this.barButtonItem40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem40_ItemClick);
             // 
             // barButtonItem37
             // 
-            this.barButtonItem37.Caption = "Đồng Bộ Phiếu Trả Kết Quả";
+            this.barButtonItem37.Caption = "Đồng Bộ Dữ Liệu Kết Quả";
             this.barButtonItem37.Id = 53;
             this.barButtonItem37.Name = "barButtonItem37";
             this.barButtonItem37.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem37_ItemClick);
@@ -815,10 +848,9 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.btnDanhMuc, true);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnMail, true);
             this.ribbonPageGroup3.ItemLinks.Add(this.barSubItem2);
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem35);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barSubItem6);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnLogout, true);
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem11);
-            this.ribbonPageGroup3.ItemLinks.Add(this.barSubItem6);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Quản trị và Tiện ích";
             this.ribbonPageGroup3.Visible = false;
@@ -884,6 +916,12 @@
             this.picBackgroun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBackgroun.TabIndex = 0;
             this.picBackgroun.TabStop = false;
+            // 
+            // barSubItem7
+            // 
+            this.barSubItem7.Caption = "Đồn";
+            this.barSubItem7.Id = 57;
+            this.barSubItem7.Name = "barSubItem7";
             // 
             // FrmStartup
             // 
@@ -983,9 +1021,12 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem31;
         private DevExpress.XtraBars.BarButtonItem barButtonItem32;
         private DevExpress.XtraBars.BarButtonItem btnMail;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem35;
         private DevExpress.XtraBars.BarSubItem barSubItem6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem36;
         private DevExpress.XtraBars.BarButtonItem barButtonItem37;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem38;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem39;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem40;
+        private DevExpress.XtraBars.BarSubItem barSubItem7;
     }
 }

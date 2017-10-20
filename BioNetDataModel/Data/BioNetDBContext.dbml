@@ -15,6 +15,12 @@
       <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.PSAccount_Sync" Member="PSAccount_Syncs">
+    <Type Name="PSAccount_Sync">
+      <Column Name="userName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="passWord" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.PSBenhNhanNguyCoCao" Member="PSBenhNhanNguyCoCaos">
     <Type Name="PSBenhNhanNguyCoCao">
       <Column Name="rowIDBenhNhanCanTheoDoi" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -37,10 +43,22 @@
       <Association Name="PSBenhNhanNguyCoCao_PSDotChuanDoan" Member="PSDotChuanDoans" ThisKey="rowIDBenhNhanCanTheoDoi" OtherKey="RowIDBNCanTheoDoi" Type="PSDotChuanDoan" />
     </Type>
   </Table>
-  <Table Name="dbo.PSAccount_Sync" Member="PSAccount_Syncs">
-    <Type Name="PSAccount_Sync">
-      <Column Name="userName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="passWord" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+  <Table Name="dbo.PSChiDinhDichVuChiTiet" Member="PSChiDinhDichVuChiTiets">
+    <Type Name="PSChiDinhDichVuChiTiet">
+      <Column Name="RowIDDichVuChiTiet" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaChiDinh" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="MaPhieu" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="MaDonVi" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="MaGoiDichVu" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="MaDichVu" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="GiaTien" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="isXetNghiemLan2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="isDongBo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="isXoa" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IDNhanVienXoa" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="NgayGioXoa" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="PSChiDinhDichVu_PSChiDinhDichVuChiTiet" Member="PSChiDinhDichVu" ThisKey="MaChiDinh" OtherKey="MaChiDinh" Type="PSChiDinhDichVu" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PSChiDinhDichVu" Member="PSChiDinhDichVus">
@@ -71,22 +89,16 @@
       <Association Name="PSChiDinhDichVu_PSXN_KetQua" Member="PSXN_KetQuas" ThisKey="MaChiDinh" OtherKey="MaChiDinh" Type="PSXN_KetQua" />
     </Type>
   </Table>
-  <Table Name="dbo.PSChiDinhDichVuChiTiet" Member="PSChiDinhDichVuChiTiets">
-    <Type Name="PSChiDinhDichVuChiTiet">
-      <Column Name="RowIDDichVuChiTiet" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MaChiDinh" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
-      <Column Name="MaPhieu" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="MaDonVi" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="MaGoiDichVu" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="MaDichVu" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="GiaTien" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="SoLuong" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="isXetNghiemLan2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+  <Table Name="dbo.PSChiTietDanhGiaChatLuong" Member="PSChiTietDanhGiaChatLuongs">
+    <Type Name="PSChiTietDanhGiaChatLuong">
+      <Column Name="IDMapsLyDoKhongDat" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDPhieu" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="IDDanhGiaChatLuongMau" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="MaTiepNhan" Type="System.String" DbType="NVarChar(38)" CanBeNull="true" />
+      <Column Name="TenLyDo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="isDongBo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="isXoa" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="IDNhanVienXoa" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="NgayGioXoa" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="PSChiDinhDichVu_PSChiDinhDichVuChiTiet" Member="PSChiDinhDichVu" ThisKey="MaChiDinh" OtherKey="MaChiDinh" Type="PSChiDinhDichVu" IsForeignKey="true" />
+      <Column Name="Stt" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.PSChiDinhTrenPhieu" Member="PSChiDinhTrenPhieus">
@@ -97,29 +109,11 @@
       <Column Name="MaDonVi" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.PSChiTietDanhGiaChatLuong" Member="PSChiTietDanhGiaChatLuongs">
-    <Type Name="PSChiTietDanhGiaChatLuong">
-      <Column Name="IDMapsLyDoKhongDat" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IDPhieu" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="IDDanhGiaChatLuongMau" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
-      <Column Name="MaTiepNhan" Type="System.String" DbType="NVarChar(38)" CanBeNull="true" />
-      <Column Name="TenLyDo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="isDongBo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="isXoa" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.PSChiTietGoiDichVuChung" Member="PSChiTietGoiDichVuChungs">
     <Type Name="PSChiTietGoiDichVuChung">
       <Column Name="RowIDChiTietGoiDichVuChung" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="IDGoiDichVuChung" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="IDDichVu" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PSDanhMucChauLuc" Member="PSDanhMucChauLucs">
-    <Type Name="PSDanhMucChauLuc">
-      <Column Name="IDChauLuc" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenChauLuc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Stt" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.PSDanhMucChiCuc" Member="PSDanhMucChiCucs">
@@ -138,6 +132,13 @@
       <Column Name="isXoa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.PSDanhMucChauLuc" Member="PSDanhMucChauLucs">
+    <Type Name="PSDanhMucChauLuc">
+      <Column Name="IDChauLuc" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenChauLuc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Stt" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.PSDanhMucChuongTrinh" Member="PSDanhMucChuongTrinhs">
     <Type Name="PSDanhMucChuongTrinh">
       <Column Name="RowIDChuongTrinh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
@@ -146,14 +147,6 @@
       <Column Name="Ngaytao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="NgayHetHieuLuc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="isLocked" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PSDanhMucDanhGiaChatLuongMau" Member="PSDanhMucDanhGiaChatLuongMaus">
-    <Type Name="PSDanhMucDanhGiaChatLuongMau">
-      <Column Name="RowIDChatLuongMau" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ChatLuongMau" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="isLocked" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="IDDanhGiaChatLuongMau" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.PSDanhMucDanToc" Member="PSDanhMucDanTocs">
@@ -176,6 +169,14 @@
       <Column Name="TenHienThiDichVu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.PSDanhMucDanhGiaChatLuongMau" Member="PSDanhMucDanhGiaChatLuongMaus">
+    <Type Name="PSDanhMucDanhGiaChatLuongMau">
+      <Column Name="RowIDChatLuongMau" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChatLuongMau" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="isLocked" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IDDanhGiaChatLuongMau" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.PSDanhMucDichVuTheoDonVi" Member="PSDanhMucDichVuTheoDonVis">
     <Type Name="PSDanhMucDichVuTheoDonVi">
       <Column Name="RowIDDichVuTheoDonVi" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -187,6 +188,36 @@
       <Column Name="MaNhom" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="isLocked" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="ChietKhau" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PSDanhMucGhiChu" Member="PSDanhMucGhiChus">
+    <Type Name="PSDanhMucGhiChu">
+      <Column Name="MaGhiChu" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LoaiGhiChu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ThongTinHienThiGhiChu" Type="System.String" DbType="NVarChar(550)" CanBeNull="true" />
+      <Column Name="isNoiDungDatTruoc" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PSDanhMucGoiDichVuTheoDonVi" Member="PSDanhMucGoiDichVuTheoDonVis">
+    <Type Name="PSDanhMucGoiDichVuTheoDonVi">
+      <Column Name="RowIDGoiDichVuTrungTam" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenGoiDichVuChung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DonGia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ChietKhau" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaDVCS" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="IDGoiDichVuChung" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="isDongBo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="isXoa" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PSDanhMucGoiDichVuChung" Member="PSDanhMucGoiDichVuChungs">
+    <Type Name="PSDanhMucGoiDichVuChung">
+      <Column Name="RowIDGoiDichVuChung" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDGoiDichVuChung" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="TenGoiDichVuChung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChietKhau" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DonGia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Stt" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.PSDanhMucDonViCoSo" Member="PSDanhMucDonViCoSos">
@@ -205,35 +236,6 @@
       <Column Name="isDongBo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="TenBacSiDaiDien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PSDanhMucGhiChu" Member="PSDanhMucGhiChus">
-    <Type Name="PSDanhMucGhiChu">
-      <Column Name="MaGhiChu" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="LoaiGhiChu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="ThongTinHienThiGhiChu" Type="System.String" DbType="NVarChar(550)" CanBeNull="true" />
-      <Column Name="isNoiDungDatTruoc" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PSDanhMucGoiDichVuChung" Member="PSDanhMucGoiDichVuChungs">
-    <Type Name="PSDanhMucGoiDichVuChung">
-      <Column Name="RowIDGoiDichVuChung" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IDGoiDichVuChung" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="TenGoiDichVuChung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ChietKhau" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DonGia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PSDanhMucGoiDichVuTheoDonVi" Member="PSDanhMucGoiDichVuTheoDonVis">
-    <Type Name="PSDanhMucGoiDichVuTheoDonVi">
-      <Column Name="RowIDGoiDichVuTrungTam" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenGoiDichVuChung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DonGia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="ChietKhau" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="MaDVCS" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="IDGoiDichVuChung" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="isDongBo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="isXoa" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.PSDanhMucKyThuatXN" Member="PSDanhMucKyThuatXNs">
@@ -357,19 +359,19 @@
       <Column Name="isDongBo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.PSMapsXN_DichVu" Member="PSMapsXN_DichVus">
-    <Type Name="PSMapsXN_DichVu">
-      <Column Name="RowIDDichVuMaps" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IDDichVu" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="IDKyThuatXN" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.PSMapsXN_ThongSo" Member="PSMapsXN_ThongSos">
     <Type Name="PSMapsXN_ThongSo">
       <Column Name="RowIDMaps" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="IDKyThuatXN" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="IDThongSo" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="TenKyThuat" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PSMapsXN_DichVu" Member="PSMapsXN_DichVus">
+    <Type Name="PSMapsXN_DichVu">
+      <Column Name="RowIDDichVuMaps" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDDichVu" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="IDKyThuatXN" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.PSMenuSecurity" Member="PSMenuSecurities">
@@ -1101,6 +1103,33 @@
       <Column Name="Email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="TenChiCuc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="TrangThaiMau_Text" Type="System.String" DbType="NVarChar(38) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.pro_Report_ThongKeSLPhieu" Method="pro_Report_ThongKeSLPhieu">
+    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="MaChiCuc" Parameter="maChiCuc" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="MaTT" Parameter="maTT" Type="System.String" DbType="NVarChar(15)" />
+    <ElementType Name="pro_Report_ThongKeSLPhieuResult">
+      <Column Name="thang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SLphieu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.pro_Report_TTCoBanPhieu" Method="pro_Report_TTCoBanPhieu">
+    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="MaChiCuc" Parameter="maChiCuc" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="MaTT" Parameter="maTT" Type="System.String" DbType="NVarChar(15)" />
+    <ElementType Name="pro_Report_TTCoBanPhieuResult">
+      <Column Name="TongSoPhieu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhieuThuMoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhieuThuLai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GTKhac" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PPSinhThuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PPSinhMo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PPSinhKhac" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MauDat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MauKoDat" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

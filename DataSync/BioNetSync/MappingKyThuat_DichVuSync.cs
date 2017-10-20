@@ -9,7 +9,7 @@ using System.Web.Script.Serialization;
 namespace DataSync.BioNetSync
 {
    
-    class MappingThongso_KyThuatSync
+    public class MappingThongso_KyThuatSync
     {
         private static BioNetDBContextDataContext db = null;
         private static string linkGetDanhMucThongSo = "/api/mapsdichvukythuat/getall";

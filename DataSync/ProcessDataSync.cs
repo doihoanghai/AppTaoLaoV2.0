@@ -17,6 +17,7 @@ using System.Security.Cryptography;
 using DataSync;
 using System.Data;
 using System.Reflection;
+using BioNetBLL;
 
 
 
@@ -24,7 +25,8 @@ namespace DataSync
 {
    public  class ProcessDataSync
     {
-        private static string linkhost = "http://192.168.88.169/";
+        //private static string linkhost = "http://localhost:53112/";
+        private static string linkhost = "http://118.70.117.242:6788/";
         private static string linkGetToken = "/oauth/token";
         private static string linkThongTinTrungTam = "api/trungtamsangloc/getall";
         
@@ -34,10 +36,10 @@ namespace DataSync
         private static string linkGetDanhMucKyThuat = "api/dmkythuatxn/getall?keyword=&page=0&pagesize=20"; 
         private static string linkGetDanhMucDanToc= "/api/dantoc/getallDanToc"; 
         private static string linkGetDanhMucGoiDVChung = "/api/goidichvuchung/getallGoiDichVuTT";
-        private static string linkGetDanhMucThongSo = "http://localhost:55570/api/thongsoxetnghiem/getall";
-        private static string linkGetDanhMucMap_ThongSo_KyThuat = "http://localhost:55570/api/chuongtrinh/getallChuongTrinh"; // Thiếu
-        private static string linkGetDanhMucMap_KyThuat_DichVu = "http://localhost:55570/api/chuongtrinh/getallChuongTrinh";// Thiếu
-        private static string linkGetPhieuSangLoc = "http://localhost:55570/api/phieusangloc";
+        private static string linkGetDanhMucThongSo = "http://localhost:53112/api/thongsoxetnghiem/getall";
+        private static string linkGetDanhMucMap_ThongSo_KyThuat = "http://localhost:53112/api/chuongtrinh/getallChuongTrinh"; // Thiếu
+        private static string linkGetDanhMucMap_KyThuat_DichVu = "http://localhost:53112/api/chuongtrinh/getallChuongTrinh";// Thiếu
+        private static string linkGetPhieuSangLoc = "http://localhost:53112/api/phieusangloc";
 
         
         
@@ -93,25 +95,26 @@ namespace DataSync
         {
             try
             {
-                string connectionstring;
+                    string connectionstring;
                 //string pathFileName = (Application.StartupPath).Remove((Application.StartupPath).Length - 10);
                 //ServerInfo server = this.LoadFileXml(pathFileName + "\\xml\\configiHIS.xml");
+               
                 string pathFileName = (Application.StartupPath) + "\\xml\\configiBionet.xml";
                 ServerInfo server = LoadFileXml(pathFileName);
                 if (server != null && server.Encrypt == "true")
                 {
                     serverInfo.Encrypt = server.Encrypt;
-                    serverInfo.ServerName = DecryptString(server.ServerName, true);
-                    serverInfo.Database = DecryptString(server.Database, true);
-                   serverInfo.UserName = DecryptString(server.UserName, true);
-                   serverInfo.Password =DecryptString(server.Password, true);
+                    serverInfo.ServerName = server.ServerName;
+                    serverInfo.Database = server.Database;
+                   serverInfo.UserName =server.UserName;
+                   serverInfo.Password =server.Password;
                 }
                 else if (server != null && server.Encrypt == "false")
                 {
                    serverInfo.Encrypt = "false";
                    serverInfo.ServerName = "powersoft.vn";
                    serverInfo.Database = "Bio";
-                  serverInfo.UserName = "ps";
+                    serverInfo.UserName = "ps";
                    serverInfo.Password = "*******";
                 }
                 connectionstring = "Data Source=" +serverInfo.ServerName + ";Initial Catalog=" + serverInfo.Database + ";User Id=" + serverInfo.UserName + ";Password=" + serverInfo.Password + ";";
@@ -124,6 +127,9 @@ namespace DataSync
             }
         }
         public  BioNetDBContextDataContext db = null;
+
+        public static object BioNetBLL { get; private set; }
+
         public ObjectModel.ResultReponse GetRespone(string link, string token)
         {
             using (var wb = new WebClient())
@@ -286,6 +292,10 @@ namespace DataSync
                 {
                     res.Result = true;
                 }
+                else if (httpResponse.StatusCode == HttpStatusCode.Created)
+                {
+                    res.Result = true;
+                }
                 else
                 {
                     res.ErorrResult = httpResponse.StatusDescription;
@@ -301,7 +311,9 @@ namespace DataSync
 
             }
       
+
     }
+
 
 }
    

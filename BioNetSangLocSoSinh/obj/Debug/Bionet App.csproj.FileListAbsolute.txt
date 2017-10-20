@@ -2618,8 +2618,6 @@ C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangL
 C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\BioNetSangLocSoSinh\obj\Debug\Bionet App.csproj.GenerateResource.Cache
 C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.exe.licenses
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\BioNetSangLocSoSinh.exe.config
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.exe
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.pdb
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\BioNetSangLocSoSinh.exe
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\BioNetSangLocSoSinh.pdb
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\BioNetBLL.dll
@@ -2632,10 +2630,12 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\De
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Data.v15.2.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.DataAccess.v15.2.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.DataAccess.v15.2.UI.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.ExpressApp.v15.2.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Map.v15.2.Core.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Office.v15.2.Core.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Pdf.v15.2.Core.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Pdf.v15.2.Drawing.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Persistent.Base.v15.2.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.PivotGrid.v15.2.Core.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Printing.v15.2.Core.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll
@@ -2662,6 +2662,8 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\De
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraRichEdit.v15.2.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraRichEdit.v15.2.Extensions.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraScheduler.v15.2.Core.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraScheduler.v15.2.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DLLLicensePS.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\UserControlDate.dll
@@ -2677,10 +2679,12 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\De
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Data.v15.2.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.DataAccess.v15.2.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.DataAccess.v15.2.UI.xml
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.ExpressApp.v15.2.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Map.v15.2.Core.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Office.v15.2.Core.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Pdf.v15.2.Core.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Pdf.v15.2.Drawing.xml
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Persistent.Base.v15.2.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.PivotGrid.v15.2.Core.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Printing.v15.2.Core.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.RichEdit.v15.2.Core.xml
@@ -2707,6 +2711,8 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\De
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraRichEdit.v15.2.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraRichEdit.v15.2.Extensions.xml
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraScheduler.v15.2.xml
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraScheduler.v15.2.Core.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraTreeList.v15.2.xml
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\BioNetDAL.pdb
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraVerticalGrid.v15.2.xml
@@ -2730,6 +2736,10 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\De
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\es\DevExpress.DataAccess.v15.2.UI.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ja\DevExpress.DataAccess.v15.2.UI.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ru\DevExpress.DataAccess.v15.2.UI.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\de\DevExpress.ExpressApp.v15.2.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\es\DevExpress.ExpressApp.v15.2.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ja\DevExpress.ExpressApp.v15.2.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ru\DevExpress.ExpressApp.v15.2.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\de\DevExpress.Map.v15.2.Core.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\es\DevExpress.Map.v15.2.Core.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ja\DevExpress.Map.v15.2.Core.resources.dll
@@ -2834,6 +2844,14 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\De
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\es\DevExpress.XtraRichEdit.v15.2.Extensions.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ja\DevExpress.XtraRichEdit.v15.2.Extensions.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ru\DevExpress.XtraRichEdit.v15.2.Extensions.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\de\DevExpress.XtraScheduler.v15.2.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\es\DevExpress.XtraScheduler.v15.2.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ja\DevExpress.XtraScheduler.v15.2.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ru\DevExpress.XtraScheduler.v15.2.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\de\DevExpress.XtraScheduler.v15.2.Core.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\es\DevExpress.XtraScheduler.v15.2.Core.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ja\DevExpress.XtraScheduler.v15.2.Core.resources.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ru\DevExpress.XtraScheduler.v15.2.Core.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\de\DevExpress.XtraTreeList.v15.2.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\es\DevExpress.XtraTreeList.v15.2.resources.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ja\DevExpress.XtraTreeList.v15.2.resources.dll
@@ -2887,11 +2905,13 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\De
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.Entry.FrmTraKetQua.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmDiaglogThemMoiPhieuDaTiepNhan.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmDiaglogSuaPhieuDaTiepNhan.resources
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmDongBo.FrmDongBoPhieuKetQua.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.FrmBaoCao.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.FrmBaoCaoDonVi_ChiTietcs.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.FrmBaoCaoTuyChon_TrungTam.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.FrmBaoCaoChiTiet_TrungTam.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.FrmBaoCaoCoBan.resources
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.FrmGuiMail.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.FrmReportPhieu.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.FrmBaoCapMain.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.frmReportTrungTam_ChiCuc.resources
@@ -2922,25 +2942,9 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\De
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.XtraForm2.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\Bionet App.csproj.GenerateResource.Cache
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.exe.licenses
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.FrmGuiMail.resources
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraScheduler.v15.2.Core.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraScheduler.v15.2.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraScheduler.v15.2.xml
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.XtraScheduler.v15.2.Core.xml
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\de\DevExpress.XtraScheduler.v15.2.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\es\DevExpress.XtraScheduler.v15.2.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ja\DevExpress.XtraScheduler.v15.2.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ru\DevExpress.XtraScheduler.v15.2.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\de\DevExpress.XtraScheduler.v15.2.Core.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\es\DevExpress.XtraScheduler.v15.2.Core.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ja\DevExpress.XtraScheduler.v15.2.Core.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ru\DevExpress.XtraScheduler.v15.2.Core.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.ExpressApp.v15.2.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Persistent.Base.v15.2.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.ExpressApp.v15.2.xml
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\DevExpress.Persistent.Base.v15.2.xml
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\de\DevExpress.ExpressApp.v15.2.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\es\DevExpress.ExpressApp.v15.2.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ja\DevExpress.ExpressApp.v15.2.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\ru\DevExpress.ExpressApp.v15.2.resources.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmDongBo.FrmDongBoPhieuKetQua.resources
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.exe
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.pdb
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.urcReportTTPhieu_DonVi.resources
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.FrmReports.FrmBaoCaoDonVi_TTPhieu.resources
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.DiaglogFrm.WaitingformLoadDongBo.resources
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.DiaglogFrm.WaitingformMail.resources

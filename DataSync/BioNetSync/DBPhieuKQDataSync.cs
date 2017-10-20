@@ -14,7 +14,7 @@ namespace DataSync
     public class DBPhieuKQDataSync
     {
         private static BioNetDBContextDataContext db = null;
-        private static string linkPDF = "/api/patient/pushlistfilekq";      
+        private static string linkPDF = "/api/patient/pushListFileKQ";      
         public static PsReponse PostKQPDF()
         {
             PsReponse res = new PsReponse();
@@ -59,12 +59,17 @@ namespace DataSync
                             }
                         }
                     }
+                    else
+                    {
+                        res.Result = false;
+                        res.StringError += DateTime.Now.ToString() + "Lỗi khi đồng bộ dữ liệu danh sách phiếu kết quả pdf";
+                    }
                 }
             }
             catch (Exception ex)
             {
                 res.Result = false;
-                res.StringError += DateTime.Now.ToString() + "Lỗi khi đồng bộ dữ liệu danh sách bệnh nhân nguy cơ cao Lên Tổng Cục \r\n " + ex.Message;
+                res.StringError += DateTime.Now.ToString() + "Lỗi khi đồng bộ dữ liệu danh sách phiếu kết quả pdf \r\n " + ex.Message;
             }
             return res;
         }

@@ -8,7 +8,7 @@ using System.Web.Script.Serialization;
 
 namespace DataSync.BioNetSync
 {
-    class DotChuanDoanSync
+    public class DotChuanDoanSync
     {
         private static BioNetDBContextDataContext db = null;
         private static string linkPost = "/api/dotchuandoan/AddUppFromApp";

@@ -26,7 +26,7 @@ namespace DataSync.BioNetSync
     {
         private static BioNetDBContextDataContext db = null;
         // private static string linkhost = "http://localhost:53112";
-        private static string linkGetDanhMucKyThuat = "/api/goidichvuchung/getallGoiDichVu?keyword=&page=0&pagesize=20";
+        private static string linkGetDanhMucKyThuat = "/api/dmkythuatxn/getall?keyword=&page=0&pagesize=999";
 
         public static PsReponse GetDMKyThuat()
         {
@@ -57,7 +57,7 @@ namespace DataSync.BioNetSync
                                         kt = cn.CovertDynamicToObjectModel(item, kt);
                                         UpdateDMKyThuat(kt);
                                     }
-
+                                    res.Result = true;
                                 }
                             }
                             else
@@ -107,8 +107,8 @@ namespace DataSync.BioNetSync
                 {
                     kyt.isLocked = kt.isLocked;
                     kyt.STT = kt.STT;
-                    kyt.TenKyThuat = kt.TenKyThuat;
-                    kyt.TenHienThiKyThuat = kt.TenHienThiKyThuat;
+                    kyt.TenKyThuat = kt.TenKyThuat != null ? Encoding.UTF8.GetString(Encoding.Default.GetBytes(kt.TenKyThuat)) : null;
+                    kyt.TenHienThiKyThuat = kt.TenHienThiKyThuat != null ? Encoding.UTF8.GetString(Encoding.Default.GetBytes(kt.TenHienThiKyThuat)) : null;
                     db.SubmitChanges();
                 }
                 else
@@ -116,8 +116,8 @@ namespace DataSync.BioNetSync
                     PSDanhMucKyThuatXN kyth = new PSDanhMucKyThuatXN();
                     kyth.isLocked = kt.isLocked;
                     kyth.STT = kt.STT;
-                    kyth.TenKyThuat = Encoding.UTF8.GetString(Encoding.Default.GetBytes(kt.TenKyThuat));
-                    kyth.TenHienThiKyThuat = Encoding.UTF8.GetString(Encoding.Default.GetBytes(kt.TenHienThiKyThuat));
+                    kyth.TenKyThuat = kt.TenKyThuat!=null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(kt.TenKyThuat)):null;
+                    kyth.TenHienThiKyThuat = kt.TenHienThiKyThuat!=null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(kt.TenHienThiKyThuat)):null;
                     kyth.IDKyThuatXN = kt.IDKyThuatXN;
                     db.PSDanhMucKyThuatXNs.InsertOnSubmit(kyth);
                     db.SubmitChanges();

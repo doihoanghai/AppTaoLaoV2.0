@@ -50,10 +50,15 @@ namespace BioNetDAL
                 if (server != null && server.Encrypt == "true")
                 {
                     this.serverInfo.Encrypt = server.Encrypt;
-                    this.serverInfo.ServerName = this.DecryptString(server.ServerName, true);
-                    this.serverInfo.Database = this.DecryptString(server.Database, true);
-                    this.serverInfo.UserName = this.DecryptString(server.UserName, true);
-                    this.serverInfo.Password = this.DecryptString(server.Password, true);
+                    //this.serverInfo.ServerName = this.DecryptString(server.ServerName, true);
+                    //this.serverInfo.Database = this.DecryptString(server.Database, true);
+                    //this.serverInfo.UserName = this.DecryptString(server.UserName, true);
+                    //this.serverInfo.Password = this.DecryptString(server.Password, true);
+                    this.serverInfo.Encrypt = server.Encrypt;
+                    this.serverInfo.ServerName = server.ServerName;
+                    this.serverInfo.Database = server.Database;
+                    this.serverInfo.UserName = server.UserName;
+                    this.serverInfo.Password = server.Password;
                 }
                 else if (server != null && server.Encrypt == "false")
                 {
@@ -127,7 +132,8 @@ namespace BioNetDAL
         {
             string fileName = (Application.StartupPath) + "\\xml\\configiBionet.xml";
             var serializer = new XmlSerializer(typeof(ServerInfo));
-            ServerInfo server = new ServerInfo { Encrypt = "true", ServerName = this.EncryptString(servername, true), UserName = this.EncryptString(username, true), Password = this.EncryptString(password, true), Database = this.EncryptString(database, true) };
+            //ServerInfo server = new ServerInfo { Encrypt = "true", ServerName = this.EncryptString(servername, true), UserName = this.EncryptString(username, true), Password = this.EncryptString(password, true), Database = this.EncryptString(database, true) };
+            ServerInfo server = new ServerInfo { Encrypt = "true", ServerName = servername, UserName = username, Password =password, Database = database};
             using (StreamWriter myWriter = new StreamWriter(fileName, false))
             {
                 XmlSerializer mySerializer = new XmlSerializer(typeof(ServerInfo));
@@ -714,7 +720,7 @@ namespace BioNetDAL
             List<PSDanhMucGoiDichVuChung> lstGoiDichVuChung = new List<PSDanhMucGoiDichVuChung>();
             try
             {
-                lstGoiDichVuChung = db.PSDanhMucGoiDichVuChungs.ToList();
+                lstGoiDichVuChung = db.PSDanhMucGoiDichVuChungs.OrderBy(x=>x.Stt).ToList();
                 return lstGoiDichVuChung;
             }
             catch { return lstGoiDichVuChung = new List<PSDanhMucGoiDichVuChung>(); }
@@ -1036,6 +1042,26 @@ namespace BioNetDAL
                 db.PSChiTietGoiDichVuChungs.InsertAllOnSubmit(lstIns);
                 db.SubmitChanges();
 
+                db.Transaction.Commit();
+                db.Connection.Close();
+                return true;
+            }
+            catch { db.Transaction.Rollback(); db.Connection.Close(); return false; }
+        }
+        public bool UpdateGoiDV(List<PSDanhMucGoiDichVuChung> list)
+        {
+            try
+            {
+                db.Connection.Open();
+                db.Transaction = db.Connection.BeginTransaction();
+               
+                foreach (var item in list)
+                {
+                    var data = db.PSDanhMucGoiDichVuChungs.FirstOrDefault(x => x.IDGoiDichVuChung == item.IDGoiDichVuChung);
+                    data.Stt = item.Stt;
+                    db.SubmitChanges();
+                }              
+                db.SubmitChanges();
                 db.Transaction.Commit();
                 db.Connection.Close();
                 return true;

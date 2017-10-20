@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNhapLieuDanhGiaMau));
-            DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator2 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
+            DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator1 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.searchLookUpChiCuc = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -86,6 +86,7 @@
             this.col_isDaNhapLieu_GCTracking = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.xtraTabDanhSachDaHuy = new DevExpress.XtraTab.XtraTabPage();
+            this.btnBackPhieu = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.txtMaChiDinh = new DevExpress.XtraEditors.TextEdit();
@@ -188,6 +189,9 @@
             this.pn3 = new DevExpress.XtraEditors.PanelControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pn1 = new DevExpress.XtraEditors.PanelControl();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -298,6 +302,9 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pn1)).BeginInit();
             this.pn1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -589,10 +596,10 @@
             // 
             this.xtraTabControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 110);
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabDanhSachCho;
-            this.xtraTabControl1.Size = new System.Drawing.Size(376, 490);
+            this.xtraTabControl1.Size = new System.Drawing.Size(376, 453);
             this.xtraTabControl1.TabIndex = 1;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabDanhSachCho,
@@ -607,7 +614,7 @@
             this.xtraTabDanhSachCho.Controls.Add(this.GCDanhSachTiepNhan);
             this.xtraTabDanhSachCho.Image = global::BioNetSangLocSoSinh.Properties.Resources.clock;
             this.xtraTabDanhSachCho.Name = "xtraTabDanhSachCho";
-            this.xtraTabDanhSachCho.Size = new System.Drawing.Size(370, 459);
+            this.xtraTabDanhSachCho.Size = new System.Drawing.Size(370, 422);
             this.xtraTabDanhSachCho.Text = "Danh sách chờ";
             // 
             // GCDanhSachTiepNhan
@@ -619,7 +626,7 @@
             this.GCDanhSachTiepNhan.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryLookUpDonViGCTiepNhan,
             this.repositoryLookUpGoiXN});
-            this.GCDanhSachTiepNhan.Size = new System.Drawing.Size(370, 459);
+            this.GCDanhSachTiepNhan.Size = new System.Drawing.Size(370, 422);
             this.GCDanhSachTiepNhan.TabIndex = 0;
             this.GCDanhSachTiepNhan.TabStop = false;
             this.GCDanhSachTiepNhan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -751,7 +758,7 @@
             this.xtraTabDanhSachDaDuyet.Controls.Add(this.GCDanhSachDaTracking);
             this.xtraTabDanhSachDaDuyet.Image = global::BioNetSangLocSoSinh.Properties.Resources.checklist;
             this.xtraTabDanhSachDaDuyet.Name = "xtraTabDanhSachDaDuyet";
-            this.xtraTabDanhSachDaDuyet.Size = new System.Drawing.Size(316, 459);
+            this.xtraTabDanhSachDaDuyet.Size = new System.Drawing.Size(370, 422);
             this.xtraTabDanhSachDaDuyet.Text = "Danh sách đã duyệt";
             // 
             // GCDanhSachDaTracking
@@ -764,7 +771,7 @@
             this.repositoryItemLookUpDonVi,
             this.lookupGoiXN,
             this.repositoryItemCheckEdit1});
-            this.GCDanhSachDaTracking.Size = new System.Drawing.Size(316, 459);
+            this.GCDanhSachDaTracking.Size = new System.Drawing.Size(370, 422);
             this.GCDanhSachDaTracking.TabIndex = 0;
             this.GCDanhSachDaTracking.TabStop = false;
             this.GCDanhSachDaTracking.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -913,8 +920,22 @@
             this.xtraTabDanhSachDaHuy.Appearance.Header.Options.UseFont = true;
             this.xtraTabDanhSachDaHuy.Name = "xtraTabDanhSachDaHuy";
             this.xtraTabDanhSachDaHuy.PageVisible = false;
-            this.xtraTabDanhSachDaHuy.Size = new System.Drawing.Size(316, 459);
+            this.xtraTabDanhSachDaHuy.Size = new System.Drawing.Size(370, 422);
             this.xtraTabDanhSachDaHuy.Text = "Danh sách đã hủy";
+            // 
+            // btnBackPhieu
+            // 
+            this.btnBackPhieu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBackPhieu.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnBackPhieu.Enabled = false;
+            this.btnBackPhieu.Image = ((System.Drawing.Image)(resources.GetObject("btnBackPhieu.Image")));
+            this.btnBackPhieu.Location = new System.Drawing.Point(15, 6);
+            this.btnBackPhieu.Name = "btnBackPhieu";
+            this.btnBackPhieu.Size = new System.Drawing.Size(177, 23);
+            this.btnBackPhieu.TabIndex = 35;
+            this.btnBackPhieu.TabStop = false;
+            this.btnBackPhieu.Text = "Hủy Tiếp Nhận Phiếu";
+            this.btnBackPhieu.Click += new System.EventHandler(this.btnBackPhieu_Click);
             // 
             // groupControl3
             // 
@@ -1110,18 +1131,16 @@
             // txtGioLayMau
             // 
             this.txtGioLayMau.EditValue = null;
-            this.txtGioLayMau.Location = new System.Drawing.Point(156, 105);
+            this.txtGioLayMau.Location = new System.Drawing.Point(165, 105);
             this.txtGioLayMau.Name = "txtGioLayMau";
             this.txtGioLayMau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtGioLayMau.Properties.Mask.EditMask = "HH:mm";
             this.txtGioLayMau.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtGioLayMau.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
-            this.txtGioLayMau.Size = new System.Drawing.Size(58, 20);
+            this.txtGioLayMau.Size = new System.Drawing.Size(49, 20);
             this.txtGioLayMau.TabIndex = 14;
-            this.txtGioLayMau.TabStop = false;
             this.txtGioLayMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGioLayMau_KeyPress);
-            this.txtGioLayMau.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtGioLayMau_KeyUp);
             this.txtGioLayMau.Validated += new System.EventHandler(this.txtGioLayMau_Validated);
             // 
             // txtNgayLayMau
@@ -1920,7 +1939,7 @@
             this.barCodePhieu.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.barCodePhieu.ShowText = false;
             this.barCodePhieu.Size = new System.Drawing.Size(491, 40);
-            this.barCodePhieu.Symbology = code128Generator2;
+            this.barCodePhieu.Symbology = code128Generator1;
             this.barCodePhieu.TabIndex = 9;
             this.barCodePhieu.TabStop = false;
             this.barCodePhieu.VerticalAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -2217,13 +2236,42 @@
             // pn1
             // 
             this.pn1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pn1.Controls.Add(this.xtraTabControl1);
+            this.pn1.Controls.Add(this.panel3);
             this.pn1.Controls.Add(this.panelControl2);
             this.pn1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn1.Location = new System.Drawing.Point(0, 0);
             this.pn1.Name = "pn1";
             this.pn1.Size = new System.Drawing.Size(376, 600);
             this.pn1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 110);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(376, 490);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel5.Controls.Add(this.btnBackPhieu);
+            this.panel5.Location = new System.Drawing.Point(0, 453);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(376, 37);
+            this.panel5.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel4.Controls.Add(this.xtraTabControl1);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(376, 453);
+            this.panel4.TabIndex = 2;
             // 
             // popupMenu
             // 
@@ -2379,6 +2427,9 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pn1)).EndInit();
             this.pn1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
@@ -2547,5 +2598,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn col_MaChiCuc;
         private DevExpress.XtraGrid.Columns.GridColumn col_TenChiCuc;
+        private DevExpress.XtraEditors.SimpleButton btnBackPhieu;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
     }
 }

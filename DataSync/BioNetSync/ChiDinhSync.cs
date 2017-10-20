@@ -9,7 +9,7 @@ using System.Web.Script.Serialization;
 
 namespace DataSync.BioNetSync
 {
-    class ChiDinhSync
+    public class ChiDinhSync
     {
         private static BioNetDBContextDataContext db = null;
         private static string linkPostChiDinh = "/api/chidinhdv/AddUpFromApp";
@@ -56,9 +56,9 @@ namespace DataSync.BioNetSync
                 db = cn.db;
                 db.Connection.Open();
                 db.Transaction = db.Connection.BeginTransaction();
-                var dv = db.PSChiDinhDichVus.FirstOrDefault(p => p.MaPhieu == cddv.MaPhieu && p.MaTiepNhan == cddv.MaTiepNhan);
+                var dv = db.PSChiDinhDichVus.FirstOrDefault(p => p.MaPhieu == cddv.MaPhieu && p.MaChiDinh == cddv.MaChiDinh);
                 if (dv != null)
-                {
+                { 
                     dv.isDongBo = true;
                     db.SubmitChanges();
                 }
@@ -112,7 +112,12 @@ namespace DataSync.BioNetSync
                                 var resupdate = UpdateChiDinh(data);
                                 if (!resupdate.Result)
                                 {
+                                    res.Result = false;
                                     res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " chưa được cập nhật \r\n";
+                                }
+                                else
+                                {
+                                    res.Result = true;
                                 }
                             }
                             else

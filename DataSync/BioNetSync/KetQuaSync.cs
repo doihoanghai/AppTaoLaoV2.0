@@ -21,7 +21,7 @@ namespace DataSync.BioNetSync
         private static string linkPDF = "/api/patient/pushlistfilekq";
 
 
-        public static PsReponse UpdateChiDinh(PSXN_KetQua ketqua)
+        public static PsReponse UpdateKetQua(PSXN_KetQua ketqua)
         {
             PsReponse res = new PsReponse();
 
@@ -50,6 +50,35 @@ namespace DataSync.BioNetSync
             }
             return res;
         }
+        public static PsReponse UpdateKetQuaChiTiet(PSXN_KetQua_ChiTiet ketquachitiet)
+        {
+            PsReponse res = new PsReponse();
+            try
+            {
+                ProcessDataSync cn = new ProcessDataSync();
+                db = cn.db;
+                db.Connection.Open();
+                db.Transaction = db.Connection.BeginTransaction();
+                var dv = db.PSXN_KetQua_ChiTiets.FirstOrDefault(p => p.MaXetNghiem == ketquachitiet.MaXetNghiem && p.MaKyThuat == ketquachitiet.MaKyThuat);
+                if(dv!=null)
+                {
+                    dv.isDongBo = true;
+                    db.SubmitChanges();
+                }
+                db.Transaction.Commit();
+                db.Connection.Close();
+                res.Result = true;
+
+            }
+            catch(Exception ex)
+            {
+                db.Transaction.Rollback();
+                db.Connection.Close();
+                res.Result = false;
+                res.StringError = ex.ToString();
+            }
+            return res;
+        }
         public static PsReponse PostKetQua()
         {
             PsReponse res = new PsReponse();
@@ -69,21 +98,26 @@ namespace DataSync.BioNetSync
                         foreach (var data in datas)
                         {
                             XN_KetQuaViewModel des = new XN_KetQuaViewModel();
-                            cn.ConvertObjectToObject(data, des);
+                            var datact=cn.ConvertObjectToObject(data, des);
                             des.lstKetQuaChiTiet = new List<XN_KetQua_ChiTietViewModel>();
                             foreach (var chitiet in data.PSXN_KetQua_ChiTiets.ToList())
                             {
                                 XN_KetQua_ChiTietViewModel term = new XN_KetQua_ChiTietViewModel();
-                                cn.ConvertObjectToObject(chitiet, term);
-                                des.lstKetQuaChiTiet.Add(term);
+                                var t=cn.ConvertObjectToObject(chitiet, term);
+                                des.lstKetQuaChiTiet.Add((XN_KetQua_ChiTietViewModel)t);
                             }
-                            string jsonstr = new JavaScriptSerializer().Serialize(data);
+                            string jsonstr = new JavaScriptSerializer().Serialize(datact);
                             var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
                             if (result.Result)
                             {
                                 res.StringError += "Dữ liệu kết quả " + data.MaKetQua + " đã được đồng bộ lên tổng cục \r\n";
 
-                                var resupdate = UpdateChiDinh(data);
+                                var resupdate = UpdateKetQua(data);
+                                foreach (var chitiet in data.PSXN_KetQua_ChiTiets.ToList())
+                                {
+                                    var resupdatect = UpdateKetQuaChiTiet(chitiet);
+                                }
+                               
                                 if (!resupdate.Result)
                                 {
                                     res.StringError += "Dữ liệu kết quả " + data.MaKetQua + " chưa được cập nhật \r\n";

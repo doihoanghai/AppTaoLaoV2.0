@@ -76,6 +76,7 @@
     <Reference Include="DevExpress.XtraBars.v15.2" />
     <Reference Include="DevExpress.Sparkline.v15.2.Core" />
     <Reference Include="DevExpress.XtraCharts.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v15.2.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v15.2.UI, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v15.2.Wizard, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v15.2" />
@@ -230,6 +231,18 @@
     </Compile>
     <Compile Include="DiaglogFrm\Waitingform.Designer.cs">
       <DependentUpon>Waitingform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiaglogFrm\WaitingformLoadDongBo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiaglogFrm\WaitingformLoadDongBo.Designer.cs">
+      <DependentUpon>WaitingformLoadDongBo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiaglogFrm\WaitingformMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiaglogFrm\WaitingformMail.Designer.cs">
+      <DependentUpon>WaitingformMail.cs</DependentUpon>
     </Compile>
     <Compile Include="DiaglogFrm\WaitingfromSave.cs">
       <SubType>Form</SubType>
@@ -411,6 +424,12 @@
     <Compile Include="FrmReports\FrmBaoCaoDonVi_ChiTietcs.Designer.cs">
       <DependentUpon>FrmBaoCaoDonVi_ChiTietcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReports\FrmBaoCaoDonVi_TTPhieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReports\FrmBaoCaoDonVi_TTPhieu.Designer.cs">
+      <DependentUpon>FrmBaoCaoDonVi_TTPhieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReports\FrmBaoCaoTuyChon_TrungTam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -488,6 +507,12 @@
     </Compile>
     <Compile Include="FrmReports\urcReportTrungTam_SoBo.Designer.cs">
       <DependentUpon>urcReportTrungTam_SoBo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReports\urcReportTTPhieu_DonVi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmReports\urcReportTTPhieu_DonVi.Designer.cs">
+      <DependentUpon>urcReportTTPhieu_DonVi.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmStartup.cs">
       <SubType>Form</SubType>
@@ -657,6 +682,12 @@
     <EmbeddedResource Include="DiaglogFrm\Waitingform.resx">
       <DependentUpon>Waitingform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DiaglogFrm\WaitingformLoadDongBo.resx">
+      <DependentUpon>WaitingformLoadDongBo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiaglogFrm\WaitingformMail.resx">
+      <DependentUpon>WaitingformMail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DiaglogFrm\WaitingfromSave.resx">
       <DependentUpon>WaitingfromSave.cs</DependentUpon>
     </EmbeddedResource>
@@ -747,6 +778,9 @@
     <EmbeddedResource Include="FrmReports\FrmBaoCaoDonVi_ChiTietcs.resx">
       <DependentUpon>FrmBaoCaoDonVi_ChiTietcs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReports\FrmBaoCaoDonVi_TTPhieu.resx">
+      <DependentUpon>FrmBaoCaoDonVi_TTPhieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReports\FrmBaoCaoTuyChon_TrungTam.resx">
       <DependentUpon>FrmBaoCaoTuyChon_TrungTam.cs</DependentUpon>
     </EmbeddedResource>
@@ -785,6 +819,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReports\urcReportTrungTam_SoBo.resx">
       <DependentUpon>urcReportTrungTam_SoBo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReports\urcReportTTPhieu_DonVi.resx">
+      <DependentUpon>urcReportTTPhieu_DonVi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStartup.resx">
       <DependentUpon>FrmStartup.cs</DependentUpon>
@@ -927,6 +964,7 @@
   <ItemGroup>
     <Content Include="BioNet_icon.ico" />
     <Content Include="Resources\email.png" />
+    <None Include="Resources\loading.gif" />
     <Content Include="Resources\mail.png" />
     <Content Include="Resources\pdf-icon.png" />
     <Content Include="Resources\pdf-icon1.png" />

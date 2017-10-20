@@ -375,6 +375,14 @@ namespace BioNetBLL
         #endregion
 
         #region DM Gói dịch vụ cơ sở
+        public static List <PSDanhMucGoiDichVuTheoDonVi> GetListGoiDichVuTheoDonVi ()
+        {
+            var db = new BioDAL();
+            return db.GetListGoiDichVuCoSo();
+        }
+            
+
+
         public static DataTable GetListGoiDichVuCoSo()
         {
             var db = new BioDAL();
@@ -512,7 +520,11 @@ namespace BioNetBLL
             var db = new BioDAL();
             return db.UpdDetailServicePackage(idGoi, idDichVu);
         }
-
+        public static bool UpdateGoiDV(List<PSDanhMucGoiDichVuChung> list)
+        {
+            var db = new BioDAL();
+            return db.UpdateGoiDV(list);
+        }
         #endregion
 
         #region DM Chi cục
@@ -776,6 +788,7 @@ namespace BioNetBLL
         public static DataTable GetListThongSoXN()
         {
             var db = new BioDAL();
+
             DataTable dt = new DataTable();
             try
             {

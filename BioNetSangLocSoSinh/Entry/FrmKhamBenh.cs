@@ -168,7 +168,7 @@ namespace BioNetSangLocSoSinh.Entry
                 this.lstDotChanDoan.Clear();
                 try
                 {
-                    this.lstDotChanDoan = BioNet_Bus.GetDanhSachDotChanDoanCuaBenhNhan(long.Parse(rowID));
+                    this.lstDotChanDoan = BioNet_Bus.GetDanhSachDotChanDoanCuaBenhNhan(maBenhNhan);
                     this.LoadListTreeView();
                 }
                 catch(Exception ex)
@@ -406,7 +406,8 @@ namespace BioNetSangLocSoSinh.Entry
         private void btnSua_Click(object sender, EventArgs e)
         {
             this.btnLuu.Enabled = true;
-            this.btnSua.Enabled = false;this.btnMoi.Enabled = false;
+            this.btnSua.Enabled = false;
+            this.btnMoi.Enabled = false;
         }
 
         private void btnRefesh_Click(object sender, EventArgs e)

@@ -43,7 +43,7 @@ namespace Bionet.API.Models
 
         public string IDNhanVienXoa { get; set; }
 
-        public DateTime NgayGioXoa { get; set; }
+        public DateTime? NgayGioXoa { get; set; }
 
         public string LyDoXoa { get; set; }
 

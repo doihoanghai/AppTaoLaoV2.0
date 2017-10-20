@@ -117,7 +117,12 @@ namespace BioNetBLL
             var db = new DataObjects();
             return db.InsertDotChanDoan(dotChanDoan);
         }
-        
+        public static List<PSDanhMucThongSoXN> GetThongSoXN()
+        {
+            var db = new DataObjects();
+            return db.GetDanhMucThongSoXN();
+        }
+
         public static PsReponse DuyetNhanh(string maTiepNhan, string maPhieu)
         {
             var db = new DataObjects();
@@ -433,6 +438,11 @@ namespace BioNetBLL
             var db = new DataObjects();
             return db.HuyChiDinhDichVu(maCD, maNV, lydoHuy, maPhieu,maTiepNhan);
         }
+        public static PsReponse HuyPhieuDaTiepNhan(string maPhieu)
+        {
+            var db = new DataObjects();
+            return db.HuyPhieuDaTiepNhan(maPhieu);
+        }
         public static PsReponse LuuKetQuaXN(KetQua_XetNghiem KQ)
         {
             var db = new DataObjects();
@@ -547,10 +557,10 @@ namespace BioNetBLL
             return db.GetThongKePhieuMail(maphieu);
         }
 
-        public static List<PSDotChuanDoan> GetDanhSachDotChanDoanCuaBenhNhan(long rowID)
+        public static List<PSDotChuanDoan> GetDanhSachDotChanDoanCuaBenhNhan(string MaBenhNhan )
         {
             var db = new DataObjects();
-            return db.GetDanhSachDotChanDoanCuaBenhNhan(rowID);
+            return db.GetDanhSachDotChanDoanCuaBenhNhan(MaBenhNhan);
         }
         public static PSDotChuanDoan GetThongTinDotChanDoan(long rowID)
         {
@@ -630,6 +640,11 @@ namespace BioNetBLL
         {
             var db = new DataObjects();
             return db.GetBaoCaoTongHopTrungTam(tuNgay, denNgay);
+        }
+        public static TTPhieuCB GetBaoCaoThongTinPhieu(string MaDonVi, string MaChiCuc,string MaTT)
+        {
+            var db = new DataObjects();
+            return db.GetBaoCaoThongTinPhieu(MaDonVi, MaChiCuc, MaTT);
         }
         public static rptBaoCaoTongHop GetBaoCaoTongHopChiCuc(DateTime tuNgay, DateTime denNgay,string maChiCuc)
         {
@@ -1065,23 +1080,26 @@ namespace BioNetBLL
             List<PsDichVu> lst = new List<PsDichVu>();
             var db = new DataObjects();
             var lstmadichvu = db.GetDichVuTheoMaGoi(maGoi);
-            if(lstmadichvu.Count>0)
+            var lstdichvu = db.GetDanhSachDichVu(false);
+            if (lstmadichvu.Count > 0)
             {
-                foreach(var dv in lstmadichvu)
+                foreach (var dv in lstmadichvu)
                 {
-                    var ttdv = db.GetDichVuTheoDonVi(dv.IDDichVu, maDonVi);
-                    if (ttdv != null)
-                    {
+                   // var ttdv = db.GetDichVuTheoDonVi(dv.IDDichVu, maDonVi);
+                    //if (ttdv != null)
+                    //{
+                    var term = lstdichvu.SingleOrDefault(x => x.IDDichVu == dv.IDDichVu);
+                   
                         PsDichVu dvu = new PsDichVu();
-                        dvu.IDDichVu = ttdv.IDDichVu;
-                        dvu.GiaDichVu = ttdv.DonGia ?? 0;
+                        dvu.IDDichVu = dv.IDDichVu;
+                        dvu.GiaDichVu = term.GiaDichVu ?? 0;
                         dvu.isChecked = false;
-                        dvu.isLocked = ttdv.isLocked ?? false;
-                        dvu.MaNhom = ttdv.MaNhom;
-                        dvu.TenDichVu = ttdv.TenDichVu; 
-                        dvu.TenHienThi = ttdv.TenHienThi;
+                        dvu.isLocked = term.isLocked ?? false;
+                        dvu.MaNhom = term.MaNhom.ToString();
+                        dvu.TenDichVu = dv.IDDichVu;
+                        dvu.TenHienThi = term.TenHienThiDichVu;
                         lst.Add(dvu);
-                    }
+                    //}
                 }
             }
             return lst;

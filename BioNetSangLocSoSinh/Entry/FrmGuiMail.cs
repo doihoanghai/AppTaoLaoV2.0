@@ -19,6 +19,8 @@ using System.Net.Mail;
 using System.Net;
 using System.IO.Compression;
 using BioNetModel.Data;
+using DevExpress.XtraSplashScreen;
+using BioNetSangLocSoSinh.DiaglogFrm;
 
 namespace BioNetSangLocSoSinh.FrmReports
 {
@@ -104,73 +106,83 @@ namespace BioNetSangLocSoSinh.FrmReports
 
         private void bttGuiMail_Click(object sender, EventArgs e)
         {
+           
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn là sẽ gửi mail", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                List<PsTinhTrangPhieu> dt = (List<PsTinhTrangPhieu>)GC_DSPhieuMail.DataSource;
-                List<string> MaDVCS = new List<string>();
-                DataTable dtselect = new DataTable();
-                int kq = 0;
-                int chon = 0;
-
-                for (int i = 0; i < dt.Count; i++)
-                {
-                    int kt = 0;
-                    if (dt[i].Chon == 1)
+                try {
+                    SplashScreenManager.ShowForm(this, typeof(WaitingformMail), true, true, false);
+                    List<PsTinhTrangPhieu> dt = (List<PsTinhTrangPhieu>)GC_DSPhieuMail.DataSource;
+                    List<string> MaDVCS = new List<string>();
+                    DataTable dtselect = new DataTable();
+                    int kq = 0;
+                    int chon = 0;
+                    for (int i = 0; i < dt.Count; i++)
                     {
-                        chon = 1;
-                        string maDVCS = dt[i].MaDonVi.ToString();
-                        string maPhieu = dt[i].IDPhieu.ToString();
-                        string temdvcs = dt[i].TenDonVi.ToString();
-                        if (MaDVCS != null)
+                        int kt = 0;
+                        if (dt[i].Chon == 1)
                         {
-                            foreach (string dvcs in MaDVCS)
+                            chon = 1;
+                            string maDVCS = dt[i].MaDonVi.ToString();
+                            string maPhieu = dt[i].IDPhieu.ToString();
+                            string temdvcs = dt[i].TenDonVi.ToString();
+                            if (MaDVCS != null)
                             {
-                                if (maDVCS == dvcs)
+                                foreach (string dvcs in MaDVCS)
                                 {
-                                    kt = 1;
-                                    break;
+                                    if (maDVCS == dvcs)
+                                    {
+                                        kt = 1;
+                                        break;
+                                    }
                                 }
                             }
+                            if (kt == 0) { MaDVCS.Add(maDVCS); }
+                            //Noi lưu phiếu trả kết quả                               
+                            string pathpdf = Application.StartupPath + "\\PhieuKetQua\\" + maDVCS + "\\" + maPhieu + ".pdf";
+                            //Kiểm tra đường dẫn tồn tại ko                     
+                            if (!Directory.Exists(pathpdf)) { LuuPDF(maPhieu, maDVCS); }//Nếu ko có phiếu thì in lại phiếu 
+                            NenGuiMail(pathpdf, maPhieu, maDVCS);
+
                         }
-                        if (kt == 0) { MaDVCS.Add(maDVCS);  }
-                        //Noi lưu phiếu trả kết quả                               
-                        string pathpdf = Application.StartupPath + "\\PhieuKetQua\\" + maDVCS + "\\" + maPhieu + ".pdf";
-                        //Kiểm tra đường dẫn tồn tại ko                     
-                        if (!Directory.Exists(pathpdf)) { LuuPDF(maPhieu, maDVCS); }//Nếu ko có phiếu thì in lại phiếu 
-                        NenGuiMail(pathpdf, maPhieu, maDVCS);
-                      
                     }
-                }
-                if (chon == 1)
-                {
-                    foreach (string madvcs in MaDVCS)
+                 
+                    if (chon == 1)
                     {
-                      
-                        kq = GuiMail(madvcs);
-                        if (kq == 1)
+                        foreach (string madvcs in MaDVCS)
                         {
-                            MessageBox.Show("Gửi mail cho đơn vị " + madvcs + " thất bại", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
-                            break;
+
+                            kq = GuiMail(madvcs);
+                            if (kq == 1)
+                            {
+                                MessageBox.Show("Gửi mail cho đơn vị " + madvcs + " thất bại", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                                break;
+                            }
+                            else if (kq == 2)
+                            {
+                                MessageBox.Show("Email của đơn vị " + madvcs + " không tồn tại", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                                break;
+                            }
+                            else if (kq == 5)
+                            {
+                                MessageBox.Show("Dữ liệu của Email của trung tâm lỗi - Vui lòng kiểm tra lại dữ liệu ", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                                break;
+                            }
                         }
-                        else if (kq == 2)
-                        {
-                            MessageBox.Show("Email của đơn vị " + madvcs + " không tồn tại", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
-                            break;
-                        }
-                        else if(kq==5)
-                        {
-                            MessageBox.Show("Dữ liệu của Email của trung tâm lỗi - Vui lòng kiểm tra lại dữ liệu " , "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
-                            break;
-                        }
+                        SplashScreenManager.CloseForm();
+                        if (kq == 0) { MessageBox.Show("Gửi Mail thành công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
+                        //Xóa file nén đã gửi mail
+                        DirectoryInfo dirInfo = new DirectoryInfo(pathMail);
+                        FileInfo[] childFiles = dirInfo.GetFiles();
+                        foreach (FileInfo childFile in childFiles) { File.Delete(childFile.FullName); }
                     }
-                    if (kq == 0) { MessageBox.Show("Gửi Mail thành công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
-                    //Xóa file nén đã gửi mail
-                    DirectoryInfo dirInfo = new DirectoryInfo(pathMail);
-                    FileInfo[] childFiles = dirInfo.GetFiles();
-                    foreach (FileInfo childFile in childFiles) { File.Delete(childFile.FullName); }
+                    else { MessageBox.Show("Vui lòng tick vào phiếu cần gửi mail", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
                 }
-                else { MessageBox.Show("Vui lòng tick vào phiếu cần gửi mail", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
+                catch(Exception ex)
+                {
+
+                }
+               
             }
             else if (dialogResult == DialogResult.No) { return; }
 

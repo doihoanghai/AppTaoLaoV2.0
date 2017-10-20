@@ -8,7 +8,7 @@ using System.Web.Script.Serialization;
 
 namespace DataSync.BioNetSync
 {
-    class BenhNhanNguyCoCaoSync
+   public  class BenhNhanNguyCoCaoSync
     {
         private static BioNetDBContextDataContext db = null;
         private static string linkPost = "/api/benhnhannguycocao/AddUpFromApp";
@@ -64,13 +64,14 @@ namespace DataSync.BioNetSync
                             foreach (var cicle in data.PSDotChuanDoans.ToList())
                             {
                                 cicle.PSBenhNhanNguyCoCao = null;
-                                
+
 
                                 if (cicle.isDongBo != false)
                                 {
                                     data.PSDotChuanDoans.Remove(cicle);
                                 }
                             }
+
                             string jsonstr = new JavaScriptSerializer().Serialize(data);
                             var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
                             if (result.Result)

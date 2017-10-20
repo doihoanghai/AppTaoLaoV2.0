@@ -8,6 +8,8 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BioNetBLL;
+using DataSync;
+using BioNetModel.Data;
 
 namespace BioNetSangLocSoSinh.Entry
 {
@@ -66,13 +68,37 @@ namespace BioNetSangLocSoSinh.Entry
             }
             if(BioBLL.UpdDetailServicePackage(this.idServicePackage, lstService))
             {
-                XtraMessageBox.Show("Cập nhật chi tiết gói dịch vụ thành công!", "Bệnh viện điện tử .NET", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XtraMessageBox.Show("Cập nhật chi tiết gói dịch vụ thành công!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                XtraMessageBox.Show("Cập nhật chi tiết gói dịch vụ thất bại!", "Bệnh viện điện tử .NET", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Cập nhật chi tiết gói dịch vụ thất bại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 CheckService(this.idServicePackage);
             }
+        }
+
+        private void btnLuuSTT_Click(object sender, EventArgs e)
+        {
+            try {
+              
+                List<PSDanhMucGoiDichVuChung> dt = (List<PSDanhMucGoiDichVuChung>)gridControl_GoiDichVuChung.DataSource;
+                bool kq = BioBLL.UpdateGoiDV(dt);
+                if(kq==true)
+                {
+                    XtraMessageBox.Show("Cập nhật số thứ tự thành công!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if(kq==false)
+                {
+                    XtraMessageBox.Show("Cập nhật số thứ tự thất bại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+            catch(Exception ex)
+            {
+
+            }
+               
         }
     }
 }

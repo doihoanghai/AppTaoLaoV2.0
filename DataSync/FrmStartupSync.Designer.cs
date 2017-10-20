@@ -33,8 +33,10 @@
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSettup = new System.Windows.Forms.ToolStripMenuItem();
+            this.severToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.rtbStatus = new System.Windows.Forms.RichTextBox();
+            this.btnDongBoDuLieu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +58,7 @@
             // 
             this.mnStart.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startToolStripMenuItem,
+            this.btnDongBoDuLieu,
             this.exitToolStripMenuItem});
             this.mnStart.Name = "mnStart";
             this.mnStart.Size = new System.Drawing.Size(43, 20);
@@ -65,22 +68,31 @@
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.startToolStripMenuItem.Text = "Start";
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.startToolStripMenuItem.Text = "Đồng Bộ Danh Mục";
             this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // mnuSettup
             // 
+            this.mnuSettup.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.severToolStripMenuItem});
             this.mnuSettup.Name = "mnuSettup";
             this.mnuSettup.Size = new System.Drawing.Size(49, 20);
             this.mnuSettup.Text = "Setup";
+            // 
+            // severToolStripMenuItem
+            // 
+            this.severToolStripMenuItem.Name = "severToolStripMenuItem";
+            this.severToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.severToolStripMenuItem.Text = "Sever";
+            this.severToolStripMenuItem.Click += new System.EventHandler(this.severToolStripMenuItem_Click);
             // 
             // mnAbout
             // 
@@ -100,6 +112,13 @@
             this.rtbStatus.TabIndex = 3;
             this.rtbStatus.Text = "";
             this.rtbStatus.TextChanged += new System.EventHandler(this.rtbStatus_TextChanged);
+            // 
+            // btnDongBoDuLieu
+            // 
+            this.btnDongBoDuLieu.Name = "btnDongBoDuLieu";
+            this.btnDongBoDuLieu.Size = new System.Drawing.Size(178, 22);
+            this.btnDongBoDuLieu.Text = "Đồng Bộ Dữ Liệu";
+            this.btnDongBoDuLieu.Click += new System.EventHandler(this.btnDongBoDuLieu_Click);
             // 
             // FrmStartupSync
             // 
@@ -130,5 +149,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnAbout;
         private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem severToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnDongBoDuLieu;
     }
 }

@@ -25,6 +25,7 @@ namespace DataSync.BioNetSync
    public class DanhMucChiCucSync
     {
         private static BioNetDBContextDataContext db = null;
+        //private static string linkGetDanhMucChiCuc = "/api/chicuc/getall?keyword=&page=0&pagesize=20";
         private static string linkGetDanhMucChiCuc = "/api/chicuc/getall?keyword=&page=0&pagesize=20";
         private static string linkPostDanhMucChiCuc = "/api/chicuc/AddUpFromApp";
 
@@ -42,29 +43,43 @@ namespace DataSync.BioNetSync
                     if (!string.IsNullOrEmpty(token))
                     {
                         var datas = db.PSDanhMucChiCucs.Where(p => p.isDongBo == false);
-                        foreach (var data in datas)
+                        if(datas.Count()>0)
                         {
-                            DanhMucChiCucViewModel datac = new DanhMucChiCucViewModel();
-                            var datact = cn.ConvertObjectToObject(data, datac);
-                            string jsonstr = new JavaScriptSerializer().Serialize(datact);
-                            var result = cn.PostRespone(cn.CreateLink(linkPostDanhMucChiCuc), token, jsonstr);
-                            if (result.Result)
+                            foreach (var data in datas)
                             {
-                                res.StringError += "Dữ liệu chi cục " + data.TenChiCuc + " đã được đồng bộ lên tổng cục \r\n";
-                                var resupdate = UpdateStatusSyncDanhMucChiCuc(data);
-                                if (!resupdate.Result)
+                                DanhMucChiCucViewModel datac = new DanhMucChiCucViewModel();
+                                var datact = cn.ConvertObjectToObject(data, datac);
+                                string jsonstr = new JavaScriptSerializer().Serialize(datact);
+                                var result = cn.PostRespone(cn.CreateLink(linkPostDanhMucChiCuc), token, jsonstr);
+                                if (result.Result)
                                 {
-                                    res.StringError += "Dữ liệu chi cục " + data.TenChiCuc + " chưa được cập nhật \r\n";
+                                    res.StringError += "Dữ liệu chi cục " + data.TenChiCuc + " đang đồng bộ lên tổng cục \r\n";
+                                    var resupdate = UpdateStatusSyncDanhMucChiCuc(data);
+                                    if (!resupdate.Result)
+                                    {
+                                        res.StringError += "Dữ liệu chi cục " + data.TenChiCuc + " chưa được cập nhật \r\n";
+                                    }
+                                    else
+                                    {
+                                        res.StringError+= "Dữ liệu chi cục " + data.TenChiCuc + " đã được cập nhật \r\n";
+                                    }
+
                                 }
+                                else
+                                {
+                                    res.Result = false;
+                                    res.StringError += "Dữ liệu đơn vị " + data.TenChiCuc + " chưa được đồng bộ lên tổng cục \r\n";
+                                }
+                                res.Result = true;
 
                             }
-                            else
-                            {
-                                res.Result = false;
-                                res.StringError += "Dữ liệu đơn vị " + data.TenChiCuc + " chưa được đồng bộ lên tổng cục \r\n";
-                            }
-
-                        }
+                    }
+                   else
+                    {
+                            res.Result = false;
+                            res.StringError += "Không có dữ liệu chi cục cần đồng bộ \r\n";
+                    }
+                        
                     }
                 }
 

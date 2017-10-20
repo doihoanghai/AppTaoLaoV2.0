@@ -8,7 +8,7 @@ using System.Web.Script.Serialization;
 
 namespace DataSync.BioNetSync
 {
-    class DanhMucThongSoSync
+    public class DanhMucThongSoSync
     {
         private static BioNetDBContextDataContext db = null;
         private static string linkGetDanhMucThongSo = "/api/thongsoxetnghiem/getallThongSo";
@@ -100,7 +100,7 @@ namespace DataSync.BioNetSync
                         kyth.GiaTriTrungBinhNam = cl.GiaTriTrungBinhNam;
                         kyth.GiaTriTrungBinhNu = cl.GiaTriTrungBinhNu;
                         kyth.MaDonViTinh = cl.MaDonViTinh;
-                        kyth.MaNhom = kyt.MaNhom;
+                        kyth.MaNhom = cl.MaNhom;
                         kyth.Stt = cl.Stt;
                         kyth.TenThongSo = cl.TenThongSo;
                         kyth.IDThongSoXN = cl.IDThongSoXN;

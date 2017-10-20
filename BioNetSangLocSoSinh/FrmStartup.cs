@@ -18,6 +18,9 @@ using System.Threading;
 using BioNetSangLocSoSinh.FrmReports;
 using System.IO;
 using System.IO.Compression;
+using DataSync.BioNetSync;
+using BioNetSangLocSoSinh.DiaglogFrm;
+using BioNetModel;
 
 namespace BioNetSangLocSoSinh
 {
@@ -25,11 +28,11 @@ namespace BioNetSangLocSoSinh
     {
         private string empCode = string.Empty;
         //path file txt ds phiếu chưa đồng bộ
-        string pathtxt = Application.StartupPath + "\\DSPhieuChuaDongBo\\dsPhieuChuaDongBo.txt";
+       public static string pathtxt = Application.StartupPath + "\\DSPhieuChuaDongBo\\dsPhieuChuaDongBo.txt";
         //path phiếu kết quả xét nghiệm
-        string pathkq = Application.StartupPath + "\\PhieuKetQua\\";
+        public static string pathkq = Application.StartupPath + "\\PhieuKetQua\\";
         //path nơi luuw file đã nén để đồng bộ
-        string pathdongbo = Application.StartupPath + "\\DSNenDongBo\\";
+        public static string pathdongbo = Application.StartupPath + "\\DSNenDongBo\\";
         public FrmStartup()
         {
             InitializeComponent();
@@ -636,7 +639,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
         }
 
    
-        private int  NenFileDongBo()
+        public static int  NenFileDongBo()
         {
            
             IEnumerable<string> linkthumucdvcs = Directory.EnumerateDirectories(pathkq);
@@ -683,52 +686,231 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             return kq; 
         }
 
-        private void barButtonItem35_ItemClick(object sender, ItemClickEventArgs e)
+        public static void barButtonItem35_ItemClick(object sender, ItemClickEventArgs e)
         {
-            int kq=NenFileDongBo();
+            //PDFSync();
+        }
+
+        public static PsReponse PDFSync()
+        {
+            PsReponse resp = new PsReponse();
+            int kq = NenFileDongBo();
             if (kq == 0)
             {
                 var res = DBPhieuKQDataSync.PostKQPDF();
                 if (string.IsNullOrEmpty(res.StringError))
                 {
+
                     try
                     {
-                        //Xóa file txt
-                        File.Delete(pathtxt);
-                        //Tạo lại file txt trắng
-                        StreamWriter file = new StreamWriter(pathtxt, true);
-                        //this.lockFile(pathtxt);
+                        if (res.Result == true)
+                        { //Xóa file txt
+                            File.Delete(pathtxt);
+                            //Tạo lại file txt trắng
+                            StreamWriter file = new StreamWriter(pathtxt, true);
+                            //this.lockFile(pathtxt);
+                            resp.Result = true;
+                            //MessageBox.Show(DateTime.Now + " Đồng bộ phiếu kết quả thành công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            resp.Result = false;
+                            resp.StringError = " Đồng Bộ Phiếu PDF thất bại ";
+                           // MessageBox.Show(DateTime.Now + " Đồng bộ phiếu kết quả thất bại", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                        }
                         DirectoryInfo dirInfo = new DirectoryInfo(pathdongbo);
                         FileInfo[] childFiles = dirInfo.GetFiles();
                         foreach (FileInfo childFile in childFiles)
-                        { 
+                        {
                             File.Delete(childFile.FullName); //Xóa các file nén đã đồng bộ
                         }
-                        MessageBox.Show(DateTime.Now +" Đồng bộ phiếu kết quả thành công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi" + ex, "Thông Báo", MessageBoxButtons.OK);
+                        resp.Result = false;
+                        resp.StringError = " Đồng Bộ Phiếu PDF thất bại - "+ex;
+                        //MessageBox.Show("Lỗi" + ex, "Thông Báo", MessageBoxButtons.OK);
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show( res.StringError + "\r\n", "Thông Báo", MessageBoxButtons.OK);
+                    resp.Result = false;
+                    resp.StringError = " Đồng Bộ Phiếu PDF thất bại -" + res.StringError;
+                    //MessageBox.Show(res.StringError + "\r\n", "Thông Báo", MessageBoxButtons.OK);
                 }
             }
-            else if(kq==1)
-            { MessageBox.Show("Không có dữ liệu phiếu cần đồng bộ", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
-            else if(kq==2)
-            { MessageBox.Show("Nén dữ liệu đồng bộ bị lỗi", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
+            else if (kq == 1)
+            {
+                resp.Result = true;
+                //MessageBox.Show("Không có dữ liệu phiếu cần đồng bộ", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); 
+            }
+            else if (kq == 2)
+            {
+                resp.Result = false;
+                resp.StringError = " Đồng Bộ Phiếu PDF thất bại - Nén Dữ Liệu Thất Bại";
+                // MessageBox.Show("Nén dữ liệu đồng bộ bị lỗi", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); 
+            }
+            return resp;
+
+        }
+       
+        private void barButtonItem38_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                SplashScreenManager.ShowForm(this, typeof(DiaglogFrm.Waitingfrom), true, true, false);
+                FrmReports.FrmBaoCaoDonVi_TTPhieu frm = new FrmReports.FrmBaoCaoDonVi_TTPhieu();
+                TabCreating(xTabMain, "Báo cáo phiếu đơn vị", frm);
+                SplashScreenManager.CloseForm();
+            }
+            catch { }
+        }
+        private void barButtonItem37_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            List<PsReponse> res = new List<PsReponse>();
+            try
+            {
+                string Error=null;
+                SplashScreenManager.ShowForm(this, typeof(WaitingformLoadDongBo), true, true, false);                              
+                res.Add(PhieuSangLocSync.PostPhieuSangLoc());
+                res.Add( PatientSync.PostPatient());
+                res.Add(ChiDinhSync.PostChiDinh());
+                res.Add(KetQuaSync.PostKetQua());
+                res.Add(BenhNhanNguyCoCaoSync.PostBenhNhanNguyCoCao());
+                res.Add(DotChuanDoanSync.PostDotChuanDoan());
+                res.Add(TraKetQuaSync.PostKetQua());
+                res.Add(DanhGiaChatLuongMauSync.PostCTDanhGiaChatLuongMau());
+                res.Add(PDFSync());
+                foreach (var p in res)
+                {
+                    if (p.Result == false && p.StringError != null)
+                    {
+                        Error = Error + "\r\n" + p.StringError;
+                    }
+                }
+                SplashScreenManager.CloseForm();
+                if (Error == null)
+                {
+                    XtraMessageBox.Show("Đồng Bộ Dữ Liệu Kết Quả Thành Công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    XtraMessageBox.Show("Đồng Bộ Dữ Liệu Kết Quả Bị Lỗi- Danh Sách Lỗi: \r\n" + Error, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi Đồng Bộ Dữ Liệu Kết Quả - "+ex, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
+        }
+
+        private void barButtonItem36_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            List<PsReponse> res = new List<PsReponse>();
+            try {
+                string Error = null;
+                SplashScreenManager.ShowForm(this, typeof(WaitingformLoadDongBo), true, true, false);
+                res.Add(DanhMucChiCucSync.GetDanhMucChiCuc());
+                res.Add(DanhMucDonViCoSoSync.GetDanhMucDonViCoSo());
+                res.Add(DanhMucDichVuSync.GetDMDichVu());
+                res.Add(DanhMucDichVuCoSoSync.GetDMDichVuCoSo());
+                res.Add(DanhMucGoiDichVuTheoDonViSync.GetDMGoiDichVuTheoDonVi());
+                res.Add(DanhMucGoiDichVuChungSync.GetDMGoiDichVuChung());
+                res.Add(DanhMucGoiDichVuChungSync.GetDMGoiDichVuChung_ChiTiet());
+                res.Add(DanhMucChuongTrinhSync.GetDanhSachChuongTrinh());
+                res.Add(DanhMucThongSoSync.GetDMThongSo());
+                res.Add(DanhMucKyThuatSync.GetDMKyThuat());
+                res.Add(DanhMucThongSoSync.GetDMThongSo());
+                res.Add(MappingKyThuat_DichVuSync.GetDMMap_ThongSo_KyThuat());
+                res.Add(MappingThongso_KyThuatSync.GetDMMap_KyThuat_DichVu());
+                res.Add(DanhMucDanhGiaChatLuongMauSync.GetDMDanhGiaChatLuongMau());
+                foreach (var p in res)
+                {
+                    if (p.Result == false && p.StringError != null)
+                    {
+                        Error = Error + "\r\n" + p.StringError;
+                    }
+                }
+                SplashScreenManager.CloseForm();
+                if (Error == null)
+                {
+                    XtraMessageBox.Show("Đồng Bộ Dữ Liệu Danh Mục Thành Công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    XtraMessageBox.Show("Đồng Bộ Dữ Liệu Danh Mục Bị Lỗi- Danh Sách Lỗi: \r\n" + Error, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi Đồng Bộ Danh Mục - "+ex, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
 
         }
 
-        private void barButtonItem37_ItemClick(object sender, ItemClickEventArgs e)
+        private void barButtonItem35_ItemClick_1(object sender, ItemClickEventArgs e)
         {
             
         }
-     
 
+        private void barButtonItem39_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            PsReponse res = new PsReponse();
+            try {
+                
+                SplashScreenManager.ShowForm(this, typeof(WaitingformLoadDongBo), true, true, false);
+                res= ThongTinTrungTamSync.GetThongTinTrungTam();
+                SplashScreenManager.CloseForm();
+                if (res.Result == true)
+                {
+                    XtraMessageBox.Show("Đồng Bộ Dữ Liệu Thông Tin Trung Tâm Thành Công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    XtraMessageBox.Show("Đồng Bộ Dữ Liệu Thông Tin Trung Tâmc Bị Lỗi- Danh Sách Lỗi: \r\n" + res.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show("Đồng Bộ Dữ Liệu Thông Tin Trung Tâmc Bị Lỗi- "+ex, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+        }
+
+        private void barButtonItem40_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            List<PsReponse> res = new List<PsReponse>();
+            try {
+                string Error = null;
+                SplashScreenManager.ShowForm(this, typeof(WaitingformLoadDongBo), true, true, false);
+                res.Add(PhieuSangLocSync.GetPhieuSangLoc());
+                res.Add(PatientSync.GetPatient());
+                foreach (var p in res)
+                {
+                    if (p.Result == false && p.StringError != null)
+                    {
+                        Error = Error + "\r\n" + p.StringError;
+                    }
+                }
+                SplashScreenManager.CloseForm();
+                if (Error == null)
+                {
+                    XtraMessageBox.Show("Đồng Bộ Dữ Liệu Phiếu Dữ Liệu Tiếp Nhận Thành Công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    XtraMessageBox.Show("Đồng Bộ Dữ Liệu Phiếu Dữ Liệu Tiếp Nhận Bị Lỗi- Danh Sách Lỗi: \r\n" + Error, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show("Đồng Bộ Dữ Liệu Phiếu Dữ Liệu Tiếp Nhận Bị Lỗi -" +ex, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+         
+        }
     }
 }

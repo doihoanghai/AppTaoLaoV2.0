@@ -14,7 +14,7 @@ namespace BioNetModel
     {
      
        public PsThongTinTrungTam TrungTam { get; set; }
-      public PsThongTinDonVi Donvi { get; set; }
+        public PsThongTinDonVi Donvi { get; set; }
         public DateTime tuNgay { get; set; }
         public DateTime denNgay { get; set; }
         public int SoLuongMau { get; set; }
@@ -28,6 +28,7 @@ namespace BioNetModel
         public CAH cAH { get; set; }
         public PKU pKU { get; set; }
         public GAL gAL { get; set; }
+        public TKPhieu tkphieu { get; set; }
 
         public class GoiBenh
         {
@@ -98,6 +99,11 @@ namespace BioNetModel
             public int GALBinhThuong { get; set; }
             public string GALNguyCo_Tong { get; set; }
             public string GALBinhThuong_Tong { get; set; }
+        }
+        public class TKPhieu
+        {
+            public int Thang { get; set; }
+            public int SLphieu { get; set; }
         }
     }
    

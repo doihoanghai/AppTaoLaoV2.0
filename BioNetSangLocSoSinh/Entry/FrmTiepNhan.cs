@@ -45,7 +45,8 @@ namespace BioNetSangLocSoSinh.Entry
             //this.lstPhieuTaiDVCS.Clear();
             this.LoadLookupDonViCoSo();
             //this.searchLookUpDonViCoSo.EditValue = "ALL";
-          
+            this.LoadDanhSachChuongTrinhSangLoc();
+            this.LoadLookupDanToc();
             this.LoadsearchLookUpChiCucPhieu();
             this.LoadRepositoryLookupDonViCoSo();
             //this.LoadSearchLookUpDonViCoSoTiepNhan();
@@ -837,8 +838,7 @@ namespace BioNetSangLocSoSinh.Entry
 
         private void btnRefesh_Click(object sender, EventArgs e)
         {
-            this.LoadDanhSachChuongTrinhSangLoc();
-            this.LoadLookupDanToc();
+            
             this.LoadDanhSachDaTiepNhan();
             this.LoadDuLieuDanhSachPhieu();
         }

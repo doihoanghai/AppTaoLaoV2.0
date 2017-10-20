@@ -30,6 +30,7 @@ namespace DataSync.BioNetSync
                     if (!string.IsNullOrEmpty(token))
                     {
                         var result = cn.GetRespone(cn.CreateLink(linkGetPhieuSangLoc), token);
+
                         if (result.Result)
                         {
                             string json = result.ValueResult;
@@ -43,12 +44,21 @@ namespace DataSync.BioNetSync
                                 foreach(var item in psl.Items)
                                 {
                                     PSPhieuSangLoc term = new PSPhieuSangLoc();
+                                   
                                     term = cn.CovertDynamicToObjectModel(item, term);
                                     lstpsl.Add(term);
                                 }
-                                //UpdatePatient(patient);
-                                UpdatePhieuSangLoc(lstpsl);
-                                res.Result = true;
+                                //UpdatePatient(patient); 
+                                var resUpdate = UpdatePhieuSangLoc(lstpsl,1);
+                                if (resUpdate.Result == true)
+                                {
+                                    res.Result = true;
+                                }
+                                else
+                                {
+                                    res.Result = false;
+                                    res.StringError = resUpdate.StringError;
+                                }
 
                             }
                         }
@@ -80,7 +90,7 @@ namespace DataSync.BioNetSync
             }
             return res;
         }
-        public static PsReponse UpdatePhieuSangLoc(List<PSPhieuSangLoc> lstpsl)
+        public static PsReponse UpdatePhieuSangLoc(List<PSPhieuSangLoc> lstpsl,int luachon)
         {
 
             PsReponse res = new PsReponse();
@@ -97,18 +107,44 @@ namespace DataSync.BioNetSync
                     var psldb = db.PSPhieuSangLocs.FirstOrDefault(p => p.IDPhieu == psl.IDPhieu);
                     if (psldb != null)
                     {
-                        var term = psl.RowIDPhieu;
-                        psldb = psl;
+                        var term = psldb.RowIDPhieu;
+                        cn.ConvertObjectToObject(psl, psldb);
                         psldb.RowIDPhieu = term;
-                        db.SubmitChanges();
-
+                        if (luachon==1)
+                        {
+                            if (psl.DiaChiLayMau != null)
+                            {
+                                psldb.DiaChiLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChiLayMau));
+                            }
+                            if (psl.NoiLayMau != null)
+                            {
+                                psldb.NoiLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiLayMau));
+                            }
+                            if (psl.TenNhanVienLayMau != null)
+                            {
+                                psldb.TenNhanVienLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenNhanVienLayMau));
+                            }                        
+                        }
+                        else if(luachon==2)
+                        {}                      
+                            db.SubmitChanges();
                     }
                     else
                     {
                         PSPhieuSangLoc newpsl = new PSPhieuSangLoc();
                         newpsl = psl;
-                        newpsl.DiaChiLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChiLayMau));
-                        newpsl.TenNhanVienLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenNhanVienLayMau));
+                        if(psl.DiaChiLayMau!=null)
+                        {
+                            newpsl.DiaChiLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChiLayMau));
+                        }
+                        if (psl.NoiLayMau != null)
+                        {
+                            newpsl.NoiLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiLayMau));
+                        }
+                        if (psl.TenNhanVienLayMau != null)
+                        {
+                            newpsl.TenNhanVienLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenNhanVienLayMau));
+                        }  
                         newpsl.RowIDPhieu = 0;
                         newpsl.isDongBo = true;
                         db.PSPhieuSangLocs.InsertOnSubmit(newpsl);
@@ -157,10 +193,23 @@ namespace DataSync.BioNetSync
                             {
                                 res.StringError += "Dữ liệu đơn vị " + data.IDCoSo + " đã được đồng bộ lên tổng cục \r\n";
                                 List<PSPhieuSangLoc> lstpsl = new List<PSPhieuSangLoc>();
+                                //PSPhieuSangLoc term = new PSPhieuSangLoc();
+                                data.isDongBo = true;
+                                //cn.ConvertObjectToObject(data, term);
+                               
+                              
                                 lstpsl.Add(data);
-                                var resupdate = UpdatePhieuSangLoc(lstpsl);
-                                if (!resupdate.Result)
+                                var resupdate = UpdatePhieuSangLoc(lstpsl,2);
+
+                                if (resupdate.Result==true)
                                 {
+                                    res.Result = true;
+                                    res.StringError += "Dữ liệu dơn vị " + data.IDCoSo + " đã được cập nhật thành công \r\n";
+                                   
+                                }
+                                else
+                                {
+                                    res.Result = false;
                                     res.StringError += "Dữ liệu đơn vị " + data.IDCoSo + " chưa được cập nhật \r\n";
                                 }
                             }

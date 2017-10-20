@@ -80,10 +80,12 @@
   <ItemGroup>
     <Compile Include="BioNetSync\BenhNhanNguyCoCaoSync.cs" />
     <Compile Include="BioNetSync\ChiDinhSync.cs" />
+    <Compile Include="BioNetSync\DanhGiaChatLuongMauSync.cs" />
     <Compile Include="BioNetSync\DanhMucChiCucSync.cs" />
     <Compile Include="BioNetSync\DanhMucChuongTrinhSync.cs" />
-    <Compile Include="BioNetSync\DanhMucDanhGiaChatLuongMau.cs" />
+    <Compile Include="BioNetSync\DanhMucDanhGiaChatLuongMauSync.cs" />
     <Compile Include="BioNetSync\DanhMucDanTocSync.cs" />
+    <Compile Include="BioNetSync\DanhMucDichVuCoSoSync.cs" />
     <Compile Include="BioNetSync\DanhMucDichVuSync.cs" />
     <Compile Include="BioNetSync\DanhMucDonViCoSoSync.cs" />
     <Compile Include="BioNetSync\DanhMucGoiDichVuChungSync.cs" />
@@ -138,6 +140,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BioNetBLL\BioNetBLL.csproj">
+      <Project>{f0df1fe9-42b8-430d-9362-735a29e8de28}</Project>
+      <Name>BioNetBLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BioNetDAL\BioNetDAL.csproj">
       <Project>{6582988d-53f5-488d-afd0-d7bdf5daaef1}</Project>
       <Name>BioNetDAL</Name>

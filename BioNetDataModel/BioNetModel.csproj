@@ -63,6 +63,7 @@
     <Compile Include="APIViewModel\DanhMucTrungTamSangLocViewModel.cs" />
     <Compile Include="APIViewModel\GoiDichVuTrungTamViewModel.cs" />
     <Compile Include="APIViewModel\MapsXetNghiem_ThongSoViewModel.cs" />
+    <Compile Include="APIViewModel\MapsXN_ThongSoSync.cs" />
     <Compile Include="APIViewModel\Model1.cs" />
     <Compile Include="APIViewModel\Model1.Designer.cs" />
     <Compile Include="APIViewModel\Patient_XN_ListTraKQChiTietViewModel.cs" />
@@ -117,11 +118,13 @@
     <Compile Include="PsThongTinTrungTam.cs" />
     <Compile Include="PsTinhTrangPhieu.cs" />
     <Compile Include="PSTKKQPhieuMail.cs" />
+    <Compile Include="rptBaoCaoSLPhieu.cs" />
     <Compile Include="rptBaoCaoTongHop.cs" />
     <Compile Include="rptChiTietTrungTam.cs" />
     <Compile Include="rptChiTietTrungTam_ChiTiet.cs" />
     <Compile Include="ServerInfo.cs" />
     <Compile Include="TraKetQua_XetNghiem.cs" />
+    <Compile Include="TTPhieuCB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

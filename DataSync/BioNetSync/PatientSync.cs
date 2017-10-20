@@ -47,8 +47,17 @@ namespace DataSync.BioNetSync
                                     lstpsl.Add(term);
                                 }
                                 //UpdatePatient(patient);
-                                UpdatePatient(lstpsl);
-                                res.Result = true;
+                               var resUpdate= UpdatePatient(lstpsl,1);
+                                if(resUpdate.Result==true)
+                                {
+                                    res.Result = true;
+                                }
+                                else
+                                {
+                                    res.Result = false;
+                                    res.StringError = resUpdate.StringError;
+                                }
+                            
 
                             }
                         }
@@ -80,7 +89,7 @@ namespace DataSync.BioNetSync
             }
             return res;
         }
-        public static PsReponse UpdatePatient(List<PSPatient> lstpsl)
+        public static PsReponse UpdatePatient(List<PSPatient> lstpsl,int luachon)
         {
 
             PsReponse res = new PsReponse();
@@ -94,12 +103,43 @@ namespace DataSync.BioNetSync
                 db.Transaction = db.Connection.BeginTransaction();
                 foreach (var psl in lstpsl)
                 {
-                    var psldb = db.PSPatients.FirstOrDefault(p => p.MaKhachHang == psl.MaKhachHang);
+                    var psldb = db.PSPatients.FirstOrDefault(p => p.MaBenhNhan == psl.MaBenhNhan);
                     if (psldb != null)
                     {
-                        var term = psl.RowIDBenhNhan;
-                        psldb = psl;
+                        var term = psldb.RowIDBenhNhan;
+                        cn.ConvertObjectToObject(psl, psldb);
+
                         psldb.RowIDBenhNhan = term;
+                      
+                        if(luachon==1)
+                        {
+                            if (psl.TenBenhNhan != null)
+                            {
+                                psldb.TenBenhNhan = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenBenhNhan));
+                            }
+                            if (psl.MotherName != null)
+                            {
+                                psldb.MotherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.MotherName));
+                            }
+                            if (psl.FatherName != null)
+                            {
+                                psldb.FatherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.FatherName));
+                            }
+                            if (psl.DiaChi != null)
+                            {
+                                psldb.DiaChi = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChi));
+                            }
+                            if (psl.NoiSinh != null)
+                            {
+                                psldb.NoiSinh = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiSinh));
+                            }
+                        }
+                        else if(luachon ==2)
+                        {
+
+                        }
+                       
+                       
                         db.SubmitChanges();
 
                     }
@@ -107,11 +147,26 @@ namespace DataSync.BioNetSync
                     {
                         PSPatient newpsl = new PSPatient();
                         newpsl = psl;
-                        newpsl.TenBenhNhan = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenBenhNhan));
-                        newpsl.MotherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.MotherName));
-                        newpsl.FatherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.FatherName));
-                        newpsl.DiaChi = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChi));
-                        newpsl.NoiSinh = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiSinh));
+                        if(psl.TenBenhNhan!=null)
+                        {
+                            newpsl.TenBenhNhan = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenBenhNhan));
+                        }
+                        if(psl.MotherName!=null)
+                        {
+                            newpsl.MotherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.MotherName));
+                        }
+                        if(psl.FatherName!=null)
+                        {
+                            newpsl.FatherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.FatherName));
+                        }
+                        if(psl.DiaChi!=null)
+                        {
+                            newpsl.DiaChi = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChi));
+                        }
+                       if(psl.NoiSinh!=null)
+                        {
+                            newpsl.NoiSinh = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiSinh));
+                        }
                         newpsl.RowIDBenhNhan = 0;
                         newpsl.isDongBo = true;
                         db.PSPatients.InsertOnSubmit(newpsl);
@@ -150,29 +205,55 @@ namespace DataSync.BioNetSync
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!string.IsNullOrEmpty(token))
                     {
-                        var datas = db.PSPatients.Where(p => p.isDongBo == false);
-                        foreach (var data in datas)
+                        var datas = db.PSPatients.Where(p => p.isDongBo == false && p.MaKhachHang!=null);
+                        if(datas!=null)
                         {
-                            string jsonstr = new JavaScriptSerializer().Serialize(data);
-                            var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
-                            if (result.Result)
+                            if(datas.Count()>0)
                             {
-                                res.StringError += "Dữ liệu Patient " + data.MaKhachHang + " đã được đồng bộ lên tổng cục \r\n";
-                                List<PSPatient> lstpsl = new List<PSPatient>();
-                                lstpsl.Add(data);
-                                var resupdate = UpdatePatient(lstpsl);
-                                if (!resupdate.Result)
+                                foreach (var data in datas)
                                 {
-                                    res.StringError += "Dữ liệu khách hàng " + data.MaKhachHang + " chưa được cập nhật \r\n";
+                                    string jsonstr = new JavaScriptSerializer().Serialize(data);
+                                    var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
+                                    if (result.Result)
+                                    {
+                                        res.StringError += "Dữ liệu Patient " + data.MaKhachHang + " đã được đồng bộ lên tổng cục \r\n";
+                                        List<PSPatient> lstpsl = new List<PSPatient>();
+                                        data.isDongBo = true;
+                                        lstpsl.Add(data);
+                                        var resupdate = UpdatePatient(lstpsl, 2);
+                                        if (!resupdate.Result)
+                                        {
+                                            res.Result = false;
+                                            res.StringError += "Dữ liệu khách hàng " + data.MaKhachHang + " chưa được cập nhật \r\n";
+                                        }
+                                        else
+                                        {
+                                            res.Result = true;
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        res.Result = false;
+                                        res.StringError += "Dữ liệu khách hàng " + data.MaKhachHang + " chưa được đồng bộ lên tổng cục \r\n";
+                                    }
+
                                 }
+                               
                             }
                             else
                             {
-                                res.Result = false;
-                                res.StringError += "Dữ liệu khách hàng " + data.MaKhachHang + " chưa được đồng bộ lên tổng cục \r\n";
+                                res.Result = true;
+                                res.StringError += "Không có dữ liệu khách hàng cần đồng bộ \r\n";
                             }
 
                         }
+                        else
+                        {
+                            res.Result = true;
+                            res.StringError += "Không có dữ liệu khách hàng cần đồng bộ \r\n";
+                        }
+                       
                     }
 
                 }

@@ -97,11 +97,11 @@ namespace DataSync.BioNetSync
                     var psldb = db.PSTiepNhans.FirstOrDefault(p => p.MaPhieu == psl.MaPhieu);
                     if (psldb != null)
                     {
-                        var term = psl.RowIDPhieu;
-                        psldb = psl;
+                        var term = psldb.RowIDPhieu;
+                        cn.ConvertObjectToObject(psl,psldb);
                         psldb.RowIDPhieu = term;
+                        
                         db.SubmitChanges();
-
                     }
                     else
                     {
@@ -111,16 +111,12 @@ namespace DataSync.BioNetSync
                         newpsl.isDongBo = true;
                         db.PSTiepNhans.InsertOnSubmit(newpsl);
                         db.SubmitChanges();
-
                     }
-
                 }
 
                 db.Transaction.Commit();
                 db.Connection.Close();
-                res.Result = true;
-
-
+                res.Result = true;               
             }
             catch (Exception ex)
             {
@@ -148,17 +144,24 @@ namespace DataSync.BioNetSync
                         var datas = db.PSTiepNhans.Where(p => p.isDongBo == false);
                         foreach (var data in datas)
                         {
+                            
                             string jsonstr = new JavaScriptSerializer().Serialize(data);
                             var result = cn.PostRespone(cn.CreateLink(linkPostTiepNhan), token, jsonstr);
                             if (result.Result)
                             {
                                 res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " đã được đồng bộ lên tổng cục \r\n";
                                 List<PSTiepNhan> lstpsl = new List<PSTiepNhan>();
+                                data.isDongBo = true;
                                 lstpsl.Add(data);
                                 var resupdate = UpdateTiepNhan(lstpsl);
                                 if (!resupdate.Result)
                                 {
+                                    res.Result = false;
                                     res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " chưa được cập nhật \r\n";
+                                }
+                                else
+                                {
+                                    res.Result = true;
                                 }
                             }
                             else
