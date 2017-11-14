@@ -193,6 +193,7 @@ namespace BioNetBLL
             catch { dt = null; }
             return dt;
         }
+        
         public static DataTable DTEmployeePosition()
         {
             var db = new BioDAL();
@@ -202,7 +203,6 @@ namespace BioNetBLL
                 dt.Columns.Add(new DataColumn("PositionCode", typeof(Int32)));
                 dt.Columns.Add(new DataColumn("PositionName", typeof(string)));
                 dt.Columns.Add(new DataColumn("Level", typeof(Int32)));
-                
                 var vlist = db.ListEmployeePosition(0);
                 foreach (var lt1 in vlist)
                 {
@@ -276,6 +276,11 @@ namespace BioNetBLL
         #endregion
 
         #region DM Đơn vị cơ sở
+        public static List<PSDanhMucDonViCoSo> GetListDVCS()
+        {
+            var db = new BioDAL();
+            return db.GetListDonViCoSo();
+        }
         public static DataTable GetListDonViCoSo()
         {
             var db = new BioDAL();
@@ -295,7 +300,8 @@ namespace BioNetBLL
                 dt.Columns.Add(new DataColumn("KieuTraKetQua", typeof(int)));
                 dt.Columns.Add(new DataColumn("isDongBo", typeof(bool)));
                 dt.Columns.Add(new DataColumn("TenBacSiDaiDien", typeof(string)));
-
+                dt.Columns.Add(new DataColumn("ChuKiDonVi", typeof(Binary)));
+                dt.Columns.Add(new DataColumn("Email", typeof(string)));
                 var vlist = db.GetListDonViCoSo();
                 foreach (var lt1 in vlist)
                 {
@@ -315,6 +321,8 @@ namespace BioNetBLL
                     dr[10] = lt1.KieuTraKetQua??1;
                     dr[11] = lt1.isDongBo??false;
                     dr[12] = lt1.TenBacSiDaiDien ?? string.Empty;
+                    dr[13] = lt1.ChuKiDonVi;
+                    dr[14] = lt1.Email ?? string.Empty;
                     dr.EndEdit();
                     dt.Rows.Add(dr);
                 }
@@ -785,6 +793,19 @@ namespace BioNetBLL
         #endregion
 
         #region DM Thông số xét nghiệm
+        public static List<PSDanhMucThongSoXN> GetListThongSoXetNghiem()
+        {
+            List<PSDanhMucThongSoXN> lst = new List<PSDanhMucThongSoXN>();
+            try {
+                var db = new BioDAL();
+               lst = db.GetListThongSoXN();
+            }
+            catch
+            {
+
+            }
+            return lst;          
+        }
         public static DataTable GetListThongSoXN()
         {
             var db = new BioDAL();

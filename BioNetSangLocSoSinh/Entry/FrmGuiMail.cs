@@ -199,18 +199,18 @@ namespace BioNetSangLocSoSinh.FrmReports
                 string tieude = "BIONET: KẾT QUẢ SLSS - " + donvi.TenDVCS + " " + DateTime.Now.ToShortDateString();
                 //Bảng kết quả
                 string bangkq = ThongKeMail(MaDVCS);
-                string noidung = "<p style='font-size:12.8px;margin:6pt 0in;text-align:justify'><font face='times new roman,serif' size='4' color='black'>" + "Kinh gửi:<b> " + donvi.TenDVCS + "</b></font></p>" +
+                string noidung = "<p style='font-size:12.8px;margin:6pt 0in;text-align:justify'><font face='times new roman,serif' size='4' color='black'>" + "Kính gửi:<b> " + donvi.TenDVCS + "</b>,</font></p>" +
                     "<p style='font-size:12.8px;margin:6pt 0in;text-align:justify '><font face='times new roman,serif' size='4' color='black'>" + "Trung tâm SLSS Bionet Việt Nam gửi tới Bệnh viện file kết quả sàng lọc sơ sinh tiếp nhận từ ngày " + this.dllNgay.tungay.Value.ToShortDateString() + " đến ngày " + this.dllNgay.denngay.Value.ToShortDateString() + "." + "</font></p>" +
                    "<p style='font-size:12.8px;margin:6pt 0in;text-align:justify'><font face='times new roman,serif' size = '4' color='black'>" + "Kết quả xét nghiệm như sau:" + "</font></p>" + bangkq +
                   "<p style='font-size:12.8px;margin:6pt 0in;text-align:justify'><font face='times new roman,serif' size = '4' color='black'>" + "Mọi thắc mắc hoặc góp ý, xin quý Bệnh viện vui lòng liên hệ Trung tâm Sàng lọc sơ sinh Bionet Việt Nam." + "</font></p>" + "<p style='font-size:12.8px;margin:6pt 0in;text-align:justify'><font face='times new roman,serif' size = '4' color='black'>" + "Số điện thoại Chăm sóc khách hàng:<span style='color:rgb(54,204,255)'> 024 6686 1304,</span>" + "</font></p>" +
                    "<p></p><p></p>" +
-                   "<p style='font-size:12.8px;margin:6pt 0in;text-align:justify'><font face='times new roman,serif' size = '4' color='black'>" + "Kính thưa." + "</font></p>";
+                   "<p style='font-size:12.8px;margin:6pt 0in;text-align:justify'><font face='times new roman,serif' size = '4' color='black'>" + "Kính thư," + "</font></p>";
                 string madvcs = MaDVCS;
                 string pathzip = pathMail + madvcs + ".zip";
 
-                //string MailKH = BioNet_Bus.GetThongTinMailDonViCoSo(madvcs);
-                string mailKh = "thanhquangqb95@gmail.com";
-                int kq = DataSync.BioNetSync.GuiMail.Send_Email_With_Attachment(mailKh, fromAddress, passEMail, pathzip, tieude, noidung);
+                string MailKH = BioNet_Bus.GetThongTinMailDonViCoSo(madvcs);
+                //string mailKh = "thanhquangqb95@gmail.com";
+                int kq = DataSync.BioNetSync.GuiMail.Send_Email_With_Attachment(MailKH, fromAddress, passEMail, pathzip, tieude, noidung);
                 //File.Create(pathzip).Close();
                 return kq;
             }
@@ -326,14 +326,14 @@ namespace BioNetSangLocSoSinh.FrmReports
                      "<td style='padding:5px;'>G6PD</td>" +
                      "<td style='padding:5px;'> " + tk[0].G6PD4 + "</td>" +
                      "<td style='padding:5px;'>GAL</td>" +
-                     "<td style='padding:5px;'> " + tk[0].G6PD4 + "</td>" +
+                     "<td style='padding:5px;'> " + tk[0].GAL4 + "</td>" +
                      "<td style='padding:5px;'>PKU</td>" +
                     " <td style='padding:5px;'> " + tk[0].PKU4 + "</td>" +
                 "</tr>" +
 
                 "<tr style='padding:5px;'> " +
                      "<td style='padding:5px;'>CAH</td>" +
-                     "<td style='padding:5px;'> " + tk[0].CAH4 + "</td>" +
+                     "<td style='padding:5px;'> " + tk[0].CAH2 + "</td>" +
                      "<td style='padding:5px;'>CH</td>" +
                      "<td style='padding:5px;'>" + tk[0].CH4 + "</td>" +
                      "<td style='padding:5px;'>CAH</td>" +
@@ -362,8 +362,8 @@ namespace BioNetSangLocSoSinh.FrmReports
 
                 "<tr style='padding:5px;'>" +
                      "<td style='padding:5px; text-align:center;' colspan='1' rowspan='5' >" + tk[0].MauKDat+ "</td>" +
-                     "<td style='padding:5px;' colspan='3'>2. Thời gian gửi mẫu chậm</td>" +
-                     "<td style='padding:5px;' colspan='1' >" + tk[0].GuiCham + "</td>" +
+                     "<td style='padding:5px;' colspan='3'>2. Mẫu có vòng huyết thanh</td>" +
+                     "<td style='padding:5px;' colspan='1' >" + tk[0].MauCoVongHuyetThanh + "</td>" +
                 "</tr>" +
 
                 "<tr style='padding:5px;'>" +
@@ -372,8 +372,8 @@ namespace BioNetSangLocSoSinh.FrmReports
                 "</tr>" +
 
                 "<tr style='padding:5px;'>" +
-                      "<td style='padding:5px;' colspan='3'>4. Thu mẫu trước 24h</td>" +
-                      "<td style='padding:5px;' colspan='1' >" + tk[0].ThuSom + "</td>" +
+                      "<td style='padding:5px;' colspan='3'>4. Mẫu chưa khô</td>" +
+                      "<td style='padding:5px;' colspan='1' >" + tk[0].MauChuaKho + "</td>" +
                  "</tr>" +
 
                  "<tr style='padding:5px;'>" +

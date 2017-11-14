@@ -34,10 +34,10 @@
             this.col_th_IDChuongTrinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_TenChuongTrinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_Ngaytao = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_th_NgayHetHieuLuc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_th_isLocked = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemDateEdit_NgayTao = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.col_th_NgayHetHieuLuc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemDateEdit_NgayHetHieuLuc = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.col_th_isLocked = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit_IsLocked = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ChuongTrinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_ChuongTrinh)).BeginInit();
@@ -51,14 +51,16 @@
             // gridControl_ChuongTrinh
             // 
             this.gridControl_ChuongTrinh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl_ChuongTrinh.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_ChuongTrinh.Location = new System.Drawing.Point(0, 0);
             this.gridControl_ChuongTrinh.MainView = this.gridView_ChuongTrinh;
+            this.gridControl_ChuongTrinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_ChuongTrinh.Name = "gridControl_ChuongTrinh";
             this.gridControl_ChuongTrinh.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemDateEdit_NgayTao,
             this.repositoryItemDateEdit_NgayHetHieuLuc,
             this.repositoryItemCheckEdit_IsLocked});
-            this.gridControl_ChuongTrinh.Size = new System.Drawing.Size(1068, 685);
+            this.gridControl_ChuongTrinh.Size = new System.Drawing.Size(915, 557);
             this.gridControl_ChuongTrinh.TabIndex = 0;
             this.gridControl_ChuongTrinh.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_ChuongTrinh});
@@ -76,7 +78,6 @@
             this.gridView_ChuongTrinh.GridControl = this.gridControl_ChuongTrinh;
             this.gridView_ChuongTrinh.Name = "gridView_ChuongTrinh";
             this.gridView_ChuongTrinh.NewItemRowText = "Thêm danh mục chương trình..";
-            this.gridView_ChuongTrinh.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView_ChuongTrinh.OptionsView.ShowGroupPanel = false;
             this.gridView_ChuongTrinh.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_ChuongTrinh_ValidateRow);
             // 
@@ -99,6 +100,8 @@
             this.col_th_IDChuongTrinh.Caption = "Mã chương trình";
             this.col_th_IDChuongTrinh.FieldName = "IDChuongTrinh";
             this.col_th_IDChuongTrinh.Name = "col_th_IDChuongTrinh";
+            this.col_th_IDChuongTrinh.OptionsColumn.AllowEdit = false;
+            this.col_th_IDChuongTrinh.OptionsColumn.ReadOnly = true;
             this.col_th_IDChuongTrinh.Visible = true;
             this.col_th_IDChuongTrinh.VisibleIndex = 0;
             this.col_th_IDChuongTrinh.Width = 149;
@@ -112,6 +115,8 @@
             this.col_th_TenChuongTrinh.Caption = "Tên chương trình";
             this.col_th_TenChuongTrinh.FieldName = "TenChuongTrinh";
             this.col_th_TenChuongTrinh.Name = "col_th_TenChuongTrinh";
+            this.col_th_TenChuongTrinh.OptionsColumn.AllowEdit = false;
+            this.col_th_TenChuongTrinh.OptionsColumn.ReadOnly = true;
             this.col_th_TenChuongTrinh.Visible = true;
             this.col_th_TenChuongTrinh.VisibleIndex = 1;
             this.col_th_TenChuongTrinh.Width = 400;
@@ -128,9 +133,21 @@
             this.col_th_Ngaytao.ColumnEdit = this.repositoryItemDateEdit_NgayTao;
             this.col_th_Ngaytao.FieldName = "Ngaytao";
             this.col_th_Ngaytao.Name = "col_th_Ngaytao";
+            this.col_th_Ngaytao.OptionsColumn.AllowEdit = false;
+            this.col_th_Ngaytao.OptionsColumn.ReadOnly = true;
             this.col_th_Ngaytao.Visible = true;
             this.col_th_Ngaytao.VisibleIndex = 2;
             this.col_th_Ngaytao.Width = 210;
+            // 
+            // repositoryItemDateEdit_NgayTao
+            // 
+            this.repositoryItemDateEdit_NgayTao.AutoHeight = false;
+            this.repositoryItemDateEdit_NgayTao.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit_NgayTao.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit_NgayTao.FirstDayOfWeek = System.DayOfWeek.Sunday;
+            this.repositoryItemDateEdit_NgayTao.Name = "repositoryItemDateEdit_NgayTao";
             // 
             // col_th_NgayHetHieuLuc
             // 
@@ -144,9 +161,21 @@
             this.col_th_NgayHetHieuLuc.ColumnEdit = this.repositoryItemDateEdit_NgayHetHieuLuc;
             this.col_th_NgayHetHieuLuc.FieldName = "NgayHetHieuLuc";
             this.col_th_NgayHetHieuLuc.Name = "col_th_NgayHetHieuLuc";
+            this.col_th_NgayHetHieuLuc.OptionsColumn.AllowEdit = false;
+            this.col_th_NgayHetHieuLuc.OptionsColumn.ReadOnly = true;
             this.col_th_NgayHetHieuLuc.Visible = true;
             this.col_th_NgayHetHieuLuc.VisibleIndex = 3;
             this.col_th_NgayHetHieuLuc.Width = 178;
+            // 
+            // repositoryItemDateEdit_NgayHetHieuLuc
+            // 
+            this.repositoryItemDateEdit_NgayHetHieuLuc.AutoHeight = false;
+            this.repositoryItemDateEdit_NgayHetHieuLuc.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit_NgayHetHieuLuc.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit_NgayHetHieuLuc.FirstDayOfWeek = System.DayOfWeek.Sunday;
+            this.repositoryItemDateEdit_NgayHetHieuLuc.Name = "repositoryItemDateEdit_NgayHetHieuLuc";
             // 
             // col_th_isLocked
             // 
@@ -162,26 +191,6 @@
             this.col_th_isLocked.VisibleIndex = 4;
             this.col_th_isLocked.Width = 111;
             // 
-            // repositoryItemDateEdit_NgayTao
-            // 
-            this.repositoryItemDateEdit_NgayTao.AutoHeight = false;
-            this.repositoryItemDateEdit_NgayTao.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit_NgayTao.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit_NgayTao.FirstDayOfWeek = System.DayOfWeek.Sunday;
-            this.repositoryItemDateEdit_NgayTao.Name = "repositoryItemDateEdit_NgayTao";
-            // 
-            // repositoryItemDateEdit_NgayHetHieuLuc
-            // 
-            this.repositoryItemDateEdit_NgayHetHieuLuc.AutoHeight = false;
-            this.repositoryItemDateEdit_NgayHetHieuLuc.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit_NgayHetHieuLuc.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit_NgayHetHieuLuc.FirstDayOfWeek = System.DayOfWeek.Sunday;
-            this.repositoryItemDateEdit_NgayHetHieuLuc.Name = "repositoryItemDateEdit_NgayHetHieuLuc";
-            // 
             // repositoryItemCheckEdit_IsLocked
             // 
             this.repositoryItemCheckEdit_IsLocked.AutoHeight = false;
@@ -189,11 +198,12 @@
             // 
             // FrmDMChuongTrinh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 685);
+            this.ClientSize = new System.Drawing.Size(915, 557);
             this.Controls.Add(this.gridControl_ChuongTrinh);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmDMChuongTrinh";
             this.Text = "FrmDMChuongTrinh";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

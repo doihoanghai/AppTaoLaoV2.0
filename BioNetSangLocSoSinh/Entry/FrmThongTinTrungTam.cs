@@ -11,6 +11,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using System.Data.Linq;
 using System.IO;
 using System.Net.Mail;
+using BioNetBLL;
 
 namespace BioNetSangLocSoSinh.Entry
 {
@@ -21,16 +22,39 @@ namespace BioNetSangLocSoSinh.Entry
             InitializeComponent();
         }
         BioNetModel.Data.PSThongTinTrungTam tt = new BioNetModel.Data.PSThongTinTrungTam();
+        string MaBatDauXn = BioNet_Bus.GetMaXetNghiemTrongDB();
+        public static Binary header=null;
+        public static Binary ChukiTT = null;
+        public static Binary ChukiXN = null;
         private bool isloaded = false;
         private void LoadThongTinTrungTam()
         {
             this.tt = BioNetBLL.BioNet_Bus.GetThongTinTrungTam();
+            MaBatDauXn = BioNet_Bus.GetMaXetNghiemTrongDB();
             if (tt != null)
             {
                 try
                 {
                     MemoryStream ms = new MemoryStream(this.tt.Logo.ToArray());
                     pictureEdit1.Image = Image.FromStream(ms);
+                }
+                catch { }
+                try
+                {
+                    MemoryStream ms = new MemoryStream(this.tt.Header.ToArray());
+                   picHeader.Image = Image.FromStream(ms);
+                }
+                catch { }
+                try
+                {
+                    MemoryStream ms = new MemoryStream(this.tt.ChuKiTT.ToArray());
+                    picChuKiTT.Image = Image.FromStream(ms);
+                }
+                catch { }
+                try
+                {
+                    MemoryStream ms = new MemoryStream(this.tt.ChuKiXN.ToArray());
+                    picChuKiXN.Image = Image.FromStream(ms);
                 }
                 catch { }
                 txtTrungTam.Text = this.tt.TenTrungTam;
@@ -42,6 +66,7 @@ namespace BioNetSangLocSoSinh.Entry
                 checkChoPhepNghiNgo.Checked = this.tt.isChoXNLan2 ?? false;
                 checkChoPhepThuMauLai.Checked = this.tt.isChoThuLaiMauLan2 ?? false;
                 checkBoxCapMaXnTheoMaPhieu.Checked = this.tt.isCapMaXNTheoMaPhieu ?? false;
+                txtSBDXetNghiem.Text = this.MaBatDauXn;
             }
         }
         private void FrmThongTinTrungTam_Load(object sender, EventArgs e)
@@ -145,69 +170,90 @@ namespace BioNetSangLocSoSinh.Entry
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn thay đổi thông tin trung tâm", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
                 System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
+                //this.tt.ThoiGianDongBo = txtGioDongBo.EditValue!=null?TimeSpan.Parse(txtGioDongBo.EditValue.): TimeSpan.Parse("00:00:00"); ;
                 this.tt.TenTrungTam = txtTrungTam.Text.Trim();
                 this.tt.Diachi = txtDiaChi.Text.Trim();
                 this.tt.DienThoai = txtSoDT.Text.Trim();
                 this.tt.isChoThuLaiMauLan2 = this.checkChoPhepThuMauLai.Checked;
                 this.tt.isChoXNLan2 = this.checkChoPhepNghiNgo.Checked;
-                this.tt.isCapMaXNTheoMaPhieu = this.checkBoxCapMaXnTheoMaPhieu.Checked;
-                this.tt.Email = txtEmail.Text.Trim();
-                this.tt.PassEmail = txtPassEmail.Text.Trim();
-                bool result = regex.IsMatch(tt.Email);
-                if (result == false)
+                this.tt.isCapMaXNTheoMaPhieu = this.checkBoxCapMaXnTheoMaPhieu.Checked;                
+                this.tt.Header = header!=null?header:tt.Header;
+                this.tt.ChuKiTT = ChukiTT!=null?ChukiTT:tt.ChuKiTT;
+                this.tt.ChuKiXN = ChukiXN != null ? ChukiXN : tt.ChuKiXN;
+                if(txtSBDXetNghiem.Text.Trim()!=MaBatDauXn)
                 {
-                    //Lỗi địa chỉ mail
-                    XtraMessageBox.Show("Địa chỉ Email không hợp lệ - Vui lòng kiểm tra lại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                else
-                {
-                    try
+                  var maxn=BioNet_Bus.UpdateMaXetNghiemTrongDB(txtSBDXetNghiem.Text.Trim());
+                  if(maxn.Result==false)
                     {
-                        MailMessage mail = new MailMessage(tt.Email,"thanhquangqb95@gmail.com");
-                        mail.Subject = "Thư Kiểm Tra Mật Khẩu";
-                        mail.Body = "Đây là thư kiểm tra xác nhận mật khẩu của phần mềm bionet";
-                        SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                        smtp.Credentials = new System.Net.NetworkCredential(tt.Email, tt.PassEmail);
-                        smtp.EnableSsl = true;
-                        smtp.Send(mail);
-                        mail.Dispose();
-                        
-                    }
-                    catch {
-                        XtraMessageBox.Show("Mật Khẩu Email không hợp lệ - Vui lòng kiểm tra lại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        XtraMessageBox.Show("Số bắt đầu mã xét nghiệm lỗi", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                   
-                    var rss = BioNetBLL.BioNet_Bus.UpdateThongTinTrungTam(this.tt);
-                    if (rss.Result)
+                }
+                bool result = regex.IsMatch(tt.Email);
+                if(tt.Email!=txtEmail.Text || tt.PassEmail!=txtPassEmail.Text)
+                {
+                    if (result == false)
                     {
-                        XtraMessageBox.Show("Lưu thông tin trung tâm sàng lọc thành công!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
-                        this.btnLuu.Enabled = false;
-                        txtDiaChi.Enabled = false;
-                        txtEmail.Enabled = false;
-                        txtPassEmail.Enabled = false;
-                        txtSoDT.Enabled = false;
-                        txtTrungTam.Enabled = false;
-                        this.isloaded = false;
-                        this.LoadThongTinTrungTam();
-                        this.isloaded = true;
-                        this.btnHuy.Enabled = false;
-                        this.btnSua.Enabled = true;
+                        //Lỗi địa chỉ mail
+                        XtraMessageBox.Show("Địa chỉ Email không hợp lệ - Vui lòng kiểm tra lại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
                     else
                     {
-                        XtraMessageBox.Show("Lỗi phát sinh khi lấy dữ liệu để lưu \r\n Lỗi chi tiết :" + rss.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        try
+                        {
+                            MailMessage mail = new MailMessage(tt.Email, "sanhlocbionet@gmail.com");
+                            mail.Subject = "Thư Kiểm Tra Mật Khẩu";
+                            mail.Body = "Đây là thư kiểm tra xác nhận mật khẩu của phần mềm Bionet - Yêu cầu không trả lời Email này!";
+                            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                            smtp.Credentials = new System.Net.NetworkCredential(txtEmail.Text.Trim(), txtPassEmail.Text.Trim());
+                            smtp.EnableSsl = true;
+                            smtp.Send(mail);
+                            mail.Dispose();
+                            this.tt.Email = txtEmail.Text.Trim();
+                            this.tt.PassEmail = txtPassEmail.Text.Trim();
+                        }
+                        catch
+                        {
+                            XtraMessageBox.Show("Mật Khẩu Email không hợp lệ - Vui lòng kiểm tra lại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }                       
                     }
+                   
                 }
-
+                var rss = BioNetBLL.BioNet_Bus.UpdateThongTinTrungTam(this.tt);
+                if (rss.Result)
+                {
+                    XtraMessageBox.Show("Lưu thông tin trung tâm sàng lọc thành công!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                    this.btnLuu.Enabled = false;
+                    txtDiaChi.Enabled = false;
+                    txtEmail.Enabled = false;
+                    txtPassEmail.Enabled = false;
+                    txtSoDT.Enabled = false;
+                    txtTrungTam.Enabled = false;
+                    txtSBDXetNghiem.Enabled = false;
+                    //txtGioDongBo.Enabled = false;
+                    this.isloaded = false;
+                    this.LoadThongTinTrungTam();
+                    this.isloaded = true;
+                    this.btnHuy.Enabled = false;
+                    this.btnSua.Enabled = true;
+                    this.picHeader.Enabled = false;
+                    this.picChuKiTT.Enabled = false;
+                    this.picChuKiXN.Enabled = false;
+                    
+                }
+                else
+                {
+                    XtraMessageBox.Show("Lỗi phát sinh khi lấy dữ liệu để lưu \r\n Lỗi chi tiết :" + rss.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else if (dialogResult == DialogResult.No) { return; }
-
         }
 
 
@@ -228,7 +274,6 @@ namespace BioNetSangLocSoSinh.Entry
 
         private void GvGhiChu_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
-
             try
             {
                 GridView view = sender as GridView;
@@ -255,6 +300,10 @@ namespace BioNetSangLocSoSinh.Entry
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            txtSBDXetNghiem.Enabled = true;
+            picHeader.Enabled = true;
+            picChuKiXN.Enabled = true;
+            picChuKiTT.Enabled = true;
             txtDiaChi.Enabled = true;
             txtEmail.Enabled = true;
             txtPassEmail.Enabled = true;
@@ -276,12 +325,98 @@ namespace BioNetSangLocSoSinh.Entry
                 txtPassEmail.Enabled = false;
                 txtSoDT.Enabled = false;
                 txtTrungTam.Enabled = false;
+                txtSBDXetNghiem.Enabled = false;
                 this.isloaded = false;
                 this.LoadThongTinTrungTam();
                 this.isloaded = true;
                 this.btnHuy.Enabled = false;
                 this.btnSua.Enabled = true;
+                
             }
         }
+
+      
+
+        private void picHeader_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                // ofd.Filter = "image files|*.img;*.png;*.gif";
+                DialogResult dr = ofd.ShowDialog();
+                Image img = ofd.FileName != "" ? Image.FromFile(ofd.FileName) : null;
+                byte[] arr;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    arr = ms.ToArray();
+
+                    byte[] file_byte = ms.ToArray(); ;
+                    header = new System.Data.Linq.Binary(file_byte);
+                }
+                picHeader.Image = img;
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void picChuKiTT_EditValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void picChuKiTT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                // ofd.Filter = "image files|*.img;*.jpd;*.png;*.gif";
+                DialogResult dr = ofd.ShowDialog();
+                Image img = ofd.FileName != "" ? Image.FromFile(ofd.FileName) : null;
+                byte[] arr;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    arr = ms.ToArray();
+
+                    byte[] file_byte = ms.ToArray(); ;
+                    ChukiTT = new System.Data.Linq.Binary(file_byte);
+                }
+                picChuKiTT.Image = img;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void picChuKiXN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                // ofd.Filter = "image files|*.img;*.jpd;*.png;*.gif";
+                DialogResult dr = ofd.ShowDialog();
+                Image img = ofd.FileName != "" ? Image.FromFile(ofd.FileName) : null;
+                byte[] arr;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    arr = ms.ToArray();
+
+                    byte[] file_byte = ms.ToArray(); ;
+                    ChukiXN = new System.Data.Linq.Binary(file_byte);
+                }
+                picChuKiXN.Image = img;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+       
     }
 }

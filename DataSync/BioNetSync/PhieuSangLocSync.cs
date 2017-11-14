@@ -12,7 +12,7 @@ namespace DataSync.BioNetSync
     public class PhieuSangLocSync
     {
         private static BioNetDBContextDataContext db = null;
-        private static string linkGetPhieuSangLoc = "/api/phieusangloc/getallFromApp?keyword=&page=0&pagesize=20";
+        private static string linkGetPhieuSangLoc = "/api/phieusangloc/getallFromApp?keyword=&page=0&pagesize=999";
         private static string linkPostPhieuSangLoc = "/api/phieusangloc/AddUpFromApp";
 
         public static PsReponse GetPhieuSangLoc()
@@ -85,7 +85,7 @@ namespace DataSync.BioNetSync
             catch (Exception ex)
             {
                 res.Result = false;
-                res.StringError = DateTime.Now.ToString() + "Lỗi khi get dữ liệu Danh Mục Mapping Kỹ Thuật - Dịch Vụ từ server \r\n " + ex.Message;
+                res.StringError = DateTime.Now.ToString() + "Lỗi khi get dữ liệu phiếu sàng ltiếp nhận \r\n " + ex.Message;
 
             }
             return res;
@@ -94,7 +94,6 @@ namespace DataSync.BioNetSync
         {
 
             PsReponse res = new PsReponse();
-
             try
             {
                 ProcessDataSync cn = new ProcessDataSync();
@@ -104,35 +103,31 @@ namespace DataSync.BioNetSync
                 db.Transaction = db.Connection.BeginTransaction();
                 foreach (var psl in lstpsl)
                 {
-                    var psldb = db.PSPhieuSangLocs.FirstOrDefault(p => p.IDPhieu == psl.IDPhieu);
+                    var psldb = db.PSPhieuSangLocs.FirstOrDefault(p => p.IDPhieu == psl.IDPhieu );
+                  
                     if (psldb != null)
                     {
-                        var term = psldb.RowIDPhieu;
-                        cn.ConvertObjectToObject(psl, psldb);
-                        psldb.RowIDPhieu = term;
-                        if (luachon==1)
+                        if (psldb.TrangThaiMau == 0 || psldb.TrangThaiMau == null)
                         {
-                            if (psl.DiaChiLayMau != null)
+                            var term = psldb.RowIDPhieu;
+
+                            psldb.RowIDPhieu = term;
+                            if (luachon == 1)
                             {
-                                psldb.DiaChiLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChiLayMau));
+                                psldb.DiaChiLayMau = psl.DiaChiLayMau!=null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChiLayMau)):null;
+                                psldb.NoiLayMau = psl.NoiLayMau != null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiLayMau)):null;
+                                psldb.TenNhanVienLayMau = psl.TenNhanVienLayMau != null? Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenNhanVienLayMau)):null;
                             }
-                            if (psl.NoiLayMau != null)
-                            {
-                                psldb.NoiLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiLayMau));
-                            }
-                            if (psl.TenNhanVienLayMau != null)
-                            {
-                                psldb.TenNhanVienLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenNhanVienLayMau));
-                            }                        
-                        }
-                        else if(luachon==2)
-                        {}                      
                             db.SubmitChanges();
+                        }
+                            
                     }
                     else
                     {
                         PSPhieuSangLoc newpsl = new PSPhieuSangLoc();
                         newpsl = psl;
+                        int a=psl.IDNhanVienTaoPhieu.Length;
+                        newpsl.IDNhanVienTaoPhieu = psl.IDNhanVienTaoPhieu;
                         if(psl.DiaChiLayMau!=null)
                         {
                             newpsl.DiaChiLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChiLayMau));
@@ -185,44 +180,66 @@ namespace DataSync.BioNetSync
                     if (!string.IsNullOrEmpty(token))
                     {
                         var datas = db.PSPhieuSangLocs.Where(p => p.isDongBo == false);
-                        foreach (var data in datas)
+                        string jsonstr = (string)null;
+                        jsonstr = new JavaScriptSerializer().Serialize(datas);
+                        if(jsonstr!=null)
                         {
-                            string jsonstr = new JavaScriptSerializer().Serialize(data);
                             var result = cn.PostRespone(cn.CreateLink(linkPostPhieuSangLoc), token, jsonstr);
                             if (result.Result)
                             {
-                                res.StringError += "Dữ liệu đơn vị " + data.IDCoSo + " đã được đồng bộ lên tổng cục \r\n";
-                                List<PSPhieuSangLoc> lstpsl = new List<PSPhieuSangLoc>();
-                                //PSPhieuSangLoc term = new PSPhieuSangLoc();
-                                data.isDongBo = true;
-                                //cn.ConvertObjectToObject(data, term);
-                               
-                              
-                                lstpsl.Add(data);
-                                var resupdate = UpdatePhieuSangLoc(lstpsl,2);
-
-                                if (resupdate.Result==true)
+                                foreach (var data in datas)
                                 {
-                                    res.Result = true;
-                                    res.StringError += "Dữ liệu dơn vị " + data.IDCoSo + " đã được cập nhật thành công \r\n";
-                                   
+                                    data.isDongBo = true;
+                                }
+                                db.SubmitChanges();
+                                string json = result.ErorrResult;
+                                JavaScriptSerializer jss = new JavaScriptSerializer();
+                                List<String> psl = jss.Deserialize<List<String>>(json);
+                                
+                                if (psl != null)
+                                {
+                                    if(psl.Count>0)
+                                    {
+                                        res.StringError = "Danh sách phiếu sàng lọc bị lỗi: \r\n ";
+                                        foreach (var lst in psl)
+                                        {
+                                            PSResposeSync sn = cn.CutString(lst);
+                                            if (sn != null)
+                                            {
+                                                var ds = db.PSPhieuSangLocs.FirstOrDefault(p => p.IDPhieu == sn.Code);
+                                                if (ds != null)
+                                                {
+                                                    ds.isDongBo = false;
+                                                    res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                                }
+                                            }
+                                        }
+                                        db.SubmitChanges();
+                                        res.Result = false;
+                                    }
+                                  
                                 }
                                 else
                                 {
-                                    res.Result = false;
-                                    res.StringError += "Dữ liệu đơn vị " + data.IDCoSo + " chưa được cập nhật \r\n";
+                                    res.Result = true;
+                                    res.StringError = "Đồng bộ phiếu phiếu sàng lọc thành công!";
                                 }
                             }
                             else
                             {
                                 res.Result = false;
-                                res.StringError += "Dữ liệu đơn vị " + data.IDCoSo + " chưa được đồng bộ lên tổng cục \r\n";
+                                res.StringError = "Đồng bộ phiếu phiếu sàng lọc - Kiểm tra kết nội mạng!\r\n";
                             }
 
                         }
                     }
+                        else
+                        {
+                            res.Result = true;
+                        }
+                       
 
-                }
+                    }
 
             }
             catch (Exception ex)
@@ -233,52 +250,5 @@ namespace DataSync.BioNetSync
             }
             return res;
         }
-
-        //public static PsReponse UpdatePatient(List<PSPatient> lstPatient) {
-        //    PsReponse res = new PsReponse();
-
-        //    try
-        //    {
-        //        ProcessDataSync cn = new ProcessDataSync();
-        //        db = cn.db;
-        //        var account = db.PSPatients.FirstOrDefault();
-        //        db.Connection.Open();
-        //        db.Transaction = db.Connection.BeginTransaction();
-        //        foreach (var patient in lstPatient)
-        //        {
-        //            var patientdb = db.PSPatients.FirstOrDefault(p => p.MaBenhNhan == patient.MaBenhNhan && p.MaKhachHang == patient.MaKhachHang);
-        //            if (patientdb != null)
-        //            {
-        //                var term = patientdb.RowIDBenhNhan;
-        //                patientdb = patient;
-        //                patientdb.RowIDBenhNhan = term;
-        //                db.SubmitChanges();
-
-        //            }
-        //            else
-        //            {
-        //                PSPatient newpatient = new PSPatient();
-        //                newpatient = patient;
-        //                db.PSPatients.InsertOnSubmit(newpatient);
-        //                db.SubmitChanges();
-        //            }
-
-        //        }
-
-        //        db.Transaction.Commit();
-        //        db.Connection.Close();
-        //        res.Result = true;
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        db.Transaction.Rollback();
-        //        db.Connection.Close();
-        //        res.Result = false;
-        //        res.StringError = ex.ToString();
-        //    }
-        //    return res;
-        //}
     }
 }

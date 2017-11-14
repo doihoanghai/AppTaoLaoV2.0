@@ -526,6 +526,7 @@ C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangL
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DataSync.exe.config
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DataSync.exe
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DataSync.pdb
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\BioNetBLL.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\BioNetDAL.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\BioNetModel.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DevExpress.Data.v15.2.dll
@@ -542,6 +543,7 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DevExpr
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DevExpress.XtraTreeList.v15.2.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DevExpress.XtraLayout.v15.2.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\BioNetBLL.pdb
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\BioNetDAL.pdb
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\BioNetModel.pdb
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\DevExpress.Data.v15.2.xml
@@ -617,5 +619,3 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSyn
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSync.exe.licenses
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSync.exe
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\obj\Debug\DataSync.pdb
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\BioNetBLL.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\DataSync\bin\Debug\BioNetBLL.pdb

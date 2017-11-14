@@ -92,12 +92,11 @@ namespace DataSync.BioNetSync
                 db.Connection.Open();
                 db.Transaction = db.Connection.BeginTransaction();
 
-                var div = db.PSDanhMucDichVus.FirstOrDefault(p => p.IDDichVu == dv.IDDichVu);
+                var div = db.PSDanhMucDichVus.FirstOrDefault(p => p.IDDichVu == dv.IDDichVu.Trim());
                 if (div != null)
                 {
                     div.isLocked = dv.isLocked;
                     div.isGoiXn = dv.isGoiXn;
-                    div.GiaDichVu = dv.GiaDichVu;
                     div.MaNhom = dv.MaNhom;
                     div.TenDichVu = Encoding.UTF8.GetString(Encoding.Default.GetBytes(dv.TenDichVu));
                     div.TenHienThiDichVu = Encoding.UTF8.GetString(Encoding.Default.GetBytes(dv.TenHienThiDichVu));
@@ -106,7 +105,7 @@ namespace DataSync.BioNetSync
                 else
                 {
                     PSDanhMucDichVu divu = new PSDanhMucDichVu();
-                    divu.IDDichVu = dv.IDDichVu;
+                    divu.IDDichVu = dv.IDDichVu.Trim();
                     divu.isLocked = dv.isLocked;
                     divu.isGoiXn = dv.isGoiXn;
                     divu.GiaDichVu = dv.GiaDichVu;

@@ -54,14 +54,16 @@
             // gridControl_ChiCuc
             // 
             this.gridControl_ChiCuc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl_ChiCuc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_ChiCuc.Location = new System.Drawing.Point(0, 0);
             this.gridControl_ChiCuc.MainView = this.gridView_ChiCuc;
+            this.gridControl_ChiCuc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_ChiCuc.Name = "gridControl_ChiCuc";
             this.gridControl_ChiCuc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit_isLocked,
             this.repositoryItemPictureEdit_logo,
             this.repositoryItemPictureEdit_Header});
-            this.gridControl_ChiCuc.Size = new System.Drawing.Size(1205, 612);
+            this.gridControl_ChiCuc.Size = new System.Drawing.Size(1033, 497);
             this.gridControl_ChiCuc.TabIndex = 0;
             this.gridControl_ChiCuc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_ChiCuc});
@@ -82,7 +84,6 @@
             this.gridView_ChiCuc.GridControl = this.gridControl_ChiCuc;
             this.gridView_ChiCuc.Name = "gridView_ChiCuc";
             this.gridView_ChiCuc.NewItemRowText = "Thêm danh mục chi cục";
-            this.gridView_ChiCuc.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView_ChiCuc.OptionsView.ShowGroupPanel = false;
             this.gridView_ChiCuc.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView_ChiCuc_RowCellClick);
             this.gridView_ChiCuc.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_ChiCuc_ValidateRow);
@@ -112,6 +113,7 @@
             this.col_th_TenChiCuc.Caption = "Tên chi cục";
             this.col_th_TenChiCuc.FieldName = "TenChiCuc";
             this.col_th_TenChiCuc.Name = "col_th_TenChiCuc";
+            this.col_th_TenChiCuc.OptionsColumn.ReadOnly = true;
             this.col_th_TenChiCuc.Visible = true;
             this.col_th_TenChiCuc.VisibleIndex = 1;
             this.col_th_TenChiCuc.Width = 150;
@@ -125,6 +127,7 @@
             this.col_th_DiaChiChiCuc.Caption = "Địa chỉ";
             this.col_th_DiaChiChiCuc.FieldName = "DiaChiChiCuc";
             this.col_th_DiaChiChiCuc.Name = "col_th_DiaChiChiCuc";
+            this.col_th_DiaChiChiCuc.OptionsColumn.ReadOnly = true;
             this.col_th_DiaChiChiCuc.Visible = true;
             this.col_th_DiaChiChiCuc.VisibleIndex = 2;
             this.col_th_DiaChiChiCuc.Width = 257;
@@ -238,11 +241,12 @@
             // 
             // FrmDMChiCuc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 612);
+            this.ClientSize = new System.Drawing.Size(1033, 497);
             this.Controls.Add(this.gridControl_ChiCuc);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmDMChiCuc";
             this.Text = "FrmDMChiCuc";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

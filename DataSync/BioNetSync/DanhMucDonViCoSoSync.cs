@@ -182,7 +182,7 @@ namespace DataSync.BioNetSync
                 db.Connection.Open();
                 db.Transaction = db.Connection.BeginTransaction();
 
-                var kyt = db.PSDanhMucDonViCoSos.FirstOrDefault(p => p.MaDVCS == cc.MaDVCS);
+                var kyt = db.PSDanhMucDonViCoSos.FirstOrDefault(p => p.MaDVCS == cc.MaDVCS.Trim());
                 if (kyt != null)
                 {
                     if (!kyt.isDongBo ?? false)
@@ -194,17 +194,7 @@ namespace DataSync.BioNetSync
                         kyt.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS));
                         kyt.MaChiCuc = cc.MaChiCuc;
                         kyt.isLocked = cc.isLocked;
-                        kyt.KieuTraKetQua = cc.KieuTraKetQua;
-                        kyt.TenBacSiDaiDien = cc.TenBacSiDaiDien!=null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenBacSiDaiDien)):null;
-
-                        try
-                        {
-                            kyt.HeaderReport = cc.HeaderReport;
-                            kyt.Logo = cc.Logo;
-                        }
-                        catch
-                        { }
-
+                        kyt.TenBacSiDaiDien = cc.TenBacSiDaiDien!=null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenBacSiDaiDien)):null; 
                         db.SubmitChanges();
                     }
                 }
@@ -219,8 +209,8 @@ namespace DataSync.BioNetSync
                     ccnew.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS));
                     ccnew.TenBacSiDaiDien = cc.TenBacSiDaiDien;
                     ccnew.isDongBo = true;
-                    ccnew.MaChiCuc = cc.MaChiCuc;
-                    ccnew.MaDVCS = cc.MaDVCS;
+                    ccnew.MaChiCuc = cc.MaChiCuc.Trim();
+                    ccnew.MaDVCS = cc.MaDVCS.Trim();
                     try
                     {
                         ccnew.HeaderReport = cc.HeaderReport;

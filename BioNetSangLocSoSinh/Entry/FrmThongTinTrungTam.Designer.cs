@@ -58,6 +58,16 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.ofdHeader = new System.Windows.Forms.OpenFileDialog();
+            this.ofdChuKiTT = new System.Windows.Forms.OpenFileDialog();
+            this.picHeader = new DevExpress.XtraEditors.PictureEdit();
+            this.label11 = new System.Windows.Forms.Label();
+            this.picChuKiTT = new DevExpress.XtraEditors.PictureEdit();
+            this.picChuKiXN = new DevExpress.XtraEditors.PictureEdit();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtSBDXetNghiem = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrungTam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
@@ -72,6 +82,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxCapMaXnTheoMaPhieu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeader.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picChuKiTT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picChuKiXN.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSBDXetNghiem.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureEdit1
@@ -82,7 +96,7 @@
             this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.pictureEdit1.Size = new System.Drawing.Size(309, 211);
+            this.pictureEdit1.Size = new System.Drawing.Size(309, 245);
             this.pictureEdit1.TabIndex = 0;
             this.pictureEdit1.DoubleClick += new System.EventHandler(this.pictureEdit1_DoubleClick);
             // 
@@ -120,7 +134,7 @@
             this.txtTrungTam.Enabled = false;
             this.txtTrungTam.Location = new System.Drawing.Point(327, 25);
             this.txtTrungTam.Name = "txtTrungTam";
-            this.txtTrungTam.Size = new System.Drawing.Size(446, 20);
+            this.txtTrungTam.Size = new System.Drawing.Size(853, 20);
             this.txtTrungTam.TabIndex = 3;
             // 
             // txtDiaChi
@@ -130,7 +144,7 @@
             this.txtDiaChi.Enabled = false;
             this.txtDiaChi.Location = new System.Drawing.Point(327, 64);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(446, 20);
+            this.txtDiaChi.Size = new System.Drawing.Size(853, 20);
             this.txtDiaChi.TabIndex = 3;
             // 
             // txtSoDT
@@ -164,7 +178,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(12, 221);
+            this.label5.Location = new System.Drawing.Point(12, 260);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 29);
             this.label5.TabIndex = 2;
@@ -172,7 +186,7 @@
             // 
             // checkChoPhepNghiNgo
             // 
-            this.checkChoPhepNghiNgo.Location = new System.Drawing.Point(17, 254);
+            this.checkChoPhepNghiNgo.Location = new System.Drawing.Point(16, 301);
             this.checkChoPhepNghiNgo.Name = "checkChoPhepNghiNgo";
             this.checkChoPhepNghiNgo.Properties.Caption = "Cho phép tự động chỉ định làm lại xét nghiệm lần 2 nếu mẫu có cảnh báo nghi ngờ";
             this.checkChoPhepNghiNgo.Size = new System.Drawing.Size(430, 19);
@@ -181,7 +195,7 @@
             // 
             // checkChoPhepThuMauLai
             // 
-            this.checkChoPhepThuMauLai.Location = new System.Drawing.Point(17, 279);
+            this.checkChoPhepThuMauLai.Location = new System.Drawing.Point(16, 326);
             this.checkChoPhepThuMauLai.Name = "checkChoPhepThuMauLai";
             this.checkChoPhepThuMauLai.Properties.Caption = "Cho phép thu mẫu lại";
             this.checkChoPhepThuMauLai.Size = new System.Drawing.Size(430, 19);
@@ -195,7 +209,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(12, 338);
+            this.label6.Location = new System.Drawing.Point(12, 545);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(251, 22);
             this.label6.TabIndex = 2;
@@ -206,13 +220,13 @@
             this.GCGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.GCGhiChu.Location = new System.Drawing.Point(2, 363);
+            this.GCGhiChu.Location = new System.Drawing.Point(2, 408);
             this.GCGhiChu.MainView = this.GvGhiChu;
             this.GCGhiChu.Name = "GCGhiChu";
             this.GCGhiChu.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemComboBox1,
             this.repositoryItemLookUp_HienThi});
-            this.GCGhiChu.Size = new System.Drawing.Size(782, 107);
+            this.GCGhiChu.Size = new System.Drawing.Size(1189, 269);
             this.GCGhiChu.TabIndex = 5;
             this.GCGhiChu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GvGhiChu});
@@ -294,7 +308,7 @@
             this.btnLuu.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnLuu.Enabled = false;
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(612, 324);
+            this.btnLuu.Location = new System.Drawing.Point(1019, 324);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(75, 23);
             this.btnLuu.TabIndex = 6;
@@ -303,7 +317,7 @@
             // 
             // checkBoxCapMaXnTheoMaPhieu
             // 
-            this.checkBoxCapMaXnTheoMaPhieu.Location = new System.Drawing.Point(17, 304);
+            this.checkBoxCapMaXnTheoMaPhieu.Location = new System.Drawing.Point(17, 364);
             this.checkBoxCapMaXnTheoMaPhieu.Name = "checkBoxCapMaXnTheoMaPhieu";
             this.checkBoxCapMaXnTheoMaPhieu.Properties.Caption = "Cấp mã xét nghiệm theo mã phiếu";
             this.checkBoxCapMaXnTheoMaPhieu.Size = new System.Drawing.Size(430, 19);
@@ -354,7 +368,7 @@
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSua.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnSua.Image = global::BioNetSangLocSoSinh.Properties.Resources.Edit;
-            this.btnSua.Location = new System.Drawing.Point(522, 324);
+            this.btnSua.Location = new System.Drawing.Point(929, 324);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 11;
@@ -367,18 +381,126 @@
             this.btnHuy.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnHuy.Enabled = false;
             this.btnHuy.Image = global::BioNetSangLocSoSinh.Properties.Resources.del;
-            this.btnHuy.Location = new System.Drawing.Point(698, 324);
+            this.btnHuy.Location = new System.Drawing.Point(1105, 324);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 12;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(813, 96);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(152, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "CHỮ KÍ ĐẠI DIỆN TRUNG TÂM";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(324, 175);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(149, 13);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "SỐ BẮT ĐẦU MÃ XÉT NGHIỆM";
+            // 
+            // ofdHeader
+            // 
+            this.ofdHeader.FileName = "ofdHeader";
+            // 
+            // ofdChuKiTT
+            // 
+            this.ofdChuKiTT.FileName = "ofdChuKiTT";
+            // 
+            // picHeader
+            // 
+            this.picHeader.Enabled = false;
+            this.picHeader.Location = new System.Drawing.Point(571, 203);
+            this.picHeader.Name = "picHeader";
+            this.picHeader.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.picHeader.Properties.Appearance.Options.UseBackColor = true;
+            this.picHeader.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.picHeader.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.picHeader.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.picHeader.Size = new System.Drawing.Size(202, 44);
+            this.picHeader.TabIndex = 18;
+            this.picHeader.Click += new System.EventHandler(this.picHeader_Click);
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1003, 96);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(142, 13);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "CHỮ KÍ NGƯỜI XÉT NGHIỆM";
+            // 
+            // picChuKiTT
+            // 
+            this.picChuKiTT.Enabled = false;
+            this.picChuKiTT.Location = new System.Drawing.Point(802, 112);
+            this.picChuKiTT.Name = "picChuKiTT";
+            this.picChuKiTT.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.picChuKiTT.Properties.Appearance.Options.UseBackColor = true;
+            this.picChuKiTT.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.picChuKiTT.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.picChuKiTT.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.picChuKiTT.Size = new System.Drawing.Size(181, 107);
+            this.picChuKiTT.TabIndex = 20;
+            this.picChuKiTT.EditValueChanged += new System.EventHandler(this.picChuKiTT_EditValueChanged);
+            this.picChuKiTT.Click += new System.EventHandler(this.picChuKiTT_Click);
+            // 
+            // picChuKiXN
+            // 
+            this.picChuKiXN.Enabled = false;
+            this.picChuKiXN.Location = new System.Drawing.Point(1006, 112);
+            this.picChuKiXN.Name = "picChuKiXN";
+            this.picChuKiXN.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.picChuKiXN.Properties.Appearance.Options.UseBackColor = true;
+            this.picChuKiXN.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.picChuKiXN.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.picChuKiXN.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.picChuKiXN.Size = new System.Drawing.Size(174, 107);
+            this.picChuKiXN.TabIndex = 21;
+            this.picChuKiXN.Click += new System.EventHandler(this.picChuKiXN_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(568, 175);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(108, 13);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "HEADER TRUNG TÂM";
+            // 
+            // txtSBDXetNghiem
+            // 
+            this.txtSBDXetNghiem.Enabled = false;
+            this.txtSBDXetNghiem.Location = new System.Drawing.Point(327, 200);
+            this.txtSBDXetNghiem.Name = "txtSBDXetNghiem";
+            this.txtSBDXetNghiem.Properties.AllowFocused = false;
+            this.txtSBDXetNghiem.Size = new System.Drawing.Size(208, 20);
+            this.txtSBDXetNghiem.TabIndex = 23;
+            // 
             // FrmThongTinTrungTam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 472);
+            this.ClientSize = new System.Drawing.Size(1192, 679);
+            this.Controls.Add(this.txtSBDXetNghiem);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.picChuKiXN);
+            this.Controls.Add(this.picChuKiTT);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.picHeader);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.txtPassEmail);
@@ -418,6 +540,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxCapMaXnTheoMaPhieu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeader.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picChuKiTT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picChuKiXN.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSBDXetNghiem.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,5 +580,15 @@
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.SimpleButton btnSua;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.OpenFileDialog ofdHeader;
+        private System.Windows.Forms.OpenFileDialog ofdChuKiTT;
+        private DevExpress.XtraEditors.PictureEdit picHeader;
+        private System.Windows.Forms.Label label11;
+        private DevExpress.XtraEditors.PictureEdit picChuKiTT;
+        private DevExpress.XtraEditors.PictureEdit picChuKiXN;
+        private System.Windows.Forms.Label label12;
+        private DevExpress.XtraEditors.TextEdit txtSBDXetNghiem;
     }
 }

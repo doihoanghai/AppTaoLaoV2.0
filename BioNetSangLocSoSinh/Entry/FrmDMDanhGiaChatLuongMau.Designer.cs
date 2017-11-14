@@ -67,7 +67,6 @@
             this.gridView_DanhGiaChatLuongMau.GridControl = this.gridControl_DanhGiaChatLuongMau;
             this.gridView_DanhGiaChatLuongMau.Name = "gridView_DanhGiaChatLuongMau";
             this.gridView_DanhGiaChatLuongMau.NewItemRowText = "Thêm danh mục đánh giá chất lượng mẫu...";
-            this.gridView_DanhGiaChatLuongMau.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView_DanhGiaChatLuongMau.OptionsView.ShowGroupPanel = false;
             this.gridView_DanhGiaChatLuongMau.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_DanhGiaChatLuongMau_ValidateRow);
             // 
@@ -88,6 +87,7 @@
             this.col_th_IDDanhGiaChatLuongMau.Caption = "Mã đánh giá";
             this.col_th_IDDanhGiaChatLuongMau.FieldName = "IDDanhGiaChatLuongMau";
             this.col_th_IDDanhGiaChatLuongMau.Name = "col_th_IDDanhGiaChatLuongMau";
+            this.col_th_IDDanhGiaChatLuongMau.OptionsColumn.ReadOnly = true;
             this.col_th_IDDanhGiaChatLuongMau.Visible = true;
             this.col_th_IDDanhGiaChatLuongMau.VisibleIndex = 0;
             this.col_th_IDDanhGiaChatLuongMau.Width = 165;
@@ -101,6 +101,7 @@
             this.col_th_ChatLuongMau.Caption = "Chất lượng mẫu";
             this.col_th_ChatLuongMau.FieldName = "ChatLuongMau";
             this.col_th_ChatLuongMau.Name = "col_th_ChatLuongMau";
+            this.col_th_ChatLuongMau.OptionsColumn.ReadOnly = true;
             this.col_th_ChatLuongMau.Visible = true;
             this.col_th_ChatLuongMau.VisibleIndex = 1;
             this.col_th_ChatLuongMau.Width = 813;

@@ -16,7 +16,7 @@ namespace BioNetModel
         public string maDonVi { get; set; }
         public string maTiepNhan { get; set; }
         public bool isDaDuyet { get; set; }
-        public DateTime ngayCoKQ { get; set; }
+        public DateTime? ngayCoKQ { get; set; }
         public bool isTraKQ { get; set; }
         public string MaPhieuLan1 { get; set; }
         public DateTime ngayDuyetKQ { get; set; }

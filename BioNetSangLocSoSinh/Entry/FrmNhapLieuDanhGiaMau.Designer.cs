@@ -169,6 +169,7 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.txtLuuY = new DevExpress.XtraRichEdit.RichEditControl();
             this.panelButton = new DevExpress.XtraEditors.PanelControl();
+            this.btnDuyetNhieuPhieu = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnDuyet = new DevExpress.XtraEditors.SimpleButton();
@@ -194,6 +195,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
+            this.txtGhiChu = new DevExpress.XtraRichEdit.RichEditControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpChiCuc.Properties)).BeginInit();
@@ -308,6 +311,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
+            this.groupControl8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl2
@@ -796,6 +801,7 @@
             this.GVDanhSachDaTracking.OptionsDetail.EnableMasterViewMode = false;
             this.GVDanhSachDaTracking.OptionsView.ShowFooter = true;
             this.GVDanhSachDaTracking.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.GVDanhSachDaTracking_RowCellClick);
+            this.GVDanhSachDaTracking.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GVDanhSachDaTracking_RowStyle);
             // 
             // col_maDonVi_GCDaTracking
             // 
@@ -1042,7 +1048,7 @@
             this.checkedListBoxXN.Location = new System.Drawing.Point(240, 4);
             this.checkedListBoxXN.MultiColumn = true;
             this.checkedListBoxXN.Name = "checkedListBoxXN";
-            this.checkedListBoxXN.Size = new System.Drawing.Size(240, 101);
+            this.checkedListBoxXN.Size = new System.Drawing.Size(239, 101);
             this.checkedListBoxXN.TabIndex = 30;
             this.checkedListBoxXN.TabStop = false;
             this.checkedListBoxXN.ValueMember = "IDDichVu";
@@ -1067,7 +1073,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "Gót chân"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "Tĩnh  mạch"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("2", "Khác")});
-            this.radioGroupViTriLayMau.Size = new System.Drawing.Size(181, 40);
+            this.radioGroupViTriLayMau.Size = new System.Drawing.Size(180, 40);
             this.radioGroupViTriLayMau.TabIndex = 28;
             this.radioGroupViTriLayMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radioGroupViTriLayMau_KeyPress);
             // 
@@ -1570,7 +1576,7 @@
             // txtTuanTuoi
             // 
             this.txtTuanTuoi.EditValue = new decimal(new int[] {
-            35,
+            0,
             0,
             0,
             0});
@@ -1588,7 +1594,7 @@
             0,
             0,
             0});
-            this.txtTuanTuoi.Size = new System.Drawing.Size(58, 20);
+            this.txtTuanTuoi.Size = new System.Drawing.Size(55, 20);
             this.txtTuanTuoi.TabIndex = 21;
             this.txtTuanTuoi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTuanTuoi_KeyPress);
             this.txtTuanTuoi.Validated += new System.EventHandler(this.txtTuanTuoi_Validated_1);
@@ -1596,7 +1602,7 @@
             // txtCanNang
             // 
             this.txtCanNang.EditValue = new decimal(new int[] {
-            3000,
+            0,
             0,
             0,
             0});
@@ -1637,7 +1643,7 @@
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Nam", "0", -1),
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Nữ", "1", -1),
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("chưa xác định", "2", -1)});
-            this.txtGioiTinh.Size = new System.Drawing.Size(195, 20);
+            this.txtGioiTinh.Size = new System.Drawing.Size(193, 20);
             this.txtGioiTinh.TabIndex = 17;
             this.txtGioiTinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGioiTinh_KeyPress);
             // 
@@ -1655,7 +1661,7 @@
             this.lookUpDanToc.Properties.DisplayMember = "TenDanToc";
             this.lookUpDanToc.Properties.NullText = "";
             this.lookUpDanToc.Properties.ValueMember = "IDDanToc";
-            this.lookUpDanToc.Size = new System.Drawing.Size(195, 20);
+            this.lookUpDanToc.Size = new System.Drawing.Size(190, 20);
             this.lookUpDanToc.TabIndex = 22;
             this.lookUpDanToc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lookUpDanToc_KeyPress);
             // 
@@ -1664,7 +1670,7 @@
             this.RadioCheDoDD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RadioCheDoDD.EditValue = "0";
-            this.RadioCheDoDD.Location = new System.Drawing.Point(65, 255);
+            this.RadioCheDoDD.Location = new System.Drawing.Point(59, 255);
             this.RadioCheDoDD.Name = "RadioCheDoDD";
             this.RadioCheDoDD.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "Bú mẹ", true, "0"),
@@ -1703,7 +1709,7 @@
             this.txtGioSinhBenhNhan.Properties.Mask.EditMask = "HH:mm";
             this.txtGioSinhBenhNhan.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtGioSinhBenhNhan.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
-            this.txtGioSinhBenhNhan.Size = new System.Drawing.Size(89, 20);
+            this.txtGioSinhBenhNhan.Size = new System.Drawing.Size(83, 20);
             this.txtGioSinhBenhNhan.TabIndex = 19;
             this.txtGioSinhBenhNhan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGioSinhBenhNhan_KeyPress);
             this.txtGioSinhBenhNhan.Validated += new System.EventHandler(this.txtGioSinhBenhNhan_Validated);
@@ -1791,7 +1797,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem("2", "Dùng steroid", true, "2"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("3", "Dùng kháng sinh", true, "3"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("4", "Truyền máu", true, "4")});
-            this.radioGroupTinhTrangTre.Size = new System.Drawing.Size(195, 85);
+            this.radioGroupTinhTrangTre.Size = new System.Drawing.Size(189, 85);
             this.radioGroupTinhTrangTre.TabIndex = 24;
             this.radioGroupTinhTrangTre.EditValueChanged += new System.EventHandler(this.radioGroupTinhTrangTre_EditValueChanged);
             this.radioGroupTinhTrangTre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radioGroupTinhTrangTre_KeyPress);
@@ -1803,7 +1809,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNoiSinh.Location = new System.Drawing.Point(65, 126);
             this.txtNoiSinh.Name = "txtNoiSinh";
-            this.txtNoiSinh.Size = new System.Drawing.Size(195, 20);
+            this.txtNoiSinh.Size = new System.Drawing.Size(190, 20);
             this.txtNoiSinh.TabIndex = 23;
             this.txtNoiSinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoiSinh_KeyPress);
             // 
@@ -1831,7 +1837,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenBenhNhan.Location = new System.Drawing.Point(65, 20);
             this.txtTenBenhNhan.Name = "txtTenBenhNhan";
-            this.txtTenBenhNhan.Size = new System.Drawing.Size(195, 20);
+            this.txtTenBenhNhan.Size = new System.Drawing.Size(193, 20);
             this.txtTenBenhNhan.TabIndex = 16;
             this.txtTenBenhNhan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenBenhNhan_KeyPress);
             this.txtTenBenhNhan.Validated += new System.EventHandler(this.txtTenBenhNhan_Validated);
@@ -1973,15 +1979,16 @@
             this.groupControl2.Controls.Add(this.txtLuuY);
             this.groupControl2.Location = new System.Drawing.Point(0, 342);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(320, 227);
+            this.groupControl2.Size = new System.Drawing.Size(320, 120);
             this.groupControl2.TabIndex = 6;
-            this.groupControl2.Text = "Lưu ý";
+            this.groupControl2.Text = "Lưu ý mẫu";
             // 
             // txtLuuY
             // 
             this.txtLuuY.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
             this.txtLuuY.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtLuuY.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLuuY.Enabled = false;
             this.txtLuuY.EnableToolTips = true;
             this.txtLuuY.Location = new System.Drawing.Point(2, 20);
             this.txtLuuY.MenuManager = this.barPopUp;
@@ -1990,13 +1997,14 @@
             this.txtLuuY.Options.Export.PlainText.ExportFinalParagraphMark = DevExpress.XtraRichEdit.Export.PlainText.ExportFinalParagraphMark.Never;
             this.txtLuuY.Options.Fields.UpdateFieldsInTextBoxes = false;
             this.txtLuuY.ReadOnly = true;
-            this.txtLuuY.Size = new System.Drawing.Size(316, 205);
+            this.txtLuuY.Size = new System.Drawing.Size(316, 98);
             this.txtLuuY.TabIndex = 33;
             this.txtLuuY.Text = "Lưu ý";
             // 
             // panelButton
             // 
             this.panelButton.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.panelButton.Controls.Add(this.btnDuyetNhieuPhieu);
             this.panelButton.Controls.Add(this.btnSua);
             this.panelButton.Controls.Add(this.btnHuy);
             this.panelButton.Controls.Add(this.btnDuyet);
@@ -2005,6 +2013,18 @@
             this.panelButton.Name = "panelButton";
             this.panelButton.Size = new System.Drawing.Size(323, 28);
             this.panelButton.TabIndex = 7;
+            // 
+            // btnDuyetNhieuPhieu
+            // 
+            this.btnDuyetNhieuPhieu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDuyetNhieuPhieu.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnDuyetNhieuPhieu.Image = ((System.Drawing.Image)(resources.GetObject("btnDuyetNhieuPhieu.Image")));
+            this.btnDuyetNhieuPhieu.Location = new System.Drawing.Point(78, 3);
+            this.btnDuyetNhieuPhieu.Name = "btnDuyetNhieuPhieu";
+            this.btnDuyetNhieuPhieu.Size = new System.Drawing.Size(115, 23);
+            this.btnDuyetNhieuPhieu.TabIndex = 35;
+            this.btnDuyetNhieuPhieu.Text = "Duyệt Nhiều Phiếu";
+            this.btnDuyetNhieuPhieu.Click += new System.EventHandler(this.btnDuyetNhieuPhieu_Click);
             // 
             // btnSua
             // 
@@ -2213,6 +2233,7 @@
             // pn3
             // 
             this.pn3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pn3.Controls.Add(this.groupControl8);
             this.pn3.Controls.Add(this.panelButton);
             this.pn3.Controls.Add(this.groupControl1);
             this.pn3.Controls.Add(this.groupControl2);
@@ -2294,6 +2315,34 @@
             this.splitContainerControl1.SplitterPosition = 376;
             this.splitContainerControl1.TabIndex = 10;
             this.splitContainerControl1.Text = "splitContainerControl1";
+            // 
+            // groupControl8
+            // 
+            this.groupControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl8.Controls.Add(this.txtGhiChu);
+            this.groupControl8.Location = new System.Drawing.Point(2, 463);
+            this.groupControl8.Name = "groupControl8";
+            this.groupControl8.Size = new System.Drawing.Size(318, 106);
+            this.groupControl8.TabIndex = 34;
+            this.groupControl8.Text = "Ghi Chú";
+            // 
+            // txtGhiChu
+            // 
+            this.txtGhiChu.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.txtGhiChu.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtGhiChu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtGhiChu.EnableToolTips = true;
+            this.txtGhiChu.Location = new System.Drawing.Point(2, 20);
+            this.txtGhiChu.MenuManager = this.barPopUp;
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Options.Bookmarks.AllowNameResolution = false;
+            this.txtGhiChu.Options.Export.PlainText.ExportFinalParagraphMark = DevExpress.XtraRichEdit.Export.PlainText.ExportFinalParagraphMark.Never;
+            this.txtGhiChu.Options.Fields.UpdateFieldsInTextBoxes = false;
+            this.txtGhiChu.ReadOnly = true;
+            this.txtGhiChu.Size = new System.Drawing.Size(314, 84);
+            this.txtGhiChu.TabIndex = 33;
             // 
             // FrmNhapLieuDanhGiaMau
             // 
@@ -2433,6 +2482,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
+            this.groupControl8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2602,5 +2653,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
+        private DevExpress.XtraEditors.SimpleButton btnDuyetNhieuPhieu;
+        private DevExpress.XtraEditors.GroupControl groupControl8;
+        private DevExpress.XtraRichEdit.RichEditControl txtGhiChu;
     }
 }

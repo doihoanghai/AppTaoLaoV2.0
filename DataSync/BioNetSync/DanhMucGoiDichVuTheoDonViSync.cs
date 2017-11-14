@@ -107,14 +107,13 @@ namespace DataSync.BioNetSync
                 db.Connection.Open();
                 db.Transaction = db.Connection.BeginTransaction();
 
-                var kyt = db.PSDanhMucGoiDichVuTheoDonVis.FirstOrDefault(p => p.IDGoiDichVuChung == cl.IDGoiDichVuChung &&p.MaDVCS==cl.MaDVCS);
+                var kyt = db.PSDanhMucGoiDichVuTheoDonVis.FirstOrDefault(p => p.IDGoiDichVuChung == cl.IDGoiDichVuChung.Trim() &&p.MaDVCS==cl.MaDVCS.Trim());
                 if (kyt != null)
                 {
+
                     if (kyt.isDongBo != false)
                     {
                         kyt.TenGoiDichVuChung = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cl.TenGoiDichVuChung));
-                        kyt.DonGia = cl.DonGia;
-                        kyt.ChietKhau = cl.ChietKhau;
                         kyt.isDongBo = true;
                         db.SubmitChanges();
                     }
@@ -125,10 +124,10 @@ namespace DataSync.BioNetSync
                         PSDanhMucGoiDichVuTheoDonVi kyth = new PSDanhMucGoiDichVuTheoDonVi();
                         kyth.ChietKhau = cl.ChietKhau;
                         kyth.DonGia = cl.DonGia;
-                        kyth.MaDVCS = cl.MaDVCS;
-                        kyth.IDGoiDichVuChung = cl.IDGoiDichVuChung;
+                        kyth.MaDVCS = cl.MaDVCS.Trim();
+                        kyth.IDGoiDichVuChung = cl.IDGoiDichVuChung.Trim();
                         kyth.TenGoiDichVuChung = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cl.TenGoiDichVuChung));
-                    kyth.isDongBo = true;
+                        kyth.isDongBo = true;
 
                     db.PSDanhMucGoiDichVuTheoDonVis.InsertOnSubmit(kyth);
 

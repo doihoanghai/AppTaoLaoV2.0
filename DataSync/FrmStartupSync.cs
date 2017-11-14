@@ -39,17 +39,17 @@ namespace DataSync
             //this.GetMapThongSo_KyThuat();
             //this.GetMapDichVu_KyThuat();
 
-            this.PostPhieuSangLoc();
-            this.PostPatient();
-            this.GetPhieuSangLoc();
-            this.GetPatient();          
+            //this.PostPhieuSangLoc();
+            //this.PostPatient();
+            //this.GetPhieuSangLoc();
+            //this.GetPatient();          
             this.PostTiepNhan();
-            this.PostChiDinh();
-            this.PostKetQua();
-            this.PostBenhNhanNguyCoCao();
-            this.PostDotChuanDoan();
-            this.PostTraKetQua();
-            this.PostChiTietDanhGiaChatLuongMau();
+            //this.PostChiDinh();
+            //this.PostKetQua();
+            //this.PostBenhNhanNguyCoCao();
+            //this.PostDotChuanDoan();
+           // this.PostTraKetQua();
+            //this.PostChiTietDanhGiaChatLuongMau();
             //BionetApp.FrmStartup.PDFSync();
 
 

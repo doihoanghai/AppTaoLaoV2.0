@@ -37,6 +37,7 @@ namespace DataSync.BioNetSync
                                 foreach (var cl in CLuong)
                                 {
                                     cl.TenThongSo = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cl.TenThongSo));
+                                    cl.DonViTinh = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cl.DonViTinh));
                                 }
                                 UpdateDMThongSo(CLuong);
                             }
@@ -73,15 +74,6 @@ namespace DataSync.BioNetSync
                     {
 
                         kyt.DonViTinh = cl.DonViTinh;
-                        kyt.GiaTri = cl.GiaTri;
-                        kyt.GiaTriMacDinh = cl.GiaTriMacDinh;
-                        kyt.GiaTriMaxNam = cl.GiaTriMaxNam;
-                        kyt.GiaTriMaxNu = cl.GiaTriMaxNu;
-                        kyt.GiaTriMinNam = cl.GiaTriMinNam;
-                        kyt.GiaTriMinNu = cl.GiaTriMinNu;
-                        kyt.GiaTriTrungBinhNam = cl.GiaTriTrungBinhNam;
-                        kyt.GiaTriTrungBinhNu = cl.GiaTriTrungBinhNu;
-                        kyt.MaDonViTinh = cl.MaDonViTinh;
                         kyt.MaNhom = kyt.MaNhom;
                         kyt.Stt = cl.Stt;
                         kyt.TenThongSo = cl.TenThongSo;

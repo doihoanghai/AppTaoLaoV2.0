@@ -43,8 +43,8 @@ namespace BioNetSangLocSoSinh.Reports
         {
             if (new EditDesignReport(rpt).ShowpageEditDesign())
             {
-                //rpt.LoadLayout(Application.StartupPath + "\\EditReport\\" + this.rpt.GetType().Name + ".repx");
-                rpt.LoadLayout(Application.StartupPath + "\\EditReport\\" + NameFile + ".repx");
+                rpt.LoadLayout(Application.StartupPath + "\\EditReport\\" + this.rpt.GetType().Name + ".repx");
+                //rpt.LoadLayout(Application.StartupPath + "\\EditReport\\" + NameFile + ".repx");
                 rpt.CreateDocument();
             }
         }
@@ -97,17 +97,14 @@ namespace BioNetSangLocSoSinh.Reports
         {
             try
             {
-                // string path = Application.StartupPath + "\\EditReport\\" + this.rpt.GetType().Name + ".repx";
+                //string path = Application.StartupPath + "\\EditReport\\" + this.rpt.GetType().Name + ".repx";
                 string path = Application.StartupPath + "\\PhieuKetQua\\" + NameDVCS + @"\" + NameFile + ".pdf";
 
                 this.rpt.CreateDocument(true);
-                this.documentView.DocumentSource = this.rpt;
+                this.documentView.DocumentSource =this.rpt;
                 try
                 {
-                    //Lưu file pdf phiếu kết quả theo tên mã phiếu
-                  
-                   // this.rpt.ExportToPdf(path);
-                 
+                   
                     Process pdfexport = new Process();
                     //MessageBox.Show("Lưu thành công file: " + NameFile + ".pdf", "Thông Báo", MessageBoxButtons.OK);
                 }
@@ -122,12 +119,24 @@ namespace BioNetSangLocSoSinh.Reports
             
             
         }
+        public static void ShowLuuPDF(DevExpress.XtraReports.UI.XtraReport datarp, PsRptTraKetQuaSangLoc data)
+        {
+            datarp.DataSource = data;
+            string name = data.MaPhieu.ToString();
+            string madvcs = data.ThongTinDonVi.MaDonVi.ToString();
+            //Tạo thư mục có tên là mã đơn vị cơ sở
+            string pathpdf = Application.StartupPath + "\\PhieuKetQua\\" + "\\" + madvcs + "\\";
+            Directory.CreateDirectory(pathpdf);
+            //Đường dẫn file pdf
+            string path = Application.StartupPath + "\\PhieuKetQua\\" + madvcs + @"\" + name + ".pdf";
+           
+        }
         //Lưu phiếu trả kết quả pdf
         public static void FileLuuPDF(DevExpress.XtraReports.UI.XtraReport datarp, PsRptTraKetQuaSangLoc data)
         {
             datarp.DataSource = data;
             string name = data.MaPhieu.ToString();
-            string madvcs = data.MaDonVi.ToString();
+            string madvcs = data.ThongTinDonVi.MaDonVi.ToString();
             //Tạo thư mục có tên là mã đơn vị cơ sở
             string pathpdf = Application.StartupPath + "\\PhieuKetQua\\" + "\\" + madvcs + "\\";
             Directory.CreateDirectory(pathpdf);

@@ -30,9 +30,9 @@
         {
             this.gridControl_GoiDichVuChung = new DevExpress.XtraGrid.GridControl();
             this.gridView_GoiDichVuChung = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_th_Stt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_IDGoiDichVuChung = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_TenGoiDichVuChung = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_th_Stt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnLuuSTT = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -75,6 +75,18 @@
             this.gridView_GoiDichVuChung.OptionsView.ShowGroupPanel = false;
             this.gridView_GoiDichVuChung.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView_GoiDichVuChung_RowCellClick);
             // 
+            // col_th_Stt
+            // 
+            this.col_th_Stt.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
+            this.col_th_Stt.AppearanceHeader.Options.UseFont = true;
+            this.col_th_Stt.AppearanceHeader.Options.UseTextOptions = true;
+            this.col_th_Stt.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.col_th_Stt.Caption = "STT";
+            this.col_th_Stt.FieldName = "Stt";
+            this.col_th_Stt.Name = "col_th_Stt";
+            this.col_th_Stt.Visible = true;
+            this.col_th_Stt.VisibleIndex = 2;
+            // 
             // col_th_IDGoiDichVuChung
             // 
             this.col_th_IDGoiDichVuChung.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
@@ -102,18 +114,6 @@
             this.col_th_TenGoiDichVuChung.Visible = true;
             this.col_th_TenGoiDichVuChung.VisibleIndex = 1;
             this.col_th_TenGoiDichVuChung.Width = 212;
-            // 
-            // col_th_Stt
-            // 
-            this.col_th_Stt.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
-            this.col_th_Stt.AppearanceHeader.Options.UseFont = true;
-            this.col_th_Stt.AppearanceHeader.Options.UseTextOptions = true;
-            this.col_th_Stt.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.col_th_Stt.Caption = "STT";
-            this.col_th_Stt.FieldName = "Stt";
-            this.col_th_Stt.Name = "col_th_Stt";
-            this.col_th_Stt.Visible = true;
-            this.col_th_Stt.VisibleIndex = 2;
             // 
             // panelControl1
             // 

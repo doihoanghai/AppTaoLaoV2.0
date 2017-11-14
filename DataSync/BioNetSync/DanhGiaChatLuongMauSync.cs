@@ -65,36 +65,60 @@ namespace DataSync.BioNetSync
                     if (!string.IsNullOrEmpty(token))
                     {
                         var datas = db.PSChiTietDanhGiaChatLuongs.Where(p => p.isDongBo == false);
-                        foreach (var data in datas)
+                        string jsonstr = new JavaScriptSerializer().Serialize(datas);
+                        var result = cn.PostRespone(cn.CreateLink(linkPostCTDanhGiaChatLuongMau), token, jsonstr);
+                        if (result.Result)
                         {
-                            string jsonstr = new JavaScriptSerializer().Serialize(data);
-                            var result = cn.PostRespone(cn.CreateLink(linkPostCTDanhGiaChatLuongMau), token, jsonstr);
-                            if (result.Result)
+                            foreach (var data in datas)
                             {
-                                res.StringError += "Dữ liệu phiếu" + data.IDPhieu + " đã được đồng bộ lên tổng cục \r\n";
-                                List<PSChiTietDanhGiaChatLuong> lstpsl = new List<PSChiTietDanhGiaChatLuong>();
                                 data.isDongBo = true;
-                                lstpsl.Add(data);
-                                var resupdate = UpdateCTDanhGiaChatLuongMau(lstpsl);
-                                if (!resupdate.Result)
+                            }
+                            db.SubmitChanges();
+                            string json = result.ErorrResult;
+                            JavaScriptSerializer jss = new JavaScriptSerializer();
+                            List<String> psl = jss.Deserialize<List<String>>(json);
+                            if (psl != null)
+                            {
+                                if(psl.Count>0)
                                 {
+                                    res.StringError = "Danh sách phiếu chi tiết đánh giá chất lượng mẫu lỗi: \r\n ";
+                                    foreach (var lst in psl)
+                                    {
+                                        PSResposeSync sn = cn.CutString(lst);
+                                        if (sn != null)
+                                        {
+                                            var ds = db.PSChiTietDanhGiaChatLuongs.FirstOrDefault(p => p.IDPhieu == sn.Code);
+                                            if (ds != null)
+                                            {
+                                                ds.isDongBo = false;
+                                                res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                            }
+
+                                        }
+                                    }
+                                    db.SubmitChanges();
                                     res.Result = false;
-                                    res.StringError += "Dữ liệu phiếu " + data.IDPhieu + " chưa được cập nhật \r\n";
-                                }
-                                else
-                                {
-                                    res.Result = true;
                                 }
                             }
+                               
                             else
                             {
-                                res.Result = false;
-                                res.StringError += "Dữ liệu phiếu " + data.IDPhieu + " chưa được đồng bộ lên tổng cục \r\n";
+                                res.Result = true;
+                                res.StringError = "Đồng bộ chi tiết đánh giá chất lượng mẫu lỗi thành công!";
                             }
-
                         }
-                    }
+                        else
+                        {
+                            res.Result = false;
+                            res.StringError = "Đồng bộ chi tiết đánh giá chất lượng mẫu lỗi - Kiểm tra kết nội mạng!\r\n";
+                        }
 
+                    }
+                }
+                else
+                {
+                    res.Result = false;
+                    res.StringError = "Đồng bộ chi tiết đánh giá chất lượng mẫu lỗi - Kiểm tra kết nội mạng!\r\n";
                 }
 
             }

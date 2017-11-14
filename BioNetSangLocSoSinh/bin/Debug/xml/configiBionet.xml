@@ -3,6 +3,6 @@
   <encrypt>true</encrypt>
   <servername>POWERSOFT02\SQLEXPRESS</servername>
   <username>sa</username>
-  <password>0313529521</password>
+  <password>123456</password>
   <database>Bio_TestSync</database>
 </serverInfo>

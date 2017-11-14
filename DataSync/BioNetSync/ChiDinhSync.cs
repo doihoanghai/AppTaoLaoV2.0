@@ -88,43 +88,73 @@ namespace DataSync.BioNetSync
                 if(account != null)
                 {
                     string token = cn.GetToken(account.userName, account.passWord);
+
                     if(!String.IsNullOrEmpty(token))
+
                     {
-                        var datas = db.PSChiDinhDichVus.Where(x => x.isDongBo == false);
+                        var datas = db.PSChiDinhDichVus.Where(x => x.isDongBo == false).ToList();
+                        List<ChiDinhDichVuViewModel> de = new List<ChiDinhDichVuViewModel>();
                         foreach(var data in datas)
                         {
                             ChiDinhDichVuViewModel chidinhVM = new ChiDinhDichVuViewModel();
-                            var datact = cn.ConvertObjectToObject(data, chidinhVM);
+                           cn.ConvertObjectToObject(data, chidinhVM);
                             chidinhVM.listCDDVCTVM = new List<ChiDinhDichVuChiTietViewModel>();
                             foreach(var cdct in data.PSChiDinhDichVuChiTiets)
                             {
                                 ChiDinhDichVuChiTietViewModel term = new ChiDinhDichVuChiTietViewModel();
                                 var t = cn.ConvertObjectToObject(cdct, term);
                                 chidinhVM.listCDDVCTVM.Add((ChiDinhDichVuChiTietViewModel)t);
+                                cdct.isDongBo = true;
                             }
-                            
-                            string jsonstr = new JavaScriptSerializer().Serialize(datact);
-                            var result = cn.PostRespone(cn.CreateLink(linkPostChiDinh), token, jsonstr);
-                            if (result.Result)
+                            de.Add(chidinhVM);
+                            data.isDongBo = true;
+                        }
+                        string jsonstr = new JavaScriptSerializer().Serialize(de);
+                        var result = cn.PostRespone(cn.CreateLink(linkPostChiDinh), token, jsonstr);
+                        if (result.Result)
+                        {
+                            db.SubmitChanges();
+                            string json = result.ErorrResult;
+                            JavaScriptSerializer jss = new JavaScriptSerializer();
+                            List<String> psl = jss.Deserialize<List<String>>(json);
+                            if (psl != null)
                             {
-                                res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " đã được đồng bộ lên tổng cục \r\n";
-                                
-                                var resupdate = UpdateChiDinh(data);
-                                if (!resupdate.Result)
+                                if (psl.Count > 0)
                                 {
-                                    res.Result = false;
-                                    res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " chưa được cập nhật \r\n";
+                                    res.StringError = "Danh sách phiếu chỉ định dịch vũ lỗi: \r\n ";
+                                    foreach (var lst in psl)
+                                    {
+                                        PSResposeSync sn = cn.CutString(lst);
+                                        if (sn != null)
+                                        {
+                                            var ds = db.PSChiDinhDichVus.FirstOrDefault(p => p.MaPhieu == sn.Code);
+                                            if (ds != null)
+                                            {
+                                                var dct = db.PSChiDinhDichVuChiTiets.Where(p => p.MaPhieu == sn.Code).ToList();
+                                                foreach (var dcts in dct)
+                                                {
+                                                    dcts.isDongBo = false;
+                                                }
+                                                ds.isDongBo = false;
+                                                res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                            }
+
+                                        }
+                                    }
                                 }
-                                else
-                                {
-                                    res.Result = true;
-                                }
+                                db.SubmitChanges();
+                                res.Result = false;
                             }
                             else
                             {
-                                res.Result = false;
-                                res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " chưa được đồng bộ lên tổng cục \r\n";
+                                res.Result = true;
+                                res.StringError = "Đồng bộ phiếu chỉ định dịch vũ thành công!";
                             }
+                        }
+                        else
+                        {
+                            res.Result = false;
+                            res.StringError = "Đồng bộ phiếu chỉ định dịch vũ - Kiểm tra kết nội mạng!\r\n";
                         }
                     }
                 }

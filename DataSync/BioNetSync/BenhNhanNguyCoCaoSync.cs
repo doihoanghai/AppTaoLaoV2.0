@@ -64,32 +64,63 @@ namespace DataSync.BioNetSync
                             foreach (var cicle in data.PSDotChuanDoans.ToList())
                             {
                                 cicle.PSBenhNhanNguyCoCao = null;
-
-
-                                if (cicle.isDongBo != false)
+                             if (cicle.isDongBo != false)
                                 {
                                     data.PSDotChuanDoans.Remove(cicle);
                                 }
                             }
-
-                            string jsonstr = new JavaScriptSerializer().Serialize(data);
-                            var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
-                            if (result.Result)
+                        
+                        }
+                        string jsonstr = new JavaScriptSerializer().Serialize(datas);
+                        var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
+                        if (result.Result)
+                        {
+                            foreach (var data in datas)
                             {
-                                res.StringError += "Dữ liệu bệnh nhân " + data.MaBenhNhan + " đã được đồng bộ lên tổng cục \r\n";
-                                
-                                var resupdate = UpdateChiDinh(data);
-                                if (!resupdate.Result)
+                                data.isDongBo = true;
+                            }
+                            db.SubmitChanges();
+                            string json = result.ErorrResult;
+                            JavaScriptSerializer jss = new JavaScriptSerializer();
+                            List<String> psl = jss.Deserialize<List<String>>(json);
+                            if (psl != null)
+                            {
+                                if (psl.Count > 0)
                                 {
-                                    res.StringError += "Dữ liệu bệnh nhân " + data.MaBenhNhan + " chưa được cập nhật \r\n";
+                                    res.StringError = "Danh sách phiếu bệnh nhân nguy cơ lỗi: \r\n ";
+                                    foreach (var lst in psl)
+                                    {
+                                        PSResposeSync sn = cn.CutString(lst);
+                                        if (sn != null)
+                                        {
+                                            var ds = db.PSBenhNhanNguyCoCaos.FirstOrDefault(p => p.MaKhachHang == sn.Code);
+                                            if (ds != null)
+                                            {
+                                                ds.isDongBo = false;
+                                                res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                            }
+                                        }
+                                    }
                                 }
+                                db.SubmitChanges();
+                                res.Result = false;
                             }
                             else
                             {
-                                res.Result = false;
-                                res.StringError += "Dữ liệu bệnh nhân " + data.MaBenhNhan + " chưa được đồng bộ lên tổng cục \r\n";
+                                res.Result = true;
+                                res.StringError = "Đồng bộ phiếu bệnh nhân nguy cơ thành công!";
                             }
                         }
+                        else
+                        {
+                            res.Result = false;
+                            res.StringError = "Đồng bộ phiếu bệnh nhân nguy cơ - Kiểm tra kết nội mạng!\r\n";
+                        }
+
+                    }
+                    else
+                    {
+
                     }
                 }
             }

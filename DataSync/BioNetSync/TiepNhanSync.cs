@@ -34,7 +34,6 @@ namespace DataSync.BioNetSync
                         {
                             string json = result.ValueResult;
                             JavaScriptSerializer jss = new JavaScriptSerializer();
-
                             ObjectModel.RootObjectAPI psl = jss.Deserialize<ObjectModel.RootObjectAPI>(json);
                             //List<PSPatient> patient = jss.Deserialize<List<PSPatient>>(json);
                             List<PSTiepNhan> lstpsl = new List<PSTiepNhan>();
@@ -98,9 +97,9 @@ namespace DataSync.BioNetSync
                     if (psldb != null)
                     {
                         var term = psldb.RowIDPhieu;
-                        cn.ConvertObjectToObject(psl,psldb);
+                        cn.ConvertObjectToObject(psl, psldb);
                         psldb.RowIDPhieu = term;
-                        
+
                         db.SubmitChanges();
                     }
                     else
@@ -116,7 +115,7 @@ namespace DataSync.BioNetSync
 
                 db.Transaction.Commit();
                 db.Connection.Close();
-                res.Result = true;               
+                res.Result = true;
             }
             catch (Exception ex)
             {
@@ -142,35 +141,53 @@ namespace DataSync.BioNetSync
                     if (!string.IsNullOrEmpty(token))
                     {
                         var datas = db.PSTiepNhans.Where(p => p.isDongBo == false);
-                        foreach (var data in datas)
+                        string jsonstr = new JavaScriptSerializer().Serialize(datas);                     
+                        var result = cn.PostRespone(cn.CreateLink(linkPostTiepNhan), token, jsonstr);
+                        if (result.Result)
                         {
-                            
-                            string jsonstr = new JavaScriptSerializer().Serialize(data);
-                            var result = cn.PostRespone(cn.CreateLink(linkPostTiepNhan), token, jsonstr);
-                            if (result.Result)
+                            foreach (var data in datas)
                             {
-                                res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " đã được đồng bộ lên tổng cục \r\n";
-                                List<PSTiepNhan> lstpsl = new List<PSTiepNhan>();
                                 data.isDongBo = true;
-                                lstpsl.Add(data);
-                                var resupdate = UpdateTiepNhan(lstpsl);
-                                if (!resupdate.Result)
+                            }
+                            db.SubmitChanges();
+                            string json = result.ErorrResult;
+                            JavaScriptSerializer jss = new JavaScriptSerializer();
+                            List<String> psl = jss.Deserialize<List<String>>(json);
+                            if (psl != null)
+                            {
+                                if (psl.Count > 0)
                                 {
-                                    res.Result = false;
-                                    res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " chưa được cập nhật \r\n";
+                                    res.StringError = "Danh sách phiếu tiếp nhận lỗi: \r\n ";
+                                    foreach (var lst in psl)
+                                    {
+                                        PSResposeSync sn = cn.CutString(lst);
+                                        if (sn != null)
+                                        {
+                                            var ds = db.PSTiepNhans.FirstOrDefault(p => p.MaTiepNhan == sn.Code);
+                                            if (ds != null)
+                                            {
+                                                ds.isDongBo = false;
+                                                res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                            }
+
+                                        }
+                                    }
                                 }
-                                else
-                                {
-                                    res.Result = true;
-                                }
+                                db.SubmitChanges();
+                                res.Result = false;
                             }
                             else
                             {
-                                res.Result = false;
-                                res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " chưa được đồng bộ lên tổng cục \r\n";
+                                res.Result = true;
+                                res.StringError = "Đồng bộ phiếu tiếp nhận thành công!";
                             }
-
                         }
+                        else
+                        {
+                            res.Result = false;
+                            res.StringError = "Đồng bộ phiếu tiếp nhận - Kiểm tra kết nội mạng!\r\n";
+                        }
+
                     }
 
                 }

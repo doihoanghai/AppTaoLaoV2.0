@@ -26,10 +26,10 @@ namespace DataSync
    public  class ProcessDataSync
     {
         //private static string linkhost = "http://localhost:53112/";
+
         private static string linkhost = "http://118.70.117.242:6788/";
         private static string linkGetToken = "/oauth/token";
-        private static string linkThongTinTrungTam = "api/trungtamsangloc/getall";
-        
+        private static string linkThongTinTrungTam = "api/trungtamsangloc/getall";        
         private static string linkGetDanhMucDanhGiaChatLuongMau = "api/danhgiachatluong/getall?keyword=&page=0&pagesize=20";
         private static string linkGetDanhMucChuongTrinh = "/api/chuongtrinh/getall?keyword=&page=0&pagesize=20";
         private static string linkGetDanhMucDichVu = "/api/dichvu/getall?keyword=&page=0&pagesize=20";
@@ -40,9 +40,6 @@ namespace DataSync
         private static string linkGetDanhMucMap_ThongSo_KyThuat = "http://localhost:53112/api/chuongtrinh/getallChuongTrinh"; // Thiếu
         private static string linkGetDanhMucMap_KyThuat_DichVu = "http://localhost:53112/api/chuongtrinh/getallChuongTrinh";// Thiếu
         private static string linkGetPhieuSangLoc = "http://localhost:53112/api/phieusangloc";
-
-        
-        
         
         private static ServerInfo serverInfo = new ServerInfo();
       public ProcessDataSync()
@@ -178,14 +175,22 @@ namespace DataSync
             var props = ct.GetType().GetProperties();
             foreach (PropertyInfo prop in props)
             {
-                
+        
 
                 if (prop.PropertyType.ToString().Contains("DateTime"))
-                { 
-                    if (item[prop.Name] != null)
-                        prop.SetValue(ct, Convert.ToDateTime(item[prop.Name]), null);
-                    else
+                {
+                    try
+                    {
+                        if (item[prop.Name] != null)
+                            prop.SetValue(ct, Convert.ToDateTime(item[prop.Name]), null);
+                        else
+                            prop.SetValue(ct, null, null);
+                    }
+                    catch
+                    {
                         prop.SetValue(ct, null, null);
+                    }
+                    
                 }
                 else
                     if (prop.PropertyType.ToString().Contains("Boolean"))
@@ -230,7 +235,14 @@ namespace DataSync
                     }
                     catch { prop.SetValue(ct, 0, null); }
                 else
-                    prop.SetValue(ct, item[prop.Name], null);
+                    try
+                    {
+                        prop.SetValue(ct, item[prop.Name], null);
+                    }
+                    catch {
+                        prop.SetValue(ct, null, null);
+                    }
+                    
 
 
             }
@@ -284,20 +296,26 @@ namespace DataSync
                 {
                     streamWriter.Write(jsonData);
                 }
-
+           
                 var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                Stream newStream = httpResponse.GetResponseStream();
+                StreamReader sr = new StreamReader(newStream);
+                var datars = sr.ReadToEnd();
+  
 
-                
                 if (httpResponse.StatusCode == HttpStatusCode.OK)
                 {
                     res.Result = true;
+                    res.ErorrResult = datars;
                 }
                 else if (httpResponse.StatusCode == HttpStatusCode.Created)
                 {
                     res.Result = true;
+                    res.ErorrResult = datars;
                 }
                 else
                 {
+                    res.Result = false;
                     res.ErorrResult = httpResponse.StatusDescription;
                 }
             }
@@ -310,9 +328,17 @@ namespace DataSync
             return res;
 
             }
-      
 
+        public PSResposeSync CutString(string data)
+        {
+            PSResposeSync res = new PSResposeSync();
+            string[] da = data.Split(':');
+            res.Code = da[0];
+            res.Error = da[1];
+            return res;
+        }
     }
+   
 
 
 }

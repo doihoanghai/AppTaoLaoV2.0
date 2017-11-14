@@ -26,7 +26,7 @@ namespace DataSync.BioNetSync
     {
         private static BioNetDBContextDataContext db = null;
         //private static string linkGetDanhMucChiCuc = "/api/chicuc/getall?keyword=&page=0&pagesize=20";
-        private static string linkGetDanhMucChiCuc = "/api/chicuc/getall?keyword=&page=0&pagesize=20";
+        private static string linkGetDanhMucChiCuc = "/api/chicuc/getall?keyword=&page=0&pagesize=100";
         private static string linkPostDanhMucChiCuc = "/api/chicuc/AddUpFromApp";
 
         public static PsReponse PostDanhMucChiCuc()

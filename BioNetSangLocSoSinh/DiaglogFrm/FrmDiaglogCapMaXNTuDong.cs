@@ -171,22 +171,62 @@ namespace BioNetSangLocSoSinh.DiaglogFrm
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
+            PsReponse res = new PsReponse();
+            res.Result = true;
             for (int i = 0; i < this.GVCapMa.RowCount; i++)
             {
                 var maDonvi = this.GVCapMa.GetRowCellValue(i, this.col_MaDonVi);
                 var GtriBatDau = this.GVCapMa.GetRowCellValue(i, this.col_MaBatDau) == null ? string.Empty : this.GVCapMa.GetRowCellValue(i, this.col_MaBatDau).ToString();
                 var GtriKetThuc = this.GVCapMa.GetRowCellValue(i, this.col_MaKetThuc) == null ? string.Empty : this.GVCapMa.GetRowCellValue(i, this.col_MaKetThuc).ToString();
-                var dv = this.lstCapMaTheoDonVi.FirstOrDefault(p => p.maDonVi == maDonvi.ToString());
-                if( dv!=null)
+                res=KiemTraMaXN(GtriBatDau, GtriKetThuc);
+                if(res.Result==false)
                 {
-                    dv.soBatDau = int.Parse(GtriBatDau);
-                    dv.soKetThuc = int.Parse(GtriKetThuc);
+                    XtraMessageBox.Show(res.StringError??"Lỗi nhập mã phiếu không chính xác", "BioNet - Chương trình sàng lọc sơ sinh!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+                }
+                else
+                {
+                    var dv = this.lstCapMaTheoDonVi.FirstOrDefault(p => p.maDonVi == maDonvi.ToString());
+                    if (dv != null)
+                    {
+                        dv.soBatDau = int.Parse(GtriBatDau);
+                        dv.soKetThuc = int.Parse(GtriKetThuc);
+                    }
+                }
+               
+
+            }
+            if(res.Result==true)
+            {
+                
+                this.DialogResult = DialogResult.OK;
+               
+                this.Close();
+            }
+
+         
+
+        }
+        private PsReponse KiemTraMaXN(string GTriBatDau,string GTriKetThuc)
+        {
+            PsReponse res = new PsReponse();
+            try
+            {
+                for (int i = int.Parse(GTriBatDau); i <=int.Parse(GTriKetThuc); i++)
+                {
+                    res = BioNet_Bus.KiemTraMaXN(i.ToString());
+                    if (res.Result == false)
+                    {
+                        break;
+                    }
                 }
             }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-           
+            catch
+            {
+                res.Result = false;
+
+            }
+            return res;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)

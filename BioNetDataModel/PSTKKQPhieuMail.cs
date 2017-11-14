@@ -51,5 +51,7 @@ namespace BioNetModel
         public int MauKdeu { get; set; }
         public int ThuSom { get; set; }
         public int MauChong { get; set; }
+        public int MauChuaKho { get; set; }
+        public int MauCoVongHuyetThanh { get; set; }
     }
 }

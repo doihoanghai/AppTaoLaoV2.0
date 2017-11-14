@@ -14,6 +14,7 @@ namespace BioNetModel
         public bool  isLocked { get; set; }
         public Image LogoDonVi { get; set; }
         public Image Header { get; set; }
+        public Image ChuKiDonVI { get; set; }
         public int KieuTraKetQua { get; set; }
         public int  Stt { get; set; }
         public string  MaChiCuc { get; set; }

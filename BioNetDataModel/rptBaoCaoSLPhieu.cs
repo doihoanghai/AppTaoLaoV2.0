@@ -10,8 +10,6 @@ namespace BioNetModel
      
             public int? Thang { get; set; }
             public int? SLphieu { get; set; }
-  
-           
-        
+         
     }
 }

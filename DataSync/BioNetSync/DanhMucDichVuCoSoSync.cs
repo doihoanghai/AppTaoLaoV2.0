@@ -96,7 +96,6 @@ namespace DataSync.BioNetSync
                     div.isLocked = dv.isLocked;
                     div.MaNhom = dv.MaNhom;
                     div.TenHienThi = dv.TenHienThi != null ? Encoding.UTF8.GetString(Encoding.Default.GetBytes(dv.TenHienThi)):null;
-                    div.ChietKhau = dv.ChietKhau;
                     div.TenDichVu = dv.TenDichVu!=null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(dv.TenDichVu)):null;
                     db.SubmitChanges();
                 }
@@ -106,6 +105,7 @@ namespace DataSync.BioNetSync
                     divu.isLocked = dv.isLocked;
                     divu.MaNhom = dv.MaNhom;
                     divu.TenHienThi = dv.TenHienThi != null ? Encoding.UTF8.GetString(Encoding.Default.GetBytes(dv.TenHienThi)) : null;
+                    divu.DonGia = dv.DonGia;
                     divu.ChietKhau = dv.ChietKhau;
                     divu.TenDichVu = dv.TenDichVu != null ? Encoding.UTF8.GetString(Encoding.Default.GetBytes(dv.TenDichVu)) : null;
                     divu.MaDonVi = dv.MaDonVi;

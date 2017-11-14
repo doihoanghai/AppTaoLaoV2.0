@@ -16,7 +16,8 @@ namespace BioNetModel
         public string TuoiThai { get; set; }
         public string TenMe { get; set; }
         public string TenCha { get; set; }
-        public string DienThoai { get; set; }
+        public string DienThoaiMe { get; set; }
+        public string DienThoaiCha { get; set; }
         public string DiaChiTre { get; set; }
         public string MaDonVi { get; set; }
         public string TenDonVi { get; set; }
@@ -31,6 +32,7 @@ namespace BioNetModel
         public string KetLuanBinhThuong { get; set; }
         public string KetLuanNguyCoCao { get; set; }
         public string GhiChu { get; set; }
+        public string NgayCoKQ { get; set; }
         public string Ngay { get; set; }
         public string Thang { get; set; }
         public string Nam { get; set; }

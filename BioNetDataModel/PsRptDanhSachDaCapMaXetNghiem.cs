@@ -12,5 +12,6 @@ namespace BioNetModel
         public string  MaPhieu { get; set; }
         public string  MaXetNghiem { get; set; }
         public string GhiChu { get; set; }
+        public string MaGoiXetNghiem { get; set; }
     }
 }

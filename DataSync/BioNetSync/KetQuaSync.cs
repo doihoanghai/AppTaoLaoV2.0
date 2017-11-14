@@ -95,39 +95,73 @@ namespace DataSync.BioNetSync
                     if (!String.IsNullOrEmpty(token))
                     {
                         var datas = db.PSXN_KetQuas.Where(x => x.isDongBo == false);
+                       
+                        List<XN_KetQuaViewModel> de = new List<XN_KetQuaViewModel>();
                         foreach (var data in datas)
                         {
                             XN_KetQuaViewModel des = new XN_KetQuaViewModel();
-                            var datact=cn.ConvertObjectToObject(data, des);
+                            cn.ConvertObjectToObject(data, des);
                             des.lstKetQuaChiTiet = new List<XN_KetQua_ChiTietViewModel>();
-                            foreach (var chitiet in data.PSXN_KetQua_ChiTiets.ToList())
+                            var cts = db.PSXN_KetQua_ChiTiets.Where(x => x.MaKQ == data.MaKetQua && x.MaXetNghiem == data.MaXetNghiem);
+                            foreach (var chitiet in cts)
                             {
                                 XN_KetQua_ChiTietViewModel term = new XN_KetQua_ChiTietViewModel();
-                                var t=cn.ConvertObjectToObject(chitiet, term);
+                                var t = cn.ConvertObjectToObject(chitiet, term);
                                 des.lstKetQuaChiTiet.Add((XN_KetQua_ChiTietViewModel)t);
+                                chitiet.isDongBo = true;
                             }
-                            string jsonstr = new JavaScriptSerializer().Serialize(datact);
-                            var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
-                            if (result.Result)
+                            data.isDongBo = true;
+                            de.Add(des);
+                        }
+                        string jsonstr = new JavaScriptSerializer().Serialize(de);
+                        var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
+                        if (result.Result)
+                        {
+                            db.SubmitChanges();
+                            string json = result.ErorrResult;
+                            JavaScriptSerializer jss = new JavaScriptSerializer();
+                            List<String> psl = jss.Deserialize<List<String>>(json);
+                            if (psl != null)
                             {
-                                res.StringError += "Dữ liệu kết quả " + data.MaKetQua + " đã được đồng bộ lên tổng cục \r\n";
+                                if (psl.Count > 0)
+                                {
+                                    res.StringError = "Danh sách phiếu kết quả lỗi \r\n ";
+                                foreach (var lst in psl)
+                                {
+                                   
+                                      
+                                            PSResposeSync sn = cn.CutString(lst);
 
-                                var resupdate = UpdateKetQua(data);
-                                foreach (var chitiet in data.PSXN_KetQua_ChiTiets.ToList())
-                                {
-                                    var resupdatect = UpdateKetQuaChiTiet(chitiet);
+                                        if (sn != null)
+                                        {     
+                                            var ds = db.PSXN_KetQuas.FirstOrDefault(p => p.MaKetQua == sn.Code);
+                                            if (ds != null)
+                                            {
+                                                ds.isDongBo = false;
+                                                var ct = db.PSXN_KetQua_ChiTiets.Where(p => p.MaKQ == ds.MaKetQua && p.MaXetNghiem == ds.MaXetNghiem).ToList();
+                                                foreach (var c in ct)
+                                                {
+                                                    c.isDongBo = false;
+                                                }
+                                                res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                            }
+                                        }
+
+                                    }
                                 }
-                               
-                                if (!resupdate.Result)
-                                {
-                                    res.StringError += "Dữ liệu kết quả " + data.MaKetQua + " chưa được cập nhật \r\n";
-                                }
+                                db.SubmitChanges();
+                                res.Result = false;
                             }
                             else
                             {
-                                res.Result = false;
-                                res.StringError += "Dữ liệu kết quả " + data.MaKetQua + " chưa được đồng bộ lên tổng cục \r\n";
+                                res.Result = true;
+                                res.StringError = "Đồng bộ phiếu kết quả thành công!";
                             }
+                        }
+                        else
+                        {
+                            res.Result = false;
+                            res.StringError = "Đồng bộ phiếu kết quả lỗi- Kiểm tra kết nội mạng!\r\n";
                         }
                     }
                 }
@@ -135,7 +169,7 @@ namespace DataSync.BioNetSync
             catch (Exception ex)
             {
                 res.Result = false;
-                res.StringError += DateTime.Now.ToString() + "Lỗi khi đồng bộ dữ liệu danh sách bệnh nhân nguy cơ cao Lên Tổng Cục \r\n " + ex.Message;
+                res.StringError += DateTime.Now.ToString() + "Lỗi khi đồng bộ dữ liệu danh sách phiếu kết quả Lên Tổng Cục \r\n " + ex.Message;
 
             }
             return res;

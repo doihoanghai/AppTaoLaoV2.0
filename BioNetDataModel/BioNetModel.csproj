@@ -104,6 +104,7 @@
     <Compile Include="PsDuLieuThongSo_CH.cs" />
     <Compile Include="PsDuLieuThongSo_G6PD_GAL_PUK.cs" />
     <Compile Include="PsEmployeePosition.cs" />
+    <Compile Include="PSKetLuanPhieu.cs" />
     <Compile Include="PSKetQuaXetNghiem.cs" />
     <Compile Include="PsKetQua_ChiTiet.cs" />
     <Compile Include="PsPhieuLoiKhiDanhGia.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="PsPhieu.cs" />
     <Compile Include="PsPhieuChiDinh.cs" />
     <Compile Include="PsReponse.cs" />
+    <Compile Include="PSResposeSync.cs" />
     <Compile Include="PsRptDanhSachDaCapMaXetNghiem.cs" />
     <Compile Include="PsRptTraKetQuaSangLoc.cs" />
     <Compile Include="PsRPTTraKetQuaSangLocChiTiet.cs" />
@@ -118,12 +120,15 @@
     <Compile Include="PsThongTinTrungTam.cs" />
     <Compile Include="PsTinhTrangPhieu.cs" />
     <Compile Include="PSTKKQPhieuMail.cs" />
+    <Compile Include="PSXN_TraKetQuaDuyetNhanh.cs" />
+    <Compile Include="PSXN_TTTraKQ.cs" />
     <Compile Include="rptBaoCaoSLPhieu.cs" />
     <Compile Include="rptBaoCaoTongHop.cs" />
     <Compile Include="rptChiTietTrungTam.cs" />
     <Compile Include="rptChiTietTrungTam_ChiTiet.cs" />
     <Compile Include="ServerInfo.cs" />
     <Compile Include="TraKetQua_XetNghiem.cs" />
+    <Compile Include="PsThongKeDanhGiaMau.cs" />
     <Compile Include="TTPhieuCB.cs" />
   </ItemGroup>
   <ItemGroup>

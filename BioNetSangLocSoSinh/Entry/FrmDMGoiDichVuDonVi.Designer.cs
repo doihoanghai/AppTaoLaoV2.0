@@ -32,13 +32,13 @@
             this.gridView_GoiDVDonvi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_th_IDGoiDichVuChung = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_TenGoiDichVuTrungTam = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_th_IDMaDVCS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_MaDVCS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit_DonViCoSo = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.col_th_ChietKhau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_DonGia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_RowIDGoiDichVuTrungTam = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit_GoiDVChung = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_GoiDVDonvi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_GoiDVDonvi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit_DonViCoSo)).BeginInit();
@@ -66,7 +66,7 @@
             this.gridView_GoiDVDonvi.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.col_th_IDGoiDichVuChung,
             this.col_th_TenGoiDichVuTrungTam,
-            this.gridColumn1,
+            this.col_th_IDMaDVCS,
             this.col_th_MaDVCS,
             this.col_th_ChietKhau,
             this.col_th_DonGia,
@@ -74,8 +74,8 @@
             this.gridView_GoiDVDonvi.GridControl = this.gridControl_GoiDVDonvi;
             this.gridView_GoiDVDonvi.Name = "gridView_GoiDVDonvi";
             this.gridView_GoiDVDonvi.NewItemRowText = "Thêm danh mục gói dịch vụ cho đơn vị cơ sở";
-            this.gridView_GoiDVDonvi.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView_GoiDVDonvi.OptionsView.ShowGroupPanel = false;
+            this.gridView_GoiDVDonvi.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_GoiDVDonvi_ValidateRow);
             // 
             // col_th_IDGoiDichVuChung
             // 
@@ -86,9 +86,10 @@
             this.col_th_IDGoiDichVuChung.Caption = "ID Gói Dịch Vụ Chung";
             this.col_th_IDGoiDichVuChung.FieldName = "IDGoiDichVuChung";
             this.col_th_IDGoiDichVuChung.Name = "col_th_IDGoiDichVuChung";
+            this.col_th_IDGoiDichVuChung.OptionsColumn.ReadOnly = true;
             this.col_th_IDGoiDichVuChung.Visible = true;
             this.col_th_IDGoiDichVuChung.VisibleIndex = 0;
-            this.col_th_IDGoiDichVuChung.Width = 150;
+            this.col_th_IDGoiDichVuChung.Width = 122;
             // 
             // col_th_TenGoiDichVuTrungTam
             // 
@@ -99,9 +100,22 @@
             this.col_th_TenGoiDichVuTrungTam.Caption = "Tên gói";
             this.col_th_TenGoiDichVuTrungTam.FieldName = "TenGoiDichVuChung";
             this.col_th_TenGoiDichVuTrungTam.Name = "col_th_TenGoiDichVuTrungTam";
+            this.col_th_TenGoiDichVuTrungTam.OptionsColumn.ReadOnly = true;
             this.col_th_TenGoiDichVuTrungTam.Visible = true;
             this.col_th_TenGoiDichVuTrungTam.VisibleIndex = 1;
-            this.col_th_TenGoiDichVuTrungTam.Width = 195;
+            this.col_th_TenGoiDichVuTrungTam.Width = 145;
+            // 
+            // col_th_IDMaDVCS
+            // 
+            this.col_th_IDMaDVCS.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.col_th_IDMaDVCS.AppearanceHeader.Options.UseFont = true;
+            this.col_th_IDMaDVCS.Caption = "Mã Đơn Vị Cơ Sở";
+            this.col_th_IDMaDVCS.FieldName = "MaDVCS";
+            this.col_th_IDMaDVCS.Name = "col_th_IDMaDVCS";
+            this.col_th_IDMaDVCS.OptionsColumn.ReadOnly = true;
+            this.col_th_IDMaDVCS.Visible = true;
+            this.col_th_IDMaDVCS.VisibleIndex = 2;
+            this.col_th_IDMaDVCS.Width = 101;
             // 
             // col_th_MaDVCS
             // 
@@ -113,9 +127,10 @@
             this.col_th_MaDVCS.ColumnEdit = this.repositoryItemLookUpEdit_DonViCoSo;
             this.col_th_MaDVCS.FieldName = "MaDVCS";
             this.col_th_MaDVCS.Name = "col_th_MaDVCS";
+            this.col_th_MaDVCS.OptionsColumn.ReadOnly = true;
             this.col_th_MaDVCS.Visible = true;
             this.col_th_MaDVCS.VisibleIndex = 3;
-            this.col_th_MaDVCS.Width = 219;
+            this.col_th_MaDVCS.Width = 168;
             // 
             // repositoryItemLookUpEdit_DonViCoSo
             // 
@@ -145,7 +160,7 @@
             this.col_th_ChietKhau.Name = "col_th_ChietKhau";
             this.col_th_ChietKhau.Visible = true;
             this.col_th_ChietKhau.VisibleIndex = 4;
-            this.col_th_ChietKhau.Width = 246;
+            this.col_th_ChietKhau.Width = 188;
             // 
             // col_th_DonGia
             // 
@@ -162,7 +177,7 @@
             this.col_th_DonGia.Name = "col_th_DonGia";
             this.col_th_DonGia.Visible = true;
             this.col_th_DonGia.VisibleIndex = 5;
-            this.col_th_DonGia.Width = 205;
+            this.col_th_DonGia.Width = 164;
             // 
             // col_th_RowIDGoiDichVuTrungTam
             // 
@@ -182,14 +197,6 @@
             this.repositoryItemLookUpEdit_GoiDVChung.NullText = "";
             this.repositoryItemLookUpEdit_GoiDVChung.ShowFooter = false;
             this.repositoryItemLookUpEdit_GoiDVChung.ShowHeader = false;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "gridColumn1";
-            this.gridColumn1.FieldName = "MaDVCS";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 2;
             // 
             // FrmDMGoiDichVuDonVi
             // 
@@ -223,6 +230,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit_DonViCoSo;
         private DevExpress.XtraGrid.Columns.GridColumn col_th_RowIDGoiDichVuTrungTam;
         private DevExpress.XtraGrid.Columns.GridColumn col_th_IDGoiDichVuChung;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn col_th_IDMaDVCS;
     }
 }

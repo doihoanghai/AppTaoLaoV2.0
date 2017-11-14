@@ -169,7 +169,7 @@ namespace BioNetDAL
             List<PSPatient> lst = new List<PSPatient>();
             try
             {
-                lst = db.PSPatients.ToList();
+                lst = db.PSPatients.Where(x=>x.MaKhachHang!=null).ToList();
                 return lst;
             }
             catch { return lst; }
@@ -444,7 +444,7 @@ namespace BioNetDAL
             try
             {
                 if (id == 0)
-                    lstEmpPosition = db.PSEmployeePositions.ToList();
+                    lstEmpPosition = db.PSEmployeePositions.OrderBy(x => x.Level).ToList();
                 else
                     lstEmpPosition = db.PSEmployeePositions.Where(x => x.PositionCode == id).ToList();
             }
@@ -734,7 +734,7 @@ namespace BioNetDAL
             List<PSDanhMucGoiDichVuTheoDonVi> lstGoiDichVuCoSo = new List<PSDanhMucGoiDichVuTheoDonVi>();
             try
             {
-                lstGoiDichVuCoSo = db.PSDanhMucGoiDichVuTheoDonVis.ToList();
+                lstGoiDichVuCoSo = db.PSDanhMucGoiDichVuTheoDonVis.OrderBy(x=>x.IDGoiDichVuChung).ToList();
                 return lstGoiDichVuCoSo;
             }
             catch { return lstGoiDichVuCoSo = new List<PSDanhMucGoiDichVuTheoDonVi>(); }
@@ -1278,7 +1278,7 @@ namespace BioNetDAL
             List<PSDanhMucDonViCoSo> lstDonViCoSo = new List<PSDanhMucDonViCoSo>();
             try
             {
-                lstDonViCoSo = db.PSDanhMucDonViCoSos.ToList();
+                lstDonViCoSo = db.PSDanhMucDonViCoSos.OrderBy(x=>x.Stt).ToList();
                 return lstDonViCoSo;
             }
             catch { return lstDonViCoSo = new List<PSDanhMucDonViCoSo>(); }
@@ -1381,24 +1381,35 @@ namespace BioNetDAL
 
                 var dmdonViCS = db.PSDanhMucDonViCoSos.Where(x => x.RowIDDVCS == donViCS.RowIDDVCS).FirstOrDefault();
                 if (dmdonViCS.MaDVCS != donViCS.MaDVCS)
+                {
                     if (!CheckExistCodeInForeignDVCS(dmdonViCS.MaDVCS))
                         return false;
-                    else
-                if (dmdonViCS.MaChiCuc != donViCS.MaChiCuc)
+                }
+                else if (dmdonViCS.MaChiCuc != donViCS.MaChiCuc)
+                {
                     dmdonViCS.MaDVCS = GetCodeDonViCoSo(donViCS.MaChiCuc);
+                }
+                    
                 else
-                    dmdonViCS.MaDVCS = donViCS.MaDVCS;
-                dmdonViCS.MaChiCuc = donViCS.MaChiCuc;
-                dmdonViCS.TenDVCS = donViCS.TenDVCS;
-                dmdonViCS.DiaChiDVCS = donViCS.DiaChiDVCS;
-                dmdonViCS.SDTCS = donViCS.SDTCS;
-                dmdonViCS.Stt = donViCS.Stt;
-                dmdonViCS.Logo = donViCS.Logo;
-                dmdonViCS.HeaderReport = donViCS.HeaderReport;
-                dmdonViCS.isLocked = donViCS.isLocked;
-                dmdonViCS.KieuTraKetQua = donViCS.KieuTraKetQua;
-                dmdonViCS.isDongBo = donViCS.isDongBo;
-                dmdonViCS.TenBacSiDaiDien = donViCS.TenBacSiDaiDien;
+                {
+                    dmdonViCS.Stt = donViCS.Stt;
+                    dmdonViCS.Logo = donViCS.Logo;
+                    dmdonViCS.HeaderReport = donViCS.HeaderReport;
+                    dmdonViCS.isLocked = donViCS.isLocked;
+                    dmdonViCS.KieuTraKetQua = donViCS.KieuTraKetQua;
+                    dmdonViCS.isDongBo = donViCS.isDongBo;
+                    dmdonViCS.TenBacSiDaiDien = donViCS.TenBacSiDaiDien;
+                    dmdonViCS.ChuKiDonVi = donViCS.ChuKiDonVi;
+                    dmdonViCS.Email = donViCS.Email;
+                }
+                   //dmdonViCS.MaDVCS = donViCS.MaDVCS;
+                   // dmdonViCS.MaChiCuc = donViCS.MaChiCuc;
+                   //dmdonViCS.TenDVCS = donViCS.TenDVCS;
+                   //dmdonViCS.DiaChiDVCS = donViCS.DiaChiDVCS;
+                   //dmdonViCS.SDTCS = donViCS.SDTCS;
+                   //dmdonViCS.Email = dmdonViCS.Email;
+              
+                
                 db.SubmitChanges();
 
                 db.Transaction.Commit();

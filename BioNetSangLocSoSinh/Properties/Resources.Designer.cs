@@ -123,6 +123,16 @@ namespace BioNetSangLocSoSinh.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EasyFind {
+            get {
+                object obj = ResourceManager.GetObject("EasyFind", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Edit {
             get {
                 object obj = ResourceManager.GetObject("Edit", resourceCulture);
@@ -276,6 +286,16 @@ namespace BioNetSangLocSoSinh.Properties {
         internal static System.Drawing.Bitmap save {
             get {
                 object obj = ResourceManager.GetObject("save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sign_check_icon {
+            get {
+                object obj = ResourceManager.GetObject("sign-check-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

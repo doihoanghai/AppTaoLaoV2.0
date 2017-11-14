@@ -39,6 +39,13 @@ namespace BioNetSangLocSoSinh.Entry
             try
             {
                 this.lstgoiXN = BioNet_Bus.GetDanhsachGoiDichVuChung();
+                PSDanhMucGoiDichVuChung goi = new PSDanhMucGoiDichVuChung();
+                goi.IDGoiDichVuChung = "DVGXNL2";
+                goi.TenGoiDichVuChung = "Xét Nghiệm Lần 2";
+                goi.Stt = 6;
+                goi.DonGia = 0;
+                goi.ChietKhau = 0;
+                this.lstgoiXN.Add(goi);
                 this.lookUpGoiXN_GCChuaCoKQ.DataSource = this.lstgoiXN;
                 this.LookUpGoiXN_GCDaCoKQ.DataSource = this.lstgoiXN;
             }
@@ -49,6 +56,7 @@ namespace BioNetSangLocSoSinh.Entry
         {
             this.LoadFrm();
         }
+
         private void LoadFrm()
         {
             this.LoadsearchLookUpChiCuc();
@@ -62,13 +70,13 @@ namespace BioNetSangLocSoSinh.Entry
             this.LoadGCDSChuaCoKQ();
         }
 
-       
         private void LoadGCDSDaCoKQ()
         {
             this.GCDaCoKetQua.DataSource = null;
             this.GCDaCoKetQua.DataSource = this.lstMauDaCoKQ;
             this.GVDaCoKetQua.ExpandAllGroups();
         }
+
         private void LoadLstChuaKetQua()
         {
             this.lstMauChoKQ.Clear();
@@ -78,6 +86,7 @@ namespace BioNetSangLocSoSinh.Entry
             this.lstMauChoKQ = BioNet_Bus.GetDanhSachChoKetQuaXN(tu.Date, den.Date, madv);
             this.LoadGCDSChuaCoKQ();
         }
+
         private void LoadLstDaCoKetQua()
         {
             this.lstMauDaCoKQ.Clear();
@@ -87,25 +96,32 @@ namespace BioNetSangLocSoSinh.Entry
             this.lstMauDaCoKQ = BioNet_Bus.GetDanhSachDaCoKetQuaXN(tu.Date, den.Date, madv);
             this.LoadGCDSDaCoKQ();
         }
+
         private void LoadGCDSChuaCoKQ()
         {
             this.GCChuaKQ.DataSource = null;
             this.GCChuaKQ.DataSource = this.lstMauChoKQ;
             this.GVChuaKQ.ExpandAllGroups();
         }
+
         private void LoadGCThongTinKQ()
         {
             this.GCThongTinKQ.DataSource = null;
             this.GCThongTinKQ.DataSource = this.lstChiTietKQ;
         }
+
         private void HienThiChitietKQ(bool tuGCChuaCoKQ, string maKQ, string maPhieu)
-        {if (tuGCChuaCoKQ)
-            { this.btnLuu.Enabled= true;
-            } else this.btnLuu.Enabled = false;
+        {
+            if (tuGCChuaCoKQ)
+            {
+                this.btnLuu.Enabled = true;
+            }
+            else this.btnLuu.Enabled = false;
             this.lstChiTietKQ.Clear();
             this.lstChiTietKQ = BioNet_Bus.GetDanhSachKetQuaChiTiet(maKQ, maPhieu);
             this.LoadGCThongTinKQ();
         }
+
         private void LuuKetQua()
         {
             if (validateData)
@@ -147,6 +163,7 @@ namespace BioNetSangLocSoSinh.Entry
                             KQ.maXetNghiem = MaXN;
                             KQ.ngayXetNghiem = DateTime.Now;
                             KQ.maNhanVienTraKQ = this.MaNhanVien;
+                            KQ.GhiChu = BioNet_Bus.GetGhiChuXetNghiem(MaKQ);
                         }
                     }
                     else
@@ -174,6 +191,7 @@ namespace BioNetSangLocSoSinh.Entry
                             KQ.maXetNghiem = MaXN;
                             KQ.ngayXetNghiem = DateTime.Now;
                             KQ.maNhanVienTraKQ = this.MaNhanVien;
+                            KQ.GhiChu = BioNet_Bus.GetGhiChuXetNghiem(MaKQ);
                         }
                     }
                     List<PsKetQua_ChiTiet> lst = new List<PsKetQua_ChiTiet>();
@@ -221,8 +239,8 @@ namespace BioNetSangLocSoSinh.Entry
                         this.btnLuu.Enabled = false;
                         this.btnSua.Enabled = false;
                     }
-                    else XtraMessageBox.Show("Lưu không thành công! \r\n Lý do : "+res.StringError.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    
+                    else XtraMessageBox.Show("Lưu không thành công! \r\n Lý do : " + res.StringError.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 }
 
                 catch (Exception ex)
@@ -244,7 +262,7 @@ namespace BioNetSangLocSoSinh.Entry
         {
             this.lstDonVi.Clear();
             this.lstDonVi = BioNet_Bus.GetDanhSachDonVi_Searchlookup();
-           // this.searchLookUpDonViCoSo.Properties.DataSource = this.lstDonVi;
+            // this.searchLookUpDonViCoSo.Properties.DataSource = this.lstDonVi;
         }
         private void GVChuaKQ_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
@@ -270,9 +288,9 @@ namespace BioNetSangLocSoSinh.Entry
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if(this.validateData)
-            this.LuuKetQua();
-            
+            if (this.validateData)
+                this.LuuKetQua();
+
         }
 
         private void GVThongTinKQ_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -293,22 +311,20 @@ namespace BioNetSangLocSoSinh.Entry
                     float gT = float.Parse(valueGT);
                     float gTMax = float.Parse(valueMax.ToString());
                     float gTMin = float.Parse(valueMin.ToString());
-                    if (gT > gTMax||gT<gTMin) view.SetRowCellValue(rowHandle, this.col_NguyCo, true);
+                    if (gT > gTMax || gT < gTMin) view.SetRowCellValue(rowHandle, this.col_NguyCo, true);
                     else view.SetRowCellValue(rowHandle, this.col_NguyCo, false);
                 }
                 catch
                 {
                     XtraMessageBox.Show("Vui lòng nhập đúng giá trị", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                   
+
                 }
             }
         }
 
-        
-       
         private void txtTuNgay_ChuaKQ_EditValueChanged(object sender, EventArgs e)
         {
-            if(this.txtDenNgay_ChuaKQ.EditValue!=null)
+            if (this.txtDenNgay_ChuaKQ.EditValue != null)
             {
                 this.LoadLstChuaKetQua();
                 this.LoadLstDaCoKetQua();
@@ -337,8 +353,6 @@ namespace BioNetSangLocSoSinh.Entry
                         this.HienThiChitietKQ(false, maKQ, maPhieu);
                         this.btnSua.Enabled = true;
                         this.GVChuaCoKQFocus = false;
-
-                        
                     }
                 }
             }
@@ -411,8 +425,8 @@ namespace BioNetSangLocSoSinh.Entry
 
         private void btnRefesh_Click(object sender, EventArgs e)
         {
-                this.LoadLstChuaKetQua();
-                this.LoadLstDaCoKetQua();
+            this.LoadLstChuaKetQua();
+            this.LoadLstDaCoKetQua();
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -435,7 +449,6 @@ namespace BioNetSangLocSoSinh.Entry
                     {
 
                         int sheetCount = wb.Sheets.Count;
-
                         for (int s = 1; s <= sheetCount; s++) //đọc từng sheet
                         {
                             MsExcel._Worksheet sheet = wb.Sheets[s];
@@ -464,199 +477,67 @@ namespace BioNetSangLocSoSinh.Entry
                                     pCAH = i;
                                 if (TenCot.Equals("CH"))
                                     pCH = i;
+
                             }
-                            #region lấy dữ liệu 3 Bệnh
-                            if (pMaXN > 0 && pG6PD > 0 && pGAL > 0 && pPKU > 0) //đọc sheet chứa giá trị của 3 bệnh
+                           
+                            for (int row = 2; row <= rows; row++)
                             {
-                                for (int row = 2; row <= rows; row++)
+                                PsDuLieuThongSo_G6PD_GAL_PUK data = new PsDuLieuThongSo_G6PD_GAL_PUK();
+                                for (int col = 1; col <= cols; col++)
                                 {
-                                    PsDuLieuThongSo_G6PD_GAL_PUK data = new PsDuLieuThongSo_G6PD_GAL_PUK();
-                                    for (int col = 1; col <= cols; col++)
+                                    if (col == pMaXN)
                                     {
-                                        if (col == pMaXN)
-                                            data.MaXN = range.Cells[row, col].Value.ToString();
+                                        string maxn = range.Cells[row, col].Value.ToString();
+                                        data.MaXN = maxn.Trim();
+                                    }
+                                         
+                                    else
+                                    {
+                                        string value = string.Empty;
+                                        try
+                                        {
+                                            value = string.IsNullOrEmpty(range.Cells[row, col].Value.ToString()) ? string.Empty : range.Cells[row, col].Value.ToString();
+                                            if (value.Contains("<"))
+                                            {
+                                                value = value.Replace("<", "0");
+                                            }
+                                            else if (value.Contains("-"))
+                                            {
+                                                value = value.Replace("-", "");
+                                            }
+                                            float testvalue = float.Parse(value.Trim());
+                                        }
+                                        catch
+                                        {
+                                            value = string.Empty;
+                                        }
                                         if (col == pG6PD)
                                         {
-                                            string value = string.Empty;
-                                            try
-                                            {
-                                                var re = range.Cells[row, col].Value.ToString();
-                                                value = re;
-                                            }
-                                            catch { }
-                                            if (string.IsNullOrEmpty(value))
-                                                value = string.Empty;
-                                            else
-                                            {
-                                                if (value.Contains("-"))
-                                                {
-                                                    value = value.Replace("-", "");
-                                                }
-                                                try
-                                                {
-                                                    float testvalue = float.Parse(value.Trim());
-
-                                                }
-                                                catch { value = string.Empty; }
-                                            }
                                             data.G6PD = value;
-                                        }
-                                        if (col == pGAL)
-                                        {
-                                            string value = string.Empty;
-                                            try
-                                            {
-                                                var re = range.Cells[row, col].Value.ToString();
-                                                value = re;
-                                            }
-                                            catch { }
-                                            if (string.IsNullOrEmpty(value))
-                                                value = string.Empty;
-                                            else
-                                            {
-                                                if (value.Contains("-"))
-                                                {
-                                                    value = value.Replace("-", "");
-                                                }
-                                                try
-                                                {
-                                                    float testvalue = float.Parse(value.Trim());
-
-                                                }
-                                                catch { value = string.Empty; }
-                                            }
-                                            data.GAL = value;
                                         }
                                         if (col == pPKU)
                                         {
-                                            string value = string.Empty;
-                                            try
-                                            {
-                                                var re = range.Cells[row, col].Value.ToString();
-                                                value = re;
-                                            }
-                                            catch { }
-                                            if (string.IsNullOrEmpty(value))
-                                                value = string.Empty;
-                                            else
-                                            {
-                                                if (value.Contains("-"))
-                                                {
-                                                    value = value.Replace("-", "");
-                                                }
-                                                try
-                                                {
-                                                    float testvalue = float.Parse(value.Trim());
-                                                }
-                                                catch { value = string.Empty; }
-                                            }
                                             data.PKU = value;
                                         }
-                                    }
-                                    lst3b.Add(data); //add vô lst3b sau khi quét hết 1 hàng
-
-                                }
-                            }
-                            #endregion lấy dữ liệu 3 Bệnh
-                            #region lấy dữ liệu CAH
-                            else if (pMaXN > 0 && pCAH > 0) //Đọc sheet chưa dữ liệu của CAH
-                            {
-                                for (int row = 2; row <= rows; row++)
-                                {
-                                    PsDuLieuThongSo_G6PD_GAL_PUK data = new PsDuLieuThongSo_G6PD_GAL_PUK();
-                                    for (int col = 1; col <= cols; col++)
-                                    {
-                                        if (col == pMaXN)
-                                            data.MaXN = range.Cells[row, col].Value.ToString();
+                                        if (col == pGAL)
+                                        {
+                                            data.GAL = value;
+                                        }
                                         if (col == pCAH)
                                         {
-                                            string value = string.Empty;
-                                            try
-                                            {
-                                                var re = range.Cells[row, col].Value.ToString();
-                                                value = re;
-                                            }
-                                            catch { }
-                                            if (string.IsNullOrEmpty(value))
-                                                value = string.Empty;
-                                            else
-                                            {
-                                                if (value.Contains("<"))
-                                                { value = "0"; }
-                                                else
-                                                   if (value.Contains("-"))
-                                                {
-                                                    value = value.Replace("-", "");
-                                                }
-                                                try
-                                                {
-                                                    float testvalue = float.Parse(value.Trim());
-                                                }
-                                                catch { value = string.Empty; }
-                                            }
                                             data.CAH = value;
                                         }
-                                    }
-                                    // lstCAH.Add(data); //add vô lstCAH sau khi quét hết 1 hàng
-                                    var dulieu = lst3b.FirstOrDefault(p => p.MaXN == data.MaXN);
-                                    if (dulieu != null)
-                                    {
-                                        dulieu.CAH = data.CAH;
-                                    }
-                                    else lst3b.Add(data);
-
-                                }
-                                #endregion lấy dữ liệu CAH
-                                #region lấy dữ liệu CH
-                            }
-                            else if (pMaXN > 0 && pCH > 0)
-                            {
-                                for (int row = 2; row <= rows; row++)
-                                {
-                                    PsDuLieuThongSo_G6PD_GAL_PUK data = new PsDuLieuThongSo_G6PD_GAL_PUK();
-                                    for (int col = 1; col <= cols; col++)
-                                    {
-                                        if (col == pMaXN)
-                                            data.MaXN = range.Cells[row, col].Value.ToString();
                                         if (col == pCH)
                                         {
-                                            string value = string.Empty;
-                                            try
-                                            {
-                                                var re = range.Cells[row, col].Value.ToString();
-                                                value = re;
-                                            }
-                                            catch { }
-                                            if (string.IsNullOrEmpty(value))
-                                                value = string.Empty;
-                                            else
-                                            {
-                                                if (value.Contains("<"))
-                                                { value = "0"; }
-                                                else
-                                                   if (value.Contains("-"))
-                                                {
-                                                    value = value.Replace("-", "");
-                                                }
-                                                try
-                                                {
-                                                    float testvalue = float.Parse(value.Trim());
-                                                }
-                                                catch { value = string.Empty; }
-                                            }
                                             data.CH = value;
                                         }
                                     }
-                                    //   lstCAH.Add(data); //add vô lstCAH sau khi quét hết 1 hàng
-                                    var dulieu = lst3b.FirstOrDefault(p => p.MaXN == data.MaXN);
-                                    if (dulieu != null)
-                                    {
-                                        dulieu.CH = data.CH;
-                                    }
-                                    else lst3b.Add(data);
                                 }
+                                   
+                                lst3b.Add(data); //add vô lst3b sau khi quét hết 1 hàng
+
                             }
-                            #endregion lấy dữ liệu CH
+
                         }
                     }
                     catch (Exception ex)
@@ -677,6 +558,7 @@ namespace BioNetSangLocSoSinh.Entry
                             List<PsPhieuLoiKhiDanhGia> listphieuloi = new List<PsPhieuLoiKhiDanhGia>();
                             foreach (var mau in this.lstMauChoKQ)
                             {
+
                                 var TsKQ = lst3b.FirstOrDefault(p => p.MaXN == mau.MaXetNghiem);
                                 if (TsKQ != null)
                                 {
@@ -699,7 +581,7 @@ namespace BioNetSangLocSoSinh.Entry
                                         bool nguyco = false;
                                         string GiaTri = string.Empty;
                                         if (ts.MaThongSo.Equals("G6PD"))
-                                            GiaTri = TsKQ.G6PD??string.Empty;
+                                            GiaTri = TsKQ.G6PD ?? string.Empty;
                                         else if (ts.MaThongSo.Equals("PKU"))
                                             GiaTri = TsKQ.PKU ?? string.Empty;
                                         else if (ts.MaThongSo.Equals("GAL"))
@@ -791,13 +673,13 @@ namespace BioNetSangLocSoSinh.Entry
                 }
                 else return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 XtraMessageBox.Show("Lỗi khi kiểm tra điều kiện được sửa kết quả! \r\n Lỗi chi tiết :" + ex.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 return true;
+                return true;
             }
         }
-            
+
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (!this.KiemTraKQDaDuocSuaChua())
@@ -815,7 +697,7 @@ namespace BioNetSangLocSoSinh.Entry
             try
             {
                 DevExpress.XtraTab.XtraTabControl tab = sender as DevExpress.XtraTab.XtraTabControl;
-                if( tab.SelectedTabPageIndex ==1)
+                if (tab.SelectedTabPageIndex == 1)
                     this.col_GiaTri.OptionsColumn.AllowEdit = false;
                 else this.col_GiaTri.OptionsColumn.AllowEdit = true;
             }
@@ -828,11 +710,14 @@ namespace BioNetSangLocSoSinh.Entry
             {
                 DevExpress.XtraTab.XtraTabControl tab = sender as DevExpress.XtraTab.XtraTabControl;
                 if (tab.SelectedTabPageIndex == 1)
-                { this.col_GiaTri.OptionsColumn.AllowEdit = false;
+                {
+                    this.col_GiaTri.OptionsColumn.AllowEdit = false;
                     this.LoadLstDaCoKetQua();
                     this.btnLuu.Enabled = false;
                 }
-                else { this.col_GiaTri.OptionsColumn.AllowEdit = true;
+                else
+                {
+                    this.col_GiaTri.OptionsColumn.AllowEdit = true;
                     this.LoadLstChuaKetQua();
                 }
                 this.lstChiTietKQ.Clear();
@@ -958,6 +843,6 @@ namespace BioNetSangLocSoSinh.Entry
             }
         }
 
-        
+
     }
 }

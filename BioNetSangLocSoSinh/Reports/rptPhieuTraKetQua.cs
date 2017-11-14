@@ -21,6 +21,7 @@ namespace BioNetSangLocSoSinh.Reports
             if (txtNguyCo.Text.ToLower().Equals("true"))
             {
                 this.txtKetLuan.Font = new Font("Times New Roman", 10f, FontStyle.Italic | FontStyle.Bold);
+                this.txtKetLuan.ForeColor = System.Drawing.Color.Red;
                 this.txtGiaTri.Font = new Font("Times New Roman", 10f, FontStyle.Bold);
             }
             else

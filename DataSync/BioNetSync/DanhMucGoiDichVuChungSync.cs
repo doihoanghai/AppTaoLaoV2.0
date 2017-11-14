@@ -104,7 +104,7 @@ namespace DataSync.BioNetSync
                 db.Connection.Open();
                 db.Transaction = db.Connection.BeginTransaction();
                
-                    var kyt = db.PSDanhMucGoiDichVuChungs.FirstOrDefault(p => p.IDGoiDichVuChung == cl.IDGoiDichVuChung);
+                    var kyt = db.PSDanhMucGoiDichVuChungs.FirstOrDefault(p => p.IDGoiDichVuChung == cl.IDGoiDichVuChung.Trim());
                     if (kyt != null)
                     {
                         kyt.TenGoiDichVuChung = cl.TenGoiDichVuChung!=null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(cl.TenGoiDichVuChung)):null;
@@ -118,7 +118,7 @@ namespace DataSync.BioNetSync
                    
                         kyth.ChietKhau = cl.ChietKhau;
                         kyth.DonGia = cl.DonGia;
-                        kyth.IDGoiDichVuChung = cl.IDGoiDichVuChung;
+                        kyth.IDGoiDichVuChung = cl.IDGoiDichVuChung.Trim();
                         kyth.TenGoiDichVuChung = cl.TenGoiDichVuChung != null ? Encoding.UTF8.GetString(Encoding.Default.GetBytes(cl.TenGoiDichVuChung)) : null;
                         kyth.Stt = db.PSDanhMucGoiDichVuChungs.Max(p => p.Stt)+1;
                         db.PSDanhMucGoiDichVuChungs.InsertOnSubmit(kyth);
@@ -218,19 +218,19 @@ namespace DataSync.BioNetSync
                 db.Connection.Open();
                 db.Transaction = db.Connection.BeginTransaction();
                 
-                    var kyt = db.PSChiTietGoiDichVuChungs.FirstOrDefault(p => p.IDGoiDichVuChung == cl.IDGoiDichVuChung && p.IDDichVu == cl.IDDichVu);
+                    var kyt = db.PSChiTietGoiDichVuChungs.FirstOrDefault(p => p.IDGoiDichVuChung == cl.IDGoiDichVuChung.Trim() && p.IDDichVu == cl.IDDichVu.Trim());
                     if (kyt == null)
                     {
                         PSChiTietGoiDichVuChung kyth = new PSChiTietGoiDichVuChung();
-                        kyth.IDDichVu = cl.IDDichVu;
-                        kyth.IDGoiDichVuChung = cl.IDGoiDichVuChung;
+                        kyth.IDDichVu = cl.IDDichVu.Trim();
+                        kyth.IDGoiDichVuChung = cl.IDGoiDichVuChung.Trim();
                         db.PSChiTietGoiDichVuChungs.InsertOnSubmit(kyth);
                         db.SubmitChanges();
                     }
                 else
                 {
-                    kyt.IDDichVu = cl.IDDichVu;
-                    kyt.IDGoiDichVuChung = cl.IDGoiDichVuChung;
+                    kyt.IDDichVu = cl.IDDichVu.Trim();
+                    kyt.IDGoiDichVuChung = cl.IDGoiDichVuChung.Trim();
                     db.SubmitChanges();
 
                 }
