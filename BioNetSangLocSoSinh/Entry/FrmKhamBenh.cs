@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using BioNetModel.Data;
 using BioNetModel;
 using BioNetBLL;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace BioNetSangLocSoSinh.Entry
 {
@@ -29,6 +30,7 @@ namespace BioNetSangLocSoSinh.Entry
         private List<PSDanhMucDonViCoSo> lstDVCS = new List<PSDanhMucDonViCoSo>();
         private void Load_Frm()
         {
+            this.Renew(false);
             this.txtDenNgay_ChuaKQ.EditValue = DateTime.Now;
             this.txtTuNgay_ChuaKQ.EditValue = DateTime.Now;
             this.LoadsearchLookUpChiCuc();
@@ -141,7 +143,7 @@ namespace BioNetSangLocSoSinh.Entry
             }
             else
             {
-                MessageBox.Show("Bệnh nhân chưa có chẩn đoán trước đó.", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                
             }
            
         }
@@ -242,6 +244,7 @@ namespace BioNetSangLocSoSinh.Entry
         private void btnLuu_Click(object sender, EventArgs e)
         {
             this.Luu();
+      
         }
 
       
@@ -288,6 +291,7 @@ namespace BioNetSangLocSoSinh.Entry
                 dot.KetQua = this.txtKetQua.Text;
                 dot.isDongBo = false;
                 dot.isXoa = false;
+
                 dot.rowIDDotChanDoan = string.IsNullOrEmpty(this.txtRowIDDotKham.Text) == true ? 0 : long.Parse(this.txtRowIDDotKham.Text);
                 var result = BioNet_Bus.InsertDotChanDoan(dot);
                 if (result.Result)
@@ -302,6 +306,7 @@ namespace BioNetSangLocSoSinh.Entry
 
                 }
                 else MessageBox.Show("Lưu không thành công! \r\n Lỗi chi tiết : " + result.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Renew(false);
             }catch(Exception ex)
             {
                 MessageBox.Show("Lỗi khi lưu! \r\n Lỗi chi tiết : " + ex.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -309,6 +314,7 @@ namespace BioNetSangLocSoSinh.Entry
         }
         private void btnMoi_Click(object sender, EventArgs e)
         {
+            Renew(true);
             KhamDotMoi();
         }
         private void HienThiChanDoanCu(long rowID)
@@ -335,11 +341,15 @@ namespace BioNetSangLocSoSinh.Entry
             {
                 TreeView nodeselect = (TreeView)sender;
                 string maLK = string.Empty;
-                maLK = nodeselect.SelectedNode.Tag.ToString();
-                if (!string.IsNullOrEmpty(maLK))
+                if (nodeselect.SelectedNode.Tag != null)
                 {
-                    this.HienThiChanDoanCu(long.Parse(maLK));
+                    maLK = nodeselect.SelectedNode.Tag.ToString();
+                    if (!string.IsNullOrEmpty(maLK))
+                    {
+                        this.HienThiChanDoanCu(long.Parse(maLK));
+                    }
                 }
+              
             }
             catch (Exception ex)
             {
@@ -405,11 +415,17 @@ namespace BioNetSangLocSoSinh.Entry
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            this.Renew(true);
             this.btnLuu.Enabled = true;
             this.btnSua.Enabled = false;
             this.btnMoi.Enabled = false;
         }
-
+        private void Renew(bool ischeck)
+        {
+            this.txtChanDoan.Enabled = ischeck;
+            this.txtKetQua.Enabled = ischeck;
+            this.txtGhiChu.Enabled = ischeck;
+        }
         private void btnRefesh_Click(object sender, EventArgs e)
         {
             this.LoadDanhSachCho();
@@ -468,6 +484,27 @@ namespace BioNetSangLocSoSinh.Entry
             }
         }
 
-     
+        private void GVDanhSachBenhNhanCho_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            try
+            {
+                GridView View = sender as GridView;
+                if (e.RowHandle >= 0)
+                {
+                    bool dachandoan = View.GetRowCellDisplayText(e.RowHandle, col_isChanDoan) == null ? false : (bool)View.GetRowCellValue(e.RowHandle, this.col_isChanDoan);
+                    if (!dachandoan)
+                    {
+                        e.Appearance.BackColor = Color.Orange;
+                        e.Appearance.BackColor2 = Color.Silver;
+                    }
+                    else
+                    {
+                        e.Appearance.BackColor = Color.Aqua;
+                        e.Appearance.BackColor2 = Color.AliceBlue;
+                    }
+                }
+            }
+            catch { }
+        }
     }
 }

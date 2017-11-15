@@ -17,7 +17,7 @@ namespace BioNetSangLocSoSinh.Reports
 
         private void rptPhieuTraKetQua_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-
+            
             if (txtNguyCo.Text.ToLower().Equals("true"))
             {
                 this.txtKetLuan.Font = new Font("Times New Roman", 10f, FontStyle.Italic | FontStyle.Bold);
@@ -28,6 +28,26 @@ namespace BioNetSangLocSoSinh.Reports
             {
                 this.txtKetLuan.Font = new Font("Times New Roman", 10f);
                 this.txtGiaTri.Font = new Font("Times New Roman", 10f);
+            }
+        }
+
+        private void rptPhieuTraKetQua_DataSourceRowChanged(object sender, DataSourceRowEventArgs e)
+        {
+            
+            
+        }
+
+        private void xrTable3_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (txtNguyCo.Text.ToLower().Equals("true"))
+            {
+                this.txtKetLuan.Font = new Font("Times New Roman", 10f, FontStyle.Bold);
+               
+            }
+            else
+            {
+                this.txtKetLuan.Font = new Font("Times New Roman", 10f);
+               
             }
         }
     }

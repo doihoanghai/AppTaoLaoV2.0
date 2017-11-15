@@ -98,15 +98,15 @@ namespace BioNetBLL
             return db.UpdatePhieuTraKetQuaChoXNLan2(maPhieu, maTiepNhan, maDonVi);
         }
         
-         public static List<String> GetDanhSachPDFChuaDongBo()
+         public static List<PSXN_TraKetQua> GetDanhSachPDFChuaDongBo()
         {
             var db = new DataObjects();
             return db.GetDanhSachPDFChuaDongBo();
         }
-        public static PsReponse UpdateDanhSachPDFChuaDongBo()
+        public static PsReponse UpdateDanhSachPDFChuaDongBo(List<string> Maphieu)
         {
             var db = new DataObjects();
-            return db.UpdateDanhSachPDFChuaDongBo();
+            return db.UpdateDanhSachPDFChuaDongBo(Maphieu);
         }
         public static PsReponse BenhNhanNguyCoCao(long rowID)
         {
@@ -1052,14 +1052,20 @@ namespace BioNetBLL
                                 if (phieu.isTruoc24h ?? false)
                                 {
                                     if (!string.IsNullOrEmpty(GhiChu))
-                                        GhiChu += ", mẫu lấy trước 24h sau khi sinh";
-                                    else GhiChu = "Mẫu lấy trước 24h sau khi sinh";
+                                        GhiChu += ", mẫu lấy trước 30h sau khi sinh";
+                                    else GhiChu = "Mẫu lấy trước 30h sau khi sinh";
                                 }
                                 if(!string.IsNullOrEmpty(phieu.LyDoKhongDat))
                                     {
                                     if (!string.IsNullOrEmpty(GhiChu))
                                         GhiChu += "." + phieu.LyDoKhongDat;
                                     else GhiChu = phieu.LyDoKhongDat ;
+                                }
+                                if(!string.IsNullOrEmpty(phieu.LuuYPhieu))
+                                {
+                                    if (!string.IsNullOrEmpty(GhiChu))
+                                        GhiChu += ". Ghi Chú:" + phieu.LuuYPhieu;
+                                    else GhiChu = "Ghi Chú:"+phieu.LuuYPhieu;
                                 }
                             }
                             

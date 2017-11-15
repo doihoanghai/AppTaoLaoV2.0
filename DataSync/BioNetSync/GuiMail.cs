@@ -54,38 +54,57 @@ namespace DataSync.BioNetSync
                 string subject = tieude;
                string body =noidung;
                 string passmail = pass;
-
-                bool result = regex.IsMatch(to);
-                if (result == false)
+               string[] mailcc=SendTo.Split(',');
+                if(mailcc.Count()>0)
                 {
-                    //Lỗi địa chỉ mail
-                    return 2;
+                    bool result = regex.IsMatch(mailcc[0]);
+                    if (result == false)
+                    {
+                        //Lỗi địa chỉ mail
+                        return 2;
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            MailMessage em = new MailMessage(from, to, subject, body);
+                            using (Attachment attach = new Attachment(AttachmentPath))
+                            {
+                                em.Attachments.Add(attach);
+                                for(int i=0; i<mailcc.Count();i++)
+                                {
+                                    if(i==0)
+                                    {
+                                        em.Bcc.Add(mailcc[i]);
+                                    }
+                                    else
+                                    {
+                                        em.CC.Add(mailcc[i]);
+                                    }
+                                    
+                                }
+                                em.IsBodyHtml = true;
+                                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                                smtp.EnableSsl = true;
+                                smtp.Credentials = new NetworkCredential(from, passmail);//Mật khâu mail
+                                smtp.Send(em);
+                                em.Dispose();
+                                return 0;
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            return 1;
+                        }
+                    }
                 }
                 else
                 {
-                    try
-                    {
-
-                        MailMessage em = new MailMessage(from, to, subject, body);
-                        using (Attachment attach = new Attachment(AttachmentPath))
-                        {
-                            em.Attachments.Add(attach);
-                            em.Bcc.Add(from);
-                            em.IsBodyHtml = true;                            
-                            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                            smtp.EnableSsl = true;
-                            smtp.Credentials = new NetworkCredential(from, passmail);//Mật khâu mail
-                            smtp.Send(em);
-                            em.Dispose();
-                            return 0;
-                        }
-
-                    }
-                    catch(Exception ex)
-                    {
-                        return 1;
-                    }
+                    return 1;
                 }
+                
             }
             catch
             {

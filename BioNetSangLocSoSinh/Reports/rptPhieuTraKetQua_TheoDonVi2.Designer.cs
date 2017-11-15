@@ -146,6 +146,7 @@
             this.xrTableRow2});
             this.xrTable3.SizeF = new System.Drawing.SizeF(797F, 25F);
             this.xrTable3.StylePriority.UseFont = false;
+            this.xrTable3.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrTable3_BeforePrint);
             // 
             // xrTableRow2
             // 
@@ -311,7 +312,7 @@
             this.xrLabel56.LocationFloat = new DevExpress.Utils.PointFloat(532.7993F, 175F);
             this.xrLabel56.Name = "xrLabel56";
             this.xrLabel56.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel56.SizeF = new System.Drawing.SizeF(103F, 25F);
+            this.xrLabel56.SizeF = new System.Drawing.SizeF(107F, 25F);
             this.xrLabel56.StylePriority.UseBorders = false;
             this.xrLabel56.StylePriority.UseFont = false;
             this.xrLabel56.StylePriority.UseTextAlignment = false;
@@ -824,10 +825,10 @@
             this.xrLabel26.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "NgayCoKQ")});
             this.xrLabel26.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel26.LocationFloat = new DevExpress.Utils.PointFloat(635.7993F, 175F);
+            this.xrLabel26.LocationFloat = new DevExpress.Utils.PointFloat(639.7994F, 175F);
             this.xrLabel26.Name = "xrLabel26";
             this.xrLabel26.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel26.SizeF = new System.Drawing.SizeF(130.2007F, 25.00002F);
+            this.xrLabel26.SizeF = new System.Drawing.SizeF(126.2006F, 25.00003F);
             this.xrLabel26.StylePriority.UseBorders = false;
             this.xrLabel26.StylePriority.UseFont = false;
             this.xrLabel26.StylePriority.UseTextAlignment = false;
@@ -986,7 +987,7 @@
             this.xrTableCell4.Multiline = true;
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseBorders = false;
-            this.xrTableCell4.Text = "Ngưỡng bình thường";
+            this.xrTableCell4.Text = "Ngưỡng       bình thường";
             this.xrTableCell4.TextTrimming = System.Drawing.StringTrimming.Word;
             this.xrTableCell4.Weight = 0.720463864797089D;
             // 
@@ -1006,7 +1007,7 @@
             this.xrTableCell21.Multiline = true;
             this.xrTableCell21.Name = "xrTableCell21";
             this.xrTableCell21.StylePriority.UseBorders = false;
-            this.xrTableCell21.Text = "Giá trị đo được";
+            this.xrTableCell21.Text = "Giá trị       đo được";
             this.xrTableCell21.TextTrimming = System.Drawing.StringTrimming.Word;
             this.xrTableCell21.Weight = 0.612435223850818D;
             // 

@@ -235,10 +235,10 @@ namespace BioNetSangLocSoSinh.Entry
             thongtinluuY += strDanhGia;
             if (!string.IsNullOrEmpty(GhiChuXN))
             {
-                thongtinluuY += "\r\n" + GhiChuXN;
+                thongtinluuY += "\r\n Ghi Chú Xét Nghiệm" + GhiChuXN;
             }
 
-            this.txtLuuY.Text = thongtinluuY +"\r\n"+LuuYPhieu;
+            this.txtLuuY.Text = thongtinluuY +"\r\n Ghi Chú:"+LuuYPhieu;
         }
         private void HienThiThongTinPhieu(string maPhieu, string maDonVi, string maTiepNhan, string maXetNghiem)
         {
@@ -706,7 +706,7 @@ namespace BioNetSangLocSoSinh.Entry
                 }
 
             }
-            //this.HienThiKetLuanvaGhiChuAuto();
+            this.HienThiKetLuanvaGhiChuAuto();
         }
         private void GVChiTietKQ_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
@@ -1737,7 +1737,7 @@ namespace BioNetSangLocSoSinh.Entry
         }
 
         //Lưu File PDF
-        private void LuuPDF(string MaPhieu,string MaDonVi,string MaTiepNhan)
+        public static void LuuPDF(string MaPhieu,string MaDonVi,string MaTiepNhan)
         {
             PsRptTraKetQuaSangLoc data = new PsRptTraKetQuaSangLoc();
             try
@@ -1801,7 +1801,7 @@ namespace BioNetSangLocSoSinh.Entry
                         {
                             try
                             {
-                                this.LuuPDF(kq.MaPhieu, kq.IDCoSo, kq.MaTiepNhan);
+                                LuuPDF(kq.MaPhieu, kq.IDCoSo, kq.MaTiepNhan);
                             }
                             catch (Exception ex)
                             {
@@ -1925,8 +1925,8 @@ namespace BioNetSangLocSoSinh.Entry
 
                     if (nguyngocao)
                     {
-                        e.Appearance.BackColor = Color.Salmon;
-                        e.Appearance.BackColor2 = Color.SeaShell;
+                        e.Appearance.BackColor = Color.DarkOrange;
+                        e.Appearance.BackColor2 = Color.Orange;
                     }
                     else
                     {

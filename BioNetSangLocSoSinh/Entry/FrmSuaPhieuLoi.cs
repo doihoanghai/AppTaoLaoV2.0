@@ -43,6 +43,7 @@ namespace BioNetSangLocSoSinh.Entry
         }
         private void FormLoad()
         {
+            this.GC_DSPhieu.DataSource = null;
             this.txtChiCuc.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_ChiCuc();
             this.txtDonVi.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_DonVi("all");
             this.txtDonVi.EditValue = "all";

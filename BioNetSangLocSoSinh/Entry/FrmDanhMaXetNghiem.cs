@@ -494,8 +494,8 @@ namespace BioNetSangLocSoSinh.Entry
                     {
                         if (MaCD.Substring(0, 2).Equals("XN"))
                         {
-                            e.Appearance.BackColor = Color.Salmon;
-                            e.Appearance.BackColor2 = Color.SeaShell;
+                            e.Appearance.BackColor = Color.LightCoral;
+                            e.Appearance.BackColor2 = Color.LightPink;
                         }
                         else
                         {

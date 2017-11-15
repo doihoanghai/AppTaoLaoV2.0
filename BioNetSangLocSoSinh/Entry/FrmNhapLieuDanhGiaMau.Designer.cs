@@ -188,6 +188,8 @@
             this.pn2 = new DevExpress.XtraEditors.PanelControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pn3 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
+            this.txtGhiChu = new DevExpress.XtraRichEdit.RichEditControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pn1 = new DevExpress.XtraEditors.PanelControl();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -195,8 +197,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
-            this.txtGhiChu = new DevExpress.XtraRichEdit.RichEditControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpChiCuc.Properties)).BeginInit();
@@ -302,6 +302,8 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pn3)).BeginInit();
             this.pn3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
+            this.groupControl8.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pn1)).BeginInit();
             this.pn1.SuspendLayout();
@@ -311,8 +313,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
-            this.groupControl8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl2
@@ -2244,6 +2244,34 @@
             this.pn3.Size = new System.Drawing.Size(323, 600);
             this.pn3.TabIndex = 0;
             // 
+            // groupControl8
+            // 
+            this.groupControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl8.Controls.Add(this.txtGhiChu);
+            this.groupControl8.Location = new System.Drawing.Point(2, 463);
+            this.groupControl8.Name = "groupControl8";
+            this.groupControl8.Size = new System.Drawing.Size(318, 106);
+            this.groupControl8.TabIndex = 34;
+            this.groupControl8.Text = "Ghi Chú";
+            // 
+            // txtGhiChu
+            // 
+            this.txtGhiChu.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.txtGhiChu.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtGhiChu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtGhiChu.EnableToolTips = true;
+            this.txtGhiChu.Location = new System.Drawing.Point(2, 20);
+            this.txtGhiChu.MenuManager = this.barPopUp;
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Options.Bookmarks.AllowNameResolution = false;
+            this.txtGhiChu.Options.Export.PlainText.ExportFinalParagraphMark = DevExpress.XtraRichEdit.Export.PlainText.ExportFinalParagraphMark.Never;
+            this.txtGhiChu.Options.Fields.UpdateFieldsInTextBoxes = false;
+            this.txtGhiChu.ReadOnly = true;
+            this.txtGhiChu.Size = new System.Drawing.Size(314, 84);
+            this.txtGhiChu.TabIndex = 33;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.groupControl3);
@@ -2315,34 +2343,6 @@
             this.splitContainerControl1.SplitterPosition = 376;
             this.splitContainerControl1.TabIndex = 10;
             this.splitContainerControl1.Text = "splitContainerControl1";
-            // 
-            // groupControl8
-            // 
-            this.groupControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl8.Controls.Add(this.txtGhiChu);
-            this.groupControl8.Location = new System.Drawing.Point(2, 463);
-            this.groupControl8.Name = "groupControl8";
-            this.groupControl8.Size = new System.Drawing.Size(318, 106);
-            this.groupControl8.TabIndex = 34;
-            this.groupControl8.Text = "Ghi Chú";
-            // 
-            // txtGhiChu
-            // 
-            this.txtGhiChu.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
-            this.txtGhiChu.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtGhiChu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtGhiChu.EnableToolTips = true;
-            this.txtGhiChu.Location = new System.Drawing.Point(2, 20);
-            this.txtGhiChu.MenuManager = this.barPopUp;
-            this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Options.Bookmarks.AllowNameResolution = false;
-            this.txtGhiChu.Options.Export.PlainText.ExportFinalParagraphMark = DevExpress.XtraRichEdit.Export.PlainText.ExportFinalParagraphMark.Never;
-            this.txtGhiChu.Options.Fields.UpdateFieldsInTextBoxes = false;
-            this.txtGhiChu.ReadOnly = true;
-            this.txtGhiChu.Size = new System.Drawing.Size(314, 84);
-            this.txtGhiChu.TabIndex = 33;
             // 
             // FrmNhapLieuDanhGiaMau
             // 
@@ -2473,6 +2473,8 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pn3)).EndInit();
             this.pn3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
+            this.groupControl8.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pn1)).EndInit();
             this.pn1.ResumeLayout(false);
@@ -2482,8 +2484,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
-            this.groupControl8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

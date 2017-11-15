@@ -1331,7 +1331,7 @@ namespace BioNetDAL
 
                     //var data = db.pro_Report_BaoCaoPhieuMail(MaPhieu).ToList();
                     var kqmau = db.PSPhieuSangLocs.FirstOrDefault(x => x.IDPhieu == MaPhieu);
-                    var kqxn = db.PSXN_TraKQ_ChiTiets.Where(x => x.MaPhieu == MaPhieu).ToList();
+                    var kqxn = db.PSXN_TraKQ_ChiTiets.Where(x => x.MaPhieu == MaPhieu && x.isXoa!=true).ToList();
                    
                         if (kqmau.isLayMauLan2 == false)
                         {
@@ -4055,15 +4055,30 @@ namespace BioNetDAL
                 if (dotChanDoan != null)
                 {
                     var dot = db.PSDotChuanDoans.FirstOrDefault(p => p.isXoa == false && p.rowIDDotChanDoan == dotChanDoan.rowIDDotChanDoan);
+                    var benhnhannguycocao = db.PSBenhNhanNguyCoCaos.FirstOrDefault(p => p.isXoa == false && p.MaKhachHang == dotChanDoan.MaKhachHang);
                     if (dot != null)
                     {
                         dot.GhiChu = dotChanDoan.GhiChu;
                         dot.KetQua = dotChanDoan.KetQua;
                         dot.ChanDoan = dotChanDoan.ChanDoan;
+                        if (benhnhannguycocao != null)
+                        {
+                            if(benhnhannguycocao.isDaChanDoan==false)
+                            {
+                                benhnhannguycocao.isDaChanDoan = true;
+                            }
+                        }
                         db.SubmitChanges();
                     }
                     else
                     {
+                        if (benhnhannguycocao != null)
+                        {
+                            if (benhnhannguycocao.isDaChanDoan == false)
+                            {
+                                benhnhannguycocao.isDaChanDoan = true;
+                            }
+                        }
                         db.PSDotChuanDoans.InsertOnSubmit(dotChanDoan);
                         db.SubmitChanges();
                     }
@@ -4159,52 +4174,56 @@ namespace BioNetDAL
                 return false;
             }
         }
-        public List<String> GetDanhSachPDFChuaDongBo()
+        public List<PSXN_TraKetQua> GetDanhSachPDFChuaDongBo()
         {
             db.Connection.Open();
             db.Transaction = db.Connection.BeginTransaction();
-            List<String> lis = new List<String>();
+            List<PSXN_TraKetQua> lis = new List<PSXN_TraKetQua>();
             try
             {
-                var res = db.PSXN_TraKetQuas.Where(p => p.isXoa == false && p.isDongBoPDF!=true && p.isTraKQ==true && p.isDaDuyetKQ==true).ToList();
+                var res = db.PSXN_TraKetQuas.OrderBy(x=>x.IDCoSo).Where(p => p.isXoa != true && p.isDongBoPDF!=true && p.isTraKQ==true && p.isDaDuyetKQ==true).ToList();
                 if (res != null)
                 {
-                    string li;
-                    foreach(var re in res)
-                    {
-                        li= re.MaPhieu.Trim();
-                        lis.Add(li);
-                    }
+                    return res;
+                }
+                else
+                {
+                    return lis;
                 }
             }
             catch
             {
-
+                return lis;
             }
-            return lis;
+            
         }
-        public PsReponse UpdateDanhSachPDFChuaDongBo()
+        public PsReponse UpdateDanhSachPDFChuaDongBo(List<string> Maphieu)
         {
             db.Connection.Open();
             db.Transaction = db.Connection.BeginTransaction();
             PsReponse res = new PsReponse();
             try
             {
-                var data = db.PSXN_TraKetQuas.Where(p => p.isXoa == false && p.isDongBoPDF != true && p.isTraKQ == true && p.isDaDuyetKQ == true).ToList();
-                if (data != null)
+                foreach(var maphieu in Maphieu)
                 {
-                    foreach(var re in data)
+                    var data = db.PSXN_TraKetQuas.FirstOrDefault(p => p.isXoa != true && p.MaPhieu == maphieu);
+                    if (data != null)
                     {
-                        re.isDongBoPDF = true;
+                        data.isDongBoPDF = true;
+                        db.SubmitChanges();
+                       
                     }
-                    db.SubmitChanges();
-                    res.Result = true;
+
                 }
+                res.Result = true;
+
             }
             catch
             {
                 res.Result = false;
             }
+            db.Transaction.Commit();
+            db.Connection.Close();
             return res;
         }
 

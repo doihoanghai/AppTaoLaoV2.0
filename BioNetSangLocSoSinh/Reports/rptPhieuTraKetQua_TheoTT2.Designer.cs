@@ -145,6 +145,7 @@
             this.xrTableRow2});
             this.xrTable3.SizeF = new System.Drawing.SizeF(792.9998F, 25F);
             this.xrTable3.StylePriority.UseFont = false;
+            this.xrTable3.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrTable3_BeforePrint);
             // 
             // xrTableRow2
             // 
@@ -749,7 +750,7 @@
             this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(293.7918F, 150.0001F);
             this.xrLabel15.Name = "xrLabel15";
             this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 3, 0, 100F);
-            this.xrLabel15.SizeF = new System.Drawing.SizeF(237.683F, 50F);
+            this.xrLabel15.SizeF = new System.Drawing.SizeF(239.0075F, 50F);
             this.xrLabel15.StylePriority.UseBorders = false;
             this.xrLabel15.StylePriority.UseFont = false;
             this.xrLabel15.StylePriority.UsePadding = false;
@@ -1043,7 +1044,7 @@
             this.xrTableCell4.Multiline = true;
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseBorders = false;
-            this.xrTableCell4.Text = "Ngưỡng bình thường";
+            this.xrTableCell4.Text = "Ngưỡng       bình thường";
             this.xrTableCell4.TextTrimming = System.Drawing.StringTrimming.Word;
             this.xrTableCell4.Weight = 0.720463864797089D;
             // 
@@ -1063,9 +1064,9 @@
             this.xrTableCell21.Multiline = true;
             this.xrTableCell21.Name = "xrTableCell21";
             this.xrTableCell21.StylePriority.UseBorders = false;
-            this.xrTableCell21.Text = "Giá trị đo được";
+            this.xrTableCell21.Text = "Giá trị          đo được";
             this.xrTableCell21.TextTrimming = System.Drawing.StringTrimming.Word;
-            this.xrTableCell21.Weight = 0.612435223850818D;
+            this.xrTableCell21.Weight = 0.62387612843326734D;
             // 
             // xrTableCell22
             // 
@@ -1075,7 +1076,7 @@
             this.xrTableCell22.Name = "xrTableCell22";
             this.xrTableCell22.StylePriority.UseBorders = false;
             this.xrTableCell22.Text = "Kết luận";
-            this.xrTableCell22.Weight = 0.907006345903282D;
+            this.xrTableCell22.Weight = 0.8955654413208326D;
             // 
             // PageFooter
             // 

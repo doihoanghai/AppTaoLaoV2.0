@@ -46,11 +46,11 @@ namespace DataSync
                             br.Close();
                             string link;
                             link = linkPDF + "?mabenhnhan=" + filedongbo.Name.Substring(0, 8);
-
                             var result = PostPDF(cn.CreateLink(link), token, boundarybytes);
                             if (string.IsNullOrEmpty(result.ErorrResult))
                             {
                                 res.Result=true;
+                                File.Delete(filedongbo.FullName);
                             }
                             else
                             {
