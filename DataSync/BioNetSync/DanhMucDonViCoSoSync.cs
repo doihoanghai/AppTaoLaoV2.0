@@ -189,7 +189,7 @@ namespace DataSync.BioNetSync
                     {
                         kyt.isLocked = cc.isLocked;
                         kyt.Stt = cc.Stt;
-                        kyt.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS));
+                        kyt.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS.TrimEnd()));
                         kyt.SDTCS = cc.SDTCS;
                         kyt.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS));
                         kyt.MaChiCuc = cc.MaChiCuc;
@@ -204,7 +204,7 @@ namespace DataSync.BioNetSync
                     PSDanhMucDonViCoSo ccnew = new PSDanhMucDonViCoSo();
                     ccnew.isLocked = cc.isLocked;
                     ccnew.Stt = cc.Stt;
-                    ccnew.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS));
+                    ccnew.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS.TrimEnd()));
                     ccnew.SDTCS = cc.SDTCS;
                     ccnew.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS));
                     ccnew.TenBacSiDaiDien = cc.TenBacSiDaiDien;

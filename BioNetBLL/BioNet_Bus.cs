@@ -578,10 +578,10 @@ namespace BioNetBLL
             return db.UpdatePhieuSuaLoi(maPhieu);
         }
         
-        public static List<PsTinhTrangPhieu> GetTinhTrangPhieuMail(DateTime startdate, DateTime enddate, string maDonVi)
+        public static List<PsTinhTrangPhieu> GetTinhTrangPhieuMail(DateTime startdate, DateTime enddate, string maDonVi,string maChiCuc)
         {
             var db = new DataObjects();
-            return db.GetTinhTrangPhieuMail(startdate, enddate, maDonVi);
+            return db.GetTinhTrangPhieuMail(startdate, enddate, maDonVi,maChiCuc);
         }
         public static List<PSTKKQPhieuMail> GetThongKePhieuMail(string[] maphieu)
         {

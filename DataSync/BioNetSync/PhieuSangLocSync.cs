@@ -117,7 +117,9 @@ namespace DataSync.BioNetSync
                                 psldb.DiaChiLayMau = psl.DiaChiLayMau!=null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChiLayMau)):null;
                                 psldb.NoiLayMau = psl.NoiLayMau != null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiLayMau)):null;
                                 psldb.TenNhanVienLayMau = psl.TenNhanVienLayMau != null? Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenNhanVienLayMau)):null;
+                                
                             }
+
                             db.SubmitChanges();
                         }
                             
@@ -141,6 +143,7 @@ namespace DataSync.BioNetSync
                             newpsl.TenNhanVienLayMau = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenNhanVienLayMau));
                         }  
                         newpsl.RowIDPhieu = 0;
+                        newpsl.isXoa = false;
                         newpsl.isDongBo = true;
                         db.PSPhieuSangLocs.InsertOnSubmit(newpsl);
                         db.SubmitChanges();

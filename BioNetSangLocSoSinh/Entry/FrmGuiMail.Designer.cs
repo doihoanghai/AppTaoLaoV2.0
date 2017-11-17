@@ -320,33 +320,49 @@
             // 
             // col_MaChiCuc
             // 
+            this.col_MaChiCuc.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_MaChiCuc.AppearanceHeader.Options.UseFont = true;
             this.col_MaChiCuc.Caption = "Mã";
             this.col_MaChiCuc.FieldName = "MaDVCS";
             this.col_MaChiCuc.Name = "col_MaChiCuc";
+            this.col_MaChiCuc.OptionsColumn.AllowEdit = false;
+            this.col_MaChiCuc.OptionsColumn.ReadOnly = true;
             // 
             // col_TenChiCuc
             // 
+            this.col_TenChiCuc.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_TenChiCuc.AppearanceHeader.Options.UseFont = true;
             this.col_TenChiCuc.Caption = "Chi Cục";
             this.col_TenChiCuc.FieldName = "TenChiCuc";
             this.col_TenChiCuc.Name = "col_TenChiCuc";
+            this.col_TenChiCuc.OptionsColumn.AllowEdit = false;
+            this.col_TenChiCuc.OptionsColumn.ReadOnly = true;
             this.col_TenChiCuc.Visible = true;
             this.col_TenChiCuc.VisibleIndex = 0;
             this.col_TenChiCuc.Width = 180;
             // 
             // col_TenDonVi
             // 
+            this.col_TenDonVi.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_TenDonVi.AppearanceHeader.Options.UseFont = true;
             this.col_TenDonVi.Caption = "Đơn Vị";
             this.col_TenDonVi.FieldName = "TenDonVi";
             this.col_TenDonVi.Name = "col_TenDonVi";
+            this.col_TenDonVi.OptionsColumn.AllowEdit = false;
+            this.col_TenDonVi.OptionsColumn.ReadOnly = true;
             this.col_TenDonVi.Visible = true;
             this.col_TenDonVi.VisibleIndex = 1;
             this.col_TenDonVi.Width = 261;
             // 
             // col_Email
             // 
+            this.col_Email.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_Email.AppearanceHeader.Options.UseFont = true;
             this.col_Email.Caption = "Địa chỉ Email";
             this.col_Email.FieldName = "Email";
             this.col_Email.Name = "col_Email";
+            this.col_Email.OptionsColumn.AllowEdit = false;
+            this.col_Email.OptionsColumn.ReadOnly = true;
             this.col_Email.Visible = true;
             this.col_Email.VisibleIndex = 2;
             this.col_Email.Width = 182;
@@ -356,30 +372,41 @@
             this.col_NgayNhanMau.Caption = "Đợt Tiếp Nhận";
             this.col_NgayNhanMau.FieldName = "NgayNhanMau";
             this.col_NgayNhanMau.Name = "col_NgayNhanMau";
+            this.col_NgayNhanMau.OptionsColumn.AllowEdit = false;
             this.col_NgayNhanMau.Visible = true;
             this.col_NgayNhanMau.VisibleIndex = 3;
             this.col_NgayNhanMau.Width = 188;
             // 
             // col_IDPhieu
             // 
+            this.col_IDPhieu.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_IDPhieu.AppearanceHeader.Options.UseFont = true;
             this.col_IDPhieu.Caption = "Mã Phiếu";
             this.col_IDPhieu.FieldName = "IDPhieu";
             this.col_IDPhieu.Name = "col_IDPhieu";
+            this.col_IDPhieu.OptionsColumn.AllowEdit = false;
+            this.col_IDPhieu.OptionsColumn.ReadOnly = true;
             this.col_IDPhieu.Visible = true;
             this.col_IDPhieu.VisibleIndex = 4;
             this.col_IDPhieu.Width = 187;
             // 
             // col_TinhTrangMau_Text
             // 
+            this.col_TinhTrangMau_Text.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_TinhTrangMau_Text.AppearanceHeader.Options.UseFont = true;
             this.col_TinhTrangMau_Text.Caption = "Tình Trạng Mẫu";
             this.col_TinhTrangMau_Text.FieldName = "TinhTrangMau_Text";
             this.col_TinhTrangMau_Text.Name = "col_TinhTrangMau_Text";
+            this.col_TinhTrangMau_Text.OptionsColumn.AllowEdit = false;
+            this.col_TinhTrangMau_Text.OptionsColumn.ReadOnly = true;
             this.col_TinhTrangMau_Text.Visible = true;
             this.col_TinhTrangMau_Text.VisibleIndex = 5;
             this.col_TinhTrangMau_Text.Width = 203;
             // 
             // col_Chon
             // 
+            this.col_Chon.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_Chon.AppearanceHeader.Options.UseFont = true;
             this.col_Chon.Caption = "Chọn";
             this.col_Chon.ColumnEdit = this.repositoryItemCheckChon;
             this.col_Chon.FieldName = "Chon";
@@ -398,15 +425,23 @@
             // 
             // col_MaDV
             // 
+            this.col_MaDV.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_MaDV.AppearanceHeader.Options.UseFont = true;
             this.col_MaDV.Caption = "Mã Đơn Vị";
             this.col_MaDV.FieldName = "MaDonVi";
             this.col_MaDV.Name = "col_MaDV";
+            this.col_MaDV.OptionsColumn.AllowEdit = false;
+            this.col_MaDV.OptionsColumn.ReadOnly = true;
             // 
             // col_TinhTrangMau
             // 
+            this.col_TinhTrangMau.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_TinhTrangMau.AppearanceHeader.Options.UseFont = true;
             this.col_TinhTrangMau.Caption = "ID Tình Trạng Mẫu";
             this.col_TinhTrangMau.FieldName = "TinhTrangMau";
             this.col_TinhTrangMau.Name = "col_TinhTrangMau";
+            this.col_TinhTrangMau.OptionsColumn.AllowEdit = false;
+            this.col_TinhTrangMau.OptionsColumn.ReadOnly = true;
             // 
             // FrmGuiMail
             // 

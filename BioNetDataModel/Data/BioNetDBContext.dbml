@@ -1094,10 +1094,29 @@
       <Column Name="TrangThaiMau_Text" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.pro_Report_TTCoBanPhieu" Method="pro_Report_TTCoBanPhieu">
+    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="MaChiCuc" Parameter="maChiCuc" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="MaTT" Parameter="maTT" Type="System.String" DbType="NVarChar(15)" />
+    <ElementType Name="pro_Report_TTCoBanPhieuResult">
+      <Column Name="TongSoPhieu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhieuThuMoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhieuThuLai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GTKhac" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PPSinhThuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PPSinhMo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PPSinhKhac" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MauDat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MauKoDat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.pro_Report_TrungTamTinhTrangMauMail" Method="pro_Report_TrungTamTinhTrangMauMail">
     <Parameter Name="FromDate" Parameter="fromDate" Type="System.DateTime" DbType="Date" />
     <Parameter Name="ToDate" Parameter="toDate" Type="System.DateTime" DbType="Date" />
     <Parameter Name="MaDonVi" Parameter="maDonVi" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MaChiCuc" Parameter="maChiCuc" Type="System.String" DbType="NVarChar(50)" />
     <ElementType Name="pro_Report_TrungTamTinhTrangMauMailResult">
       <Column Name="MaDVCS" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="TenDVCS" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -1118,24 +1137,6 @@
       <Column Name="Email" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="TenChiCuc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="TrangThaiMau_Text" Type="System.String" DbType="NVarChar(38) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.pro_Report_TTCoBanPhieu" Method="pro_Report_TTCoBanPhieu">
-    <Parameter Name="MaDV" Parameter="maDV" Type="System.String" DbType="NVarChar(15)" />
-    <Parameter Name="MaChiCuc" Parameter="maChiCuc" Type="System.String" DbType="NVarChar(15)" />
-    <Parameter Name="MaTT" Parameter="maTT" Type="System.String" DbType="NVarChar(15)" />
-    <ElementType Name="pro_Report_TTCoBanPhieuResult">
-      <Column Name="TongSoPhieu" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PhieuThuMoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PhieuThuLai" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Nu" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GTKhac" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PPSinhThuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PPSinhMo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PPSinhKhac" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MauDat" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MauKoDat" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

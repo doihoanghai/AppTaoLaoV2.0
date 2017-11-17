@@ -734,6 +734,7 @@ namespace BioNetDAL
             List<PSDanhMucGoiDichVuTheoDonVi> lstGoiDichVuCoSo = new List<PSDanhMucGoiDichVuTheoDonVi>();
             try
             {
+
                 lstGoiDichVuCoSo = db.PSDanhMucGoiDichVuTheoDonVis.OrderBy(x=>x.IDGoiDichVuChung).ToList();
                 return lstGoiDichVuCoSo;
             }

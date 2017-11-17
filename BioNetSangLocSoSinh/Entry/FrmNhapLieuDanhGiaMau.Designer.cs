@@ -95,7 +95,6 @@
             this.radioGroupGoiXN = new DevExpress.XtraEditors.RadioGroup();
             this.checkedListBoxXN = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.radioGroupViTriLayMau = new DevExpress.XtraEditors.RadioGroup();
             this.txtMaTiepNhan = new DevExpress.XtraEditors.TextEdit();
             this.txtNgayNhanMau = new DevExpress.XtraEditors.DateEdit();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
@@ -138,6 +137,7 @@
             this.txtSoLuongTruyenMau = new DevExpress.XtraEditors.SpinEdit();
             this.txtTuanTuoi = new DevExpress.XtraEditors.SpinEdit();
             this.txtCanNang = new DevExpress.XtraEditors.SpinEdit();
+            this.radioGroupViTriLayMau = new DevExpress.XtraEditors.RadioGroup();
             this.txtGioiTinh = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.lookUpDanToc = new DevExpress.XtraEditors.LookUpEdit();
             this.RadioCheDoDD = new DevExpress.XtraEditors.RadioGroup();
@@ -147,6 +147,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtNgayTruyenMau = new DevExpress.XtraEditors.DateEdit();
             this.label15 = new System.Windows.Forms.Label();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.txtNamSinhBenhNhan = new DevExpress.XtraEditors.DateEdit();
             this.radioGroupTinhTrangTre = new DevExpress.XtraEditors.RadioGroup();
@@ -159,7 +160,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.lookupDonVi = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
@@ -234,7 +234,6 @@
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroupGoiXN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxXN)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroupViTriLayMau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaTiepNhan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayNhanMau.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayNhanMau.Properties)).BeginInit();
@@ -268,6 +267,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuongTruyenMau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuanTuoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCanNang.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroupViTriLayMau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGioiTinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpDanToc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RadioCheDoDD.Properties)).BeginInit();
@@ -963,7 +963,6 @@
             this.panelControl4.Controls.Add(this.txtMaChiDinh);
             this.panelControl4.Controls.Add(this.txtNgayGioNhanMau);
             this.panelControl4.Controls.Add(this.panelControl5);
-            this.panelControl4.Controls.Add(this.radioGroupViTriLayMau);
             this.panelControl4.Controls.Add(this.txtMaTiepNhan);
             this.panelControl4.Controls.Add(this.txtNgayNhanMau);
             this.panelControl4.Controls.Add(this.groupControl6);
@@ -972,7 +971,6 @@
             this.panelControl4.Controls.Add(this.txtMaBenhNhan);
             this.panelControl4.Controls.Add(this.lookupChuongTrinh);
             this.panelControl4.Controls.Add(this.groupControl5);
-            this.panelControl4.Controls.Add(this.labelControl8);
             this.panelControl4.Controls.Add(this.labelControl11);
             this.panelControl4.Controls.Add(this.lookupDonVi);
             this.panelControl4.Controls.Add(this.labelControl10);
@@ -1063,19 +1061,6 @@
             this.labelControl9.Size = new System.Drawing.Size(38, 13);
             this.labelControl9.TabIndex = 0;
             this.labelControl9.Text = "Gói XN :";
-            // 
-            // radioGroupViTriLayMau
-            // 
-            this.radioGroupViTriLayMau.EditValue = "0";
-            this.radioGroupViTriLayMau.Location = new System.Drawing.Point(300, 424);
-            this.radioGroupViTriLayMau.Name = "radioGroupViTriLayMau";
-            this.radioGroupViTriLayMau.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "Gót chân"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "Tĩnh  mạch"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("2", "Khác")});
-            this.radioGroupViTriLayMau.Size = new System.Drawing.Size(180, 40);
-            this.radioGroupViTriLayMau.TabIndex = 28;
-            this.radioGroupViTriLayMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radioGroupViTriLayMau_KeyPress);
             // 
             // txtMaTiepNhan
             // 
@@ -1513,6 +1498,7 @@
             this.groupControl5.Controls.Add(this.txtSoLuongTruyenMau);
             this.groupControl5.Controls.Add(this.txtTuanTuoi);
             this.groupControl5.Controls.Add(this.txtCanNang);
+            this.groupControl5.Controls.Add(this.radioGroupViTriLayMau);
             this.groupControl5.Controls.Add(this.txtGioiTinh);
             this.groupControl5.Controls.Add(this.lookUpDanToc);
             this.groupControl5.Controls.Add(this.RadioCheDoDD);
@@ -1522,6 +1508,7 @@
             this.groupControl5.Controls.Add(this.label11);
             this.groupControl5.Controls.Add(this.txtNgayTruyenMau);
             this.groupControl5.Controls.Add(this.label15);
+            this.groupControl5.Controls.Add(this.labelControl8);
             this.groupControl5.Controls.Add(this.labelControl14);
             this.groupControl5.Controls.Add(this.txtNamSinhBenhNhan);
             this.groupControl5.Controls.Add(this.radioGroupTinhTrangTre);
@@ -1537,7 +1524,7 @@
             this.groupControl5.Location = new System.Drawing.Point(226, 98);
             this.groupControl5.LookAndFeel.SkinName = "Metropolis";
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(263, 322);
+            this.groupControl5.Size = new System.Drawing.Size(263, 369);
             this.groupControl5.TabIndex = 3;
             this.groupControl5.Text = "Thông tin trẻ";
             // 
@@ -1631,6 +1618,19 @@
             this.txtCanNang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCanNang_KeyPress);
             this.txtCanNang.Validated += new System.EventHandler(this.txtCanNang_Validated_1);
             // 
+            // radioGroupViTriLayMau
+            // 
+            this.radioGroupViTriLayMau.EditValue = "0";
+            this.radioGroupViTriLayMau.Location = new System.Drawing.Point(74, 325);
+            this.radioGroupViTriLayMau.Name = "radioGroupViTriLayMau";
+            this.radioGroupViTriLayMau.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "Gót chân"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "Tĩnh  mạch"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("2", "Khác")});
+            this.radioGroupViTriLayMau.Size = new System.Drawing.Size(180, 40);
+            this.radioGroupViTriLayMau.TabIndex = 28;
+            this.radioGroupViTriLayMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radioGroupViTriLayMau_KeyPress);
+            // 
             // txtGioiTinh
             // 
             this.txtGioiTinh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1670,7 +1670,7 @@
             this.RadioCheDoDD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RadioCheDoDD.EditValue = "0";
-            this.RadioCheDoDD.Location = new System.Drawing.Point(59, 255);
+            this.RadioCheDoDD.Location = new System.Drawing.Point(64, 260);
             this.RadioCheDoDD.Name = "RadioCheDoDD";
             this.RadioCheDoDD.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "Bú mẹ", true, "0"),
@@ -1753,6 +1753,16 @@
             this.label15.Size = new System.Drawing.Size(27, 13);
             this.label15.TabIndex = 1;
             this.label15.Text = "lúc :";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.labelControl8.Location = new System.Drawing.Point(3, 332);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(75, 13);
+            this.labelControl8.TabIndex = 0;
+            this.labelControl8.Text = "Vị trí lấy mẫu :";
             // 
             // labelControl14
             // 
@@ -1886,16 +1896,6 @@
             this.label16.Size = new System.Drawing.Size(49, 13);
             this.label16.TabIndex = 1;
             this.label16.Text = "Tên trẻ :";
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.labelControl8.Location = new System.Drawing.Point(229, 426);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(75, 13);
-            this.labelControl8.TabIndex = 0;
-            this.labelControl8.Text = "Vị trí lấy mẫu :";
             // 
             // labelControl11
             // 
@@ -2401,7 +2401,6 @@
             this.panelControl5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroupGoiXN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxXN)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroupViTriLayMau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaTiepNhan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayNhanMau.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayNhanMau.Properties)).EndInit();
@@ -2438,6 +2437,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuongTruyenMau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuanTuoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCanNang.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroupViTriLayMau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGioiTinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpDanToc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RadioCheDoDD.Properties)).EndInit();

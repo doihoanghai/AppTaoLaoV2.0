@@ -166,6 +166,7 @@ namespace DataSync.BioNetSync
                         {
                             newpsl.NoiSinh = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiSinh));
                         }
+                        newpsl.isXoa = false;
                         newpsl.RowIDBenhNhan = 0;
                         newpsl.isDongBo = true;
                         db.PSPatients.InsertOnSubmit(newpsl);

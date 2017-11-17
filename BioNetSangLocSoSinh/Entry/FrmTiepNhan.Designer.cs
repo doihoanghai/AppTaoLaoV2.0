@@ -723,7 +723,6 @@
             this.btnNewBarPopupMenuRowGV.Glyph = global::BioNetSangLocSoSinh.Properties.Resources._new;
             this.btnNewBarPopupMenuRowGV.Id = 0;
             this.btnNewBarPopupMenuRowGV.Name = "btnNewBarPopupMenuRowGV";
-            this.btnNewBarPopupMenuRowGV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNewBarPopupMenuRowGV_ItemClick);
             // 
             // btnEditBarPopupMenuRowGV
             // 
@@ -731,7 +730,6 @@
             this.btnEditBarPopupMenuRowGV.Glyph = global::BioNetSangLocSoSinh.Properties.Resources.Edit;
             this.btnEditBarPopupMenuRowGV.Id = 1;
             this.btnEditBarPopupMenuRowGV.Name = "btnEditBarPopupMenuRowGV";
-            this.btnEditBarPopupMenuRowGV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEditBarPopupMenuRowGV_ItemClick);
             // 
             // btnDelBarPopupMenuRowGV
             // 
@@ -1582,8 +1580,6 @@
             // PopupMenuRowGV
             // 
             this.PopupMenuRowGV.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnNewBarPopupMenuRowGV),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnEditBarPopupMenuRowGV),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDelBarPopupMenuRowGV)});
             this.PopupMenuRowGV.Manager = this.BarMenuPopupRowGV;
             this.PopupMenuRowGV.Name = "PopupMenuRowGV";

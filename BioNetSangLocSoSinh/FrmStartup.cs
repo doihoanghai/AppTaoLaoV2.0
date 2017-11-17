@@ -44,7 +44,6 @@ namespace BioNetSangLocSoSinh
             if (BioBLL.CheckConnection())
             {
                 this.GetLogin();
-
                 Thread thread = new Thread(LoadDuLieu);
                 thread.Start();
             }
@@ -57,6 +56,7 @@ namespace BioNetSangLocSoSinh
             }
 
         }
+
         private void LoadDuLieu()
         {
             //BioNetDBContextDataContext db = null;
@@ -148,6 +148,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             }
             return temp;
         }
+
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
             SplashScreenManager.ShowForm(this, typeof(DiaglogFrm.Waitingfrom), true, true, false);
@@ -461,15 +462,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             Entry.FrmDMThongSoXN frm = new Entry.FrmDMThongSoXN();
             TabCreating(xTabMain, "Thông số xét nghiệm", frm);
             SplashScreenManager.CloseForm();
-        }
-
-        //private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
-        //{
-        //    SplashScreenManager.ShowForm(this, typeof(DiaglogFrm.Waitingfrom), true, true, false);
-        //    Entry.FrmNhapLieu frm = new Entry.FrmNhapLieu(this.empCode);
-        //    TabCreating(xTabMain, "Nhập liệu", frm);
-        //    SplashScreenManager.CloseForm();
-        //}
+        }  
 
         private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -641,10 +634,8 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             catch { }
         }
 
-   
         public static PsReponse  NenFileDongBo()
         {
-
             PsReponse res = new PsReponse();
             try
             {

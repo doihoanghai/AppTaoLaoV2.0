@@ -2617,7 +2617,6 @@ C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangL
 C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.XtraForm2.resources
 C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\BioNetSangLocSoSinh\obj\Debug\Bionet App.csproj.GenerateResource.Cache
 C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.exe.licenses
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.exe
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\BioNetSangLocSoSinh.exe.config
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\BioNetSangLocSoSinh.exe
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\bin\Debug\BioNetSangLocSoSinh.pdb
@@ -2978,4 +2977,5 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\De
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.XtraForm2.resources
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\Bionet App.csproj.GenerateResource.Cache
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.exe.licenses
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.exe
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetSangLocSoSinh\obj\Debug\BioNetSangLocSoSinh.pdb

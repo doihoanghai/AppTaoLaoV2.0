@@ -35,9 +35,9 @@ namespace BioNetSangLocSoSinh.FrmReports
             InitializeComponent();
         }
 
-        private void LoadDuLieuBaoCao()
+        private void LoadDuLieuEmail()
         {
-            this.GC_DSPhieuMail.DataSource = BioNet_Bus.GetTinhTrangPhieuMail(this.dllNgay.tungay.Value, this.dllNgay.denngay.Value, txtDonVi.EditValue.ToString());
+            this.GC_DSPhieuMail.DataSource = BioNet_Bus.GetTinhTrangPhieuMail(this.dllNgay.tungay.Value, this.dllNgay.denngay.Value, txtDonVi.EditValue.ToString(),txtChiCuc.EditValue.ToString());
            
             if (this.GV_DSPhieuMail.DataRowCount == 0)
             {
@@ -48,7 +48,6 @@ namespace BioNetSangLocSoSinh.FrmReports
             {
                 this.bttGuiMail.Enabled = true;
             }
-
         }
 
         private void FrmGuiMail_Load(object sender, EventArgs e)
@@ -56,6 +55,7 @@ namespace BioNetSangLocSoSinh.FrmReports
             this.txtChiCuc.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_ChiCuc();
             this.txtDonVi.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_DonVi("all");
             this.txtDonVi.EditValue = "all";
+            this.txtChiCuc.EditValue = "all";
             this.bttGuiMail.Enabled = false;
         }
 
@@ -73,9 +73,7 @@ namespace BioNetSangLocSoSinh.FrmReports
 
         private void butOK_Click(object sender, EventArgs e)
         {
-            LoadDuLieuBaoCao();
-            
-
+            LoadDuLieuEmail();            
         }
 
 
