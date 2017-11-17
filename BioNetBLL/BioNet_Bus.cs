@@ -863,7 +863,7 @@ namespace BioNetBLL
                     DonVi.MaDonVi = TTDonvi.MaDVCS;
                     DonVi.SoDt = TTDonvi.SDTCS;
                     DonVi.Stt = TTDonvi.Stt??0;
-                    DonVi.TenDonVi = TTDonvi.TenDVCS;
+                    DonVi.TenDonVi = TTDonvi.TenDVCS.ToUpper();
                     rptKQ.TenBacSi = TTDonvi.TenBacSiDaiDien;
                     try {
                         if (TTDonvi.Logo.Length>0)
