@@ -28,6 +28,7 @@ namespace Bionet.API.Models
         public string MaChiCuc { get; set; }
 
         public string TenChiCuc { get; set; }
+        public string Email { get; set; }
 
     }
 }

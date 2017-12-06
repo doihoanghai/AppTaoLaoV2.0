@@ -185,6 +185,7 @@
             this.col_IDPhieu.Name = "col_IDPhieu";
             this.col_IDPhieu.Visible = true;
             this.col_IDPhieu.VisibleIndex = 1;
+            this.col_IDPhieu.Width = 127;
             // 
             // col_MaDonVi
             // 
@@ -214,7 +215,7 @@
             this.col_TenBenhNhan.Name = "col_TenBenhNhan";
             this.col_TenBenhNhan.Visible = true;
             this.col_TenBenhNhan.VisibleIndex = 2;
-            this.col_TenBenhNhan.Width = 99;
+            this.col_TenBenhNhan.Width = 158;
             // 
             // col_TenMe
             // 
@@ -226,7 +227,7 @@
             this.col_TenMe.Name = "col_TenMe";
             this.col_TenMe.Visible = true;
             this.col_TenMe.VisibleIndex = 3;
-            this.col_TenMe.Width = 153;
+            this.col_TenMe.Width = 160;
             // 
             // col_NamSinhMe
             // 
@@ -237,6 +238,7 @@
             this.col_NamSinhMe.Name = "col_NamSinhMe";
             this.col_NamSinhMe.Visible = true;
             this.col_NamSinhMe.VisibleIndex = 4;
+            this.col_NamSinhMe.Width = 114;
             // 
             // col_DiaChi
             // 
@@ -247,7 +249,7 @@
             this.col_DiaChi.Name = "col_DiaChi";
             this.col_DiaChi.Visible = true;
             this.col_DiaChi.VisibleIndex = 5;
-            this.col_DiaChi.Width = 192;
+            this.col_DiaChi.Width = 178;
             // 
             // col_NgayNhanMau
             // 
@@ -258,6 +260,7 @@
             this.col_NgayNhanMau.Name = "col_NgayNhanMau";
             this.col_NgayNhanMau.Visible = true;
             this.col_NgayNhanMau.VisibleIndex = 6;
+            this.col_NgayNhanMau.Width = 245;
             // 
             // Col_TinhTrangMau
             // 
@@ -285,6 +288,7 @@
             this.col_TenDonVi.Name = "col_TenDonVi";
             this.col_TenDonVi.Visible = true;
             this.col_TenDonVi.VisibleIndex = 0;
+            this.col_TenDonVi.Width = 208;
             // 
             // col_TrangThaiMau_Text
             // 
@@ -296,7 +300,7 @@
             this.col_TrangThaiMau_Text.Name = "col_TrangThaiMau_Text";
             this.col_TrangThaiMau_Text.Visible = true;
             this.col_TrangThaiMau_Text.VisibleIndex = 7;
-            this.col_TrangThaiMau_Text.Width = 154;
+            this.col_TrangThaiMau_Text.Width = 171;
             // 
             // dllNgay
             // 

@@ -30,7 +30,8 @@ namespace BioNetSangLocSoSinh.DiaglogFrm
             {if (KiemTraMaXNLaKieuSo(this.txtMaXetNghiem.Text.Trim()))//đổi mã ra số nếu không được tức là có chữ
                 {
                     long ma = long.Parse(this.txtMaXetNghiem.Text.Trim());
-                    long sobd = long.Parse(BioNetBLL.BioNet_Bus.GetMaXNTrongBangGhi());
+                    //long sobd = long.Parse(BioNetBLL.BioNet_Bus.GetMaXNTrongBangGhi());
+                    long sobd = long.Parse(BioNetBLL.BioNet_Bus.GetMaXetNghiemTrongDB());
                     if (ma > sobd + 1)
                     {
                         XtraMessageBox.Show("Mã xét nghiệm không được lớn hơn " + sobd + 1, "BioNet - Chương trình sàng lọc sơ sinh!", MessageBoxButtons.OK, MessageBoxIcon.Warning);

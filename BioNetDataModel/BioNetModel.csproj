@@ -63,6 +63,7 @@
     <Compile Include="APIViewModel\DanhMucTrungTamSangLocViewModel.cs" />
     <Compile Include="APIViewModel\GoiDichVuTrungTamViewModel.cs" />
     <Compile Include="APIViewModel\MapsXetNghiem_ThongSoViewModel.cs" />
+    <Compile Include="APIViewModel\MapsXN_ThongSoSync.cs" />
     <Compile Include="APIViewModel\Model1.cs" />
     <Compile Include="APIViewModel\Model1.Designer.cs" />
     <Compile Include="APIViewModel\Patient_XN_ListTraKQChiTietViewModel.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="PsDuLieuThongSo_CH.cs" />
     <Compile Include="PsDuLieuThongSo_G6PD_GAL_PUK.cs" />
     <Compile Include="PsEmployeePosition.cs" />
+    <Compile Include="PSKetLuanPhieu.cs" />
     <Compile Include="PSKetQuaXetNghiem.cs" />
     <Compile Include="PsKetQua_ChiTiet.cs" />
     <Compile Include="PsPhieuLoiKhiDanhGia.cs" />
@@ -110,17 +112,24 @@
     <Compile Include="PsPhieu.cs" />
     <Compile Include="PsPhieuChiDinh.cs" />
     <Compile Include="PsReponse.cs" />
+    <Compile Include="PSResposeSync.cs" />
     <Compile Include="PsRptDanhSachDaCapMaXetNghiem.cs" />
     <Compile Include="PsRptTraKetQuaSangLoc.cs" />
     <Compile Include="PsRPTTraKetQuaSangLocChiTiet.cs" />
     <Compile Include="PsThongTinDonVi.cs" />
     <Compile Include="PsThongTinTrungTam.cs" />
     <Compile Include="PsTinhTrangPhieu.cs" />
+    <Compile Include="PSTKKQPhieuMail.cs" />
+    <Compile Include="PSXN_TraKetQuaDuyetNhanh.cs" />
+    <Compile Include="PSXN_TTTraKQ.cs" />
+    <Compile Include="rptBaoCaoSLPhieu.cs" />
     <Compile Include="rptBaoCaoTongHop.cs" />
     <Compile Include="rptChiTietTrungTam.cs" />
     <Compile Include="rptChiTietTrungTam_ChiTiet.cs" />
     <Compile Include="ServerInfo.cs" />
     <Compile Include="TraKetQua_XetNghiem.cs" />
+    <Compile Include="PsThongKe.cs" />
+    <Compile Include="TTPhieuCB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

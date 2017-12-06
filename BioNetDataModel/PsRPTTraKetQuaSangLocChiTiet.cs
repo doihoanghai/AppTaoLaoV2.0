@@ -14,9 +14,7 @@ namespace BioNetModel
         public string KetLuan { get; set; }
         public string GiaTriTrungBinh { get; set; }
         public string DonViDo { get; set; }
-        public bool isNguyCoCao {
-            get;set;
-        }
+        public bool isNguyCoCao {get;set;}
 
     }
 }

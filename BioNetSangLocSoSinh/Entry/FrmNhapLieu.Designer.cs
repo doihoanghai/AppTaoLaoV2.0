@@ -257,7 +257,7 @@
             this.panelControl5.Location = new System.Drawing.Point(0, 0);
             this.panelControl5.Name = "panelControl5";
             this.panelControl5.Size = new System.Drawing.Size(233, 102);
-            this.panelControl5.TabIndex = 2;
+            this.panelControl5.TabIndex = 0;
             // 
             // simpleButton3
             // 
@@ -266,7 +266,7 @@
             this.simpleButton3.Location = new System.Drawing.Point(168, 74);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(59, 23);
-            this.simpleButton3.TabIndex = 10;
+            this.simpleButton3.TabIndex = 6;
             this.simpleButton3.Text = "Tìm";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
@@ -277,7 +277,7 @@
             this.txtSearch.Location = new System.Drawing.Point(5, 75);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(157, 20);
-            this.txtSearch.TabIndex = 9;
+            this.txtSearch.TabIndex = 5;
             this.txtSearch.EditValueChanged += new System.EventHandler(this.txtSearch_EditValueChanged);
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
@@ -290,7 +290,7 @@
             this.btnRefesh.Location = new System.Drawing.Point(185, 28);
             this.btnRefesh.Name = "btnRefesh";
             this.btnRefesh.Size = new System.Drawing.Size(42, 40);
-            this.btnRefesh.TabIndex = 8;
+            this.btnRefesh.TabIndex = 4;
             this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
             // 
             // txtDenNgay_DsCho
@@ -311,7 +311,7 @@
             this.txtDenNgay_DsCho.Properties.FirstDayOfWeek = System.DayOfWeek.Sunday;
             this.txtDenNgay_DsCho.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.txtDenNgay_DsCho.Size = new System.Drawing.Size(107, 20);
-            this.txtDenNgay_DsCho.TabIndex = 6;
+            this.txtDenNgay_DsCho.TabIndex = 3;
             this.txtDenNgay_DsCho.EditValueChanged += new System.EventHandler(this.txtDenNgay_DsCho_EditValueChanged);
             // 
             // txtTuNgay_DsCho
@@ -332,7 +332,7 @@
             this.txtTuNgay_DsCho.Properties.FirstDayOfWeek = System.DayOfWeek.Sunday;
             this.txtTuNgay_DsCho.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.txtTuNgay_DsCho.Size = new System.Drawing.Size(107, 20);
-            this.txtTuNgay_DsCho.TabIndex = 7;
+            this.txtTuNgay_DsCho.TabIndex = 2;
             this.txtTuNgay_DsCho.EditValueChanged += new System.EventHandler(this.txtTuNgay_DsCho_EditValueChanged);
             // 
             // labelControl9
@@ -364,7 +364,7 @@
             this.searchLookUpDonViCoSo.Properties.ValueMember = "MaDVCS";
             this.searchLookUpDonViCoSo.Properties.View = this.searchLookUpEdit1View;
             this.searchLookUpDonViCoSo.Size = new System.Drawing.Size(156, 20);
-            this.searchLookUpDonViCoSo.TabIndex = 0;
+            this.searchLookUpDonViCoSo.TabIndex = 1;
             this.searchLookUpDonViCoSo.EditValueChanged += new System.EventHandler(this.searchLookUpDonViCoSo_EditValueChanged);
             // 
             // searchLookUpEdit1View
@@ -421,7 +421,7 @@
             this.GCDanhSachTiepNhan.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryLookUpDonViGCTiepNhan});
             this.GCDanhSachTiepNhan.Size = new System.Drawing.Size(227, 483);
-            this.GCDanhSachTiepNhan.TabIndex = 1;
+            this.GCDanhSachTiepNhan.TabIndex = 7;
             this.GCDanhSachTiepNhan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GVDanhSachTiepNhan});
             // 
@@ -576,7 +576,7 @@
             this.panelControl4.Location = new System.Drawing.Point(2, 20);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(751, 541);
-            this.panelControl4.TabIndex = 0;
+            this.panelControl4.TabIndex = 1;
             // 
             // groupControl2
             // 
@@ -585,7 +585,7 @@
             this.groupControl2.Controls.Add(this.txtLuuY);
             this.groupControl2.Location = new System.Drawing.Point(4, 429);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(380, 109);
+            this.groupControl2.Size = new System.Drawing.Size(380, 110);
             this.groupControl2.TabIndex = 101;
             this.groupControl2.Text = "Lưu ý";
             // 
@@ -601,8 +601,8 @@
             this.txtLuuY.Options.Export.PlainText.ExportFinalParagraphMark = DevExpress.XtraRichEdit.Export.PlainText.ExportFinalParagraphMark.Never;
             this.txtLuuY.Options.Fields.UpdateFieldsInTextBoxes = false;
             this.txtLuuY.ReadOnly = true;
-            this.txtLuuY.Size = new System.Drawing.Size(376, 87);
-            this.txtLuuY.TabIndex = 32;
+            this.txtLuuY.Size = new System.Drawing.Size(376, 88);
+            this.txtLuuY.TabIndex = 34;
             this.txtLuuY.Text = "txtLuuY";
             // 
             // groupControl7
@@ -614,7 +614,7 @@
             this.groupControl7.Controls.Add(this.label18);
             this.groupControl7.Location = new System.Drawing.Point(389, 429);
             this.groupControl7.Name = "groupControl7";
-            this.groupControl7.Size = new System.Drawing.Size(359, 109);
+            this.groupControl7.Size = new System.Drawing.Size(359, 110);
             this.groupControl7.TabIndex = 102;
             this.groupControl7.Text = "Đánh giá mẫu";
             // 
@@ -627,8 +627,8 @@
             this.checkedListBoxLydoKhongDat.DisplayMember = "ChatLuongMau";
             this.checkedListBoxLydoKhongDat.Location = new System.Drawing.Point(2, 51);
             this.checkedListBoxLydoKhongDat.Name = "checkedListBoxLydoKhongDat";
-            this.checkedListBoxLydoKhongDat.Size = new System.Drawing.Size(355, 56);
-            this.checkedListBoxLydoKhongDat.TabIndex = 31;
+            this.checkedListBoxLydoKhongDat.Size = new System.Drawing.Size(355, 57);
+            this.checkedListBoxLydoKhongDat.TabIndex = 25;
             this.checkedListBoxLydoKhongDat.ValueMember = "IDDanhGiaChatLuongMau";
             this.checkedListBoxLydoKhongDat.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.checkedListBoxLydoKhongDat_ItemCheck);
             this.checkedListBoxLydoKhongDat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkedListBoxLydoKhongDat_KeyPress);
@@ -642,7 +642,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "Đạt"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "Không đạt")});
             this.radioDanhGia.Size = new System.Drawing.Size(164, 22);
-            this.radioDanhGia.TabIndex = 31;
+            this.radioDanhGia.TabIndex = 24;
             this.radioDanhGia.EditValueChanged += new System.EventHandler(this.radioDanhGia_EditValueChanged);
             this.radioDanhGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radioDanhGia_KeyPress);
             // 
@@ -680,7 +680,7 @@
             this.checkedListBoxXN.MultiColumn = true;
             this.checkedListBoxXN.Name = "checkedListBoxXN";
             this.checkedListBoxXN.Size = new System.Drawing.Size(173, 79);
-            this.checkedListBoxXN.TabIndex = 18;
+            this.checkedListBoxXN.TabIndex = 23;
             this.checkedListBoxXN.ValueMember = "IDDichVu";
             this.checkedListBoxXN.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.checkedListBoxXN_ItemCheck);
             this.checkedListBoxXN.DataSourceChanged += new System.EventHandler(this.checkedListBoxXN_DataSourceChanged);
@@ -695,7 +695,7 @@
             this.radioGroupGoiXN.Name = "radioGroupGoiXN";
             this.radioGroupGoiXN.Properties.ReadOnly = true;
             this.radioGroupGoiXN.Size = new System.Drawing.Size(176, 80);
-            this.radioGroupGoiXN.TabIndex = 16;
+            this.radioGroupGoiXN.TabIndex = 22;
             this.radioGroupGoiXN.EditValueChanged += new System.EventHandler(this.radioGroupGoiXN_EditValueChanged);
             this.radioGroupGoiXN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radioGroupGoiXN_KeyPress);
             // 
@@ -770,7 +770,7 @@
             this.txtMaPhieuLan1.Name = "txtMaPhieuLan1";
             this.txtMaPhieuLan1.ReadOnly = true;
             this.txtMaPhieuLan1.Size = new System.Drawing.Size(277, 23);
-            this.txtMaPhieuLan1.TabIndex = 17;
+            this.txtMaPhieuLan1.TabIndex = 33;
             this.txtMaPhieuLan1.DelayedTextChanged += new System.EventHandler(this.txtMaPhieuLan1_DelayedTextChanged);
             this.txtMaPhieuLan1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaPhieuLan1_KeyPress);
             // 
@@ -787,7 +787,7 @@
             this.txtGioLayMau.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtGioLayMau.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
             this.txtGioLayMau.Size = new System.Drawing.Size(88, 22);
-            this.txtGioLayMau.TabIndex = 14;
+            this.txtGioLayMau.TabIndex = 31;
             this.txtGioLayMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGioLayMau_KeyPress);
             this.txtGioLayMau.Validated += new System.EventHandler(this.txtGioLayMau_Validated);
             // 
@@ -803,12 +803,12 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "Tĩnh  mạch"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("2", "Khác")});
             this.radioGroupViTriLayMau.Size = new System.Drawing.Size(277, 23);
-            this.radioGroupViTriLayMau.TabIndex = 15;
+            this.radioGroupViTriLayMau.TabIndex = 32;
             this.radioGroupViTriLayMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radioGroupViTriLayMau_KeyPress);
             // 
             // txtNgayLayMau
             // 
-            this.txtNgayLayMau.EditValue = new System.DateTime(2017, 1, 11, 16, 1, 45, 860);
+            this.txtNgayLayMau.EditValue = null;
             this.txtNgayLayMau.Location = new System.Drawing.Point(97, 96);
             this.txtNgayLayMau.Name = "txtNgayLayMau";
             this.txtNgayLayMau.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -824,7 +824,7 @@
             this.txtNgayLayMau.Properties.FirstDayOfWeek = System.DayOfWeek.Sunday;
             this.txtNgayLayMau.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.txtNgayLayMau.Size = new System.Drawing.Size(148, 22);
-            this.txtNgayLayMau.TabIndex = 13;
+            this.txtNgayLayMau.TabIndex = 30;
             this.txtNgayLayMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNgayLayMau_KeyPress);
             this.txtNgayLayMau.Validated += new System.EventHandler(this.txtNgayLayMau_Validated);
             // 
@@ -835,7 +835,7 @@
             this.txtSDTNguoiLayMau.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDTNguoiLayMau.Properties.Appearance.Options.UseFont = true;
             this.txtSDTNguoiLayMau.Size = new System.Drawing.Size(88, 22);
-            this.txtSDTNguoiLayMau.TabIndex = 12;
+            this.txtSDTNguoiLayMau.TabIndex = 29;
             this.txtSDTNguoiLayMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDTNguoiLayMau_KeyPress);
             // 
             // txtNguoiLayMau
@@ -845,7 +845,7 @@
             this.txtNguoiLayMau.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNguoiLayMau.Properties.Appearance.Options.UseFont = true;
             this.txtNguoiLayMau.Size = new System.Drawing.Size(148, 22);
-            this.txtNguoiLayMau.TabIndex = 11;
+            this.txtNguoiLayMau.TabIndex = 28;
             this.txtNguoiLayMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNguoiLayMau_KeyPress);
             // 
             // txtDiaChiDonVi
@@ -855,7 +855,7 @@
             this.txtDiaChiDonVi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChiDonVi.Properties.Appearance.Options.UseFont = true;
             this.txtDiaChiDonVi.Size = new System.Drawing.Size(277, 22);
-            this.txtDiaChiDonVi.TabIndex = 10;
+            this.txtDiaChiDonVi.TabIndex = 27;
             this.txtDiaChiDonVi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiaChiDonVi_KeyPress);
             // 
             // txtNoiLayMau
@@ -865,7 +865,7 @@
             this.txtNoiLayMau.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoiLayMau.Properties.Appearance.Options.UseFont = true;
             this.txtNoiLayMau.Size = new System.Drawing.Size(277, 22);
-            this.txtNoiLayMau.TabIndex = 9;
+            this.txtNoiLayMau.TabIndex = 26;
             this.txtNoiLayMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoiLayMau_KeyPress);
             // 
             // labelControl1
@@ -968,7 +968,7 @@
             this.groupControl4.LookAndFeel.SkinName = "Metropolis";
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.Size = new System.Drawing.Size(379, 169);
-            this.groupControl4.TabIndex = 5;
+            this.groupControl4.TabIndex = 1;
             this.groupControl4.Text = "THÔNG TIN GIA ĐÌNH";
             // 
             // cboPhuongPhapSinh
@@ -984,7 +984,7 @@
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sinh Mổ", "1", -1),
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("N/A", "2", -1)});
             this.cboPhuongPhapSinh.Size = new System.Drawing.Size(314, 22);
-            this.cboPhuongPhapSinh.TabIndex = 8;
+            this.cboPhuongPhapSinh.TabIndex = 9;
             this.cboPhuongPhapSinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboPhuongPhapSinh_KeyPress);
             // 
             // label7
@@ -1005,7 +1005,7 @@
             this.txtPARA.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPARA.Properties.Appearance.Options.UseFont = true;
             this.txtPARA.Size = new System.Drawing.Size(314, 22);
-            this.txtPARA.TabIndex = 7;
+            this.txtPARA.TabIndex = 8;
             this.txtPARA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPARA_KeyPress);
             // 
             // txtSDTMe
@@ -1015,7 +1015,7 @@
             this.txtSDTMe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDTMe.Properties.Appearance.Options.UseFont = true;
             this.txtSDTMe.Size = new System.Drawing.Size(122, 22);
-            this.txtSDTMe.TabIndex = 5;
+            this.txtSDTMe.TabIndex = 6;
             this.txtSDTMe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDTMe_KeyPress);
             // 
             // txtDiaChiBN
@@ -1025,7 +1025,7 @@
             this.txtDiaChiBN.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChiBN.Properties.Appearance.Options.UseFont = true;
             this.txtDiaChiBN.Size = new System.Drawing.Size(314, 22);
-            this.txtDiaChiBN.TabIndex = 4;
+            this.txtDiaChiBN.TabIndex = 5;
             this.txtDiaChiBN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiaChiBN_KeyPress);
             // 
             // txtSDTCha
@@ -1035,7 +1035,7 @@
             this.txtSDTCha.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDTCha.Properties.Appearance.Options.UseFont = true;
             this.txtSDTCha.Size = new System.Drawing.Size(134, 22);
-            this.txtSDTCha.TabIndex = 6;
+            this.txtSDTCha.TabIndex = 7;
             this.txtSDTCha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDTCha_KeyPress);
             // 
             // txtNamSinhCha
@@ -1056,7 +1056,7 @@
             this.txtNamSinhCha.Properties.FirstDayOfWeek = System.DayOfWeek.Sunday;
             this.txtNamSinhCha.Properties.Mask.EditMask = "yyyy";
             this.txtNamSinhCha.Size = new System.Drawing.Size(77, 22);
-            this.txtNamSinhCha.TabIndex = 3;
+            this.txtNamSinhCha.TabIndex = 4;
             this.txtNamSinhCha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNamSinhCha_KeyPress);
             // 
             // txtNamSinhMe
@@ -1077,7 +1077,7 @@
             this.txtNamSinhMe.Properties.FirstDayOfWeek = System.DayOfWeek.Sunday;
             this.txtNamSinhMe.Properties.Mask.EditMask = "yyyy";
             this.txtNamSinhMe.Size = new System.Drawing.Size(77, 22);
-            this.txtNamSinhMe.TabIndex = 1;
+            this.txtNamSinhMe.TabIndex = 2;
             this.txtNamSinhMe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNamSinhMe_KeyPress);
             // 
             // txtTenCha
@@ -1087,7 +1087,7 @@
             this.txtTenCha.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenCha.Properties.Appearance.Options.UseFont = true;
             this.txtTenCha.Size = new System.Drawing.Size(168, 22);
-            this.txtTenCha.TabIndex = 2;
+            this.txtTenCha.TabIndex = 3;
             this.txtTenCha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenCha_KeyPress);
             // 
             // txtTenMe
@@ -1097,7 +1097,7 @@
             this.txtTenMe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenMe.Properties.Appearance.Options.UseFont = true;
             this.txtTenMe.Size = new System.Drawing.Size(168, 22);
-            this.txtTenMe.TabIndex = 0;
+            this.txtTenMe.TabIndex = 1;
             this.txtTenMe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenMe_KeyPress);
             // 
             // label3
@@ -1195,7 +1195,7 @@
             this.lookupChuongTrinh.Properties.NullText = "Chương trình...";
             this.lookupChuongTrinh.Properties.ValueMember = "IDChuongTrinh";
             this.lookupChuongTrinh.Size = new System.Drawing.Size(225, 22);
-            this.lookupChuongTrinh.TabIndex = 99;
+            this.lookupChuongTrinh.TabIndex = 0;
             // 
             // txtMaBenhNhan
             // 
@@ -1266,7 +1266,7 @@
             0});
             this.txtSoLuongTruyenMau.Properties.ReadOnly = true;
             this.txtSoLuongTruyenMau.Size = new System.Drawing.Size(66, 22);
-            this.txtSoLuongTruyenMau.TabIndex = 30;
+            this.txtSoLuongTruyenMau.TabIndex = 19;
             this.txtSoLuongTruyenMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuongTruyenMau_KeyPress);
             // 
             // txtTuanTuoi
@@ -1293,7 +1293,7 @@
             0,
             0});
             this.txtTuanTuoi.Size = new System.Drawing.Size(38, 22);
-            this.txtTuanTuoi.TabIndex = 23;
+            this.txtTuanTuoi.TabIndex = 18;
             this.txtTuanTuoi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTuanTuoi_KeyPress);
             this.txtTuanTuoi.Validated += new System.EventHandler(this.txtTuanTuoi_Validated);
             // 
@@ -1326,7 +1326,7 @@
             0,
             0});
             this.txtCanNang.Size = new System.Drawing.Size(75, 22);
-            this.txtCanNang.TabIndex = 20;
+            this.txtCanNang.TabIndex = 15;
             this.txtCanNang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCanNang_KeyPress);
             this.txtCanNang.Validated += new System.EventHandler(this.txtCanNang_Validated);
             // 
@@ -1345,7 +1345,7 @@
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Nam", "1", -1),
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("N/A", "2", -1)});
             this.txtGioiTinh.Size = new System.Drawing.Size(51, 22);
-            this.txtGioiTinh.TabIndex = 17;
+            this.txtGioiTinh.TabIndex = 12;
             this.txtGioiTinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGioiTinh_KeyPress);
             // 
             // lookUpDanToc
@@ -1365,7 +1365,7 @@
             this.lookUpDanToc.Properties.NullText = "";
             this.lookUpDanToc.Properties.ValueMember = "IDDanToc";
             this.lookUpDanToc.Size = new System.Drawing.Size(142, 22);
-            this.lookUpDanToc.TabIndex = 21;
+            this.lookUpDanToc.TabIndex = 16;
             this.lookUpDanToc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lookUpDanToc_KeyPress);
             // 
             // RadioCheDoDD
@@ -1382,7 +1382,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "Bú bình", true, "1"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("2", "Tĩnh mạch", true, "2")});
             this.RadioCheDoDD.Size = new System.Drawing.Size(283, 27);
-            this.RadioCheDoDD.TabIndex = 25;
+            this.RadioCheDoDD.TabIndex = 21;
             this.RadioCheDoDD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RadioCheDoDD_KeyPress);
             // 
             // label9
@@ -1409,7 +1409,7 @@
             this.txtGioSinhBenhNhan.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtGioSinhBenhNhan.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
             this.txtGioSinhBenhNhan.Size = new System.Drawing.Size(64, 22);
-            this.txtGioSinhBenhNhan.TabIndex = 19;
+            this.txtGioSinhBenhNhan.TabIndex = 14;
             this.txtGioSinhBenhNhan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGioSinhBenhNhan_KeyPress);
             this.txtGioSinhBenhNhan.Validated += new System.EventHandler(this.txtGioSinhBenhNhan_Validated);
             // 
@@ -1443,7 +1443,7 @@
             this.txtNgayTruyenMau.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.txtNgayTruyenMau.Properties.ReadOnly = true;
             this.txtNgayTruyenMau.Size = new System.Drawing.Size(135, 22);
-            this.txtNgayTruyenMau.TabIndex = 29;
+            this.txtNgayTruyenMau.TabIndex = 20;
             this.txtNgayTruyenMau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNgayTruyenMau_KeyPress);
             // 
             // label15
@@ -1486,7 +1486,7 @@
             this.txtNamSinhBenhNhan.Properties.FirstDayOfWeek = System.DayOfWeek.Sunday;
             this.txtNamSinhBenhNhan.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.txtNamSinhBenhNhan.Size = new System.Drawing.Size(174, 22);
-            this.txtNamSinhBenhNhan.TabIndex = 18;
+            this.txtNamSinhBenhNhan.TabIndex = 13;
             this.txtNamSinhBenhNhan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNamSinhBenhNhan_KeyPress);
             this.txtNamSinhBenhNhan.Validated += new System.EventHandler(this.txtNamSinhBenhNhan_Validated);
             // 
@@ -1506,7 +1506,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem("3", "Dùng kháng sinh", true, "3"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("4", "Truyền máu", true, "4")});
             this.radioGroupTinhTrangTre.Size = new System.Drawing.Size(353, 51);
-            this.radioGroupTinhTrangTre.TabIndex = 24;
+            this.radioGroupTinhTrangTre.TabIndex = 18;
             this.radioGroupTinhTrangTre.EditValueChanged += new System.EventHandler(this.radioGroupTinhTrangTre_EditValueChanged);
             this.radioGroupTinhTrangTre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radioGroupTinhTrangTre_KeyPress);
             // 
@@ -1519,7 +1519,7 @@
             this.txtNoiSinh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoiSinh.Properties.Appearance.Options.UseFont = true;
             this.txtNoiSinh.Size = new System.Drawing.Size(176, 22);
-            this.txtNoiSinh.TabIndex = 22;
+            this.txtNoiSinh.TabIndex = 17;
             this.txtNoiSinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoiSinh_KeyPress);
             // 
             // label17
@@ -1551,7 +1551,7 @@
             this.txtTenBenhNhan.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenBenhNhan.Properties.Appearance.Options.UseFont = true;
             this.txtTenBenhNhan.Size = new System.Drawing.Size(174, 22);
-            this.txtTenBenhNhan.TabIndex = 16;
+            this.txtTenBenhNhan.TabIndex = 11;
             this.txtTenBenhNhan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenBenhNhan_KeyPress);
             this.txtTenBenhNhan.Validated += new System.EventHandler(this.txtTenBenhNhan_Validated);
             // 
@@ -1706,7 +1706,7 @@
             this.simpleButton2.Location = new System.Drawing.Point(553, 4);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(63, 23);
-            this.simpleButton2.TabIndex = 0;
+            this.simpleButton2.TabIndex = 9;
             this.simpleButton2.Text = "Bỏ qua";
             this.simpleButton2.Visible = false;
             // 
@@ -1718,7 +1718,7 @@
             this.simpleButton1.Location = new System.Drawing.Point(622, 4);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(63, 23);
-            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.TabIndex = 8;
             this.simpleButton1.Text = "Sửa";
             this.simpleButton1.Visible = false;
             // 
@@ -1730,7 +1730,7 @@
             this.btnLuu.Location = new System.Drawing.Point(691, 4);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(63, 23);
-            this.btnLuu.TabIndex = 26;
+            this.btnLuu.TabIndex = 35;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 

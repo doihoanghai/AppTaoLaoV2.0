@@ -446,7 +446,7 @@ namespace BioNetSangLocSoSinh.FrmReports
             List<BioNetModel.rptChiTietTrungTam> lstResult = new List<BioNetModel.rptChiTietTrungTam>();
             lstResult.Add(this.dataResult);
             datarp.DataSource = lstResult;
-            Reports.frmReportEditGeneral rept = new Reports.frmReportEditGeneral(datarp, "BaoCaoTrungTamChiTiet");
+            Reports.frmReportEditGeneral rept = new Reports.frmReportEditGeneral(datarp, "BaoCaoTrungTamChiTiet",null,null);
             rept.ShowDialog();
         }
     }

@@ -80,10 +80,12 @@
   <ItemGroup>
     <Compile Include="BioNetSync\BenhNhanNguyCoCaoSync.cs" />
     <Compile Include="BioNetSync\ChiDinhSync.cs" />
+    <Compile Include="BioNetSync\DanhGiaChatLuongMauSync.cs" />
     <Compile Include="BioNetSync\DanhMucChiCucSync.cs" />
     <Compile Include="BioNetSync\DanhMucChuongTrinhSync.cs" />
-    <Compile Include="BioNetSync\DanhMucDanhGiaChatLuongMau.cs" />
+    <Compile Include="BioNetSync\DanhMucDanhGiaChatLuongMauSync.cs" />
     <Compile Include="BioNetSync\DanhMucDanTocSync.cs" />
+    <Compile Include="BioNetSync\DanhMucDichVuCoSoSync.cs" />
     <Compile Include="BioNetSync\DanhMucDichVuSync.cs" />
     <Compile Include="BioNetSync\DanhMucDonViCoSoSync.cs" />
     <Compile Include="BioNetSync\DanhMucGoiDichVuChungSync.cs" />
@@ -99,12 +101,14 @@
     <Compile Include="BioNetSync\ThongTinTrungTamSync.cs" />
     <Compile Include="BioNetSync\TiepNhanSync.cs" />
     <Compile Include="BioNetSync\TraKetQuaSync.cs" />
+    <Compile Include="BioNetSync\DBPhieuKQDataSync.cs" />
     <Compile Include="FrmStartupSync.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmStartupSync.Designer.cs">
       <DependentUpon>FrmStartupSync.cs</DependentUpon>
     </Compile>
+    <Compile Include="BioNetSync\GuiMail.cs" />
     <Compile Include="ObjectModel.cs" />
     <Compile Include="ProcessDataSync.cs" />
     <Compile Include="Program.cs" />
@@ -136,6 +140,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BioNetBLL\BioNetBLL.csproj">
+      <Project>{f0df1fe9-42b8-430d-9362-735a29e8de28}</Project>
+      <Name>BioNetBLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BioNetDAL\BioNetDAL.csproj">
       <Project>{6582988d-53f5-488d-afd0-d7bdf5daaef1}</Project>
       <Name>BioNetDAL</Name>
@@ -156,6 +164,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

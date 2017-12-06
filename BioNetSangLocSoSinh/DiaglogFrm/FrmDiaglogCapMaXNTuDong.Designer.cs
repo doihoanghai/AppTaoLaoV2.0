@@ -52,14 +52,12 @@
             // GCCapMa
             // 
             this.GCCapMa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GCCapMa.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GCCapMa.Location = new System.Drawing.Point(2, 25);
+            this.GCCapMa.Location = new System.Drawing.Point(2, 23);
             this.GCCapMa.MainView = this.GVCapMa;
-            this.GCCapMa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GCCapMa.Name = "GCCapMa";
             this.GCCapMa.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lookupDonVi});
-            this.GCCapMa.Size = new System.Drawing.Size(814, 261);
+            this.GCCapMa.Size = new System.Drawing.Size(697, 209);
             this.GCCapMa.TabIndex = 0;
             this.GCCapMa.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GVCapMa});
@@ -119,8 +117,6 @@
             this.col_MaBatDau.Caption = "Mã bắt đầu";
             this.col_MaBatDau.FieldName = "soBatDau";
             this.col_MaBatDau.Name = "col_MaBatDau";
-            this.col_MaBatDau.OptionsColumn.AllowEdit = false;
-            this.col_MaBatDau.OptionsColumn.ReadOnly = true;
             this.col_MaBatDau.Visible = true;
             this.col_MaBatDau.VisibleIndex = 2;
             this.col_MaBatDau.Width = 123;
@@ -141,10 +137,9 @@
             this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Controls.Add(this.btnLuu);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(2, 286);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelControl1.Location = new System.Drawing.Point(2, 232);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(814, 31);
+            this.panelControl1.Size = new System.Drawing.Size(697, 25);
             this.panelControl1.TabIndex = 1;
             // 
             // simpleButton1
@@ -152,10 +147,9 @@
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(628, 2);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButton1.Location = new System.Drawing.Point(537, 2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(87, 28);
+            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Bỏ qua";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -165,10 +159,9 @@
             this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLuu.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(723, 2);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLuu.Location = new System.Drawing.Point(619, 2);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(87, 28);
+            this.btnLuu.Size = new System.Drawing.Size(75, 23);
             this.btnLuu.TabIndex = 0;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -180,19 +173,19 @@
             this.groupControl1.Controls.Add(this.panelControl1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(818, 319);
+            this.groupControl1.Size = new System.Drawing.Size(701, 259);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Danh sách cấp mã theo đơn vị";
             // 
             // FrmDiaglogCapMaXNTuDong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 319);
+            this.ClientSize = new System.Drawing.Size(701, 259);
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmDiaglogCapMaXNTuDong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDiaglogCapMaXNTuDong";

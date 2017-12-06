@@ -50,10 +50,15 @@ namespace BioNetDAL
                 if (server != null && server.Encrypt == "true")
                 {
                     this.serverInfo.Encrypt = server.Encrypt;
-                    this.serverInfo.ServerName = this.DecryptString(server.ServerName, true);
-                    this.serverInfo.Database = this.DecryptString(server.Database, true);
-                    this.serverInfo.UserName = this.DecryptString(server.UserName, true);
-                    this.serverInfo.Password = this.DecryptString(server.Password, true);
+                    //this.serverInfo.ServerName = this.DecryptString(server.ServerName, true);
+                    //this.serverInfo.Database = this.DecryptString(server.Database, true);
+                    //this.serverInfo.UserName = this.DecryptString(server.UserName, true);
+                    //this.serverInfo.Password = this.DecryptString(server.Password, true);
+                    this.serverInfo.Encrypt = server.Encrypt;
+                    this.serverInfo.ServerName = server.ServerName;
+                    this.serverInfo.Database = server.Database;
+                    this.serverInfo.UserName = server.UserName;
+                    this.serverInfo.Password = server.Password;
                 }
                 else if (server != null && server.Encrypt == "false")
                 {
@@ -127,7 +132,8 @@ namespace BioNetDAL
         {
             string fileName = (Application.StartupPath) + "\\xml\\configiBionet.xml";
             var serializer = new XmlSerializer(typeof(ServerInfo));
-            ServerInfo server = new ServerInfo { Encrypt = "true", ServerName = this.EncryptString(servername, true), UserName = this.EncryptString(username, true), Password = this.EncryptString(password, true), Database = this.EncryptString(database, true) };
+            //ServerInfo server = new ServerInfo { Encrypt = "true", ServerName = this.EncryptString(servername, true), UserName = this.EncryptString(username, true), Password = this.EncryptString(password, true), Database = this.EncryptString(database, true) };
+            ServerInfo server = new ServerInfo { Encrypt = "true", ServerName = servername, UserName = username, Password =password, Database = database};
             using (StreamWriter myWriter = new StreamWriter(fileName, false))
             {
                 XmlSerializer mySerializer = new XmlSerializer(typeof(ServerInfo));
@@ -163,7 +169,7 @@ namespace BioNetDAL
             List<PSPatient> lst = new List<PSPatient>();
             try
             {
-                lst = db.PSPatients.ToList();
+                lst = db.PSPatients.Where(x=>x.MaKhachHang!=null).ToList();
                 return lst;
             }
             catch { return lst; }
@@ -438,7 +444,7 @@ namespace BioNetDAL
             try
             {
                 if (id == 0)
-                    lstEmpPosition = db.PSEmployeePositions.ToList();
+                    lstEmpPosition = db.PSEmployeePositions.OrderBy(x => x.Level).ToList();
                 else
                     lstEmpPosition = db.PSEmployeePositions.Where(x => x.PositionCode == id).ToList();
             }
@@ -714,7 +720,7 @@ namespace BioNetDAL
             List<PSDanhMucGoiDichVuChung> lstGoiDichVuChung = new List<PSDanhMucGoiDichVuChung>();
             try
             {
-                lstGoiDichVuChung = db.PSDanhMucGoiDichVuChungs.ToList();
+                lstGoiDichVuChung = db.PSDanhMucGoiDichVuChungs.OrderBy(x=>x.Stt).ToList();
                 return lstGoiDichVuChung;
             }
             catch { return lstGoiDichVuChung = new List<PSDanhMucGoiDichVuChung>(); }
@@ -728,7 +734,8 @@ namespace BioNetDAL
             List<PSDanhMucGoiDichVuTheoDonVi> lstGoiDichVuCoSo = new List<PSDanhMucGoiDichVuTheoDonVi>();
             try
             {
-                lstGoiDichVuCoSo = db.PSDanhMucGoiDichVuTheoDonVis.ToList();
+
+                lstGoiDichVuCoSo = db.PSDanhMucGoiDichVuTheoDonVis.OrderBy(x=>x.IDGoiDichVuChung).ToList();
                 return lstGoiDichVuCoSo;
             }
             catch { return lstGoiDichVuCoSo = new List<PSDanhMucGoiDichVuTheoDonVi>(); }
@@ -1042,6 +1049,26 @@ namespace BioNetDAL
             }
             catch { db.Transaction.Rollback(); db.Connection.Close(); return false; }
         }
+        public bool UpdateGoiDV(List<PSDanhMucGoiDichVuChung> list)
+        {
+            try
+            {
+                db.Connection.Open();
+                db.Transaction = db.Connection.BeginTransaction();
+               
+                foreach (var item in list)
+                {
+                    var data = db.PSDanhMucGoiDichVuChungs.FirstOrDefault(x => x.IDGoiDichVuChung == item.IDGoiDichVuChung);
+                    data.Stt = item.Stt;
+                    db.SubmitChanges();
+                }              
+                db.SubmitChanges();
+                db.Transaction.Commit();
+                db.Connection.Close();
+                return true;
+            }
+            catch { db.Transaction.Rollback(); db.Connection.Close(); return false; }
+        }
         #endregion
 
         #region DM Chi cục
@@ -1252,7 +1279,7 @@ namespace BioNetDAL
             List<PSDanhMucDonViCoSo> lstDonViCoSo = new List<PSDanhMucDonViCoSo>();
             try
             {
-                lstDonViCoSo = db.PSDanhMucDonViCoSos.ToList();
+                lstDonViCoSo = db.PSDanhMucDonViCoSos.OrderBy(x=>x.Stt).ToList();
                 return lstDonViCoSo;
             }
             catch { return lstDonViCoSo = new List<PSDanhMucDonViCoSo>(); }
@@ -1355,24 +1382,35 @@ namespace BioNetDAL
 
                 var dmdonViCS = db.PSDanhMucDonViCoSos.Where(x => x.RowIDDVCS == donViCS.RowIDDVCS).FirstOrDefault();
                 if (dmdonViCS.MaDVCS != donViCS.MaDVCS)
+                {
                     if (!CheckExistCodeInForeignDVCS(dmdonViCS.MaDVCS))
                         return false;
-                    else
-                if (dmdonViCS.MaChiCuc != donViCS.MaChiCuc)
+                }
+                else if (dmdonViCS.MaChiCuc != donViCS.MaChiCuc)
+                {
                     dmdonViCS.MaDVCS = GetCodeDonViCoSo(donViCS.MaChiCuc);
+                }
+                    
                 else
-                    dmdonViCS.MaDVCS = donViCS.MaDVCS;
-                dmdonViCS.MaChiCuc = donViCS.MaChiCuc;
-                dmdonViCS.TenDVCS = donViCS.TenDVCS;
-                dmdonViCS.DiaChiDVCS = donViCS.DiaChiDVCS;
-                dmdonViCS.SDTCS = donViCS.SDTCS;
-                dmdonViCS.Stt = donViCS.Stt;
-                dmdonViCS.Logo = donViCS.Logo;
-                dmdonViCS.HeaderReport = donViCS.HeaderReport;
-                dmdonViCS.isLocked = donViCS.isLocked;
-                dmdonViCS.KieuTraKetQua = donViCS.KieuTraKetQua;
-                dmdonViCS.isDongBo = donViCS.isDongBo;
-                dmdonViCS.TenBacSiDaiDien = donViCS.TenBacSiDaiDien;
+                {
+                    dmdonViCS.Stt = donViCS.Stt;
+                    dmdonViCS.Logo = donViCS.Logo;
+                    dmdonViCS.HeaderReport = donViCS.HeaderReport;
+                    dmdonViCS.isLocked = donViCS.isLocked;
+                    dmdonViCS.KieuTraKetQua = donViCS.KieuTraKetQua;
+                    dmdonViCS.isDongBo = donViCS.isDongBo;
+                    dmdonViCS.TenBacSiDaiDien = donViCS.TenBacSiDaiDien;
+                    dmdonViCS.ChuKiDonVi = donViCS.ChuKiDonVi;
+                    dmdonViCS.Email = donViCS.Email;
+                }
+                   //dmdonViCS.MaDVCS = donViCS.MaDVCS;
+                   // dmdonViCS.MaChiCuc = donViCS.MaChiCuc;
+                   //dmdonViCS.TenDVCS = donViCS.TenDVCS;
+                   //dmdonViCS.DiaChiDVCS = donViCS.DiaChiDVCS;
+                   //dmdonViCS.SDTCS = donViCS.SDTCS;
+                   //dmdonViCS.Email = dmdonViCS.Email;
+              
+                
                 db.SubmitChanges();
 
                 db.Transaction.Commit();

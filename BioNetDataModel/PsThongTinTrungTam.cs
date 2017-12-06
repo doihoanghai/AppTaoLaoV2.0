@@ -16,6 +16,9 @@ namespace BioNetModel
         public string DienThoai { get; set; }
         public bool isChoXetNghiemLan2 { get; set; }
         public bool isChoThuMauLai { get; set; }
+        public Image Hearder { get; set; }
+        public Image ChuKiTT { get; set; }
+        public Image ChuKiXN { get; set; }
 
     }
 }

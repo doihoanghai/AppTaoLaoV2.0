@@ -129,8 +129,8 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl4);
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(980, 767);
-            this.splitContainerControl1.SplitterPosition = 445;
+            this.splitContainerControl1.Size = new System.Drawing.Size(1123, 758);
+            this.splitContainerControl1.SplitterPosition = 754;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -142,7 +142,7 @@
             this.gridControl_Info.MainView = this.gridView_Info;
             this.gridControl_Info.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_Info.Name = "gridControl_Info";
-            this.gridControl_Info.Size = new System.Drawing.Size(519, 723);
+            this.gridControl_Info.Size = new System.Drawing.Size(754, 714);
             this.gridControl_Info.TabIndex = 2;
             this.gridControl_Info.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_Info});
@@ -183,7 +183,7 @@
             this.col_th_HoTen.AppearanceHeader.Options.UseTextOptions = true;
             this.col_th_HoTen.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.col_th_HoTen.Caption = "Họ tên";
-            this.col_th_HoTen.FieldName = "HoTen";
+            this.col_th_HoTen.FieldName = "TenBenhNhan";
             this.col_th_HoTen.Name = "col_th_HoTen";
             this.col_th_HoTen.OptionsColumn.AllowEdit = false;
             this.col_th_HoTen.OptionsColumn.AllowFocus = false;
@@ -248,14 +248,14 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(519, 44);
+            this.panelControl1.Size = new System.Drawing.Size(754, 44);
             this.panelControl1.TabIndex = 0;
             // 
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnSearch.Location = new System.Drawing.Point(357, 6);
+            this.btnSearch.Location = new System.Drawing.Point(666, 6);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 34);
@@ -270,7 +270,7 @@
             this.txtSearch.Location = new System.Drawing.Point(12, 12);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(339, 22);
+            this.txtSearch.Size = new System.Drawing.Size(648, 22);
             this.txtSearch.TabIndex = 0;
             // 
             // groupControl5
@@ -297,10 +297,11 @@
             this.groupControl5.Controls.Add(this.txtNoiSinh);
             this.groupControl5.Controls.Add(this.txtSDT);
             this.groupControl5.Controls.Add(this.txtTenBenhNhan);
+            this.groupControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl5.Location = new System.Drawing.Point(0, 302);
             this.groupControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(455, 426);
+            this.groupControl5.Size = new System.Drawing.Size(363, 417);
             this.groupControl5.TabIndex = 6;
             this.groupControl5.Text = "Thông tin trẻ";
             // 
@@ -311,7 +312,7 @@
             this.txtTuan.Location = new System.Drawing.Point(100, 235);
             this.txtTuan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTuan.Name = "txtTuan";
-            this.txtTuan.Size = new System.Drawing.Size(120, 23);
+            this.txtTuan.Size = new System.Drawing.Size(61, 23);
             this.txtTuan.TabIndex = 19;
             // 
             // labelControl22
@@ -348,7 +349,7 @@
             this.txtNang.Location = new System.Drawing.Point(100, 265);
             this.txtNang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNang.Name = "txtNang";
-            this.txtNang.Size = new System.Drawing.Size(348, 22);
+            this.txtNang.Size = new System.Drawing.Size(256, 22);
             this.txtNang.TabIndex = 20;
             // 
             // cboPhuongPhapSinh
@@ -364,7 +365,7 @@
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sinh Thường", 0, -1),
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sinh Mổ", 1, -1),
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Không xác định", 3, -1)});
-            this.cboPhuongPhapSinh.Size = new System.Drawing.Size(348, 22);
+            this.cboPhuongPhapSinh.Size = new System.Drawing.Size(256, 22);
             this.cboPhuongPhapSinh.TabIndex = 21;
             // 
             // labelControl30
@@ -443,7 +444,7 @@
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Nam", 0, -1),
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Nữ", 1, -1),
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Không xác định", 3, -1)});
-            this.txtGioiTinh.Size = new System.Drawing.Size(120, 22);
+            this.txtGioiTinh.Size = new System.Drawing.Size(28, 22);
             this.txtGioiTinh.TabIndex = 11;
             // 
             // lookUpDanToc
@@ -461,7 +462,7 @@
             this.lookUpDanToc.Properties.DisplayMember = "TenDanToc";
             this.lookUpDanToc.Properties.NullText = "";
             this.lookUpDanToc.Properties.ValueMember = "IDDanToc";
-            this.lookUpDanToc.Size = new System.Drawing.Size(348, 22);
+            this.lookUpDanToc.Size = new System.Drawing.Size(256, 22);
             this.lookUpDanToc.TabIndex = 16;
             // 
             // txtGioSinhBenhNhan
@@ -474,7 +475,7 @@
             this.txtGioSinhBenhNhan.Name = "txtGioSinhBenhNhan";
             this.txtGioSinhBenhNhan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtGioSinhBenhNhan.Size = new System.Drawing.Size(348, 22);
+            this.txtGioSinhBenhNhan.Size = new System.Drawing.Size(256, 22);
             this.txtGioSinhBenhNhan.TabIndex = 12;
             // 
             // txtNamSinhBenhNhan
@@ -490,7 +491,7 @@
             this.txtNamSinhBenhNhan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtNamSinhBenhNhan.Properties.FirstDayOfWeek = System.DayOfWeek.Sunday;
-            this.txtNamSinhBenhNhan.Size = new System.Drawing.Size(348, 22);
+            this.txtNamSinhBenhNhan.Size = new System.Drawing.Size(256, 22);
             this.txtNamSinhBenhNhan.TabIndex = 13;
             // 
             // txtNoiSinh
@@ -500,7 +501,7 @@
             this.txtNoiSinh.Location = new System.Drawing.Point(100, 146);
             this.txtNoiSinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNoiSinh.Name = "txtNoiSinh";
-            this.txtNoiSinh.Size = new System.Drawing.Size(348, 22);
+            this.txtNoiSinh.Size = new System.Drawing.Size(256, 22);
             this.txtNoiSinh.TabIndex = 14;
             // 
             // txtSDT
@@ -510,7 +511,7 @@
             this.txtSDT.Location = new System.Drawing.Point(100, 206);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(348, 22);
+            this.txtSDT.Size = new System.Drawing.Size(256, 22);
             this.txtSDT.TabIndex = 18;
             // 
             // txtTenBenhNhan
@@ -520,7 +521,7 @@
             this.txtTenBenhNhan.Location = new System.Drawing.Point(100, 30);
             this.txtTenBenhNhan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenBenhNhan.Name = "txtTenBenhNhan";
-            this.txtTenBenhNhan.Size = new System.Drawing.Size(348, 22);
+            this.txtTenBenhNhan.Size = new System.Drawing.Size(256, 22);
             this.txtTenBenhNhan.TabIndex = 10;
             // 
             // groupControl4
@@ -545,7 +546,7 @@
             this.groupControl4.Location = new System.Drawing.Point(0, 0);
             this.groupControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(455, 302);
+            this.groupControl4.Size = new System.Drawing.Size(363, 302);
             this.groupControl4.TabIndex = 7;
             this.groupControl4.Text = "Thông tin gia đình";
             // 
@@ -556,7 +557,7 @@
             this.txtAddress.Location = new System.Drawing.Point(76, 208);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(373, 57);
+            this.txtAddress.Size = new System.Drawing.Size(207, 57);
             this.txtAddress.TabIndex = 9;
             // 
             // labelControl5
@@ -629,7 +630,7 @@
             this.txtSDTMe.Location = new System.Drawing.Point(76, 89);
             this.txtSDTMe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSDTMe.Name = "txtSDTMe";
-            this.txtSDTMe.Size = new System.Drawing.Size(373, 22);
+            this.txtSDTMe.Size = new System.Drawing.Size(207, 22);
             this.txtSDTMe.TabIndex = 5;
             // 
             // txtSDTCha
@@ -639,7 +640,7 @@
             this.txtSDTCha.Location = new System.Drawing.Point(76, 178);
             this.txtSDTCha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSDTCha.Name = "txtSDTCha";
-            this.txtSDTCha.Size = new System.Drawing.Size(373, 22);
+            this.txtSDTCha.Size = new System.Drawing.Size(207, 22);
             this.txtSDTCha.TabIndex = 8;
             // 
             // txtNamSinhCha
@@ -655,7 +656,7 @@
             this.txtNamSinhCha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtNamSinhCha.Properties.FirstDayOfWeek = System.DayOfWeek.Sunday;
-            this.txtNamSinhCha.Size = new System.Drawing.Size(373, 22);
+            this.txtNamSinhCha.Size = new System.Drawing.Size(207, 22);
             this.txtNamSinhCha.TabIndex = 7;
             // 
             // txtTenCha
@@ -665,7 +666,7 @@
             this.txtTenCha.Location = new System.Drawing.Point(76, 119);
             this.txtTenCha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenCha.Name = "txtTenCha";
-            this.txtTenCha.Size = new System.Drawing.Size(373, 22);
+            this.txtTenCha.Size = new System.Drawing.Size(207, 22);
             this.txtTenCha.TabIndex = 6;
             // 
             // txtTenMe
@@ -675,7 +676,7 @@
             this.txtTenMe.Location = new System.Drawing.Point(76, 30);
             this.txtTenMe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenMe.Name = "txtTenMe";
-            this.txtTenMe.Size = new System.Drawing.Size(373, 22);
+            this.txtTenMe.Size = new System.Drawing.Size(207, 22);
             this.txtTenMe.TabIndex = 3;
             // 
             // txtNamSinhMe
@@ -691,7 +692,7 @@
             this.txtNamSinhMe.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtNamSinhMe.Properties.FirstDayOfWeek = System.DayOfWeek.Sunday;
-            this.txtNamSinhMe.Size = new System.Drawing.Size(373, 22);
+            this.txtNamSinhMe.Size = new System.Drawing.Size(207, 22);
             this.txtNamSinhMe.TabIndex = 4;
             // 
             // panelControl2
@@ -700,10 +701,10 @@
             this.panelControl2.Controls.Add(this.btnSave);
             this.panelControl2.Controls.Add(this.btnEdit);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 728);
+            this.panelControl2.Location = new System.Drawing.Point(0, 719);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(455, 39);
+            this.panelControl2.Size = new System.Drawing.Size(363, 39);
             this.panelControl2.TabIndex = 0;
             // 
             // btnCancel
@@ -746,7 +747,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 767);
+            this.ClientSize = new System.Drawing.Size(1123, 758);
             this.Controls.Add(this.splitContainerControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

@@ -112,9 +112,10 @@
             // 
             this.documentView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.documentView.IsMetric = true;
-            this.documentView.Location = new System.Drawing.Point(0, 53);
+            this.documentView.Location = new System.Drawing.Point(0, 68);
+            this.documentView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.documentView.Name = "documentView";
-            this.documentView.Size = new System.Drawing.Size(732, 250);
+            this.documentView.Size = new System.Drawing.Size(854, 303);
             this.documentView.TabIndex = 0;
             // 
             // documentViewerBarManager1
@@ -740,28 +741,32 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(732, 53);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(854, 68);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 303);
-            this.barDockControlBottom.Size = new System.Drawing.Size(732, 26);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 371);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(854, 34);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 53);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 250);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 68);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 303);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(732, 53);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 250);
+            this.barDockControlRight.Location = new System.Drawing.Point(854, 68);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 303);
             // 
             // printPreviewBarCheckItem1
             // 
@@ -939,15 +944,16 @@
             // 
             // frmReportEditGeneral
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 329);
+            this.ClientSize = new System.Drawing.Size(854, 405);
             this.Controls.Add(this.documentView);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmReportEditGeneral";
             this.Text = "Thiết kế mẫu báo cáo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

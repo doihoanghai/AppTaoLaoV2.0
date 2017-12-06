@@ -30,17 +30,16 @@ namespace BioNetSangLocSoSinh.Entry
             this.repositoryItemLookUpEdit_ChiCuc.DataSource = BioBLL.GetListChiCuc();
             this.repositoryItemLookUpEdit_ChiCuc.ValueMember = "MaChiCuc";
             this.repositoryItemLookUpEdit_ChiCuc.DisplayMember = "TenChiCuc";
-
             DataTable dtkq = new DataTable();
             dtkq.Columns.Add("id", typeof(int));
             dtkq.Columns.Add("name", typeof(string));
             dtkq.Rows.Add(1, "Theo trung tâm");
-            dtkq.Rows.Add(2, "Theo đơn vị");
-            dtkq.Rows.Add(3, "Theo đơn vị kiểu 2");
+            dtkq.Rows.Add(2, "Theo trung tâm kiểu 2");
+            dtkq.Rows.Add(3, "Theo đơn vị");
+            dtkq.Rows.Add(4, "Theo đơn vị kiểu 2");
             this.repositoryItemLookUpEdit_KieuTraKetQua.DataSource = dtkq;
             this.repositoryItemLookUpEdit_KieuTraKetQua.DisplayMember = "name";
             this.repositoryItemLookUpEdit_KieuTraKetQua.ValueMember = "id";
-
             this.gridControl_DonViCoSo.DataSource = BioBLL.GetListDonViCoSo();
         }
 
@@ -67,16 +66,26 @@ namespace BioNetSangLocSoSinh.Entry
                     if (string.IsNullOrEmpty(gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "RowIDDVCS").ToString()))
                         donVi.RowIDDVCS = 0;
                     else
-                        donVi.RowIDDVCS = Convert.ToInt16(gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "RowIDDVCS").ToString());
+                    donVi.RowIDDVCS = Convert.ToInt16(gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "RowIDDVCS").ToString());
                     donVi.MaDVCS = gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "MaDVCS").ToString();
                     donVi.TenDVCS = gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "TenDVCS").ToString();
                     donVi.DiaChiDVCS = gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "DiaChiDVCS").ToString();
                     donVi.SDTCS = gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "SDTCS").ToString();
+                    donVi.Email = gridView_DonViCoSo.GetRowCellValue(e.RowHandle, col_th_Email).ToString();
+                    //if (string.IsNullOrEmpty(gridView_DonViCoSo.GetRowCellValue(e.RowHandle, col_th_Email).ToString()))
+                    //{
+                    //    donVi.Email = gridView_DonViCoSo.GetRowCellValue(e.RowHandle, col_th_Email).ToString();
+                    //}
+                   
                     if (string.IsNullOrEmpty(gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "Logo").ToString()))
                         donVi.Logo = new Binary(byteNull);
                     else
                         donVi.Logo = (Binary)gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "Logo");
-                    if(string.IsNullOrEmpty(gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "HeaderReport").ToString()))
+                    if (string.IsNullOrEmpty(gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "ChuKiDonVi").ToString()))
+                        donVi.ChuKiDonVi = new Binary(byteNull);
+                    else
+                        donVi.ChuKiDonVi = (Binary)gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "ChuKiDonVi");
+                    if (string.IsNullOrEmpty(gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "HeaderReport").ToString()))
                         donVi.HeaderReport = new Binary(byteNull);
                     else
                         donVi.HeaderReport = (Binary)gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "HeaderReport");
@@ -94,63 +103,64 @@ namespace BioNetSangLocSoSinh.Entry
                         donVi.KieuTraKetQua = 1;
                     else
                         donVi.KieuTraKetQua = int.Parse(gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "KieuTraKetQua").ToString());
-                                donVi.TenBacSiDaiDien = gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "TenBacSiDaiDien").ToString();
+                    donVi.TenBacSiDaiDien = gridView_DonViCoSo.GetRowCellValue(e.RowHandle, "TenBacSiDaiDien").ToString();             
                     donVi.isDongBo = false;
-                    if (e.RowHandle < 0)
-                    {
-                        string codeGen = BioBLL.GetCodeDonViCoSo(donVi.MaChiCuc);
-                        this.codeGenOld = codeGen.ToString();
-                        if (XtraMessageBox.Show("Danh mục đơn vị cs bạn thêm có mã tự động là " + codeGen + " bạn có muốn thay đổi không?", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No)
-                        {
-                            int result = 0;
-                            do
-                            {
-                                codeGen = this.InputForm(codeGen);
-                                if (CheckCodeExist(codeGen))
-                                {
-                                    donVi.MaDVCS = codeGen;
-                                    result = 0;
-                                }
-                                else
-                                {
-                                    result = 1;
-                                    codeGen = this.codeGenOld;
-                                }
-                            } while (result == 1);
-                        }
-                        else
-                            donVi.MaDVCS = codeGen;
-                        if (BioBLL.InsDonViCS(donVi))
-                        {
-                            XtraMessageBox.Show("Thêm mới đơn vị cơ sở thành công!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (XtraMessageBox.Show("Hệ thống tự động thêm dịch vụ vào đơn vị này. \nBạn có muốn thực hiện tác vụ này không?", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No)
-                            {
-                                List<PSDanhMucGoiDichVuChung> lstGoiDV = BioBLL.GetListGoiDichVuChung();
-                                List<PSDanhMucGoiDichVuTheoDonVi> lstGoiTT = new List<PSDanhMucGoiDichVuTheoDonVi>();
-                                List<PSChiTietGoiDichVuChung> lstChiTietGoiGV = BioBLL.GetListChiTietGoiDichVuChung();
-                                foreach(var dv in lstGoiDV)
-                                {
-                                    PSDanhMucGoiDichVuTheoDonVi tt = new PSDanhMucGoiDichVuTheoDonVi();
-                                    tt.IDGoiDichVuChung = dv.IDGoiDichVuChung;
-                                    tt.MaDVCS = donVi.MaDVCS;
-                                    tt.TenGoiDichVuChung = dv.TenGoiDichVuChung;
-                                    tt.DonGia = dv.DonGia??0;
-                                    tt.ChietKhau =dv.ChietKhau?? 0;
-                                    tt.isXoa = false;
-                                    tt.isDongBo = false;
-                                    lstGoiTT.Add(tt);
-                                }
-                                if(!BioBLL.InsMultiGoiDichVuCoSo(lstGoiTT))
-                                    XtraMessageBox.Show("Tự động thêm dịch vụ vào đơn vị thất bại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                        else
-                        {
-                            XtraMessageBox.Show("Thêm mới đơn vị cơ sở thất bại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else
-                    {
+
+                    //if (e.RowHandle < 0)
+                    //{
+                    //    string codeGen = BioBLL.GetCodeDonViCoSo(donVi.MaChiCuc);
+                    //    this.codeGenOld = codeGen.ToString();
+                    //    if (XtraMessageBox.Show("Danh mục đơn vị cs bạn thêm có mã tự động là " + codeGen + " bạn có muốn thay đổi không?", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No)
+                    //    {
+                    //        int result = 0;
+                    //        do
+                    //        {
+                    //            codeGen = this.InputForm(codeGen);
+                    //            if (CheckCodeExist(codeGen))
+                    //            {
+                    //                donVi.MaDVCS = codeGen;
+                    //                result = 0;
+                    //            }
+                    //            else
+                    //            {
+                    //                result = 1;
+                    //                codeGen = this.codeGenOld;
+                    //            }
+                    //        } while (result == 1);
+                    //    }
+                    //    else
+                    //        donVi.MaDVCS = codeGen;
+                    //    if (BioBLL.InsDonViCS(donVi))
+                    //    {
+                    //        XtraMessageBox.Show("Thêm mới đơn vị cơ sở thành công!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //        if (XtraMessageBox.Show("Hệ thống tự động thêm dịch vụ vào đơn vị này. \nBạn có muốn thực hiện tác vụ này không?", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No)
+                    //        {
+                    //            List<PSDanhMucGoiDichVuChung> lstGoiDV = BioBLL.GetListGoiDichVuChung();
+                    //            List<PSDanhMucGoiDichVuTheoDonVi> lstGoiTT = new List<PSDanhMucGoiDichVuTheoDonVi>();
+                    //            List<PSChiTietGoiDichVuChung> lstChiTietGoiGV = BioBLL.GetListChiTietGoiDichVuChung();
+                    //            foreach(var dv in lstGoiDV)
+                    //            {
+                    //                PSDanhMucGoiDichVuTheoDonVi tt = new PSDanhMucGoiDichVuTheoDonVi();
+                    //                tt.IDGoiDichVuChung = dv.IDGoiDichVuChung;
+                    //                tt.MaDVCS = donVi.MaDVCS;
+                    //                tt.TenGoiDichVuChung = dv.TenGoiDichVuChung;
+                    //                tt.DonGia = dv.DonGia??0;
+                    //                tt.ChietKhau =dv.ChietKhau?? 0;
+                    //                tt.isXoa = false;
+                    //                tt.isDongBo = false;
+                    //                lstGoiTT.Add(tt);
+                    //            }
+                    //            if(!BioBLL.InsMultiGoiDichVuCoSo(lstGoiTT))
+                    //                XtraMessageBox.Show("Tự động thêm dịch vụ vào đơn vị thất bại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        XtraMessageBox.Show("Thêm mới đơn vị cơ sở thất bại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    }
+                    //}
+                    //else
+                    //{
                         PSDanhMucDonViCoSo dvOld = BioBLL.GetDonViCoSoById(donVi.RowIDDVCS);
                         if (BioBLL.UpdDonViCS(donVi))
                         {
@@ -163,7 +173,7 @@ namespace BioNetSangLocSoSinh.Entry
                         {
                             XtraMessageBox.Show("Cập nhật đơn vị cơ sở thất bại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    }
+                    //}
                     this.gridControl_DonViCoSo.DataSource = BioBLL.GetListDonViCoSo();
                 }
             }
@@ -191,24 +201,24 @@ namespace BioNetSangLocSoSinh.Entry
 
         private void gridControl_DonViCoSo_ProcessGridKey(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete && gridView_DonViCoSo.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
-            {
-                if (XtraMessageBox.Show("Bạn có muốn xóa danh mục này hay không?", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No)
-                {
-                    try
-                    {
-                        if (BioBLL.DelDonViCS(gridView_DonViCoSo.GetRowCellValue(gridView_DonViCoSo.FocusedRowHandle, "MaDVCS").ToString()))
-                            this.gridControl_DonViCoSo.DataSource = BioBLL.GetListDonViCoSo();
-                        else
-                            XtraMessageBox.Show("Xóa danh mục thất bại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch
-                    {
-                        XtraMessageBox.Show("Xóa danh mục thất bại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                }
-            }
+            //if (e.KeyCode == Keys.Delete && gridView_DonViCoSo.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+            //{
+            //    if (XtraMessageBox.Show("Bạn có muốn xóa danh mục này hay không?", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No)
+            //    {
+            //        try
+            //        {
+            //            if (BioBLL.DelDonViCS(gridView_DonViCoSo.GetRowCellValue(gridView_DonViCoSo.FocusedRowHandle, "MaDVCS").ToString()))
+            //                this.gridControl_DonViCoSo.DataSource = BioBLL.GetListDonViCoSo();
+            //            else
+            //                XtraMessageBox.Show("Xóa danh mục thất bại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        }
+            //        catch
+            //        {
+            //            XtraMessageBox.Show("Xóa danh mục thất bại!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            return;
+            //        }
+            //    }
+            //}
         }
 
         private void repositoryItemPictureEdit_logo_Click(object sender, EventArgs e)
@@ -252,38 +262,55 @@ namespace BioNetSangLocSoSinh.Entry
 
         private void gridView_DonViCoSo_RowCellClick(object sender, RowCellClickEventArgs e)
         {
-            if (e.RowHandle >= 0)
-            {
-                GridColumn column = e.Column;
-                if (column.Name == this.col_th_MaDVCS.Name)
-                {
-                    string code = e.CellValue.ToString();
-                    if (XtraMessageBox.Show("Bạn có muốn thay đổi mã " + code + " không?", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No)
-                    {
-                        int result = 0;
-                        do
-                        {
-                            FrmInputCode frm = new FrmInputCode(code.Substring(5, 3), code.Substring(0, 5), 3);
-                            frm.ShowDialog();
-                            if (frm.DialogResult == DialogResult.OK)
-                            {
-                                code = frm.name + frm.code;
-                                if (CheckCodeExist(code))
-                                {
-                                    result = 0;
-                                    gridView_DonViCoSo.SetRowCellValue(e.RowHandle, e.Column, code);
-                                }
-                                else
-                                    result = 1;
-                            }
-                            else
-                                result = 0;
-                        } while (result == 1);
-                    }
-                }
-            }
+            //if (e.RowHandle >= 0)
+            //{
+            //    GridColumn column = e.Column;
+            //    if (column.Name == this.col_th_MaDVCS.Name)
+            //    {
+            //        string code = e.CellValue.ToString();
+            //        if (XtraMessageBox.Show("Bạn có muốn thay đổi mã " + code + " không?", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.No)
+            //        {
+            //            int result = 0;
+            //            do
+            //            {
+            //                FrmInputCode frm = new FrmInputCode(code.Substring(5, 3), code.Substring(0, 5), 3);
+            //                frm.ShowDialog();
+            //                if (frm.DialogResult == DialogResult.OK)
+            //                {
+            //                    code = frm.name + frm.code;
+            //                    if (CheckCodeExist(code))
+            //                    {
+            //                        result = 0;
+            //                        gridView_DonViCoSo.SetRowCellValue(e.RowHandle, e.Column, code);
+            //                    }
+            //                    else
+            //                        result = 1;
+            //                }
+            //                else
+            //                    result = 0;
+            //            } while (result == 1);
+            //        }
+            //    }
+            //}
         }
 
-       
+        private void repositoryItemPictureEditChuKiDonVi_Click(object sender, EventArgs e)
+        {
+            fileChuKiDonVi.ShowHelp = true;
+            fileChuKiDonVi.FileName = string.Empty;
+            fileChuKiDonVi.Filter = "Images (*.jpg)|*.jpg|All Files(*.*)|*.*";
+            fileChuKiDonVi.ShowDialog();
+        }
+
+        private void fileChuKiDonVi_FileOk(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                var fileBytes = File.ReadAllBytes(fileChuKiDonVi.FileName);
+                var image = new Binary(fileBytes);
+                gridView_DonViCoSo.SetFocusedRowCellValue(col_ChuKiDonVi, image);
+            }
+            catch { }
+        }
     }
 }

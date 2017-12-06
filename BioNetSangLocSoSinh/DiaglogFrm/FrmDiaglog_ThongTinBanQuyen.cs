@@ -21,7 +21,7 @@ namespace BioNetSangLocSoSinh.DiaglogFrm
     public partial class FrmDiaglog_ThongTinBanQuyen : DevExpress.XtraEditors.XtraForm
     {
         public FrmDiaglog_ThongTinBanQuyen()
-        {
+        {               
             InitializeComponent();
         }
         private PSThongTinTrungTam TrungTam;

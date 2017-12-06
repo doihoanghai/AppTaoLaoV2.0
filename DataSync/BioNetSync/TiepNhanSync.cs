@@ -34,7 +34,6 @@ namespace DataSync.BioNetSync
                         {
                             string json = result.ValueResult;
                             JavaScriptSerializer jss = new JavaScriptSerializer();
-
                             ObjectModel.RootObjectAPI psl = jss.Deserialize<ObjectModel.RootObjectAPI>(json);
                             //List<PSPatient> patient = jss.Deserialize<List<PSPatient>>(json);
                             List<PSTiepNhan> lstpsl = new List<PSTiepNhan>();
@@ -97,11 +96,11 @@ namespace DataSync.BioNetSync
                     var psldb = db.PSTiepNhans.FirstOrDefault(p => p.MaPhieu == psl.MaPhieu);
                     if (psldb != null)
                     {
-                        var term = psl.RowIDPhieu;
-                        psldb = psl;
+                        var term = psldb.RowIDPhieu;
+                        cn.ConvertObjectToObject(psl, psldb);
                         psldb.RowIDPhieu = term;
-                        db.SubmitChanges();
 
+                        db.SubmitChanges();
                     }
                     else
                     {
@@ -111,16 +110,12 @@ namespace DataSync.BioNetSync
                         newpsl.isDongBo = true;
                         db.PSTiepNhans.InsertOnSubmit(newpsl);
                         db.SubmitChanges();
-
                     }
-
                 }
 
                 db.Transaction.Commit();
                 db.Connection.Close();
                 res.Result = true;
-
-
             }
             catch (Exception ex)
             {
@@ -145,33 +140,85 @@ namespace DataSync.BioNetSync
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!string.IsNullOrEmpty(token))
                     {
-                        var datas = db.PSTiepNhans.Where(p => p.isDongBo == false);
-                        foreach (var data in datas)
+                        var datas = db.PSTiepNhans.Where(p => p.isDongBo != true).OrderBy(x => x.RowIDTiepNhan).ToList();
+                        List<string> jsonstr = new List<string>();
+                        string Nhom = (string)null;
+                        while (datas.Count() > 1000)
                         {
-                            string jsonstr = new JavaScriptSerializer().Serialize(data);
-                            var result = cn.PostRespone(cn.CreateLink(linkPostTiepNhan), token, jsonstr);
-                            if (result.Result)
+                            var temp = datas.Take(1000);
+                            Nhom = new JavaScriptSerializer().Serialize(temp);
+                            jsonstr.Add(Nhom);
+                            datas.RemoveRange(0, 1000);
+                        }
+                        if (datas.Count() <= 1000 && datas.Count()>0)
+                        {
+                            Nhom = new JavaScriptSerializer().Serialize(datas);
+                            jsonstr.Add(Nhom);
+                        }
+                        if (jsonstr.Count() > 0)
+                        {
+                            #region Đồng bộ phiếu
+                            foreach (var jsons in jsonstr)
                             {
-                                res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " đã được đồng bộ lên tổng cục \r\n";
-                                List<PSTiepNhan> lstpsl = new List<PSTiepNhan>();
-                                lstpsl.Add(data);
-                                var resupdate = UpdateTiepNhan(lstpsl);
-                                if (!resupdate.Result)
+                                var result = cn.PostRespone(cn.CreateLink(linkPostTiepNhan), token, jsons);
+                                if (result.Result)
                                 {
-                                    res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " chưa được cập nhật \r\n";
+                                    JavaScriptSerializer js = new JavaScriptSerializer();
+                                    List<PSTiepNhan> datares = js.Deserialize<List<PSTiepNhan>>(jsons);
+                                    var data=db.PSTiepNhans.Where(s => (from d in datares select d.MaPhieu).Contains(s.MaPhieu));
+                                    data.ToList().ForEach(c => c.isDongBo = true);
+                                    db.SubmitChanges();
+                                    string json = result.ErorrResult;
+                                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                                    List<String> psl = jss.Deserialize<List<String>>(json);
+                                    if (psl != null)
+                                    {
+                                        if (psl.Count > 0)
+                                        {
+                                            res.StringError = "Danh sách phiếu tiếp nhận lỗi: \r\n ";
+                                            foreach (var lst in psl)
+                                            {
+                                                PSResposeSync sn = cn.CutString(lst);
+                                                if (sn != null)
+                                                {
+                                                    var ds = db.PSTiepNhans.FirstOrDefault(p => p.MaTiepNhan == sn.Code);
+                                                    if (ds != null)
+                                                    {
+                                                        ds.isDongBo = false;
+                                                        res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        db.SubmitChanges();
+                                        res.Result = false;
+                                    }                                  
+                                }
+                                else
+                                {
+                                    res.Result = false;
+                                    res.StringError = "Đồng bộ phiếu tiếp nhận lỗi - Kiểm tra kết nội mạng !\r\n";
                                 }
                             }
-                            else
-                            {
-                                res.Result = false;
-                                res.StringError += "Dữ liệu đơn vị " + data.MaDonVi + " chưa được đồng bộ lên tổng cục \r\n";
-                            }
+                            #endregion
 
                         }
+                        if (String.IsNullOrEmpty(res.StringError))
+                        {
+                            res.Result = true;
+                        }
+                        else
+                        {
+                            res.Result = false;
+                        }
+
                     }
-
                 }
-
+                else
+                {
+                    res.Result = false;
+                    res.StringError = "Đồng bộ phiếu tiếp nhận lỗi - Kiểm tra kết nội mạng hoặc tài khoản đồng bộ!\r\n";
+                }
             }
             catch (Exception ex)
             {

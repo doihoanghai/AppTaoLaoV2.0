@@ -103,5 +103,7 @@ namespace BioNetSangLocSoSinh.FrmReports
             }
             catch (Exception ex) { }
         }
+
+    
     }
 }

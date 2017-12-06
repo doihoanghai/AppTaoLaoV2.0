@@ -61,19 +61,25 @@
     <Reference Include="DevExpress.Data.v15.2" />
     <Reference Include="DevExpress.DataAccess.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v15.2.UI, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Map.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Pdf.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Pdf.v15.2.Drawing, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Persistent.Base.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v15.2.Core" />
     <Reference Include="DevExpress.RichEdit.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v15.2.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v15.2" />
     <Reference Include="DevExpress.Utils.v15.2.UI, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v15.2" />
     <Reference Include="DevExpress.Sparkline.v15.2.Core" />
     <Reference Include="DevExpress.XtraCharts.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v15.2.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v15.2.UI, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v15.2.Wizard, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v15.2" />
@@ -91,9 +97,21 @@
     <Reference Include="DevExpress.XtraReports.v15.2.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v15.2.Extensions, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v15.2.Reporting, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DLLLicensePS">
       <HintPath>LibDLL\DLLLicensePS.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel.4.5">
+      <HintPath>..\..\..\..\Downloads\output\output\net45\Excel.4.5.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\..\..\Downloads\output\output\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Downloads\itextsharp-all-5.5.10\itextsharp.xfaworker-dll-5.5.10\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -106,6 +124,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -224,6 +245,18 @@
     <Compile Include="DiaglogFrm\Waitingform.Designer.cs">
       <DependentUpon>Waitingform.cs</DependentUpon>
     </Compile>
+    <Compile Include="DiaglogFrm\WaitingformLoadDongBo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiaglogFrm\WaitingformLoadDongBo.Designer.cs">
+      <DependentUpon>WaitingformLoadDongBo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiaglogFrm\WaitingformMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiaglogFrm\WaitingformMail.Designer.cs">
+      <DependentUpon>WaitingformMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="DiaglogFrm\WaitingfromSave.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +274,12 @@
     </Compile>
     <Compile Include="Entry\FrmDanhMaXetNghiem.Designer.cs">
       <DependentUpon>FrmDanhMaXetNghiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entry\FrmDMBangDuLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entry\FrmDMBangDuLieu.Designer.cs">
+      <DependentUpon>FrmDMBangDuLieu.cs</DependentUpon>
     </Compile>
     <Compile Include="Entry\FrmDMChiCuc.cs">
       <SubType>Form</SubType>
@@ -308,6 +347,12 @@
     <Compile Include="Entry\FrmEmployee.designer.cs">
       <DependentUpon>FrmEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entry\FrmImportData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entry\FrmImportData.Designer.cs">
+      <DependentUpon>FrmImportData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entry\FrmInfoPerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +401,12 @@
     <Compile Include="Entry\FrmPhongXetNghiem.Designer.cs">
       <DependentUpon>FrmPhongXetNghiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entry\FrmSuaPhieuLoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entry\FrmSuaPhieuLoi.Designer.cs">
+      <DependentUpon>FrmSuaPhieuLoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entry\FrmThongTinTrungTam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -386,6 +437,12 @@
     <Compile Include="DiaglogFrm\FrmDiaglogSuaPhieuDaTiepNhan.Designer.cs">
       <DependentUpon>FrmDiaglogSuaPhieuDaTiepNhan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDongBo\FrmDongBoPhieuKetQua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDongBo\FrmDongBoPhieuKetQua.Designer.cs">
+      <DependentUpon>FrmDongBoPhieuKetQua.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReports\FrmBaoCao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -397,6 +454,12 @@
     </Compile>
     <Compile Include="FrmReports\FrmBaoCaoDonVi_ChiTietcs.Designer.cs">
       <DependentUpon>FrmBaoCaoDonVi_ChiTietcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReports\FrmBaoCaoDonVi_TTPhieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReports\FrmBaoCaoDonVi_TTPhieu.Designer.cs">
+      <DependentUpon>FrmBaoCaoDonVi_TTPhieu.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReports\FrmBaoCaoTuyChon_TrungTam.cs">
       <SubType>Form</SubType>
@@ -416,6 +479,12 @@
     <Compile Include="FrmReports\FrmBaoCaoCoBan.Designer.cs">
       <DependentUpon>FrmBaoCaoCoBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entry\FrmGuiMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entry\FrmGuiMail.Designer.cs">
+      <DependentUpon>FrmGuiMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReports\FrmReportPhieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -434,11 +503,11 @@
     <Compile Include="FrmReports\frmReportTrungTam_ChiCuc.Designer.cs">
       <DependentUpon>frmReportTrungTam_ChiCuc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReports\FrmReportTrungTam_DonVi.cs">
+    <Compile Include="FrmReports\FrmReportThongKeCoBan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReports\FrmReportTrungTam_DonVi.Designer.cs">
-      <DependentUpon>FrmReportTrungTam_DonVi.cs</DependentUpon>
+    <Compile Include="FrmReports\FrmReportThongKeCoBan.Designer.cs">
+      <DependentUpon>FrmReportThongKeCoBan.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReports\FrmTinhTrangMau.cs">
       <SubType>Form</SubType>
@@ -470,14 +539,25 @@
     <Compile Include="FrmReports\urcReportTrungTam_SoBo.Designer.cs">
       <DependentUpon>urcReportTrungTam_SoBo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReports\urcReportTTPhieu_DonVi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmReports\urcReportTTPhieu_DonVi.Designer.cs">
+      <DependentUpon>urcReportTTPhieu_DonVi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStartup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmStartup.Designer.cs">
+    <Compile Include="FrmStartup.designer.cs">
       <DependentUpon>FrmStartup.cs</DependentUpon>
     </Compile>
     <Compile Include="LibDLL\buttonEdit.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PrintRibbonControllerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintRibbonControllerResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -488,6 +568,12 @@
       <DependentUpon>DashBoardReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\EditDesignReport.cs" />
+    <Compile Include="Reports\frmDanhSachDaCapMa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmDanhSachDaCapMa.Designer.cs">
+      <DependentUpon>frmDanhSachDaCapMa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmReportEditGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -518,6 +604,12 @@
     <Compile Include="Reports\rptDanhSachDaCapMaXetNghiem.Designer.cs">
       <DependentUpon>rptDanhSachDaCapMaXetNghiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rptPhieuPDFTraKQ.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPhieuPDFTraKQ.Designer.cs">
+      <DependentUpon>rptPhieuPDFTraKQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptPhieuTraKetQua.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -541,6 +633,12 @@
     </Compile>
     <Compile Include="Reports\rptBaoCaoChiTietTrungTam.Designer.cs">
       <DependentUpon>rptBaoCaoChiTietTrungTam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPhieuTraKetQua_TheoTT2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPhieuTraKetQua_TheoTT2.Designer.cs">
+      <DependentUpon>rptPhieuTraKetQua_TheoTT2.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\TextBoxTyping.cs">
       <SubType>Component</SubType>
@@ -580,6 +678,11 @@
     </Compile>
     <Compile Include="UserControl\UscCapMaTheoDonVi.Designer.cs">
       <DependentUpon>UscCapMaTheoDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XRDesignRibbonControllerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XRDesignRibbonControllerResources.resx</DependentUpon>
     </Compile>
     <Compile Include="XtraForm2.cs">
       <SubType>Form</SubType>
@@ -638,6 +741,12 @@
     <EmbeddedResource Include="DiaglogFrm\Waitingform.resx">
       <DependentUpon>Waitingform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DiaglogFrm\WaitingformLoadDongBo.resx">
+      <DependentUpon>WaitingformLoadDongBo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiaglogFrm\WaitingformMail.resx">
+      <DependentUpon>WaitingformMail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DiaglogFrm\WaitingfromSave.resx">
       <DependentUpon>WaitingfromSave.cs</DependentUpon>
     </EmbeddedResource>
@@ -646,6 +755,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Entry\FrmDanhMaXetNghiem.resx">
       <DependentUpon>FrmDanhMaXetNghiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entry\FrmDMBangDuLieu.resx">
+      <DependentUpon>FrmDMBangDuLieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Entry\FrmDMChiCuc.resx">
       <DependentUpon>FrmDMChiCuc.cs</DependentUpon>
@@ -680,6 +792,9 @@
     <EmbeddedResource Include="Entry\FrmEmployee.resx">
       <DependentUpon>FrmEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Entry\FrmImportData.resx">
+      <DependentUpon>FrmImportData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Entry\FrmInfoPerson.resx">
       <DependentUpon>FrmInfoPerson.cs</DependentUpon>
     </EmbeddedResource>
@@ -704,6 +819,9 @@
     <EmbeddedResource Include="Entry\FrmPhongXetNghiem.resx">
       <DependentUpon>FrmPhongXetNghiem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Entry\FrmSuaPhieuLoi.resx">
+      <DependentUpon>FrmSuaPhieuLoi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Entry\FrmThongTinTrungTam.resx">
       <DependentUpon>FrmThongTinTrungTam.cs</DependentUpon>
     </EmbeddedResource>
@@ -719,11 +837,17 @@
     <EmbeddedResource Include="DiaglogFrm\FrmDiaglogSuaPhieuDaTiepNhan.resx">
       <DependentUpon>FrmDiaglogSuaPhieuDaTiepNhan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDongBo\FrmDongBoPhieuKetQua.resx">
+      <DependentUpon>FrmDongBoPhieuKetQua.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReports\FrmBaoCao.resx">
       <DependentUpon>FrmBaoCao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReports\FrmBaoCaoDonVi_ChiTietcs.resx">
       <DependentUpon>FrmBaoCaoDonVi_ChiTietcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReports\FrmBaoCaoDonVi_TTPhieu.resx">
+      <DependentUpon>FrmBaoCaoDonVi_TTPhieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReports\FrmBaoCaoTuyChon_TrungTam.resx">
       <DependentUpon>FrmBaoCaoTuyChon_TrungTam.cs</DependentUpon>
@@ -734,6 +858,9 @@
     <EmbeddedResource Include="FrmReports\FrmBaoCaoCoBan.resx">
       <DependentUpon>FrmBaoCaoCoBan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Entry\FrmGuiMail.resx">
+      <DependentUpon>FrmGuiMail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReports\FrmReportPhieu.resx">
       <DependentUpon>FrmReportPhieu.cs</DependentUpon>
     </EmbeddedResource>
@@ -743,8 +870,8 @@
     <EmbeddedResource Include="FrmReports\frmReportTrungTam_ChiCuc.resx">
       <DependentUpon>frmReportTrungTam_ChiCuc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReports\FrmReportTrungTam_DonVi.resx">
-      <DependentUpon>FrmReportTrungTam_DonVi.cs</DependentUpon>
+    <EmbeddedResource Include="FrmReports\FrmReportThongKeCoBan.resx">
+      <DependentUpon>FrmReportThongKeCoBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReports\FrmTinhTrangMau.resx">
       <DependentUpon>FrmTinhTrangMau.cs</DependentUpon>
@@ -761,8 +888,15 @@
     <EmbeddedResource Include="FrmReports\urcReportTrungTam_SoBo.resx">
       <DependentUpon>urcReportTrungTam_SoBo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReports\urcReportTTPhieu_DonVi.resx">
+      <DependentUpon>urcReportTTPhieu_DonVi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmStartup.resx">
       <DependentUpon>FrmStartup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrintRibbonControllerResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -777,6 +911,9 @@
     </Compile>
     <EmbeddedResource Include="Reports\DashBoardReport.resx">
       <DependentUpon>DashBoardReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmDanhSachDaCapMa.resx">
+      <DependentUpon>frmDanhSachDaCapMa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmReportEditGeneral.resx">
       <DependentUpon>frmReportEditGeneral.cs</DependentUpon>
@@ -793,6 +930,9 @@
     <EmbeddedResource Include="Reports\rptDanhSachDaCapMaXetNghiem.resx">
       <DependentUpon>rptDanhSachDaCapMaXetNghiem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPhieuPDFTraKQ.resx">
+      <DependentUpon>rptPhieuPDFTraKQ.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptPhieuTraKetQua.resx">
       <DependentUpon>rptPhieuTraKetQua.cs</DependentUpon>
     </EmbeddedResource>
@@ -804,6 +944,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBaoCaoChiTietTrungTam.resx">
       <DependentUpon>rptBaoCaoChiTietTrungTam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPhieuTraKetQua_TheoTT2.resx">
+      <DependentUpon>rptPhieuTraKetQua_TheoTT2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucBaoCaoChiCuc.resx">
       <DependentUpon>ucBaoCaoChiCuc.cs</DependentUpon>
@@ -823,12 +966,17 @@
     <EmbeddedResource Include="UserControl\UscCapMaTheoDonVi.resx">
       <DependentUpon>UscCapMaTheoDonVi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="XRDesignRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>XRDesignRibbonControllerResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="XtraForm2.resx">
       <DependentUpon>XtraForm2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -900,6 +1048,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BioNet_icon.ico" />
+    <None Include="Resources\EasyFind.png" />
+    <Content Include="Resources\email.png" />
+    <None Include="Resources\sign-check-icon.png" />
+    <None Include="Resources\loading.gif" />
+    <Content Include="Resources\mail.png" />
+    <Content Include="Resources\pdf-icon.png" />
+    <Content Include="Resources\pdf-icon1.png" />
+    <None Include="Resources\sync.png" />
     <None Include="Resources\logon.png" />
     <None Include="Resources\file_quality-256.png" />
     <None Include="Resources\lisence.png" />

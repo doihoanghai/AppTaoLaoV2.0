@@ -56,13 +56,15 @@
             // gridControl_thongso
             // 
             this.gridControl_thongso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl_thongso.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_thongso.Location = new System.Drawing.Point(0, 0);
             this.gridControl_thongso.MainView = this.gridView_thongso;
+            this.gridControl_thongso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_thongso.Name = "gridControl_thongso";
             this.gridControl_thongso.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit_isLocked,
             this.repositoryItemLookUpEdit_nhom});
-            this.gridControl_thongso.Size = new System.Drawing.Size(1469, 600);
+            this.gridControl_thongso.Size = new System.Drawing.Size(1259, 488);
             this.gridControl_thongso.TabIndex = 0;
             this.gridControl_thongso.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_thongso});
@@ -89,7 +91,6 @@
             this.gridView_thongso.GridControl = this.gridControl_thongso;
             this.gridView_thongso.Name = "gridView_thongso";
             this.gridView_thongso.NewItemRowText = "Thêm danh mục thông số xét nghiệm...";
-            this.gridView_thongso.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView_thongso.OptionsView.ShowGroupPanel = false;
             this.gridView_thongso.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_thongso_ValidateRow);
             // 
@@ -108,6 +109,7 @@
             this.col_IDThongSoXN.Caption = "Mã";
             this.col_IDThongSoXN.FieldName = "IDThongSoXN";
             this.col_IDThongSoXN.Name = "col_IDThongSoXN";
+            this.col_IDThongSoXN.OptionsColumn.ReadOnly = true;
             this.col_IDThongSoXN.Visible = true;
             this.col_IDThongSoXN.VisibleIndex = 0;
             this.col_IDThongSoXN.Width = 68;
@@ -121,6 +123,7 @@
             this.col_TenThongSo.Caption = "Tên thông số";
             this.col_TenThongSo.FieldName = "TenThongSo";
             this.col_TenThongSo.Name = "col_TenThongSo";
+            this.col_TenThongSo.OptionsColumn.ReadOnly = true;
             this.col_TenThongSo.Visible = true;
             this.col_TenThongSo.VisibleIndex = 1;
             this.col_TenThongSo.Width = 128;
@@ -134,7 +137,6 @@
             this.col_GiaTriMinNu.AppearanceHeader.Options.UseTextOptions = true;
             this.col_GiaTriMinNu.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.col_GiaTriMinNu.Caption = "Giá trị Min nữ";
-            this.col_GiaTriMinNu.DisplayFormat.FormatString = "{0:#,#}";
             this.col_GiaTriMinNu.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.col_GiaTriMinNu.FieldName = "GiaTriMinNu";
             this.col_GiaTriMinNu.Name = "col_GiaTriMinNu";
@@ -151,7 +153,6 @@
             this.col_GiaTriMaxNu.AppearanceHeader.Options.UseTextOptions = true;
             this.col_GiaTriMaxNu.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.col_GiaTriMaxNu.Caption = "Giá trị Max nữ";
-            this.col_GiaTriMaxNu.DisplayFormat.FormatString = "{0:#,#}";
             this.col_GiaTriMaxNu.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.col_GiaTriMaxNu.FieldName = "GiaTriMaxNu";
             this.col_GiaTriMaxNu.Name = "col_GiaTriMaxNu";
@@ -198,7 +199,6 @@
             this.col_GiaTriMinNam.AppearanceHeader.Options.UseTextOptions = true;
             this.col_GiaTriMinNam.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.col_GiaTriMinNam.Caption = "Giá trị min nam";
-            this.col_GiaTriMinNam.DisplayFormat.FormatString = "{0:#,#}";
             this.col_GiaTriMinNam.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.col_GiaTriMinNam.FieldName = "GiaTriMinNam";
             this.col_GiaTriMinNam.Name = "col_GiaTriMinNam";
@@ -215,7 +215,6 @@
             this.col_GiaTriMaxNam.AppearanceHeader.Options.UseTextOptions = true;
             this.col_GiaTriMaxNam.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.col_GiaTriMaxNam.Caption = "Giá trị max nam";
-            this.col_GiaTriMaxNam.DisplayFormat.FormatString = "{0:#,#}";
             this.col_GiaTriMaxNam.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.col_GiaTriMaxNam.FieldName = "GiaTriMaxNam";
             this.col_GiaTriMaxNam.Name = "col_GiaTriMaxNam";
@@ -277,7 +276,7 @@
             this.col_th_Stt.FieldName = "Stt";
             this.col_th_Stt.Name = "col_th_Stt";
             this.col_th_Stt.Visible = true;
-            this.col_th_Stt.VisibleIndex = 11;
+            this.col_th_Stt.VisibleIndex = 12;
             this.col_th_Stt.Width = 52;
             // 
             // col_GiaTri
@@ -292,7 +291,7 @@
             this.col_GiaTri.FieldName = "GiaTri";
             this.col_GiaTri.Name = "col_GiaTri";
             this.col_GiaTri.Visible = true;
-            this.col_GiaTri.VisibleIndex = 12;
+            this.col_GiaTri.VisibleIndex = 13;
             this.col_GiaTri.Width = 63;
             // 
             // col_DonViTinh
@@ -331,11 +330,12 @@
             // 
             // FrmDMThongSoXN
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1469, 600);
+            this.ClientSize = new System.Drawing.Size(1259, 488);
             this.Controls.Add(this.gridControl_thongso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmDMThongSoXN";
             this.Text = "FrmDMThongSoXN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -8,7 +8,7 @@ using System.Web.Script.Serialization;
 
 namespace DataSync.BioNetSync
 {
-    class DanhMucThongSoSync
+    public class DanhMucThongSoSync
     {
         private static BioNetDBContextDataContext db = null;
         private static string linkGetDanhMucThongSo = "/api/thongsoxetnghiem/getallThongSo";
@@ -37,6 +37,7 @@ namespace DataSync.BioNetSync
                                 foreach (var cl in CLuong)
                                 {
                                     cl.TenThongSo = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cl.TenThongSo));
+                                    cl.DonViTinh = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cl.DonViTinh));
                                 }
                                 UpdateDMThongSo(CLuong);
                             }
@@ -53,7 +54,11 @@ namespace DataSync.BioNetSync
             catch (Exception ex)
             {
                 res.Result = false;
-                res.StringError = DateTime.Now.ToString() + "Lỗi khi get dữ liệu Danh Mục Thông Số Xét Nghiệm từ server \r\n " + ex.Message;
+                res.StringError =  ex.Message;
+            }
+            if (res.Result == false)
+            {
+                res.StringError = "Lỗi đồng bộ danh mục thông số -" + res.StringError;
             }
             return res;
         }
@@ -73,15 +78,6 @@ namespace DataSync.BioNetSync
                     {
 
                         kyt.DonViTinh = cl.DonViTinh;
-                        kyt.GiaTri = cl.GiaTri;
-                        kyt.GiaTriMacDinh = cl.GiaTriMacDinh;
-                        kyt.GiaTriMaxNam = cl.GiaTriMaxNam;
-                        kyt.GiaTriMaxNu = cl.GiaTriMaxNu;
-                        kyt.GiaTriMinNam = cl.GiaTriMinNam;
-                        kyt.GiaTriMinNu = cl.GiaTriMinNu;
-                        kyt.GiaTriTrungBinhNam = cl.GiaTriTrungBinhNam;
-                        kyt.GiaTriTrungBinhNu = cl.GiaTriTrungBinhNu;
-                        kyt.MaDonViTinh = cl.MaDonViTinh;
                         kyt.MaNhom = kyt.MaNhom;
                         kyt.Stt = cl.Stt;
                         kyt.TenThongSo = cl.TenThongSo;
@@ -100,7 +96,7 @@ namespace DataSync.BioNetSync
                         kyth.GiaTriTrungBinhNam = cl.GiaTriTrungBinhNam;
                         kyth.GiaTriTrungBinhNu = cl.GiaTriTrungBinhNu;
                         kyth.MaDonViTinh = cl.MaDonViTinh;
-                        kyth.MaNhom = kyt.MaNhom;
+                        kyth.MaNhom = cl.MaNhom;
                         kyth.Stt = cl.Stt;
                         kyth.TenThongSo = cl.TenThongSo;
                         kyth.IDThongSoXN = cl.IDThongSoXN;

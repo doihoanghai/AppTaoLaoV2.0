@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using BioNetModel.Data;
 using BioNetModel;
 using BioNetBLL;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace BioNetSangLocSoSinh.Entry
 {
@@ -29,10 +30,15 @@ namespace BioNetSangLocSoSinh.Entry
         private List<PSDanhMucDonViCoSo> lstDVCS = new List<PSDanhMucDonViCoSo>();
         private void Load_Frm()
         {
+            this.Renew(false);
+            this.txtDenNgay_ChuaKQ.EditValue = DateTime.Now;
+            this.txtTuNgay_ChuaKQ.EditValue = DateTime.Now;
+            this.LoadsearchLookUpChiCuc();
             this.LoadRespositoryDonVi();
-            this.LoadSearchLookUpDoViCoSo();
+            //this.LoadSearchLookUpDoViCoSo();
             this.LoadDanhSachCho();
             this.loadDanhSachBNNguyCoGia();
+            
         }
         private void LoadSearchLookUpDoViCoSo()
         {
@@ -54,7 +60,7 @@ namespace BioNetSangLocSoSinh.Entry
             this.lstDMDonViCoSo = BioNet_Bus.GetDanhSachDonViCoSo();
             this.txtMaDonVi.Properties.DataSource = null;
             this.repositoryLookupDonVi.DataSource = null;
-            this.repositoryLookupDonVi.DataSource = this.lstDMDonViCoSo;
+           this.repositoryLookupDonVi.DataSource = this.lstDMDonViCoSo;
             this.txtMaDonVi.Properties.DataSource = this.lstDMDonViCoSo;
             this.repositoryItemLookUpDonVi.DataSource = null;
             this.repositoryItemLookUpDonVi.DataSource = this.lstDMDonViCoSo;
@@ -79,14 +85,14 @@ namespace BioNetSangLocSoSinh.Entry
         {
             this.lstBenhNhanNguyCoGia.Clear();
             var dv = this.searchLookUpDonViCoSo.EditValue ?? string.Empty;
-            this.lstBenhNhanNguyCoGia = BioNet_Bus.GetDanhSachBenhNhanNguyCoGia(dv.ToString());
+            this.lstBenhNhanNguyCoGia = BioNet_Bus.GetDanhSachBenhNhanNguyCoGia(dv.ToString(),txtTuNgay_ChuaKQ.DateTime,txtDenNgay_ChuaKQ.DateTime);
             this.LoadGCBenhNhanNguyCoGia();
         }
         private void LoadDanhSachCho()
         {
             this.lstBenhNhan.Clear();
             var dv = this.searchLookUpDonViCoSo.EditValue ?? string.Empty;
-            this.lstBenhNhan = BioNet_Bus.GetDanhSachBenhNhanNguyCoCao(dv.ToString());
+            this.lstBenhNhan = BioNet_Bus.GetDanhSachBenhNhanNguyCoCao(dv.ToString(),txtTuNgay_ChuaKQ.DateTime, txtDenNgay_ChuaKQ.DateTime);
             this.LoadGCBenhNhanNguyCoCao();
         }
         private void txtTuNgay_ChuaKQ_EditValueChanged(object sender, EventArgs e)
@@ -125,14 +131,21 @@ namespace BioNetSangLocSoSinh.Entry
             this.treeviewDotKham.Nodes.Clear();
             TreeNode rootNode = new TreeNode("Lịch sử khám bệnh");
             rootNode.ExpandAll();
-            if(this.lstDotChanDoan.Count>0)
-            foreach (var item in this.lstDotChanDoan)
+            if (this.lstDotChanDoan.Count > 0)
             {
-                TreeNode childNode = new TreeNode(item.NgayChanDoan.ToString());
-                childNode.Tag = item.rowIDDotChanDoan;
-                rootNode.Nodes.Add(childNode);
+                foreach (var item in this.lstDotChanDoan)
+                {
+                    TreeNode childNode = new TreeNode(item.NgayChanDoan.ToString());
+                    childNode.Tag = item.rowIDDotChanDoan;
+                    rootNode.Nodes.Add(childNode);
+                }
+                this.treeviewDotKham.Nodes.Add(rootNode);
             }
-            this.treeviewDotKham.Nodes.Add(rootNode);
+            else
+            {
+                
+            }
+           
         }
         private void HienThiThongTinBenhNhan(string maBenhNhan, string maDonVi, string maKhachHang, string maTiepNhan,string rowID,string maTiepNhan2,bool isBNNguyCo)
         {
@@ -157,7 +170,7 @@ namespace BioNetSangLocSoSinh.Entry
                 this.lstDotChanDoan.Clear();
                 try
                 {
-                    this.lstDotChanDoan = BioNet_Bus.GetDanhSachDotChanDoanCuaBenhNhan(long.Parse(rowID));
+                    this.lstDotChanDoan = BioNet_Bus.GetDanhSachDotChanDoanCuaBenhNhan(maBenhNhan);
                     this.LoadListTreeView();
                 }
                 catch(Exception ex)
@@ -184,6 +197,7 @@ namespace BioNetSangLocSoSinh.Entry
                     this.txtDiaChi.Text = bn.DiaChi;
                     this.txtGioiTinh.SelectedIndex = bn.GioiTinh??2;
                     this.txtMaDonVi.EditValue = maDonVi;
+                    
                     this.txtNgaySinh.EditValue = bn.NgayGioSinh;
                     this.txtSDT.Text = string.IsNullOrEmpty(bn.MotherPhoneNumber.ToString()) ? bn.FatherPhoneNumber.ToString() : bn.MotherPhoneNumber.ToString();
                     this.txtTenBN.Text = string.IsNullOrEmpty(bn.TenBenhNhan.ToString()) ? "CB_" + bn.MotherName: bn.TenBenhNhan.ToString();
@@ -207,11 +221,16 @@ namespace BioNetSangLocSoSinh.Entry
                     {   string rowID = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_rowID).ToString();
                         string maBenhNhan = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaBenhNhan).ToString();
                         string maDonVi = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_DonVi).ToString();
+                        
                         string maKhachHang = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaKhachHang).ToString();
                      //   string maThongTin = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaThongTin).ToString();
                         string maTiepNhan = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaTiepNhan).ToString();
                         string maTiepNhan2 = this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaTiepNhan2)==null? string.Empty: this.GVDanhSachBenhNhanCho.GetRowCellValue(this.GVDanhSachBenhNhanCho.FocusedRowHandle, this.col_MaTiepNhan2).ToString();
                         this.HienThiThongTinBenhNhan(maBenhNhan, maDonVi, maKhachHang, maTiepNhan,rowID,maTiepNhan2,true);
+                        this.txtGhiChu.ResetText();
+                        this.txtKetQua.ResetText();
+                        this.txtChanDoan.ResetText();
+
                     }
                 }
             }
@@ -225,6 +244,7 @@ namespace BioNetSangLocSoSinh.Entry
         private void btnLuu_Click(object sender, EventArgs e)
         {
             this.Luu();
+      
         }
 
       
@@ -269,6 +289,9 @@ namespace BioNetSangLocSoSinh.Entry
                 dot.ChanDoan = this.txtChanDoan.Text;
                 dot.GhiChu = this.txtGhiChu.Text;
                 dot.KetQua = this.txtKetQua.Text;
+                dot.isDongBo = false;
+                dot.isXoa = false;
+
                 dot.rowIDDotChanDoan = string.IsNullOrEmpty(this.txtRowIDDotKham.Text) == true ? 0 : long.Parse(this.txtRowIDDotKham.Text);
                 var result = BioNet_Bus.InsertDotChanDoan(dot);
                 if (result.Result)
@@ -277,11 +300,13 @@ namespace BioNetSangLocSoSinh.Entry
                     this.btnLuu.Enabled = false;
                     this.Reset();
                     this.btnMoi.Enabled = true;
-                    this.LoadListTreeView();
-                    this.LoadGCKQChiTiet();this.LoadGCKQChiTietCu();
-                    
+                    this.LoadGCKQChiTiet();
+                    this.LoadGCKQChiTietCu();
+                   // this.LoadListTreeView();
+
                 }
                 else MessageBox.Show("Lưu không thành công! \r\n Lỗi chi tiết : " + result.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Renew(false);
             }catch(Exception ex)
             {
                 MessageBox.Show("Lỗi khi lưu! \r\n Lỗi chi tiết : " + ex.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -289,6 +314,7 @@ namespace BioNetSangLocSoSinh.Entry
         }
         private void btnMoi_Click(object sender, EventArgs e)
         {
+            Renew(true);
             KhamDotMoi();
         }
         private void HienThiChanDoanCu(long rowID)
@@ -315,11 +341,15 @@ namespace BioNetSangLocSoSinh.Entry
             {
                 TreeView nodeselect = (TreeView)sender;
                 string maLK = string.Empty;
-                maLK = nodeselect.SelectedNode.Tag.ToString();
-                if (!string.IsNullOrEmpty(maLK))
+                if (nodeselect.SelectedNode.Tag != null)
                 {
-                    this.HienThiChanDoanCu(long.Parse(maLK));
+                    maLK = nodeselect.SelectedNode.Tag.ToString();
+                    if (!string.IsNullOrEmpty(maLK))
+                    {
+                        this.HienThiChanDoanCu(long.Parse(maLK));
+                    }
                 }
+              
             }
             catch (Exception ex)
             {
@@ -385,10 +415,17 @@ namespace BioNetSangLocSoSinh.Entry
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            this.Renew(true);
             this.btnLuu.Enabled = true;
-            this.btnSua.Enabled = false;this.btnMoi.Enabled = false;
+            this.btnSua.Enabled = false;
+            this.btnMoi.Enabled = false;
         }
-
+        private void Renew(bool ischeck)
+        {
+            this.txtChanDoan.Enabled = ischeck;
+            this.txtKetQua.Enabled = ischeck;
+            this.txtGhiChu.Enabled = ischeck;
+        }
         private void btnRefesh_Click(object sender, EventArgs e)
         {
             this.LoadDanhSachCho();
@@ -419,6 +456,55 @@ namespace BioNetSangLocSoSinh.Entry
                 MessageBox.Show("Lỗi khi lấy thông tin bệnh nhân \r\n Lỗi chi tiết : " + ex.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+        }
+
+        private void searchLookUpChiCuc_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                SearchLookUpEdit sear = sender as SearchLookUpEdit;
+                var value = sear.EditValue.ToString();
+                this.searchLookUpDonViCoSo.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_DonVi(value.ToString());
+                this.searchLookUpDonViCoSo.EditValue = "all";
+            }
+            catch { }
+        }
+        private void LoadsearchLookUpChiCuc()
+        {
+            try
+            {
+                this.searchLookUpChiCuc.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_ChiCuc();
+                this.searchLookUpChiCuc.EditValue = "all";
+                this.searchLookUpDonViCoSo.EditValue = "all";
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi load danh sách chi cục \r\n Lỗi chi tiết :" + ex.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.searchLookUpChiCuc.Focus();
+            }
+        }
+
+        private void GVDanhSachBenhNhanCho_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            try
+            {
+                GridView View = sender as GridView;
+                if (e.RowHandle >= 0)
+                {
+                    bool dachandoan = View.GetRowCellDisplayText(e.RowHandle, col_isChanDoan) == null ? false : (bool)View.GetRowCellValue(e.RowHandle, this.col_isChanDoan);
+                    if (!dachandoan)
+                    {
+                        e.Appearance.BackColor = Color.Orange;
+                        e.Appearance.BackColor2 = Color.Silver;
+                    }
+                    else
+                    {
+                        e.Appearance.BackColor = Color.Aqua;
+                        e.Appearance.BackColor2 = Color.AliceBlue;
+                    }
+                }
+            }
+            catch { }
         }
     }
 }

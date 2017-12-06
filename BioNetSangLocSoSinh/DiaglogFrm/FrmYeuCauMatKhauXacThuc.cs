@@ -46,7 +46,10 @@ namespace BioNetSangLocSoSinh.DiaglogFrm
             {
                 if (XtraMessageBox.Show("Bạn có chắn chắn muốn xóa mẫu này không?", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    var res = BioNet_Bus.HuyMauPhieu(maPhieu, maTiepNhan, maDonVi, maNV, this.txtLyDo.Text.Trim());
+                   // var res = BioNet_Bus.HuyMauPhieu(maPhieu, maTiepNhan, maDonVi, maNV, this.txtLyDo.Text.Trim());
+                    List<String> MaPhieu = new List<string>();
+                    MaPhieu.Add(maPhieu);
+                    var res = BioNet_Bus.DeletePhieu(MaPhieu, false,this.maNV,this.txtLyDo.Text.TrimEnd());
                     if (res.Result)
                     {
                         XtraMessageBox.Show("Đã hủy mẫu của phiếu " + this.maPhieu, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -55,7 +58,7 @@ namespace BioNetSangLocSoSinh.DiaglogFrm
                     }
                     else
                     {
-                        XtraMessageBox.Show("Lỗi : \r\n " + res.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        XtraMessageBox.Show(res.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         DialogResult = DialogResult.Cancel;
                         this.Close();
                     }

@@ -50,14 +50,16 @@
             // gridControl_DMDichVu
             // 
             this.gridControl_DMDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl_DMDichVu.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_DMDichVu.Location = new System.Drawing.Point(0, 0);
             this.gridControl_DMDichVu.MainView = this.gridView_DMDichVu;
+            this.gridControl_DMDichVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_DMDichVu.Name = "gridControl_DMDichVu";
             this.gridControl_DMDichVu.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit_isLocked,
             this.repositoryItemCheckEdit_xetNghiem,
             this.repositoryItemLookUpEdit_Nhom});
-            this.gridControl_DMDichVu.Size = new System.Drawing.Size(1164, 648);
+            this.gridControl_DMDichVu.Size = new System.Drawing.Size(998, 526);
             this.gridControl_DMDichVu.TabIndex = 0;
             this.gridControl_DMDichVu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_DMDichVu});
@@ -76,7 +78,6 @@
             this.gridView_DMDichVu.GridControl = this.gridControl_DMDichVu;
             this.gridView_DMDichVu.Name = "gridView_DMDichVu";
             this.gridView_DMDichVu.NewItemRowText = "Thêm danh mục dịch vụ mới";
-            this.gridView_DMDichVu.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView_DMDichVu.OptionsView.ShowGroupPanel = false;
             this.gridView_DMDichVu.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_DMDichVu_ValidateRow);
             // 
@@ -95,6 +96,8 @@
             this.col_th_TenDichVu.Caption = "Tên dịch vụ";
             this.col_th_TenDichVu.FieldName = "TenDichVu";
             this.col_th_TenDichVu.Name = "col_th_TenDichVu";
+            this.col_th_TenDichVu.OptionsColumn.AllowEdit = false;
+            this.col_th_TenDichVu.OptionsColumn.ReadOnly = true;
             this.col_th_TenDichVu.Visible = true;
             this.col_th_TenDichVu.VisibleIndex = 0;
             this.col_th_TenDichVu.Width = 144;
@@ -108,6 +111,8 @@
             this.col_th_TenHienThiDichVu.Caption = "Tên hiển thị dịch vụ";
             this.col_th_TenHienThiDichVu.FieldName = "TenHienThiDichVu";
             this.col_th_TenHienThiDichVu.Name = "col_th_TenHienThiDichVu";
+            this.col_th_TenHienThiDichVu.OptionsColumn.AllowEdit = false;
+            this.col_th_TenHienThiDichVu.OptionsColumn.ReadOnly = true;
             this.col_th_TenHienThiDichVu.Visible = true;
             this.col_th_TenHienThiDichVu.VisibleIndex = 1;
             this.col_th_TenHienThiDichVu.Width = 367;
@@ -192,6 +197,7 @@
             this.col_th_isGoiXn.ColumnEdit = this.repositoryItemCheckEdit_xetNghiem;
             this.col_th_isGoiXn.FieldName = "isGoiXn";
             this.col_th_isGoiXn.Name = "col_th_isGoiXn";
+            this.col_th_isGoiXn.OptionsColumn.ReadOnly = true;
             this.col_th_isGoiXn.Visible = true;
             this.col_th_isGoiXn.VisibleIndex = 5;
             this.col_th_isGoiXn.Width = 147;
@@ -208,11 +214,12 @@
             // 
             // FrmDMDichVu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1164, 648);
+            this.ClientSize = new System.Drawing.Size(998, 526);
             this.Controls.Add(this.gridControl_DMDichVu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmDMDichVu";
             this.Text = "FrmDMDichVu";
             this.Load += new System.EventHandler(this.FrmDMDichVu_Load);

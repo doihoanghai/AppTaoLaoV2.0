@@ -20,6 +20,7 @@ namespace BioNetSangLocSoSinh.FrmReports
 
         private void FrmTinhTrangMau_Load(object sender, EventArgs e)
         {
+           
             FrmReports.urcReporTinhTrangMau urc = new urcReporTinhTrangMau();
             urc.Dock = DockStyle.Fill;
             this.Controls.Clear();

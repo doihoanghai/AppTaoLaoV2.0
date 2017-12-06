@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -77,7 +78,11 @@ namespace DataSync.BioNetSync
             catch (Exception ex)
             {
                 res.Result = false;
-                res.StringError = DateTime.Now.ToString() + "Lỗi khi get dữ liệu Danh Mục Dich Vụ từ server \r\n " + ex.Message;
+                res.StringError = ex.Message;
+            }
+            if (res.Result == false)
+            {
+                res.StringError = "Lỗi đồng bộ danh mục dịch vụ - " + res.StringError;
             }
             return res;
         }
@@ -91,12 +96,11 @@ namespace DataSync.BioNetSync
                 db.Connection.Open();
                 db.Transaction = db.Connection.BeginTransaction();
 
-                var div = db.PSDanhMucDichVus.FirstOrDefault(p => p.IDDichVu == dv.IDDichVu);
+                var div = db.PSDanhMucDichVus.FirstOrDefault(p => p.IDDichVu == dv.IDDichVu.Trim());
                 if (div != null)
                 {
                     div.isLocked = dv.isLocked;
                     div.isGoiXn = dv.isGoiXn;
-                    div.GiaDichVu = dv.GiaDichVu;
                     div.MaNhom = dv.MaNhom;
                     div.TenDichVu = Encoding.UTF8.GetString(Encoding.Default.GetBytes(dv.TenDichVu));
                     div.TenHienThiDichVu = Encoding.UTF8.GetString(Encoding.Default.GetBytes(dv.TenHienThiDichVu));
@@ -105,7 +109,7 @@ namespace DataSync.BioNetSync
                 else
                 {
                     PSDanhMucDichVu divu = new PSDanhMucDichVu();
-                    divu.IDDichVu = dv.IDDichVu;
+                    divu.IDDichVu = dv.IDDichVu.Trim();
                     divu.isLocked = dv.isLocked;
                     divu.isGoiXn = dv.isGoiXn;
                     divu.GiaDichVu = dv.GiaDichVu;

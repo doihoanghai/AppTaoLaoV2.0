@@ -99,6 +99,9 @@ namespace BioNetSangLocSoSinh.Reports
             ////}
         }
 
-      
+        private void xrTableRow21_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+
+        }
     }
 }

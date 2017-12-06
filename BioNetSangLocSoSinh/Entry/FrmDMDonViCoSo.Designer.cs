@@ -35,6 +35,7 @@
             this.col_th_TenDVCS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_DiaChiDVCS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_SDTCS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_th_Email = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_Logo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemPictureEdit_logo = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.col_th_HeaderReport = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,10 +47,13 @@
             this.repositoryItemCheckEdit_isLocked = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.col_KieuTraKetQua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit_KieuTraKetQua = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.col_BacSiDaiDien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_ChuKiDonVi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemPictureEditChuKiDonVi = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.repositoryItemComboBoxKieuTraKetQua = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.fileLogo = new System.Windows.Forms.OpenFileDialog();
             this.fileHeader = new System.Windows.Forms.OpenFileDialog();
-            this.col_BacSiDaiDien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.fileChuKiDonVi = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_DonViCoSo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_DonViCoSo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit_logo)).BeginInit();
@@ -57,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit_ChiCuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit_isLocked)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit_KieuTraKetQua)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEditChuKiDonVi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxKieuTraKetQua)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +79,8 @@
             this.repositoryItemPictureEdit_logo,
             this.repositoryItemPictureEdit_header,
             this.repositoryItemComboBoxKieuTraKetQua,
-            this.repositoryItemLookUpEdit_KieuTraKetQua});
+            this.repositoryItemLookUpEdit_KieuTraKetQua,
+            this.repositoryItemPictureEditChuKiDonVi});
             this.gridControl_DonViCoSo.Size = new System.Drawing.Size(1181, 518);
             this.gridControl_DonViCoSo.TabIndex = 0;
             this.gridControl_DonViCoSo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -89,17 +95,18 @@
             this.col_th_TenDVCS,
             this.col_th_DiaChiDVCS,
             this.col_th_SDTCS,
+            this.col_th_Email,
             this.col_th_Logo,
             this.col_th_HeaderReport,
             this.col_th_Stt,
             this.col_th_MaChiCuc,
             this.col_th_isLocked,
             this.col_KieuTraKetQua,
-            this.col_BacSiDaiDien});
+            this.col_BacSiDaiDien,
+            this.col_ChuKiDonVi});
             this.gridView_DonViCoSo.GridControl = this.gridControl_DonViCoSo;
             this.gridView_DonViCoSo.Name = "gridView_DonViCoSo";
             this.gridView_DonViCoSo.NewItemRowText = "Thêm danh mục đơn vị cơ sở";
-            this.gridView_DonViCoSo.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView_DonViCoSo.OptionsView.ShowGroupPanel = false;
             this.gridView_DonViCoSo.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView_DonViCoSo_RowCellClick);
             this.gridView_DonViCoSo.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_DonViCoSo_ValidateRow);
@@ -124,7 +131,7 @@
             this.col_th_MaDVCS.OptionsColumn.ReadOnly = true;
             this.col_th_MaDVCS.Visible = true;
             this.col_th_MaDVCS.VisibleIndex = 0;
-            this.col_th_MaDVCS.Width = 73;
+            this.col_th_MaDVCS.Width = 70;
             // 
             // col_th_TenDVCS
             // 
@@ -135,9 +142,11 @@
             this.col_th_TenDVCS.Caption = "Tên đơn vị";
             this.col_th_TenDVCS.FieldName = "TenDVCS";
             this.col_th_TenDVCS.Name = "col_th_TenDVCS";
+            this.col_th_TenDVCS.OptionsColumn.AllowEdit = false;
+            this.col_th_TenDVCS.OptionsColumn.ReadOnly = true;
             this.col_th_TenDVCS.Visible = true;
             this.col_th_TenDVCS.VisibleIndex = 1;
-            this.col_th_TenDVCS.Width = 134;
+            this.col_th_TenDVCS.Width = 114;
             // 
             // col_th_DiaChiDVCS
             // 
@@ -148,9 +157,11 @@
             this.col_th_DiaChiDVCS.Caption = "Địa chỉ";
             this.col_th_DiaChiDVCS.FieldName = "DiaChiDVCS";
             this.col_th_DiaChiDVCS.Name = "col_th_DiaChiDVCS";
+            this.col_th_DiaChiDVCS.OptionsColumn.AllowEdit = false;
+            this.col_th_DiaChiDVCS.OptionsColumn.ReadOnly = true;
             this.col_th_DiaChiDVCS.Visible = true;
             this.col_th_DiaChiDVCS.VisibleIndex = 2;
-            this.col_th_DiaChiDVCS.Width = 193;
+            this.col_th_DiaChiDVCS.Width = 143;
             // 
             // col_th_SDTCS
             // 
@@ -161,9 +172,22 @@
             this.col_th_SDTCS.Caption = "Số ĐT";
             this.col_th_SDTCS.FieldName = "SDTCS";
             this.col_th_SDTCS.Name = "col_th_SDTCS";
+            this.col_th_SDTCS.OptionsColumn.AllowEdit = false;
+            this.col_th_SDTCS.OptionsColumn.ReadOnly = true;
             this.col_th_SDTCS.Visible = true;
             this.col_th_SDTCS.VisibleIndex = 3;
-            this.col_th_SDTCS.Width = 90;
+            this.col_th_SDTCS.Width = 65;
+            // 
+            // col_th_Email
+            // 
+            this.col_th_Email.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_th_Email.AppearanceHeader.Options.UseFont = true;
+            this.col_th_Email.Caption = "Địa chỉ Email";
+            this.col_th_Email.FieldName = "Email";
+            this.col_th_Email.Name = "col_th_Email";
+            this.col_th_Email.Visible = true;
+            this.col_th_Email.VisibleIndex = 4;
+            this.col_th_Email.Width = 81;
             // 
             // col_th_Logo
             // 
@@ -176,8 +200,8 @@
             this.col_th_Logo.FieldName = "Logo";
             this.col_th_Logo.Name = "col_th_Logo";
             this.col_th_Logo.Visible = true;
-            this.col_th_Logo.VisibleIndex = 4;
-            this.col_th_Logo.Width = 80;
+            this.col_th_Logo.VisibleIndex = 5;
+            this.col_th_Logo.Width = 55;
             // 
             // repositoryItemPictureEdit_logo
             // 
@@ -197,8 +221,8 @@
             this.col_th_HeaderReport.FieldName = "HeaderReport";
             this.col_th_HeaderReport.Name = "col_th_HeaderReport";
             this.col_th_HeaderReport.Visible = true;
-            this.col_th_HeaderReport.VisibleIndex = 5;
-            this.col_th_HeaderReport.Width = 97;
+            this.col_th_HeaderReport.VisibleIndex = 6;
+            this.col_th_HeaderReport.Width = 86;
             // 
             // repositoryItemPictureEdit_header
             // 
@@ -219,8 +243,8 @@
             this.col_th_Stt.FieldName = "Stt";
             this.col_th_Stt.Name = "col_th_Stt";
             this.col_th_Stt.Visible = true;
-            this.col_th_Stt.VisibleIndex = 10;
-            this.col_th_Stt.Width = 73;
+            this.col_th_Stt.VisibleIndex = 11;
+            this.col_th_Stt.Width = 28;
             // 
             // col_th_MaChiCuc
             // 
@@ -232,9 +256,11 @@
             this.col_th_MaChiCuc.ColumnEdit = this.repositoryItemLookUpEdit_ChiCuc;
             this.col_th_MaChiCuc.FieldName = "MaChiCuc";
             this.col_th_MaChiCuc.Name = "col_th_MaChiCuc";
+            this.col_th_MaChiCuc.OptionsColumn.AllowEdit = false;
+            this.col_th_MaChiCuc.OptionsColumn.ReadOnly = true;
             this.col_th_MaChiCuc.Visible = true;
-            this.col_th_MaChiCuc.VisibleIndex = 6;
-            this.col_th_MaChiCuc.Width = 126;
+            this.col_th_MaChiCuc.VisibleIndex = 7;
+            this.col_th_MaChiCuc.Width = 72;
             // 
             // repositoryItemLookUpEdit_ChiCuc
             // 
@@ -258,8 +284,8 @@
             this.col_th_isLocked.FieldName = "isLocked";
             this.col_th_isLocked.Name = "col_th_isLocked";
             this.col_th_isLocked.Visible = true;
-            this.col_th_isLocked.VisibleIndex = 9;
-            this.col_th_isLocked.Width = 68;
+            this.col_th_isLocked.VisibleIndex = 10;
+            this.col_th_isLocked.Width = 32;
             // 
             // repositoryItemCheckEdit_isLocked
             // 
@@ -275,8 +301,8 @@
             this.col_KieuTraKetQua.FieldName = "KieuTraKetQua";
             this.col_KieuTraKetQua.Name = "col_KieuTraKetQua";
             this.col_KieuTraKetQua.Visible = true;
-            this.col_KieuTraKetQua.VisibleIndex = 7;
-            this.col_KieuTraKetQua.Width = 105;
+            this.col_KieuTraKetQua.VisibleIndex = 8;
+            this.col_KieuTraKetQua.Width = 110;
             // 
             // repositoryItemLookUpEdit_KieuTraKetQua
             // 
@@ -290,6 +316,36 @@
             this.repositoryItemLookUpEdit_KieuTraKetQua.NullText = "";
             this.repositoryItemLookUpEdit_KieuTraKetQua.ShowFooter = false;
             this.repositoryItemLookUpEdit_KieuTraKetQua.ShowHeader = false;
+            // 
+            // col_BacSiDaiDien
+            // 
+            this.col_BacSiDaiDien.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.col_BacSiDaiDien.AppearanceHeader.Options.UseFont = true;
+            this.col_BacSiDaiDien.Caption = "Người đại diện";
+            this.col_BacSiDaiDien.FieldName = "TenBacSiDaiDien";
+            this.col_BacSiDaiDien.Name = "col_BacSiDaiDien";
+            this.col_BacSiDaiDien.Visible = true;
+            this.col_BacSiDaiDien.VisibleIndex = 9;
+            this.col_BacSiDaiDien.Width = 88;
+            // 
+            // col_ChuKiDonVi
+            // 
+            this.col_ChuKiDonVi.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.col_ChuKiDonVi.AppearanceHeader.Options.UseFont = true;
+            this.col_ChuKiDonVi.Caption = "Chữ kí đơn vị";
+            this.col_ChuKiDonVi.ColumnEdit = this.repositoryItemPictureEditChuKiDonVi;
+            this.col_ChuKiDonVi.FieldName = "ChuKiDonVi";
+            this.col_ChuKiDonVi.Name = "col_ChuKiDonVi";
+            this.col_ChuKiDonVi.Visible = true;
+            this.col_ChuKiDonVi.VisibleIndex = 12;
+            this.col_ChuKiDonVi.Width = 71;
+            // 
+            // repositoryItemPictureEditChuKiDonVi
+            // 
+            this.repositoryItemPictureEditChuKiDonVi.Name = "repositoryItemPictureEditChuKiDonVi";
+            this.repositoryItemPictureEditChuKiDonVi.NullText = " ";
+            this.repositoryItemPictureEditChuKiDonVi.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.repositoryItemPictureEditChuKiDonVi.Click += new System.EventHandler(this.repositoryItemPictureEditChuKiDonVi_Click);
             // 
             // repositoryItemComboBoxKieuTraKetQua
             // 
@@ -311,16 +367,10 @@
             this.fileHeader.FileName = "fileHeader";
             this.fileHeader.FileOk += new System.ComponentModel.CancelEventHandler(this.fileHeader_FileOk);
             // 
-            // col_BacSiDaiDien
+            // fileChuKiDonVi
             // 
-            this.col_BacSiDaiDien.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.col_BacSiDaiDien.AppearanceHeader.Options.UseFont = true;
-            this.col_BacSiDaiDien.Caption = "Người đại diện";
-            this.col_BacSiDaiDien.FieldName = "TenBacSiDaiDien";
-            this.col_BacSiDaiDien.Name = "col_BacSiDaiDien";
-            this.col_BacSiDaiDien.Visible = true;
-            this.col_BacSiDaiDien.VisibleIndex = 8;
-            this.col_BacSiDaiDien.Width = 124;
+            this.fileChuKiDonVi.FileName = "fileChuKiDonVi";
+            this.fileChuKiDonVi.FileOk += new System.ComponentModel.CancelEventHandler(this.fileChuKiDonVi_FileOk);
             // 
             // FrmDMDonViCoSo
             // 
@@ -341,6 +391,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit_ChiCuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit_isLocked)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit_KieuTraKetQua)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEditChuKiDonVi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxKieuTraKetQua)).EndInit();
             this.ResumeLayout(false);
 
@@ -370,5 +421,9 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxKieuTraKetQua;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit_KieuTraKetQua;
         private DevExpress.XtraGrid.Columns.GridColumn col_BacSiDaiDien;
+        private DevExpress.XtraGrid.Columns.GridColumn col_ChuKiDonVi;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEditChuKiDonVi;
+        private System.Windows.Forms.OpenFileDialog fileChuKiDonVi;
+        private DevExpress.XtraGrid.Columns.GridColumn col_th_Email;
     }
 }

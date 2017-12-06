@@ -8,7 +8,7 @@ using System.Web.Script.Serialization;
 
 namespace DataSync.BioNetSync
 {
-   public class DanhMucDonViCoSoSync
+    public class DanhMucDonViCoSoSync
     {
         private static BioNetDBContextDataContext db = null;
         private static string linkPostDanhMucDonViCoSo = "/api/donvicoso/AddUpFromApp";
@@ -26,29 +26,43 @@ namespace DataSync.BioNetSync
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!string.IsNullOrEmpty(token))
                     {
-                        var datas = db.PSDanhMucDonViCoSos.Where(p => p.isDongBo == false);
-                        foreach (var data in datas)
+                       var datas = db.PSDanhMucDonViCoSos.Where(p => p.isDongBo == false);
+                        if (datas.Count() > 0)
                         {
-                            string jsonstr = new JavaScriptSerializer().Serialize(data);
-                            var result = cn.PostRespone(cn.CreateLink(linkPostDanhMucDonViCoSo), token, jsonstr);
-                            if (result.Result)
+                            foreach (var data in datas)
                             {
-                                res.StringError += "Dữ liệu đơn vị " + data.TenDVCS + " đã được đồng bộ lên tổng cục \r\n";
-                                var resupdate = UpdateStatusSyncDanhMucDonVi(data);
-                                if (!resupdate.Result)
+                                string jsonstr = new JavaScriptSerializer().Serialize(data);
+                                var result = cn.PostRespone(cn.CreateLink(linkPostDanhMucDonViCoSo), token, jsonstr);
+                                if (result.Result)
                                 {
-                                    res.StringError += "Dữ liệu đơn vị " + data.TenDVCS + " chưa được cập nhật \r\n";
+                                    res.StringError += "Dữ liệu đơn vị " + data.TenDVCS + " đã đang được đồng bộ lên tổng cục \r\n";
+                                    var resupdate = UpdateStatusSyncDanhMucDonVi(data);
+                                    if (!resupdate.Result)
+                                    {
+                                        res.StringError += "Dữ liệu đơn vị " + data.TenDVCS + " chưa được cập nhật \r\n";
+                                    }
+                                    else
+                                    {
+                                        res.Result = true;
+                                        res.StringError += "Dữ liệu chi cục " + data.TenDVCS + " đã được cập nhật thành công \r\n";
+                                       
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                res.Result = false;
-                                res.StringError += "Dữ liệu đơn vị " + data.TenDVCS + " chưa được đồng bộ lên tổng cục \r\n";
-                            }
+                                else
+                                {
+                                    res.Result = false;
+                                    res.StringError += "Dữ liệu đơn vị " + data.TenDVCS + " chưa được đồng bộ lên tổng cục \r\n";
+                                }
 
+                            }
+                        }
+                        else
+                        {
+                            res.Result = true;
+                            res.StringError += "Không có đơn vị cần đồng bộ \r\n";
                         }
                     }
-                    
+
                 }
 
             }
@@ -63,7 +77,6 @@ namespace DataSync.BioNetSync
         private static PsReponse UpdateStatusSyncDanhMucDonVi(PSDanhMucDonViCoSo dvcs)
         {
             PsReponse res = new PsReponse();
-            
             try
             {
                 ProcessDataSync cn = new ProcessDataSync();
@@ -154,7 +167,11 @@ namespace DataSync.BioNetSync
             catch (Exception ex)
             {
                 res.Result = false;
-                res.StringError = DateTime.Now.ToString() + "Lỗi khi get dữ liệu Danh Mục Kỹ Thuật từ server \r\n " + ex.Message;
+                res.StringError = ex.Message;
+            }
+            if (res.Result == false)
+            {
+                res.StringError = "Lỗi đồng bộ đơn vị cơ sở - " + res.StringError;
             }
             return res;
         }
@@ -169,29 +186,19 @@ namespace DataSync.BioNetSync
                 db.Connection.Open();
                 db.Transaction = db.Connection.BeginTransaction();
 
-                var kyt = db.PSDanhMucDonViCoSos.FirstOrDefault(p => p.MaDVCS == cc.MaDVCS);
+                var kyt = db.PSDanhMucDonViCoSos.FirstOrDefault(p => p.MaDVCS == cc.MaDVCS.Trim());
                 if (kyt != null)
                 {
-                    if (!kyt.isDongBo??false)
+                    if (!kyt.isDongBo ?? false)
                     {
                         kyt.isLocked = cc.isLocked;
                         kyt.Stt = cc.Stt;
-                        kyt.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS));
+                        kyt.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS)).TrimEnd();
                         kyt.SDTCS = cc.SDTCS;
-                        kyt.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS));
-                        kyt.MaChiCuc = cc.MaChiCuc;
+                        kyt.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS)).TrimEnd();
+                        kyt.MaChiCuc = cc.MaChiCuc.Trim();
                         kyt.isLocked = cc.isLocked;
-                        kyt.KieuTraKetQua = cc.KieuTraKetQua;
-                        kyt.TenBacSiDaiDien = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenBacSiDaiDien));
-                        
-                        try
-                        {
-                            kyt.HeaderReport = cc.HeaderReport;
-                            kyt.Logo = cc.Logo;
-                        }
-                        catch
-                        { }
-
+                        kyt.TenBacSiDaiDien = cc.TenBacSiDaiDien!=null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenBacSiDaiDien)):null; 
                         db.SubmitChanges();
                     }
                 }
@@ -201,13 +208,13 @@ namespace DataSync.BioNetSync
                     PSDanhMucDonViCoSo ccnew = new PSDanhMucDonViCoSo();
                     ccnew.isLocked = cc.isLocked;
                     ccnew.Stt = cc.Stt;
-                    ccnew.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS));
+                    ccnew.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS)).TrimEnd();
                     ccnew.SDTCS = cc.SDTCS;
-                    ccnew.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS));
-                    ccnew.TenBacSiDaiDien   = cc.TenBacSiDaiDien;
-                    ccnew.isDongBo  = true;
-                    ccnew.MaChiCuc = cc.MaChiCuc;
-                    ccnew.MaDVCS = cc.MaDVCS;
+                    ccnew.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS)).TrimEnd();
+                    ccnew.TenBacSiDaiDien = cc.TenBacSiDaiDien;
+                    ccnew.isDongBo = true;
+                    ccnew.MaChiCuc = cc.MaChiCuc.Trim();
+                    ccnew.MaDVCS = cc.MaDVCS.Trim();
                     try
                     {
                         ccnew.HeaderReport = cc.HeaderReport;

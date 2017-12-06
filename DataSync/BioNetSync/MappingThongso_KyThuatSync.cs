@@ -1,4 +1,5 @@
 ﻿using BioNetModel;
+using BioNetModel.APIViewModel;
 using BioNetModel.Data;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Web.Script.Serialization;
 namespace DataSync.BioNetSync
 {
    
-    class MappingKyThuat_DichVuSync
+   public  class MappingKyThuat_DichVuSync
     {
         private static BioNetDBContextDataContext db = null;
         private static string linkGetDanhMucThongSo = "/api/mapsxnthongso/getall";
@@ -32,7 +33,7 @@ namespace DataSync.BioNetSync
                         {
                             string json = result.ValueResult;
                             JavaScriptSerializer jss = new JavaScriptSerializer();
-                            List<PSMapsXN_DichVu> CLuong = jss.Deserialize<List<PSMapsXN_DichVu>>(json);
+                            List<MapsXN_ThongSoSync> CLuong = jss.Deserialize<List<MapsXN_ThongSoSync>>(json);
                             if (CLuong.Count > 0)
                             {
 
@@ -55,7 +56,7 @@ namespace DataSync.BioNetSync
             }
             return res;
         }
-        public static PsReponse UpdateDMMap_KyThuat_DichVu(List<PSMapsXN_DichVu> Clm)
+        public static PsReponse UpdateDMMap_KyThuat_DichVu(List<MapsXN_ThongSoSync> Clm)
         {
             PsReponse res = new PsReponse();
             try
@@ -66,22 +67,24 @@ namespace DataSync.BioNetSync
                 db.Transaction = db.Connection.BeginTransaction();
                 foreach (var cl in Clm)
                 {
-                    var kyt = db.PSMapsXN_DichVus.FirstOrDefault(p => p.IDDichVu == cl.IDDichVu && p.IDKyThuatXN == cl.IDKyThuatXN);
+                    var kyt = db.PSMapsXN_ThongSos.FirstOrDefault(p => p.IDThongSo== cl.IDThongSoXN && p.IDKyThuatXN == cl.IDKyThuatXN );
                     if (kyt != null)
                     {
-
+                        kyt.IDKyThuatXN = cl.IDKyThuatXN;
+                        kyt.IDThongSo = cl.IDThongSoXN;
+                        kyt.TenKyThuat = cl.TenThongSo != null ? Encoding.UTF8.GetString(Encoding.Default.GetBytes(cl.TenThongSo)) : null;
+                        db.SubmitChanges();
                     }
                     else
                     {
-                        PSMapsXN_DichVu kyth = new PSMapsXN_DichVu();
+                        PSMapsXN_ThongSo kyth = new PSMapsXN_ThongSo();
                         kyth.IDKyThuatXN = cl.IDKyThuatXN;
-                        kyth.IDDichVu = cl.IDDichVu;
-                        db.PSMapsXN_DichVus.InsertOnSubmit(kyth);
+                        kyth.IDThongSo = cl.IDThongSoXN;
+                        kyth.TenKyThuat = cl.TenThongSo != null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(cl.TenThongSo)):null;
+                        db.PSMapsXN_ThongSos.InsertOnSubmit(kyth);
                         db.SubmitChanges();
                     }
-
                 }
-
                 db.Transaction.Commit();
                 db.Connection.Close();
                 res.Result = true;

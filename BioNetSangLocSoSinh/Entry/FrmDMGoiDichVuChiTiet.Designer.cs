@@ -30,9 +30,11 @@
         {
             this.gridControl_GoiDichVuChung = new DevExpress.XtraGrid.GridControl();
             this.gridView_GoiDichVuChung = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_th_Stt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_IDGoiDichVuChung = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_th_TenGoiDichVuChung = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnLuuSTT = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.repositoryItemCheckEdit_Check = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridView_DichVu = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -52,10 +54,12 @@
             // gridControl_GoiDichVuChung
             // 
             this.gridControl_GoiDichVuChung.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gridControl_GoiDichVuChung.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_GoiDichVuChung.Location = new System.Drawing.Point(0, 0);
             this.gridControl_GoiDichVuChung.MainView = this.gridView_GoiDichVuChung;
+            this.gridControl_GoiDichVuChung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_GoiDichVuChung.Name = "gridControl_GoiDichVuChung";
-            this.gridControl_GoiDichVuChung.Size = new System.Drawing.Size(396, 686);
+            this.gridControl_GoiDichVuChung.Size = new System.Drawing.Size(339, 557);
             this.gridControl_GoiDichVuChung.TabIndex = 0;
             this.gridControl_GoiDichVuChung.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_GoiDichVuChung});
@@ -63,12 +67,25 @@
             // gridView_GoiDichVuChung
             // 
             this.gridView_GoiDichVuChung.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_th_Stt,
             this.col_th_IDGoiDichVuChung,
             this.col_th_TenGoiDichVuChung});
             this.gridView_GoiDichVuChung.GridControl = this.gridControl_GoiDichVuChung;
             this.gridView_GoiDichVuChung.Name = "gridView_GoiDichVuChung";
             this.gridView_GoiDichVuChung.OptionsView.ShowGroupPanel = false;
             this.gridView_GoiDichVuChung.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView_GoiDichVuChung_RowCellClick);
+            // 
+            // col_th_Stt
+            // 
+            this.col_th_Stt.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
+            this.col_th_Stt.AppearanceHeader.Options.UseFont = true;
+            this.col_th_Stt.AppearanceHeader.Options.UseTextOptions = true;
+            this.col_th_Stt.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.col_th_Stt.Caption = "STT";
+            this.col_th_Stt.FieldName = "Stt";
+            this.col_th_Stt.Name = "col_th_Stt";
+            this.col_th_Stt.Visible = true;
+            this.col_th_Stt.VisibleIndex = 2;
             // 
             // col_th_IDGoiDichVuChung
             // 
@@ -100,21 +117,36 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnLuuSTT);
             this.panelControl1.Controls.Add(this.btnSave);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(396, 639);
+            this.panelControl1.Location = new System.Drawing.Point(339, 519);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(866, 47);
+            this.panelControl1.Size = new System.Drawing.Size(743, 38);
             this.panelControl1.TabIndex = 2;
+            // 
+            // btnLuuSTT
+            // 
+            this.btnLuuSTT.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnLuuSTT.Location = new System.Drawing.Point(86, 8);
+            this.btnLuuSTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLuuSTT.Name = "btnLuuSTT";
+            this.btnLuuSTT.Size = new System.Drawing.Size(64, 24);
+            this.btnLuuSTT.TabIndex = 1;
+            this.btnLuuSTT.Text = "Lưu";
+            this.btnLuuSTT.Click += new System.EventHandler(this.btnLuuSTT_Click);
             // 
             // btnSave
             // 
             this.btnSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnSave.Location = new System.Drawing.Point(19, 10);
+            this.btnSave.Location = new System.Drawing.Point(16, 8);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 30);
+            this.btnSave.Size = new System.Drawing.Size(64, 24);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Lưu";
+            this.btnSave.Visible = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // repositoryItemCheckEdit_Check
@@ -172,25 +204,28 @@
             // gridControl_DichVu
             // 
             this.gridControl_DichVu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl_DichVu.Location = new System.Drawing.Point(396, 0);
+            this.gridControl_DichVu.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gridControl_DichVu.Location = new System.Drawing.Point(339, 0);
             this.gridControl_DichVu.MainView = this.gridView_DichVu;
+            this.gridControl_DichVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl_DichVu.Name = "gridControl_DichVu";
             this.gridControl_DichVu.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit_Check});
-            this.gridControl_DichVu.Size = new System.Drawing.Size(866, 686);
+            this.gridControl_DichVu.Size = new System.Drawing.Size(743, 557);
             this.gridControl_DichVu.TabIndex = 1;
             this.gridControl_DichVu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_DichVu});
             // 
             // FrmDMGoiDichVuChiTiet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 686);
+            this.ClientSize = new System.Drawing.Size(1082, 557);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.gridControl_DichVu);
             this.Controls.Add(this.gridControl_GoiDichVuChung);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmDMGoiDichVuChiTiet";
             this.Text = "FrmDMGoiDichVuChiTiet";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -220,5 +255,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn col_th_TenDichVu;
         private DevExpress.XtraGrid.GridControl gridControl_DichVu;
         private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraGrid.Columns.GridColumn col_th_Stt;
+        private DevExpress.XtraEditors.SimpleButton btnLuuSTT;
     }
 }

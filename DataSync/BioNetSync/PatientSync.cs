@@ -12,7 +12,7 @@ namespace DataSync.BioNetSync
     public class PatientSync
     {
         private static BioNetDBContextDataContext db = null;
-        private static string linkGet = "/api/patient/getall?keyword=&page=0&pagesize=20";
+        private static string linkGet = "/api/patient/getall?keyword=&page=0&pagesize=999";
         private static string linkPost = "/api/patient/AddUpFromApp";
 
         public static PsReponse GetPatient()
@@ -34,7 +34,6 @@ namespace DataSync.BioNetSync
                         {
                             string json = result.ValueResult;
                             JavaScriptSerializer jss = new JavaScriptSerializer();
-
                             ObjectModel.RootObjectAPI psl = jss.Deserialize<ObjectModel.RootObjectAPI>(json);
                             //List<PSPatient> patient = jss.Deserialize<List<PSPatient>>(json);
                             List<PSPatient> lstpsl = new List<PSPatient>();
@@ -47,8 +46,17 @@ namespace DataSync.BioNetSync
                                     lstpsl.Add(term);
                                 }
                                 //UpdatePatient(patient);
-                                UpdatePatient(lstpsl);
-                                res.Result = true;
+                                var resUpdate = UpdatePatient(lstpsl, 1);
+                                if (resUpdate.Result == true)
+                                {
+                                    res.Result = true;
+                                }
+                                else
+                                {
+                                    res.Result = false;
+                                    res.StringError = resUpdate.StringError;
+                                }
+
 
                             }
                         }
@@ -80,11 +88,10 @@ namespace DataSync.BioNetSync
             }
             return res;
         }
-        public static PsReponse UpdatePatient(List<PSPatient> lstpsl)
+        public static PsReponse UpdatePatient(List<PSPatient> lstpsl, int luachon)
         {
 
             PsReponse res = new PsReponse();
-
             try
             {
                 ProcessDataSync cn = new ProcessDataSync();
@@ -94,12 +101,43 @@ namespace DataSync.BioNetSync
                 db.Transaction = db.Connection.BeginTransaction();
                 foreach (var psl in lstpsl)
                 {
-                    var psldb = db.PSPatients.FirstOrDefault(p => p.MaKhachHang == psl.MaKhachHang);
+                    var psldb = db.PSPatients.FirstOrDefault(p => p.MaBenhNhan == psl.MaBenhNhan);
                     if (psldb != null)
                     {
-                        var term = psl.RowIDBenhNhan;
-                        psldb = psl;
+                        var term = psldb.RowIDBenhNhan;
+                        cn.ConvertObjectToObject(psl, psldb);
+
                         psldb.RowIDBenhNhan = term;
+
+                        if (luachon == 1)
+                        {
+                            if (psl.TenBenhNhan != null)
+                            {
+                                psldb.TenBenhNhan = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenBenhNhan));
+                            }
+                            if (psl.MotherName != null)
+                            {
+                                psldb.MotherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.MotherName));
+                            }
+                            if (psl.FatherName != null)
+                            {
+                                psldb.FatherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.FatherName));
+                            }
+                            if (psl.DiaChi != null)
+                            {
+                                psldb.DiaChi = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChi));
+                            }
+                            if (psl.NoiSinh != null)
+                            {
+                                psldb.NoiSinh = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiSinh));
+                            }
+                        }
+                        else if (luachon == 2)
+                        {
+
+                        }
+
+
                         db.SubmitChanges();
 
                     }
@@ -107,11 +145,27 @@ namespace DataSync.BioNetSync
                     {
                         PSPatient newpsl = new PSPatient();
                         newpsl = psl;
-                        newpsl.TenBenhNhan = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenBenhNhan));
-                        newpsl.MotherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.MotherName));
-                        newpsl.FatherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.FatherName));
-                        newpsl.DiaChi = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChi));
-                        newpsl.NoiSinh = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiSinh));
+                        if (psl.TenBenhNhan != null)
+                        {
+                            newpsl.TenBenhNhan = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.TenBenhNhan));
+                        }
+                        if (psl.MotherName != null)
+                        {
+                            newpsl.MotherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.MotherName));
+                        }
+                        if (psl.FatherName != null)
+                        {
+                            newpsl.FatherName = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.FatherName));
+                        }
+                        if (psl.DiaChi != null)
+                        {
+                            newpsl.DiaChi = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.DiaChi));
+                        }
+                        if (psl.NoiSinh != null)
+                        {
+                            newpsl.NoiSinh = Encoding.UTF8.GetString(Encoding.Default.GetBytes(psl.NoiSinh));
+                        }
+                        newpsl.isXoa = false;
                         newpsl.RowIDBenhNhan = 0;
                         newpsl.isDongBo = true;
                         db.PSPatients.InsertOnSubmit(newpsl);
@@ -150,33 +204,89 @@ namespace DataSync.BioNetSync
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!string.IsNullOrEmpty(token))
                     {
-                        var datas = db.PSPatients.Where(p => p.isDongBo == false);
-                        foreach (var data in datas)
+                        var datas = db.PSPatients.Where(p => p.isDongBo != true && p.MaKhachHang != null).ToList();
+                        List<string> jsonstr = new List<string>();
+                        string Nhom = (string)null;
+                        while (datas.Count() > 1000)
                         {
-                            string jsonstr = new JavaScriptSerializer().Serialize(data);
-                            var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
-                            if (result.Result)
-                            {
-                                res.StringError += "Dữ liệu Patient " + data.MaKhachHang + " đã được đồng bộ lên tổng cục \r\n";
-                                List<PSPatient> lstpsl = new List<PSPatient>();
-                                lstpsl.Add(data);
-                                var resupdate = UpdatePatient(lstpsl);
-                                if (!resupdate.Result)
-                                {
-                                    res.StringError += "Dữ liệu khách hàng " + data.MaKhachHang + " chưa được cập nhật \r\n";
-                                }
-                            }
-                            else
-                            {
-                                res.Result = false;
-                                res.StringError += "Dữ liệu khách hàng " + data.MaKhachHang + " chưa được đồng bộ lên tổng cục \r\n";
-                            }
-
+                            var temp = datas.Take(1000);
+                            Nhom = new JavaScriptSerializer().Serialize(temp);
+                            jsonstr.Add(Nhom);
+                            datas.RemoveRange(0, 1000);
+                        } 
+                        if (datas.Count() <= 1000 && datas.Count()>0)
+                        {
+                            Nhom = new JavaScriptSerializer().Serialize(datas);
+                            jsonstr.Add(Nhom);
                         }
+                        if (jsonstr.Count() > 0)
+                        {
+                            #region Đồng bộ phiếu
+                            foreach (var jsons in jsonstr)
+                            {
+                                var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsons);
+                                if (result.Result)
+                                {
+                                    JavaScriptSerializer js = new JavaScriptSerializer();
+                                    List<PSPatient> datares = js.Deserialize<List<PSPatient>>(jsons);
+                                    var data = db.PSPatients.Where(s => (from d in datares select d.MaBenhNhan).Contains(s.MaBenhNhan));
+                                    data.ToList().ForEach(c => c.isDongBo = true);
+                                    db.SubmitChanges();
+                                    #region Cập nhật phiếu lỗi
+                                    string json = result.ErorrResult;
+                                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                                    List<String> psl = jss.Deserialize<List<String>>(json);
+                                    if (psl != null)
+                                    {
+                                        if (psl.Count > 0)
+                                        {
+                                            res.StringError = "Danh sách phiếu Patient lỗi: \r\n ";
+                                            foreach (var lst in psl)
+                                            {
+                                                PSResposeSync sn = cn.CutString(lst);
+                                                if (sn != null)
+                                                {
+                                                    var ds = db.PSPatients.FirstOrDefault(p => p.MaKhachHang == sn.Code);
+                                                    if (ds != null)
+                                                    {
+                                                        ds.isDongBo = false;
+                                                        res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                                    }
+
+                                                }
+                                            }
+                                            db.SubmitChanges();
+                                            res.Result = false;
+                                        }
+                                    }
+                                    #endregion
+
+                                }
+                                else
+                                {
+                                    res.Result = false;
+                                    res.StringError = "Đồng bộ phiếu Patient lỗi - Kiểm tra kết nội mạng!\r\n";
+                                }
+
+                            }
+                            #endregion
+                        }
+                        if (String.IsNullOrEmpty(res.StringError))
+                        {
+                            res.Result = true;
+                        }
+                        else
+                        {
+                            res.Result = false;
+                        }
+
                     }
+                    else
+                    {
+                        res.Result = true;
 
+                    }
                 }
-
             }
             catch (Exception ex)
             {
@@ -186,7 +296,5 @@ namespace DataSync.BioNetSync
             }
             return res;
         }
-
-
     }
 }
