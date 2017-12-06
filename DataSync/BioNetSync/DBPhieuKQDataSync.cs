@@ -39,13 +39,11 @@ namespace DataSync
                             long numBytes = filedongbo.Length;
                             FileStream fStream = new FileStream(filedongbo.FullName, FileMode.Open, FileAccess.Read);
                             BinaryReader br = new BinaryReader(fStream);
-                            //Identificate separator
-                            string boundary = filedongbo.FullName + DateTime.Now.Ticks.ToString("x");
-                            //Encoding                          
+                            string boundary = filedongbo.FullName + DateTime.Now.Ticks.ToString("x");                       
                             byte[] boundarybytes = File.ReadAllBytes(filedongbo.FullName);
                             br.Close();
                             string link;
-                            link = linkPDF + "?mabenhnhan=" + filedongbo.Name.Substring(0, 8);
+                            link = linkPDF + "?maDVCS=" + filedongbo.Name.Substring(0, 8);
                             var result = PostPDF(cn.CreateLink(link), token, boundarybytes);
                             if (string.IsNullOrEmpty(result.ErorrResult))
                             {

@@ -409,56 +409,62 @@ namespace BioNetSangLocSoSinh.Entry
             
             try
             {
-                
-                bool isTonTaiTrongDB = BioNet_Bus.KiemTraThongTinPhieuDaDuocTiepNhan(maPhieu);
-                if (isTonTaiTrongDB)
+                if(!string.IsNullOrEmpty(maPhieu))
                 {
-                    XtraMessageBox.Show("Phiếu này đã được nhập rồi,vui lòng chọn phiếu mới", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                else
-                {
-                    var ph = this.lstPhieu.FirstOrDefault(p => p.maPhieu == maPhieu);
-                    if (ph != null) //thêm phiếu mới vào lstTiepNhan, mã đơn vị = mã đơn vị được người dùng chọn trên combobox
+                    PsReponse isTonTaiTrongDB = BioNet_Bus.KiemTraThongTinPhieuDaDuocTiepNhan(maPhieu);
+                    if (!isTonTaiTrongDB.Result)
                     {
-
-                        PSTiepNhan tNhan = new PSTiepNhan();
-                        tNhan.MaDonVi = ph.maDonViCoSo; 
-                        tNhan.MaNVTiepNhan = this.MaNhanVienDangNhap;///"Gán mã user đăng nhập vô đây"
-                        tNhan.MaPhieu = ph.maPhieu;
-                        tNhan.NgayTiepNhan = DateTime.Now; 
-                        tNhan.isDaDanhGia = false;
-                        tNhan.RowIDTiepNhan = 0;
-                        tNhan.isDaNhapLieu = true;
-                        ThemMoiPhieuVaoDanhSachTiepNhan(tNhan);
-                        this.lstPhieu.Remove(ph);
-                        this.LoadGCPhieuCho();
+                        XtraMessageBox.Show(isTonTaiTrongDB.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     else
                     {
-                        if (String.IsNullOrEmpty(maDonVi) || maDonVi == "all")
+                        var ph = this.lstPhieu.FirstOrDefault(p => p.maPhieu == maPhieu);
+                        if (ph != null) //thêm phiếu mới vào lstTiepNhan, mã đơn vị = mã đơn vị được người dùng chọn trên combobox
                         {
-                            XtraMessageBox.Show("Bạn chưa chọn đơn vị để tiếp nhận phiếu!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            this.searchLookUpDonViCoSoTiepNhan.Focus();
-                            this.txtMaPhieuMoi.ResetText();
+
+                            PSTiepNhan tNhan = new PSTiepNhan();
+                            tNhan.MaDonVi = ph.maDonViCoSo;
+                            tNhan.MaNVTiepNhan = this.MaNhanVienDangNhap;///"Gán mã user đăng nhập vô đây"
+                            tNhan.MaPhieu = ph.maPhieu;
+                            tNhan.NgayTiepNhan = DateTime.Now;
+                            tNhan.isDaDanhGia = false;
+                            tNhan.RowIDTiepNhan = 0;
+                            tNhan.isDaNhapLieu = true;
+                            ThemMoiPhieuVaoDanhSachTiepNhan(tNhan);
+                            this.lstPhieu.Remove(ph);
+                            this.LoadGCPhieuCho();
                             return;
                         }
                         else
                         {
-                            PSTiepNhan tNhan = new PSTiepNhan();
-                            tNhan.MaDonVi = maDonVi;
-                            tNhan.MaNVTiepNhan = this.MaNhanVienDangNhap;
-                            tNhan.MaPhieu = maPhieu;
-                            tNhan.isDaNhapLieu = false;
-                            tNhan.isDaDanhGia = false;
-                            tNhan.NgayTiepNhan = DateTime.Now; 
-                            tNhan.RowIDTiepNhan = 0;
-                            ThemMoiPhieuVaoDanhSachTiepNhan(tNhan);
-                        }
+                            if (String.IsNullOrEmpty(maDonVi) || maDonVi == "all")
+                            {
+                                XtraMessageBox.Show("Bạn chưa chọn đơn vị để tiếp nhận phiếu!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                this.searchLookUpDonViCoSoTiepNhan.Focus();
+                                this.txtMaPhieuMoi.ResetText();
+                                return;
+                            }
+                            else
+                            {
+                                PSTiepNhan tNhan = new PSTiepNhan();
+                                tNhan.MaDonVi = maDonVi;
+                                tNhan.MaNVTiepNhan = this.MaNhanVienDangNhap;
+                                tNhan.MaPhieu = maPhieu;
+                                tNhan.isDaNhapLieu = false;
+                                tNhan.isDaDanhGia = false;
+                                tNhan.NgayTiepNhan = DateTime.Now;
+                                tNhan.RowIDTiepNhan = 0;
+                                ThemMoiPhieuVaoDanhSachTiepNhan(tNhan);
+                            }
 
-                    }
-                    
+                        }
+                    }    
+                }
+                else
+                {
+                    XtraMessageBox.Show("Bạn phải nhập mã phiếu!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
             }
             catch(Exception ex)
@@ -476,11 +482,10 @@ namespace BioNetSangLocSoSinh.Entry
                     this.searchLookUpDonViCoSoTiepNhan.EditValue = maDonVi;
             }
             catch (Exception ex) { }
-            bool isTonTaiTrongDB = BioNet_Bus.KiemTraThongTinPhieuDaDuocTiepNhan(maPhieu);
-            if (isTonTaiTrongDB)
+            PsReponse isTonTaiTrongDB = BioNet_Bus.KiemTraThongTinPhieuDaDuocTiepNhan(maPhieu);
+            if (!isTonTaiTrongDB.Result)
             {
-                XtraMessageBox.Show("Phiếu này đã được nhập rồi,vui lòng chọn phiếu mới", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.txtMaPhieuMoi.ResetText();
+                XtraMessageBox.Show(isTonTaiTrongDB.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             var ph = this.lstPhieu.FirstOrDefault(p => p.maPhieu == maPhieu);

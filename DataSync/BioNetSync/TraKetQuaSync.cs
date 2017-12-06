@@ -14,7 +14,7 @@ namespace DataSync.BioNetSync
         private static BioNetDBContextDataContext db = null;
         private static string linkPost = "/api/xntraTraKetQua/AddUpFromApp";
 
-    
+
         public static PsReponse UpdateKetQua(PSXN_TraKetQua ketqua)
         {
             PsReponse res = new PsReponse();
@@ -44,36 +44,36 @@ namespace DataSync.BioNetSync
             }
             return res;
         }
-    
-    public static PsReponse UpdateKetQuaChiTiet(PSXN_TraKQ_ChiTiet ketquachitiet)
-    {
-        PsReponse res = new PsReponse();
-        try
+
+        public static PsReponse UpdateKetQuaChiTiet(PSXN_TraKQ_ChiTiet ketquachitiet)
         {
-            ProcessDataSync cn = new ProcessDataSync();
-            db = cn.db;
-            db.Connection.Open();
-            db.Transaction = db.Connection.BeginTransaction();
-            var dv = db.PSXN_TraKQ_ChiTiets.FirstOrDefault(p => p.MaTiepNhan == ketquachitiet.MaTiepNhan && p.IDKyThuat == ketquachitiet.IDKyThuat);
-            if (dv != null)
+            PsReponse res = new PsReponse();
+            try
             {
-                dv.isDongBo = true;
-                db.SubmitChanges();
+                ProcessDataSync cn = new ProcessDataSync();
+                db = cn.db;
+                db.Connection.Open();
+                db.Transaction = db.Connection.BeginTransaction();
+                var dv = db.PSXN_TraKQ_ChiTiets.FirstOrDefault(p => p.MaTiepNhan == ketquachitiet.MaTiepNhan && p.IDKyThuat == ketquachitiet.IDKyThuat);
+                if (dv != null)
+                {
+                    dv.isDongBo = true;
+                    db.SubmitChanges();
+                }
+                db.Transaction.Commit();
+                db.Connection.Close();
+                res.Result = true;
             }
-            db.Transaction.Commit();
-            db.Connection.Close();
-            res.Result = true;
+            catch (Exception ex)
+            {
+                db.Transaction.Rollback();
+                db.Connection.Close();
+                res.Result = false;
+                res.StringError = ex.ToString();
+            }
+            return res;
         }
-        catch (Exception ex)
-        {
-            db.Transaction.Rollback();
-            db.Connection.Close();
-            res.Result = false;
-            res.StringError = ex.ToString();
-        }
-        return res;
-    }
-    public static PsReponse PostKetQua()
+        public static PsReponse PostKetQua()
         {
             PsReponse res = new PsReponse();
             res.Result = true;
@@ -87,71 +87,111 @@ namespace DataSync.BioNetSync
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!String.IsNullOrEmpty(token))
                     {
-                        var datas = db.PSXN_TraKetQuas.Where(x => x.isDongBo == false);
-                        List<XN_TraKetQuaViewModel> de = new List<XN_TraKetQuaViewModel>();                       
+                        var datas = db.PSXN_TraKetQuas.Where(x => x.isDongBo != true && x.isTraKQ == true && x.isDaDuyetKQ == true && x.isXoa!=true).OrderBy(x=>x.RowIDXN_TraKetQua ).ToList();
+                        List<XN_TraKetQuaViewModel> de = new List<XN_TraKetQuaViewModel>();
+                        List<string> jsonstr = new List<string>();
+                        string Nhom = (string)null;
+
                         foreach (var data in datas)
                         {
                             XN_TraKetQuaViewModel des = new XN_TraKetQuaViewModel();
-                            cn.ConvertObjectToObject(data, des);
-                            des.lstTraKetQuaChiTiet = new List<XN_TraKQ_ChiTietViewModel>();
-                            var cts = db.PSXN_TraKQ_ChiTiets.Where(x => x.MaPhieu == data.MaPhieu && x.MaTiepNhan == data.MaTiepNhan);
-                            foreach (var chitiet in cts)
+                            cn.ConvertObjectToObject(data, des);             
+                            des.lstTraKetQuaChiTiet = new List<XN_TraKQ_ChiTietViewModel>();                           
+                            foreach (var chitiet in data.PSXN_TraKQ_ChiTiets)
                             {
                                 XN_TraKQ_ChiTietViewModel term = new XN_TraKQ_ChiTietViewModel();
                                 var t = cn.ConvertObjectToObject(chitiet, term);
                                 des.lstTraKetQuaChiTiet.Add((XN_TraKQ_ChiTietViewModel)t);
-                                chitiet.isDongBo = true;
                             }
-                            data.isDongBo = true;
-                            de.Add(des);                         
+                            de.Add(des);
                         }
-                        string jsonstr = new JavaScriptSerializer().Serialize(de);
-                        var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
-                        if (result.Result)
+                        while (de.Count() > 200)
                         {
-                            db.SubmitChanges();
-                            string json = result.ErorrResult;
-                            JavaScriptSerializer jss = new JavaScriptSerializer();
-                            List<String> psl = jss.Deserialize<List<String>>(json);
-                            if (psl != null)
+                            var temp = de.Take(200);
+                            Nhom = new JavaScriptSerializer().Serialize(temp);
+                            jsonstr.Add(Nhom);
+                            de.RemoveRange(0, 200);
+                        } 
+                        if (de.Count() <= 200 && de.Count()>0)
+                        {
+                            Nhom = new JavaScriptSerializer().Serialize(de);
+                            jsonstr.Add(Nhom);
+                        }
+                        if (jsonstr.Count() > 0)
+                        {
+                            #region Đồng bộ phiếu
+                            foreach (var jsons in jsonstr)
                             {
-                                if (psl.Count > 0)
+                                var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsons);
+                                if (result.Result)
                                 {
-                                    res.StringError = "Danh sách phiếu tiếp nhận lỗi: \r\n ";
-                                    foreach (var lst in psl)
-                                    {
-                                        PSResposeSync sn = cn.CutString(lst);
-                                        if (sn != null)
-                                        {
-                                            var ds = db.PSXN_TraKetQuas.FirstOrDefault(p => p.MaPhieu == sn.Code);
-                                            if (ds != null)
-                                            {
-                                                ds.isDongBo = false;
-                                                var ct = db.PSXN_TraKQ_ChiTiets.Where(p => p.MaPhieu == sn.Code).ToList();
-                                                foreach (var c in ct)
-                                                {
-                                                    c.isDongBo = false;
-                                                }
-                                                res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
-                                            }
-
-                                        }
-                                    }
+                                    JavaScriptSerializer js = new JavaScriptSerializer();
+                                    List<PSXN_TraKetQua> datares = js.Deserialize<List<PSXN_TraKetQua>>(jsons);
+                                    var data = db.PSXN_TraKetQuas.Where(s => (from d in datares select d.MaPhieu).Contains(s.MaPhieu)).ToList();
+                                    var datact = db.PSXN_TraKQ_ChiTiets.Where(s => (from d in datares select d.MaPhieu).Contains(s.MaPhieu)).ToList();
+                                    data.ToList().ForEach(c => c.isDongBo = true);
+                                    datact.ToList().ForEach(c => c.isDongBo = true);
                                     db.SubmitChanges();
-                                    res.Result = false;
+                                    if (result.ErorrResult != "[]")
+                                    {
+                                        string json = result.ErorrResult;
+                                        JavaScriptSerializer jss = new JavaScriptSerializer();
+                                        List<String> psl = jss.Deserialize<List<String>>(json);
+                                        if (psl != null)
+                                        {
+                                            if (psl.Count > 0)
+                                            {
+                                                res.StringError = "Danh sách phiếu tiếp nhận lỗi: \r\n ";
+                                                foreach (var lst in psl)
+                                                {
+                                                    PSResposeSync sn = cn.CutString(lst);
+                                                    if (sn != null)
+                                                    {
+                                                        var ds = db.PSXN_TraKetQuas.FirstOrDefault(p => p.MaPhieu == sn.Code);
+                                                        if (ds != null)
+                                                        {
+                                                            ds.isDongBo = false;
+                                                            var ct = db.PSXN_TraKQ_ChiTiets.Where(p => p.MaPhieu == sn.Code).ToList();
+                                                            foreach (var c in ct)
+                                                            {
+                                                                c.isDongBo = false;
+                                                            }
+                                                            res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                                        }
+
+                                                    }
+                                                }
+                                                db.SubmitChanges();
+                                                res.Result = false;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            res.Result = false;
+                                            res.StringError = "Đồng bộ phiếu trả kết quả - Kiểm tra kết nội mạng!\r\n";
+                                        }
+
+                                    }
+
                                 }
+
+                            }
+                            #endregion
+                            if (String.IsNullOrEmpty(res.StringError))
+                            {
+                                res.Result = true;
                             }
                             else
                             {
-                                res.Result = true;
-                                res.StringError = "Đồng bộ phiếu tiếp nhận thành công!";
+                                res.Result = false;
                             }
                         }
-                        else
-                        {
-                            res.Result = false;
-                            res.StringError = "Đồng bộ phiếu tiếp nhận - Kiểm tra kết nội mạng!\r\n";
-                        }
+
+                    }
+                    else
+                    {
+                        res.Result = false;
+                        res.StringError = "Đồng bộ phiếu tiếp nhận - Kiểm tra kết nội mạng hoặc tài khoản đồng b!\r\n";
                     }
                 }
             }

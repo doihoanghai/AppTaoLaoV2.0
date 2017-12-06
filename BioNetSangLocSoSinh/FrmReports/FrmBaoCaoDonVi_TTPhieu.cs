@@ -16,14 +16,15 @@ namespace BioNetSangLocSoSinh.FrmReports
         public FrmBaoCaoDonVi_TTPhieu()
         {
             InitializeComponent();
-        }
-
-        private void FrmBaoCaoDonVi_TTPhieu_Load(object sender, EventArgs e)
-        {
             FrmReports.urcReportTTPhieu_DonVi urc = new urcReportTTPhieu_DonVi();
             urc.Dock = DockStyle.Fill;
             this.Controls.Clear();
             this.Controls.Add(urc);
+        }
+
+        private void FrmBaoCaoDonVi_TTPhieu_Load(object sender, EventArgs e)
+        {
+          
         }
     }
 }

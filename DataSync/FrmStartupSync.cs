@@ -43,12 +43,12 @@ namespace DataSync
             //this.PostPatient();
             //this.GetPhieuSangLoc();
             //this.GetPatient();          
-            this.PostTiepNhan();
+            //this.PostTiepNhan();
             //this.PostChiDinh();
-            //this.PostKetQua();
+            this.PostKetQua();
             //this.PostBenhNhanNguyCoCao();
             //this.PostDotChuanDoan();
-           // this.PostTraKetQua();
+           //this.PostTraKetQua();
             //this.PostChiTietDanhGiaChatLuongMau();
             //BionetApp.FrmStartup.PDFSync();
 

@@ -44,3 +44,15 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDataModel\bin\Debug\
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDataModel\obj\Debug\BioNetModel.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDataModel\obj\Debug\BioNetModel.pdb
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDataModel\obj\Debug\BioNetModel.csprojResolveAssemblyReference.cache
+C:\Users\LeThanhQuang\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\bin\Debug\BioNetModel.dll.config
+C:\Users\LeThanhQuang\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\bin\Debug\BioNetModel.dll
+C:\Users\LeThanhQuang\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\bin\Debug\BioNetModel.pdb
+C:\Users\LeThanhQuang\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\obj\Debug\BioNetModel.csprojResolveAssemblyReference.cache
+C:\Users\LeThanhQuang\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\obj\Debug\BioNetModel.csproj.CoreCompileInputs.cache
+C:\Users\LeThanhQuang\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\obj\Debug\BioNetModel.dll
+C:\Users\LeThanhQuang\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\obj\Debug\BioNetModel.pdb
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\bin\Debug\BioNetModel.dll.config
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\bin\Debug\BioNetModel.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\bin\Debug\BioNetModel.pdb
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\obj\Debug\BioNetModel.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDataModel\obj\Debug\BioNetModel.pdb

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraCharts;
 using BioNetModel;
+using BioNetBLL;
 
 namespace BioNetSangLocSoSinh.FrmReports
 {
@@ -24,7 +25,10 @@ namespace BioNetSangLocSoSinh.FrmReports
         {
             List<ObjectChartReport> lstPPS = new List<ObjectChartReport>();
             List<ObjectChartReport> lstCLM = new List<ObjectChartReport>();
-            this.dataRessult = BioNetBLL.BioNet_Bus.GetBaoCaoThongTinPhieu("", "", "");
+            List<ObjectChartReport> lstGoiXN = new List<ObjectChartReport>();
+            List<ObjectChartReport> lstCTCLMau = new List<ObjectChartReport>();
+            List<ObjectChartReport> lstChuongTrinh = new List<ObjectChartReport>();
+            this.dataRessult = BioNetBLL.BioNet_Bus.GetBaoCaoThongTinPhieu("", "");
             Series SLPhieu = new Series("Số lượng phiếu", ViewType.Line);
            foreach(var tkphieu in dataRessult.slphieu)
             {
@@ -35,25 +39,33 @@ namespace BioNetSangLocSoSinh.FrmReports
             this.chartThongKePhieu.Series.Clear();
             this.chartThongKePhieu.Series.Add(SLPhieu);
             if (chartThongKePhieu.Series[0].View is LineSeriesView)
+            {
                 (chartThongKePhieu.Series[0].View as LineSeriesView).MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
-
+                (chartThongKePhieu.Series[0].View as LineSeriesView).Color= System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+                (chartThongKePhieu.Series[0].View as LineSeriesView).LineMarkerOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            }
+                
             Series GioiTinh = new Series("Tị lệ Nam Nữ", ViewType.StackedBar);
             GioiTinh.Points.Add(new SeriesPoint("Nam",dataRessult.Nam ));
             GioiTinh.Points.Add(new SeriesPoint("Nữ", dataRessult.Nu));
             GioiTinh.Points.Add(new SeriesPoint("Khác", dataRessult.GTKhac));
-            GioiTinh.Label.TextPattern = "{V:#,#}";
-            GioiTinh.LegendText = "Tị lệ Nam/Nữ =" + (float)dataRessult.Nam / dataRessult.Nu;
-            GioiTinh.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            this.chartGioiTinh.Series.Clear();
             this.chartGioiTinh.Series.Add(GioiTinh);
+            (chartGioiTinh.Series[0].View as StackedBarSeriesView).Color = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(172)))), ((int)(((byte)(198)))));
             chartGioiTinh.Titles.Add(new ChartTitle());
             chartGioiTinh.Titles[0].Text = "Tị lệ Nam/Nữ =" + (float)dataRessult.Nam / dataRessult.Nu;
             ((XYDiagram)chartGioiTinh.Diagram).Rotated = true;
 
+            Series Phieu = new Series("Tổng số phiếu: " + dataRessult.TongSoPhieu, ViewType.StackedBar);
+            Phieu.Points.Add(new SeriesPoint("Phiếu mới", dataRessult.PhieuThuMoi));
+            Phieu.Points.Add(new SeriesPoint("Phiếu thu lại", dataRessult.PhieuThuLai));
+            Phieu.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            this.chartPhieu.Series.Add(Phieu);
+            this.chartPhieu.Titles.Add(new ChartTitle());
+            this.chartPhieu.Titles[0].Text= "Tổng số phiếu:" + dataRessult.TongSoPhieu;
 
             ObjectChartReport PPS = new ObjectChartReport { Name = "Sinh thường", Values = this.dataRessult.PPSinhThuong??0 };
             lstPPS.Add(PPS);
-               PPS = new ObjectChartReport { Name = "Sinh mổ", Values = this.dataRessult.PPSinhMo ?? 0 };
+            PPS = new ObjectChartReport { Name = "Sinh mổ", Values = this.dataRessult.PPSinhMo ?? 0 };
             lstPPS.Add(PPS);
             PPS = new ObjectChartReport { Name = "N/a", Values = this.dataRessult.PPSinhKhac ?? 0 };
             lstPPS.Add(PPS);
@@ -66,12 +78,50 @@ namespace BioNetSangLocSoSinh.FrmReports
             lstCLM.Add(CLM);
             this.chartCLMau.DataSource = lstCLM;
 
+            foreach(var tkbenh in dataRessult.thongkebenh)
+            {
+                ObjectChartReport GoiXN = new ObjectChartReport { Name = tkbenh.TenThongKe, Values = tkbenh.SoLuong };
+                lstGoiXN.Add(GoiXN);
+            }
+            this.chartGoiXN.DataSource = lstGoiXN;
 
+            foreach (var tkdgmau in dataRessult.thongkeDGMau)
+            {
+                ObjectChartReport CTCLmau = new ObjectChartReport { Name = tkdgmau.TenThongKe, Values = tkdgmau.SoLuong };
+                lstCTCLMau.Add(CTCLmau);
+            }
+            this.chartCTCLMau.DataSource = lstCTCLMau;
+
+            foreach (var tkctrinh in dataRessult.thongkeCTrinh)
+            {
+                ObjectChartReport ChuongTrinh = new ObjectChartReport { Name = tkctrinh.TenThongKe, Values = tkctrinh.SoLuong };
+                lstChuongTrinh.Add(ChuongTrinh);
+            }
+            this.chartChuongTrinh.DataSource = lstChuongTrinh;
         }
 
         private void urcReportTTPhieu_DonVi_Load(object sender, EventArgs e)
         {
             LoadDuLieu();
+        }
+
+        private void txtChiCuc_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                SearchLookUpEdit sear = sender as SearchLookUpEdit;
+                var value = sear.EditValue.ToString();
+                this.txtDonVi.Properties.DataSource = BioNet_Bus.GetDieuKienLocBaoCao_DonVi(value.ToString());
+                this.txtDonVi.EditValue = "all";
+            }
+            catch { }
+        }
+
+        
+
+        private void butOK_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

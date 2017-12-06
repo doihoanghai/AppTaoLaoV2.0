@@ -138,5 +138,27 @@ namespace BioNetModel.Properties {
                 return ((string)(this["BioConnectionString10"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=POWERSOFT02\\SQLEXPRESS;Initial Catalog=Bio_TestSync;Integrated Securi" +
+            "ty=True")]
+        public string BioConnectionString11 {
+            get {
+                return ((string)(this["BioConnectionString11"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=POWERSOFT02\\SQLEXPRESS;Initial Catalog=Bio_TestSync_Test;Integrated S" +
+            "ecurity=True")]
+        public string Bio_TestSync_TestConnectionString {
+            get {
+                return ((string)(this["Bio_TestSync_TestConnectionString"]));
+            }
+        }
     }
 }

@@ -90,5 +90,21 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=POWERSOFT02\SQLEXPRESS;Initial Catalog=Bio;User ID=sa;Password=0313529521</Value>
     </Setting>
+    <Setting Name="BioConnectionString11" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=POWERSOFT02\SQLEXPRESS;Initial Catalog=Bio_TestSync;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=POWERSOFT02\SQLEXPRESS;Initial Catalog=Bio_TestSync;Integrated Security=True</Value>
+    </Setting>
+    <Setting Name="Bio_TestSync_TestConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=POWERSOFT02\SQLEXPRESS;Initial Catalog=Bio_TestSync_Test;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=POWERSOFT02\SQLEXPRESS;Initial Catalog=Bio_TestSync_Test;Integrated Security=True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

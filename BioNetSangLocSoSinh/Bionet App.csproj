@@ -104,6 +104,15 @@
     <Reference Include="DLLLicensePS">
       <HintPath>LibDLL\DLLLicensePS.dll</HintPath>
     </Reference>
+    <Reference Include="Excel.4.5">
+      <HintPath>..\..\..\..\Downloads\output\output\net45\Excel.4.5.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\..\..\Downloads\output\output\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Downloads\itextsharp-all-5.5.10\itextsharp.xfaworker-dll-5.5.10\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -338,6 +347,12 @@
     <Compile Include="Entry\FrmEmployee.designer.cs">
       <DependentUpon>FrmEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entry\FrmImportData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entry\FrmImportData.Designer.cs">
+      <DependentUpon>FrmImportData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entry\FrmInfoPerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -488,11 +503,11 @@
     <Compile Include="FrmReports\frmReportTrungTam_ChiCuc.Designer.cs">
       <DependentUpon>frmReportTrungTam_ChiCuc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReports\FrmReportTrungTam_DonVi.cs">
+    <Compile Include="FrmReports\FrmReportThongKeCoBan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReports\FrmReportTrungTam_DonVi.Designer.cs">
-      <DependentUpon>FrmReportTrungTam_DonVi.cs</DependentUpon>
+    <Compile Include="FrmReports\FrmReportThongKeCoBan.Designer.cs">
+      <DependentUpon>FrmReportThongKeCoBan.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReports\FrmTinhTrangMau.cs">
       <SubType>Form</SubType>
@@ -777,6 +792,9 @@
     <EmbeddedResource Include="Entry\FrmEmployee.resx">
       <DependentUpon>FrmEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Entry\FrmImportData.resx">
+      <DependentUpon>FrmImportData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Entry\FrmInfoPerson.resx">
       <DependentUpon>FrmInfoPerson.cs</DependentUpon>
     </EmbeddedResource>
@@ -852,8 +870,8 @@
     <EmbeddedResource Include="FrmReports\frmReportTrungTam_ChiCuc.resx">
       <DependentUpon>frmReportTrungTam_ChiCuc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReports\FrmReportTrungTam_DonVi.resx">
-      <DependentUpon>FrmReportTrungTam_DonVi.cs</DependentUpon>
+    <EmbeddedResource Include="FrmReports\FrmReportThongKeCoBan.resx">
+      <DependentUpon>FrmReportThongKeCoBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReports\FrmTinhTrangMau.resx">
       <DependentUpon>FrmTinhTrangMau.cs</DependentUpon>

@@ -92,7 +92,6 @@ namespace DataSync.BioNetSync
         {
 
             PsReponse res = new PsReponse();
-
             try
             {
                 ProcessDataSync cn = new ProcessDataSync();
@@ -205,82 +204,87 @@ namespace DataSync.BioNetSync
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!string.IsNullOrEmpty(token))
                     {
-                        var datas = db.PSPatients.Where(p => p.isDongBo == false && p.MaKhachHang != null);
-                        if (datas != null)
+                        var datas = db.PSPatients.Where(p => p.isDongBo != true && p.MaKhachHang != null).ToList();
+                        List<string> jsonstr = new List<string>();
+                        string Nhom = (string)null;
+                        while (datas.Count() > 1000)
                         {
-                            if (datas.Count() > 0)
+                            var temp = datas.Take(1000);
+                            Nhom = new JavaScriptSerializer().Serialize(temp);
+                            jsonstr.Add(Nhom);
+                            datas.RemoveRange(0, 1000);
+                        } 
+                        if (datas.Count() <= 1000 && datas.Count()>0)
+                        {
+                            Nhom = new JavaScriptSerializer().Serialize(datas);
+                            jsonstr.Add(Nhom);
+                        }
+                        if (jsonstr.Count() > 0)
+                        {
+                            #region Đồng bộ phiếu
+                            foreach (var jsons in jsonstr)
                             {
-                                string jsonstr = (string)null;
-                                jsonstr = new JavaScriptSerializer().Serialize(datas);
-                                if (jsonstr != null)
+                                var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsons);
+                                if (result.Result)
                                 {
-
-                                    var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
-                                    if (result.Result)
+                                    JavaScriptSerializer js = new JavaScriptSerializer();
+                                    List<PSPatient> datares = js.Deserialize<List<PSPatient>>(jsons);
+                                    var data = db.PSPatients.Where(s => (from d in datares select d.MaBenhNhan).Contains(s.MaBenhNhan));
+                                    data.ToList().ForEach(c => c.isDongBo = true);
+                                    db.SubmitChanges();
+                                    #region Cập nhật phiếu lỗi
+                                    string json = result.ErorrResult;
+                                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                                    List<String> psl = jss.Deserialize<List<String>>(json);
+                                    if (psl != null)
                                     {
-                                        foreach (var data in datas)
+                                        if (psl.Count > 0)
                                         {
-                                            data.isDongBo = true;
-                                        }
-                                        db.SubmitChanges();
-                                        string json = result.ErorrResult;
-                                        JavaScriptSerializer jss = new JavaScriptSerializer();
-                                        List<String> psl = jss.Deserialize<List<String>>(json);
-                                        if (psl != null)
-                                        {
-                                            if (psl.Count > 0)
+                                            res.StringError = "Danh sách phiếu Patient lỗi: \r\n ";
+                                            foreach (var lst in psl)
                                             {
-                                                res.StringError = "Danh sách phiếu Patient lỗi: \r\n ";
-                                                foreach (var lst in psl)
+                                                PSResposeSync sn = cn.CutString(lst);
+                                                if (sn != null)
                                                 {
-                                                    PSResposeSync sn = cn.CutString(lst);
-                                                    if (sn != null)
+                                                    var ds = db.PSPatients.FirstOrDefault(p => p.MaKhachHang == sn.Code);
+                                                    if (ds != null)
                                                     {
-                                                        var ds = db.PSPatients.FirstOrDefault(p => p.MaKhachHang == sn.Code);
-                                                        if (ds != null)
-                                                        {
-                                                            ds.isDongBo = false;
-                                                            res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
-                                                        }
-
+                                                        ds.isDongBo = false;
+                                                        res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
                                                     }
+
                                                 }
                                             }
                                             db.SubmitChanges();
                                             res.Result = false;
                                         }
-                                        else
-                                        {
-                                            res.Result = true;
-                                            res.StringError = "Đồng bộ phiếu Patient thành công!";
-                                        }
                                     }
-                                    else
-                                    {
-                                        res.Result = false;
-                                        res.StringError = "Đồng bộ phiếu Patient lỗi - Kiểm tra kết nội mạng!\r\n";
-                                    }
+                                    #endregion
 
                                 }
-                            }
-                            else
-                            {
-                                res.Result = true;
+                                else
+                                {
+                                    res.Result = false;
+                                    res.StringError = "Đồng bộ phiếu Patient lỗi - Kiểm tra kết nội mạng!\r\n";
+                                }
 
                             }
-
+                            #endregion
+                        }
+                        if (String.IsNullOrEmpty(res.StringError))
+                        {
+                            res.Result = true;
                         }
                         else
                         {
-                            res.Result = true;
-                            res.StringError += "Không có dữ liệu khách hàng cần đồng bộ \r\n";
+                            res.Result = false;
                         }
 
                     }
                     else
                     {
                         res.Result = true;
-                        res.StringError += "Không có dữ liệu khách hàng cần đồng bộ \r\n";
+
                     }
                 }
             }

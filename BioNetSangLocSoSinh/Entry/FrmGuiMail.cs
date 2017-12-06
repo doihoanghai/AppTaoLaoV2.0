@@ -138,8 +138,9 @@ namespace BioNetSangLocSoSinh.FrmReports
                             if (kt == 0) { MaDVCS.Add(maDVCS); }
                             //Noi lưu phiếu trả kết quả                               
                             string pathpdf = Application.StartupPath + "\\PhieuKetQua\\" + maDVCS + "\\" + maPhieu + ".pdf";
-                            //Kiểm tra đường dẫn tồn tại ko                     
-                            if (!Directory.Exists(pathpdf)) { LuuPDF(maPhieu, maDVCS); }//Nếu ko có phiếu thì in lại phiếu 
+                            //Kiểm tra đường dẫn tồn tại ko
+                           
+                            if (!File.Exists(pathpdf)) { LuuPDF(maPhieu, maDVCS); }//Nếu ko có phiếu thì in lại phiếu 
                             NenGuiMail(pathpdf, maPhieu, maDVCS);
 
                         }
@@ -153,32 +154,32 @@ namespace BioNetSangLocSoSinh.FrmReports
                             kq = GuiMail(madvcs);
                             if (kq == 1)
                             {
-                                MessageBox.Show("Gửi mail cho đơn vị " + madvcs + " thất bại", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                                XtraMessageBox.Show("Gửi mail cho đơn vị " + madvcs + " thất bại", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
                                 break;
                             }
                             else if (kq == 2)
                             {
-                                MessageBox.Show("Email của đơn vị " + madvcs + " không tồn tại", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                                XtraMessageBox.Show("Email của đơn vị " + madvcs + " không tồn tại", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
                                 break;
                             }
                             else if (kq == 5)
                             {
-                                MessageBox.Show("Dữ liệu của Email của trung tâm lỗi - Vui lòng kiểm tra lại dữ liệu ", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
+                                XtraMessageBox.Show("Dữ liệu của Email của trung tâm lỗi - Vui lòng kiểm tra lại dữ liệu ", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
                                 break;
                             }
                         }
                         SplashScreenManager.CloseForm();
-                        if (kq == 0) { MessageBox.Show("Gửi Mail thành công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
+                        if (kq == 0) { XtraMessageBox.Show("Gửi Mail thành công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
                         //Xóa file nén đã gửi mail
                         DirectoryInfo dirInfo = new DirectoryInfo(pathMail);
                         FileInfo[] childFiles = dirInfo.GetFiles();
                         foreach (FileInfo childFile in childFiles) { File.Delete(childFile.FullName); }
                     }
-                    else { MessageBox.Show("Vui lòng tick vào phiếu cần gửi mail", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
+                    else { XtraMessageBox.Show("Vui lòng tick vào phiếu cần gửi mail", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
                 }
                 catch(Exception ex)
                 {
-
+                    XtraMessageBox.Show("Lỗi khi gửi mail", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
                
             }
@@ -204,7 +205,7 @@ namespace BioNetSangLocSoSinh.FrmReports
                    "<p></p><p></p>" +
                    "<p style='font-size:12.8px;margin:6pt 0in;text-align:justify'><font face='times new roman,serif' size = '4' color='black'>" + "Kính thư," + "</font></p>";
                 string madvcs = MaDVCS;
-                string pathzip = pathMail + madvcs + ".zip";
+                string pathzip = pathMail + madvcs  +"(" + DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year + ")" + ".zip"; 
 
                 string MailKH = BioNet_Bus.GetThongTinMailDonViCoSo(madvcs);
                 //string mailKh = "thanhquangqb95@gmail.com";
@@ -221,15 +222,15 @@ namespace BioNetSangLocSoSinh.FrmReports
         //THống kê
         private string ThongKeMail(string MaDVCS)
         {
-            string zipPath = Application.StartupPath + "\\DSGuiMail\\" + MaDVCS + ".zip";
-           string[] maphieu = null;
-           
+            string zipPath = Application.StartupPath + "\\DSGuiMail\\" + MaDVCS+ "(" + DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year +")"+ ".zip";
+            string[] maphieu = null;
+
             using (ZipArchive archive = ZipFile.OpenRead(zipPath))
             {
                 foreach (ZipArchiveEntry entry in archive.Entries)
                 {
                     string[] temp = entry.Name.Split('.');
-                    if(maphieu==null)
+                    if (maphieu == null)
                     {
                         maphieu = new string[] { temp[0] };
                     }
@@ -238,148 +239,167 @@ namespace BioNetSangLocSoSinh.FrmReports
                         Array.Resize(ref maphieu, maphieu.Length + 1);
                         maphieu[maphieu.Length - 1] = temp[0];
                     }
-                    
+
                 }
             }
-          
-            List<PSTKKQPhieuMail> tk = new List<PSTKKQPhieuMail>();
-            tk = BioNet_Bus.GetThongKePhieuMail(maphieu);
 
+           PSTKKQPhieuMail tk = new PSTKKQPhieuMail();
+            tk = BioNet_Bus.GetThongKePhieuMail(maphieu);
+            int chitieumaumoi = tk.benh2 * 2 + tk.benh3 * 3 + tk.benh5 * 5;
+            int chitieumauxnl = tk.G6PD3 +tk.GAL3+tk.PKU3+tk.CH3+tk.CAH3;
             string bangkq = "<table width='100%'  border='1' cellpadding='0' cellspacing='0' >" +
-               "<tr style='padding:5px;'>" +
-                    "<th style='padding:5px; text-align:center; 'colspan='3' >SỐ MẪU GỬI BIONET</th>" +
-                    "<th style='padding:5px; tex -align:center; ' colspan='7'>KẾT QUẢ XN</th>" +
+               "<tr style='padding:5px; text-align:center;'>" +
+                    "<th style='padding:5px; text-align:center; color:#ffffff; background-color:#5ec0d6;'colspan='3'><b>  MẪU XÉT NGHIỆM</b></th>" +
+                    "<th style='padding:5px; text-align:center; color:#ffffff; background-color:#5ec0d6;'colspan='7'><b>KẾT QUẢ XÉT NGHIỆM</b></th>" +
                "</tr >" +
 
-               "<tr style='padding:5px;'>" +
-                    "<td style='padding:5px;' rowspan='1'>Mẫu mới:</td>" +
-                    "<td style='padding:5px;'>2 bệnh</td>" +
-                    "<td style='padding:5px;'>"+tk[0].benh2+"</td>" +
-                    "<td style='padding:5px;'>Nguy Cơ Thấp</td>" +
-                    "<td style='padding:5px; text-align:center;' colspan='6'>"+tk[0].NguyCoThap+"</td>" +
+               "<tr style='padding:5px; text-align:center;'>" +
+                    "<td style='padding:5px; text-align:center; background-color:#d9e5e8;' colspan='3'>Mẫu mới</td>" +
+                    "<td style='padding:5px; text-align:center;' rowspan='2'>Nguy Cơ Thấp</td>" +
+                    "<td style='padding:5px; text-align:center; background-color:#87dc86;' colspan='1'>Tổng</td>" +
+                     "<td style='padding:5px; text-align:center; background-color:#d9e5e8;' colspan='1'>G6PD</td>" +
+                      "<td style='padding:5px; text-align:center; background-color:#d9e5e8;' colspan='1'>TGAL</td>" +
+                       "<td style='padding:5px; text-align:center; background-color:#d9e5e8;' colspan='1'>PKU</td>" +
+                        "<td style='padding:5px; text-align:center; background-color:#d9e5e8;' colspan='1'>CH</td>" +
+                         "<td style='padding:5px; text-align:center; background-color:#d9e5e8;' colspan='1'>CAH</td>" +
                "</tr>" +
 
-               "<tr style='padding:5px;' >" +
-                     "<td style='padding:5px;' rowspan='2'>" + tk[0].MauMoi + "</td>" +
-                     "<td style='padding:5px;'>3 bệnh</td>" +
-                     "<td style='padding:5px;'> " + tk[0].benh3 + "</td>" +
-                     "<td style='padding:5px;'>Nghi ngờ</td>" +
-                     "<td style='padding:5px;'>G6PD</td>" +
-                     "<td style='padding:5px;'> " + tk[0].G6PD + "</td>" +
-                     "<td style='padding:5px;'>GAL</td>" +
-                     "<td style='padding:5px;'>" + tk[0].GAL+ "</td>" +
-                     "<td style='padding:5px;'>PKU</td>" +
-                     "<td style='padding:5px;'>" + tk[0].PKU + "</td>" +
+               "<tr style='padding:5px; text-align:center;' >" +
+                     "<td style='padding:5px; text-align:center;' rowspan='3'>" + tk.MauMoi+"<br>"+"("+ chitieumaumoi+"chỉ tiêu)" + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>2 bệnh</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.benh2 + "</td>" +
+                        "<td style='padding:5px; text-align:center;'>" + tk.NguyCoThap + "</td>" +
+                     "<td style='padding:5px; text-align:center;'> " + tk.G6PD + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.GAL + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.PKU + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.CH + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.CAH + "</td>" +
                 "</tr>" +
 
-                "<tr style='padding:5px;'>" +
-                     "<td style='padding:5px;'>5 bệnh</td>" +
-                     "<td style='padding:5px;'>" + tk[0].benh5 + "</td>" +
-                     "<td style='padding:5px;'>" + tk[0].NguyCoCao + "</td>" +
-                     "<td style='padding:5px;'>CH</td>" +
-                     "<td style='padding:5px;'> " + tk[0].CH + "</td>" +
-                     "<td style='padding:5px;'>CAH</td>" +
-                     "<td style='padding:5px;'> " + tk[0].CAH + "</td>" +
-                     "<td style='padding:5px;'></td>" +
-                     "<td style='padding:5px;'> </td>" +
+                "<tr style='padding:5px; text-align:center;'>" +
+                     "<td style='padding:5px; text-align:center;'>3 bệnh</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.benh3 + "</td>" +
+                     "<td style='padding:5px;' rowspan='2' colspan='1'>Nghi ngờ</td>" +
+                     "<td style='padding:5px; text-align:center;background-color:#87dc86;' colspan='1'>Tổng</td>" +
+                     "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>G6PD</td>" +
+                      "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>TGAL</td>" +
+                       "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>PKU</td>" +
+                        "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>CH</td>" +
+                         "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>CAH</td>" +
                 "</tr>" +
 
-               "<tr style='padding:5px;'>" +
-                     "<td style='padding:5px;' rowspan='1'>Mẫu XNL</td>" +
-                     "<td style='padding:5px;'>G6PD</td>" +
-                     "<td style='padding:5px;'> " + tk[0].G6PD2 + "</td>" +
-                     "<td style='padding:5px;'>Nguy cơ thấp</td>" +
-                     "<td style='padding:5px;'>G6PD</td>" +
-                     "<td style='padding:5px;'>" + tk[0].G6PD3 + "</td>" +
-                     "<td style='padding:5px;'>GAL</td>" +
-                     "<td style='padding:5px;'> " + tk[0].GAL3 + "</td>" +
-                     "<td style='padding:5px;'>PKU</td>" +
-                     "<td style='padding:5px;'> " + tk[0].PKU3 + "</td>" +
+               "<tr style='padding:5px; text-align:center;'>" +
+                     "<td style='padding:5px; text-align:center;'>5 bệnh</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.benh5 + "</td>" +
+                     "<td style='padding:5px; text-align:center;'> " + tk.NguyCoCao + "</td>" +
+                     "<td style='padding:5px; text-align:center;'> " + tk.G6PD2 + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.GAL2 + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.PKU2 + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.CH2 + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.CAH2 + "</td>" +
                "</tr>" +
-
-               "<tr style='padding:5px;'>" +
-                      "<td style='padding:5px; text-align:center;' rowspan='4'>" + tk[0].MauXNL + "</td>" +
-                     "<td style='padding:5px;'>GAL</td>" +
-                     "<td style='padding:5px;'> " + tk[0].GAL2 + "</td>" +
-                     "<td style='padding:5px;'>" + tk[0].NguyCoThap2 + "</td>" +
-                     "<td style='padding:5px;'>CH</td>" +
-                     "<td style='padding:5px;'> " + tk[0].CH3 + "</td>" +
-                     "<td style='padding:5px;'>CAH</td>" +
-                     "<td style='padding:5px;'> " + tk[0].CAH3 + "</td>" +
-                     "<td style='padding:5px;'></td>" +
-                     "<td style='padding:5px;'></td>" +
-               "</tr>" +
-
-                "<tr>" +
-                     "<td style='padding:5px;'>PKU</td>" +
-                     "<td style='padding:5px;'> " + tk[0].PKU2 + "</td>" +
-                     "<td style='padding:5px;'>Nguy cơ Cao</td>" +
-                     "<td style='padding:5px; 'colspan='6'></td>" +
+"<tr><td  style='padding:2px; text-align:center; background-color:#83e8a7;' colspan='10'></td></tr>" +
+                     "<td style='padding:5px; text-align:center; background-color:#d9e5e8;' colpan='1'>Mẫu XNL</td>" +
+                     "<td style='padding:5px; text-align:center;' colspan='1'>G6PD</td>" +
+                      "<td style='padding:5px; text-align:center;' colspan='1'>" + tk.G6PD3 + "</td>" +
+                    "<td style='padding:5px; text-align:center;' rowspan='2' colspan='1' >Nguy cơ thấp</td>" +
+                    "<td style='padding:5px; text-align:center;background-color:#87dc86;' colspan='1'>Tổng</td>" +
+                     "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>G6PD</td>" +
+                      "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>TGAL</td>" +
+                       "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>PKU</td>" +
+                        "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>CH</td>" +
+                         "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>CAH</td>" +
                 "</tr>" +
 
-                "<tr style='padding:5px;'>" +
-                     "<td style='padding:5px;'>CH</td>" +
-                     "<td style='padding:5px;'>" + tk[0].CH2 + "</td>" +
-                     "<td style='padding:5px; text-align:center;' rowspan ='2'>" + tk[0].NguyCoCao2 + "</td>" +
-                     "<td style='padding:5px;'>G6PD</td>" +
-                     "<td style='padding:5px;'> " + tk[0].G6PD4 + "</td>" +
-                     "<td style='padding:5px;'>GAL</td>" +
-                     "<td style='padding:5px;'> " + tk[0].GAL4 + "</td>" +
-                     "<td style='padding:5px;'>PKU</td>" +
-                    " <td style='padding:5px;'> " + tk[0].PKU4 + "</td>" +
+                "<tr style='padding:5px; text-align:center;'>" +
+                     "<td style='padding:5px; text-align:center;' rowspan='4'>" + tk.MauXNL + "<br>" + "(" + chitieumauxnl + "chỉ tiêu)" + "</td>" +
+                    "<td style='padding:5px; text-align:center;' colspan='1'>TGAL</td>" +
+                      "<td style='padding:5px; text-align:center;' colspan='1'>" + tk.GAL3 + "</td>" +
+                      "<td style='padding:5px; text-align:center;'> " + tk.NguyCoThap2 + "</td>" +
+                   "<td style='padding:5px; text-align:center;'> " + tk.G6PD4 + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.GAL4 + "</td>" +
+                     "<td style='padding:5px;text-align:center;'>" + tk.PKU4 + "</td>" +
+                     "<td style='padding:5px;text-align:center;'>" + tk.CH4 + "</td>" +
+                     "<td style='padding:5px;text-align:center;'>" + tk.CAH4 + "</td>" +
                 "</tr>" +
 
-                "<tr style='padding:5px;'> " +
-                     "<td style='padding:5px;'>CAH</td>" +
-                     "<td style='padding:5px;'> " + tk[0].CAH2 + "</td>" +
-                     "<td style='padding:5px;'>CH</td>" +
-                     "<td style='padding:5px;'>" + tk[0].CH4 + "</td>" +
-                     "<td style='padding:5px;'>CAH</td>" +
-                     "<td style='padding:5px;'>" + tk[0].CAH4 + "</td>" +
-                     "<td style='padding:5px;'></td>" +
-                     "<td style='padding:5px;'></td>" +
+                "<tr style='padding:5px; text-align:center;'> " +
+                       "<td style='padding:5px; text-align:center;'>PKU</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.PKU3 + "</td>" +
+                     "<td style='padding:5px; text-align:center;' rowspan='2' colspan='1'>Nghi ngờ cao</td>" +
+                     "<td style='padding:5px; text-align:center;background-color:#87dc86;' colspan='1'>Tổng</td>" +
+                     "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>G6PD</td>" +
+                      "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>TGAL</td>" +
+                       "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>PKU</td>" +
+                        "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>CH</td>" +
+                         "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>CAH</td>" +
                  "</tr>" +
-
-                 "<tr style='padding:5px;'>" +
-                     "<td style='padding:5px; text-align:center;' colspan='10'  >Chất lượng mẫu</td>" +
-                 "</tr>" +
-
-                 "<tr style='padding:5px;'>" +
-                     "<td style='padding:5px;' colspan='1' >Mẫu đạt: </td>" +
-                     "<td style='padding:5px; text-align:center;'colspan='9' >" + tk[0].MauDat + "</td>" +
-                 "</tr>" +
-
-                 "<tr style='padding:5px;'>" +
-                     "<td style='padding:5px;' colspan='1' >Mẫu không đạt:</td>" +
-                     "<td style='padding:5px;' colspan='1' rowspan='5' >Lý do: </td>" +
-                     "<td style='padding:5px;' colspan='3' >1. Mẫu ít:</td>" +
-                     "<td style='padding:5px;' colspan='1' >" + tk[0].Mauit + "</td>" +
-                     "<td style='padding:5px; text-align:center; vertical-align: top;' colspan='2' rowspan='5' >Người thu mẫu</td>" +
-                     "<td style='padding:5px; text-align:center; vertical-align: top;' colspan='2' rowspan='5'>N/A</td>" +
-                 "</tr>" +
-
-                "<tr style='padding:5px;'>" +
-                     "<td style='padding:5px; text-align:center;' colspan='1' rowspan='5' >" + tk[0].MauKDat+ "</td>" +
-                     "<td style='padding:5px;' colspan='3'>2. Mẫu có vòng huyết thanh</td>" +
-                     "<td style='padding:5px;' colspan='1' >" + tk[0].MauCoVongHuyetThanh + "</td>" +
+                    "<tr style='padding:5px; text-align:center;'>" +
+                    "<td style='padding:5px; text-align:center;' colspan='1'>CH</td>" +
+                      "<td style='padding:5px; text-align:center;' colspan='1'>" + tk.PKU3 + "</td>" +
+                      "<td style='padding:5px; text-align:center;'> " + tk.NguyCoCao2 + "</td>" +
+                   "<td style='padding:5px; text-align:center;'> " + tk.G6PD5 + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.GAL5 + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.PKU5 + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.CH5 + "</td>" +
+                     "<td style='padding:5px; text-align:center;'>" + tk.CAH5 + "</td>" +
                 "</tr>" +
-
-                "<tr style='padding:5px;'>" +
-                     "<td style='padding:5px;' colspan='3'>3. Mẫu không thấm đều 2 mặt</td>" +
-                     "<td style='padding:5px;' colspan='1' >" + tk[0].MauKdeu + "</td>" +
+                  "</tr>" +
+                    "<tr style='padding:5px; text-align:center;'>" +
+                    "<td style='padding:5px; text-align:center;' colspan='1'>CAH</td>" +
+                    "<td style='padding:5px; text-align:center;' colspan='1'>" + tk.CAH3+ "</td>" +
+                   "<td style='padding:5px; text-align:center;'></td>" +
+                     "<td style='padding:5px; text-align:center;'></td>" +
+                     "<td style='padding:5px; text-align:center;'></td>" +
+                     "<td style='padding:5px; text-align:center;'></td>" +
+                     "<td style='padding:5px; text-align:center;'></td>" +
+                       "<td style='padding:5px; text-align:center;'></td>" +
+                     "<td style='padding:5px; text-align:center;'></td>" +
                 "</tr>" +
+"</table>" + "<br></br>" +
+"<table width='100%'  border='1' cellpadding='0' cellspacing='0' >" +
+                "<tr><td colspan=6 style='padding:5px; text-align:center;color:#ffffff; background-color:#5ec0d6;'>CHẤT LƯỢNG MẪU </td></tr >" +
+                "<tr><td colspan=1 style='padding:5px; text-align:center;background-color:#d9e5e8;'>Mẫu đạt </td>" +
+                "<td colspan=2 style='padding:5px; text-align:center;background-color:#d9e5e8;'>Mẫu không đạt </td>" +
+                "<td colspan=1  style='padding:5px; text-align:center;'>" + tk.MauKDat + "</td>" +
+                "<th colspan=2 style ='padding:5px;' >" + "" + " </td></tr>" +
+       "<tr>" +
+                "<td rowspan=6  style='padding:5px; text-align:center;'>" + tk.MauDat + "</td>" +
+                         "<td rowspan=6 style='padding:5px; text-align:center;'>Lý Do</td>"+ 
+                         "<td colspan=1 style='padding:5px; '>1. Mẫu không thấm đều 2 mặt </td>"+ 
+                         "<td colspan=1 style='padding:5px; text-align:center;'>"+tk.MauKdeu+ tk.Mauit+" </ td > " + 
+                         "<td rowspan=6 style='padding:5px; text-align:center;'>Người thu mẫu </td>" +
+                         "<td colspan=1 style='padding:5px; text-align:center;'>"+ "" +" </ td > "+
 
-                "<tr style='padding:5px;'>" +
-                      "<td style='padding:5px;' colspan='3'>4. Mẫu chưa khô</td>" +
-                      "<td style='padding:5px;' colspan='1' >" + tk[0].MauChuaKho + "</td>" +
-                 "</tr>" +
+           "</tr>"+
+           "<tr>"+
+                         "<td colspan=1 style='padding:5px; '>2. Giọt máu chồng lên nhau </td> "+
+                         "<td colspan=1 style='padding:5px; text-align:center;'>" + +tk.MauChong + " </ td > " +
+                         "<td colspan=1 style='padding:5px; text-align:center;'>" + "" + " </ td > " +
 
-                 "<tr style='padding:5px;'>" +
-                      "<td style='padding:5px;' colspan='3'>5. Giọt máu chồng lên nhau</td>" +
-                      "<td style='padding:5px;' colspan='1' >" + tk[0].MauChong + "</td>" +
-                 "</tr>"+
+           "</tr>"+
+           "<tr>" +
+                         "<td colspan=1 style='padding:5px; '>3. Thời gian gửi mẫu muộn </td> " +
+                         "<td colspan=1 style='padding:5px; text-align:center;'>" + tk.GuiCham + " </ td > " +
+                         "<td colspan=1 style='padding:5px; text-align:center;'>" + "" + " </ td > " +
 
-           "</table>" ;
+           "</tr>" +
+            "<tr>" +
+                         "<td colspan=1 style='padding:5px; '>4. Thu mẫu sớm (trước 24h tuổi) </td>" +
+                         "<td colspan=1 style='padding:5px; text-align:center;'>" + tk.ThuSom + "</td>" +
+                         "<td colspan=1 style='padding:5px; text-align:center;'>" + "" + "</td>" +
+           "</tr>" +
+            "<tr>" +
+                         "<td colspan=1 style='padding:5px; '>5. Trẻ sinh non hoặc nhẹ cân </td>" +
+                         "<td colspan=1 style='padding:5px; text-align:center;'>" + tk.SinhNonNheCan + "</td>" +
+                         "<td colspan=1 style='padding:5px; text-align:center;'>" + "" + "</td>" +
+           "</tr>" +
+            "<tr>" +
+                         "<td colspan=1 style='padding:5px; '>6. Lý do khác </td>" +
+                         "<td colspan=1 style='padding:5px; text-align:center;'>" + tk.LyDoKhac + "</td>" +
+                         "<td colspan=1 style='padding:5px; text-align:center;'>" + "" + "</td>" +
+           "</tr>" +
+                    "</table>";
             return bangkq;
         }
         //Lưu File PDF
@@ -434,7 +454,7 @@ namespace BioNetSangLocSoSinh.FrmReports
             {
 
             }
-            string zipPath = Application.StartupPath + "\\DSGuiMail\\" + tendvcs + ".zip";
+            string zipPath = Application.StartupPath + "\\DSGuiMail\\" + tendvcs+"("+DateTime.Now.Day+"."+DateTime.Now.Month+"."+DateTime.Now.Year +")"+ ".zip";
             if (Directory.Exists(zipPath))
             {
                 ZipFile.CreateFromDirectory(startPath, zipPath);

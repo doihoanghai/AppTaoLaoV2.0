@@ -591,8 +591,8 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             try
             {
                 SplashScreenManager.ShowForm(this, typeof(DiaglogFrm.Waitingfrom), true, true, false);
-                FrmReports.FrmReportTrungTam_DonVi frm = new FrmReports.FrmReportTrungTam_DonVi();
-                TabCreating(xTabMain, "Báo cáo chi cục chi tiết", frm);
+                FrmReports.FrmReportThongKeCoBan frm = new FrmReports.FrmReportThongKeCoBan();
+                TabCreating(xTabMain, "Báo cáo thống kê cơ bản", frm);
                 SplashScreenManager.CloseForm();
             }
             catch { }
@@ -724,7 +724,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                 res.Add(DanhMucChiCucSync.GetDanhMucChiCuc());
                 res.Add(DanhMucDonViCoSoSync.GetDanhMucDonViCoSo());
                 res.Add(DanhMucDichVuSync.GetDMDichVu());
-                res.Add(DanhMucDichVuCoSoSync.GetDMDichVuCoSo());
+                //res.Add(DanhMucDichVuCoSoSync.GetDMDichVuCoSo());
                 res.Add(DanhMucGoiDichVuTheoDonViSync.GetDMGoiDichVuTheoDonVi());
                 res.Add(DanhMucGoiDichVuChungSync.GetDMGoiDichVuChung());
                 res.Add(DanhMucGoiDichVuChungSync.GetDMGoiDichVuChung_ChiTiet());
@@ -799,14 +799,25 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                 string Error = null;
                 SplashScreenManager.ShowForm(this, typeof(WaitingformLoadDongBo), true, true, false);
                 res.Add(PhieuSangLocSync.PostPhieuSangLoc());
-                res.Add(PatientSync.PostPatient());
-                res.Add(ChiDinhSync.PostChiDinh());
-                res.Add(KetQuaSync.PostKetQua());
-                res.Add(BenhNhanNguyCoCaoSync.PostBenhNhanNguyCoCao());
-                res.Add(DotChuanDoanSync.PostDotChuanDoan());
                 res.Add(TraKetQuaSync.PostKetQua());
-                res.Add(DanhGiaChatLuongMauSync.PostCTDanhGiaChatLuongMau());
                 res.Add(PDFSync());
+                //Thread db1 = new Thread(() => res.Add(PatientSync.PostPatient()));
+                //Thread db2 = new Thread(() => res.Add(ChiDinhSync.PostChiDinh()));
+                //Thread db3 = new Thread(() => res.Add(KetQuaSync.PostKetQua()));
+                //Thread db4 = new Thread(() => res.Add(BenhNhanNguyCoCaoSync.PostBenhNhanNguyCoCao()));
+                //Thread db5 = new Thread(() => res.Add(DotChuanDoanSync.PostDotChuanDoan()));
+                //Thread db6 = new Thread(() => res.Add(TraKetQuaSync.PostKetQua()));
+                //Thread db7 = new Thread(() => res.Add(DanhGiaChatLuongMauSync.PostCTDanhGiaChatLuongMau()));
+                //Thread db8 = new Thread(() => res.Add(PDFSync()));
+                //db1.Start();
+                //db2.Start();
+                //db3.Start();
+                //db4.Start();
+                //db5.Start();
+                //db6.Start();
+                //db7.Start();
+                //db8.Start();
+
                 foreach (var p in res)
                 {
                     if (p.Result == false && p.StringError != null)

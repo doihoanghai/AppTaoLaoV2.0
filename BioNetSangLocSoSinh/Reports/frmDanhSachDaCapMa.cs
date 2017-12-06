@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using Excel = Microsoft.Office.Interop.Excel;
+using Excelc = Microsoft.Office.Interop.Excel;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -20,9 +20,9 @@ namespace BioNetSangLocSoSinh.Reports
 
         private DataSet dsResult = new DataSet();
         private DevExpress.XtraReports.UI.XtraReport rpt = new DevExpress.XtraReports.UI.XtraReport();
-        private Excel.Application oxl;
-        private Excel._Workbook owb;
-        private Excel._Worksheet osheet;
+        private Excelc.Application oxl;
+        private Excelc._Workbook owb;
+        private Excelc._Worksheet osheet;
         private string fromdate = string.Empty, todate = string.Empty, sheetname = string.Empty;
         public string NameFile;
 
@@ -63,10 +63,10 @@ namespace BioNetSangLocSoSinh.Reports
                         rpt.ExportOptions.Xls.ShowGridLines = true;
                         rpt.ExportOptions.Xls.SheetName = this.sheetname;
 
-                        rpt.ExportToXls(frmPath.pathName);
-                        oxl = new Excel.Application();
-                        owb = (Excel._Workbook)(oxl.Workbooks.Open(frmPath.pathName, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value));
-                        osheet = (Excel._Worksheet)owb.ActiveSheet;
+                        rpt.ExportToXlsx(frmPath.pathName);
+                        oxl = new Excelc.Application();
+                        owb = (Excelc._Workbook)(oxl.Workbooks.Open(frmPath.pathName, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value));
+                        osheet = (Excelc._Worksheet)owb.ActiveSheet;
                         oxl.ActiveWindow.DisplayGridlines = false;
                         oxl.ActiveWindow.DisplayZeros = false;
                         oxl.Visible = true;
@@ -103,10 +103,10 @@ namespace BioNetSangLocSoSinh.Reports
                         rpt.ExportOptions.Xls.ShowGridLines = true;
                         rpt.ExportOptions.Xls.SheetName = this.sheetname;
 
-                        rpt.ExportToXls(frmPath.pathName);
-                        oxl = new Excel.Application();
-                        owb = (Excel._Workbook)(oxl.Workbooks.Open(frmPath.pathName, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value));
-                        osheet = (Excel._Worksheet)owb.ActiveSheet;
+                        rpt.ExportToXlsx(frmPath.pathName);
+                        oxl = new Excelc.Application();
+                        owb = (Excelc._Workbook)(oxl.Workbooks.Open(frmPath.pathName, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value));
+                        osheet = (Excelc._Worksheet)owb.ActiveSheet;
                         oxl.ActiveWindow.DisplayGridlines = false;
                         oxl.ActiveWindow.DisplayZeros = false;
                         oxl.Visible = true;

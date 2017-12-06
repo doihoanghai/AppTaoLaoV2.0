@@ -97,8 +97,6 @@
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel57 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.xrPictureBox3 = new DevExpress.XtraReports.UI.XRPictureBox();
-            this.xrLabel40 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox2 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrLabel28 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel39 = new DevExpress.XtraReports.UI.XRLabel();
@@ -115,7 +113,6 @@
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
-            this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrLabel29 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel30 = new DevExpress.XtraReports.UI.XRLabel();
@@ -1052,8 +1049,6 @@
             // ReportFooter
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrPictureBox3,
-            this.xrLabel40,
             this.xrPictureBox2,
             this.xrLabel28,
             this.xrLabel39,
@@ -1070,29 +1065,6 @@
             this.xrLabel3});
             this.ReportFooter.HeightF = 378.0303F;
             this.ReportFooter.Name = "ReportFooter";
-            // 
-            // xrPictureBox3
-            // 
-            this.xrPictureBox3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Image", null, "ThongTinTrungTam.ChuKiXN")});
-            this.xrPictureBox3.LocationFloat = new DevExpress.Utils.PointFloat(27.69287F, 215.3693F);
-            this.xrPictureBox3.Name = "xrPictureBox3";
-            this.xrPictureBox3.SizeF = new System.Drawing.SizeF(255.6822F, 152F);
-            this.xrPictureBox3.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            // 
-            // xrLabel40
-            // 
-            this.xrLabel40.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel40.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel40.LocationFloat = new DevExpress.Utils.PointFloat(27.69287F, 155.8276F);
-            this.xrLabel40.Name = "xrLabel40";
-            this.xrLabel40.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel40.SizeF = new System.Drawing.SizeF(226.5948F, 36.54166F);
-            this.xrLabel40.StylePriority.UseBorders = false;
-            this.xrLabel40.StylePriority.UseFont = false;
-            this.xrLabel40.StylePriority.UseTextAlignment = false;
-            this.xrLabel40.Text = "NHÂN VIÊN XÉT NGHIỆM ";
-            this.xrLabel40.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrPictureBox2
             // 
@@ -1278,7 +1250,7 @@
             // xrLabel3
             // 
             this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(24.83512F, 10.66104F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(9.999998F, 9.999974F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(146.2083F, 23F);
@@ -1290,8 +1262,7 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrPictureBox1,
-            this.xrLine2});
+            this.xrPictureBox1});
             this.ReportHeader.HeightF = 101.3252F;
             this.ReportHeader.Name = "ReportHeader";
             // 
@@ -1301,21 +1272,8 @@
             new DevExpress.XtraReports.UI.XRBinding("Image", null, "ThongTinDonVi.Header")});
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(1.500098F, 4.999987F);
             this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(764.4996F, 74.79166F);
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(764.4995F, 86.32522F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            // 
-            // xrLine2
-            // 
-            this.xrLine2.BorderColor = System.Drawing.Color.DeepSkyBlue;
-            this.xrLine2.BorderWidth = 50F;
-            this.xrLine2.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.xrLine2.LineWidth = 5;
-            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(1.500098F, 79.79166F);
-            this.xrLine2.Name = "xrLine2";
-            this.xrLine2.SizeF = new System.Drawing.SizeF(764.5001F, 16.53355F);
-            this.xrLine2.StylePriority.UseBorderColor = false;
-            this.xrLine2.StylePriority.UseBorderWidth = false;
-            this.xrLine2.StylePriority.UseForeColor = false;
             // 
             // PageFooter
             // 
@@ -1401,7 +1359,6 @@
         private DevExpress.DataAccess.ObjectBinding.ObjectDataSource objectDataSource2;
         private DevExpress.XtraReports.UI.CalculatedField TenDonViUpper;
         private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
-        private DevExpress.XtraReports.UI.XRLine xrLine2;
         private DevExpress.XtraReports.UI.XRPanel xrPanel1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel56;
         private DevExpress.XtraReports.UI.XRLabel xrLabel55;
@@ -1478,7 +1435,5 @@
         private DevExpress.XtraReports.UI.XRTableCell txtGiaTri;
         private DevExpress.XtraReports.UI.XRTableCell txtKetLuan;
         private DevExpress.XtraReports.UI.XRTableCell txtNguyCo;
-        private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox3;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel40;
     }
 }

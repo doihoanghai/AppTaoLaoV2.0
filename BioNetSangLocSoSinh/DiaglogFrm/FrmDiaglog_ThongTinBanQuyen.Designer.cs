@@ -62,69 +62,62 @@
             this.groupControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(372, 244);
+            this.groupControl1.Size = new System.Drawing.Size(319, 198);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông tin bản quyền";
             // 
             // txtThoiGian
             // 
             this.txtThoiGian.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtThoiGian.Location = new System.Drawing.Point(128, 181);
-            this.txtThoiGian.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtThoiGian.Location = new System.Drawing.Point(110, 147);
             this.txtThoiGian.Name = "txtThoiGian";
-            this.txtThoiGian.Size = new System.Drawing.Size(49, 21);
+            this.txtThoiGian.Size = new System.Drawing.Size(38, 16);
             this.txtThoiGian.TabIndex = 3;
             this.txtThoiGian.Text = "0 ngày";
             // 
             // txtBanQuyen
             // 
             this.txtBanQuyen.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtBanQuyen.Location = new System.Drawing.Point(115, 154);
-            this.txtBanQuyen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBanQuyen.Location = new System.Drawing.Point(99, 125);
             this.txtBanQuyen.Name = "txtBanQuyen";
-            this.txtBanQuyen.Size = new System.Drawing.Size(96, 21);
+            this.txtBanQuyen.Size = new System.Drawing.Size(81, 17);
             this.txtBanQuyen.TabIndex = 3;
             this.txtBanQuyen.Text = "Không hợp lệ";
             // 
             // txtVersion
             // 
             this.txtVersion.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtVersion.Location = new System.Drawing.Point(115, 126);
-            this.txtVersion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtVersion.Location = new System.Drawing.Point(99, 102);
             this.txtVersion.Name = "txtVersion";
-            this.txtVersion.Size = new System.Drawing.Size(55, 21);
+            this.txtVersion.Size = new System.Drawing.Size(138, 16);
             this.txtVersion.TabIndex = 3;
-            this.txtVersion.Text = "Version";
+            this.txtVersion.Text = "Version: 1.2017.12.04.1";
             // 
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelControl4.Location = new System.Drawing.Point(7, 181);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl4.Location = new System.Drawing.Point(6, 147);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(110, 21);
+            this.labelControl4.Size = new System.Drawing.Size(91, 17);
             this.labelControl4.TabIndex = 3;
             this.labelControl4.Text = "Thời gian còn :";
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelControl3.Location = new System.Drawing.Point(7, 154);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl3.Location = new System.Drawing.Point(6, 125);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(88, 21);
+            this.labelControl3.Size = new System.Drawing.Size(75, 17);
             this.labelControl3.TabIndex = 3;
             this.labelControl3.Text = "Bản quyền :";
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelControl2.Location = new System.Drawing.Point(7, 126);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl2.Location = new System.Drawing.Point(6, 102);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(88, 21);
+            this.labelControl2.Size = new System.Drawing.Size(73, 17);
             this.labelControl2.TabIndex = 3;
             this.labelControl2.Text = "Phiên bản : ";
             // 
@@ -136,10 +129,9 @@
             this.txtTenTrungTam.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.txtTenTrungTam.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.txtTenTrungTam.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.txtTenTrungTam.Location = new System.Drawing.Point(7, 28);
-            this.txtTenTrungTam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTenTrungTam.Location = new System.Drawing.Point(6, 23);
             this.txtTenTrungTam.Name = "txtTenTrungTam";
-            this.txtTenTrungTam.Size = new System.Drawing.Size(360, 65);
+            this.txtTenTrungTam.Size = new System.Drawing.Size(309, 53);
             this.txtTenTrungTam.TabIndex = 2;
             this.txtTenTrungTam.Text = "Không Tìm Thấy Thông Tin Trung Tâm";
             // 
@@ -147,10 +139,9 @@
             // 
             this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.simpleButton3.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(280, 215);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButton3.Location = new System.Drawing.Point(240, 175);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(87, 28);
+            this.simpleButton3.Size = new System.Drawing.Size(75, 23);
             this.simpleButton3.TabIndex = 1;
             this.simpleButton3.Text = "Thoát";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
@@ -159,10 +150,9 @@
             // 
             this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(187, 215);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButton2.Location = new System.Drawing.Point(160, 175);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(87, 28);
+            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
             this.simpleButton2.TabIndex = 1;
             this.simpleButton2.Text = "Kích hoạt";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
@@ -171,22 +161,20 @@
             // 
             this.btnSync.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSync.Image = ((System.Drawing.Image)(resources.GetObject("btnSync.Image")));
-            this.btnSync.Location = new System.Drawing.Point(94, 215);
-            this.btnSync.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSync.Location = new System.Drawing.Point(81, 175);
             this.btnSync.Name = "btnSync";
-            this.btnSync.Size = new System.Drawing.Size(87, 28);
+            this.btnSync.Size = new System.Drawing.Size(75, 23);
             this.btnSync.TabIndex = 1;
             this.btnSync.Text = "Cập nhật";
             this.btnSync.Click += new System.EventHandler(this.btnSync_Click);
             // 
             // FrmDiaglog_ThongTinBanQuyen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 244);
+            this.ClientSize = new System.Drawing.Size(319, 198);
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmDiaglog_ThongTinBanQuyen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDiaglog_ThongTinBanQuyen";

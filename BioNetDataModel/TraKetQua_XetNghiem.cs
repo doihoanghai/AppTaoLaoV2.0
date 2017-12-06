@@ -21,5 +21,6 @@ namespace BioNetModel
         public string MaPhieuLan1 { get; set; }
         public DateTime ngayDuyetKQ { get; set; }
         public List< PSXN_TraKQ_ChiTiet >chiTietKQ { get; set; }
+        public bool isNguyCo { get; set; }
     }
 }

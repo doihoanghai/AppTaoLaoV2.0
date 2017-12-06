@@ -167,7 +167,11 @@ namespace DataSync.BioNetSync
             catch (Exception ex)
             {
                 res.Result = false;
-                res.StringError = DateTime.Now.ToString() + "Lỗi khi get dữ liệu Danh Mục Kỹ Thuật từ server \r\n " + ex.Message;
+                res.StringError = ex.Message;
+            }
+            if (res.Result == false)
+            {
+                res.StringError = "Lỗi đồng bộ đơn vị cơ sở - " + res.StringError;
             }
             return res;
         }
@@ -189,10 +193,10 @@ namespace DataSync.BioNetSync
                     {
                         kyt.isLocked = cc.isLocked;
                         kyt.Stt = cc.Stt;
-                        kyt.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS.TrimEnd()));
+                        kyt.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS)).TrimEnd();
                         kyt.SDTCS = cc.SDTCS;
-                        kyt.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS));
-                        kyt.MaChiCuc = cc.MaChiCuc;
+                        kyt.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS)).TrimEnd();
+                        kyt.MaChiCuc = cc.MaChiCuc.Trim();
                         kyt.isLocked = cc.isLocked;
                         kyt.TenBacSiDaiDien = cc.TenBacSiDaiDien!=null?Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenBacSiDaiDien)):null; 
                         db.SubmitChanges();
@@ -204,9 +208,9 @@ namespace DataSync.BioNetSync
                     PSDanhMucDonViCoSo ccnew = new PSDanhMucDonViCoSo();
                     ccnew.isLocked = cc.isLocked;
                     ccnew.Stt = cc.Stt;
-                    ccnew.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS.TrimEnd()));
+                    ccnew.TenDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.TenDVCS)).TrimEnd();
                     ccnew.SDTCS = cc.SDTCS;
-                    ccnew.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS));
+                    ccnew.DiaChiDVCS = Encoding.UTF8.GetString(Encoding.Default.GetBytes(cc.DiaChiDVCS)).TrimEnd();
                     ccnew.TenBacSiDaiDien = cc.TenBacSiDaiDien;
                     ccnew.isDongBo = true;
                     ccnew.MaChiCuc = cc.MaChiCuc.Trim();

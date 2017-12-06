@@ -58,70 +58,82 @@ namespace DataSync.BioNetSync
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!String.IsNullOrEmpty(token))
                     {
-                        var datas = db.PSBenhNhanNguyCoCaos.Where(x => x.isDongBo == false);
-                        foreach (var data in datas)
+                        var datas = db.PSBenhNhanNguyCoCaos.Where(x => x.isDongBo != true && x.isXoa != true).ToList();
+                        datas.ToList().ForEach(c => c.PSDotChuanDoans = null);
+                        List<string> jsonstr = new List<string>();
+                        string Nhom = (string)null;
+                        while (datas.Count() > 1000)
                         {
-                            foreach (var cicle in data.PSDotChuanDoans.ToList())
-                            {
-                                cicle.PSBenhNhanNguyCoCao = null;
-                             if (cicle.isDongBo != false)
-                                {
-                                    data.PSDotChuanDoans.Remove(cicle);
-                                }
-                            }
-                        
+                            var temp = datas.Take(1000);
+                            Nhom = new JavaScriptSerializer().Serialize(temp);
+                            jsonstr.Add(Nhom);
+                            datas.RemoveRange(0, 1000);
                         }
-                        string jsonstr = new JavaScriptSerializer().Serialize(datas);
-                        var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsonstr);
-                        if (result.Result)
+                        if (datas.Count() <= 1000 && datas.Count() > 0)
                         {
-                            foreach (var data in datas)
+                            Nhom = new JavaScriptSerializer().Serialize(datas);
+                            jsonstr.Add(Nhom);
+                        }
+                        if (jsonstr.Count() > 0)
+                        {
+                            #region Đồng bộ phiếu
+                            foreach (var jsons in jsonstr)
                             {
-                                data.isDongBo = true;
-                            }
-                            db.SubmitChanges();
-                            string json = result.ErorrResult;
-                            JavaScriptSerializer jss = new JavaScriptSerializer();
-                            List<String> psl = jss.Deserialize<List<String>>(json);
-                            if (psl != null)
-                            {
-                                if (psl.Count > 0)
+                                var result = cn.PostRespone(cn.CreateLink(linkPost), token, jsons);
+                                if (result.Result)
                                 {
-                                    res.StringError = "Danh sách phiếu bệnh nhân nguy cơ lỗi: \r\n ";
-                                    foreach (var lst in psl)
+                                    JavaScriptSerializer js = new JavaScriptSerializer();
+                                    List<PSPhieuSangLoc> datares = js.Deserialize<List<PSPhieuSangLoc>>(jsons);
+                                    var data = db.PSBenhNhanNguyCoCaos.Where(s => (from d in datares select d.MaBenhNhan).Contains(s.MaBenhNhan));
+                                    data.ToList().ForEach(c => c.isDongBo = true);
+                                    db.SubmitChanges();
+                                    
+                                    string json = result.ErorrResult;
+                                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                                    List<String> psl = jss.Deserialize<List<String>>(json);
+                                    if (psl != null)
                                     {
-                                        PSResposeSync sn = cn.CutString(lst);
-                                        if (sn != null)
+                                        if (psl.Count > 0)
                                         {
-                                            var ds = db.PSBenhNhanNguyCoCaos.FirstOrDefault(p => p.MaKhachHang == sn.Code);
-                                            if (ds != null)
+                                            res.StringError = "Danh sách phiếu bệnh nhân nguy cơ lỗi: \r\n ";
+                                            foreach (var lst in psl)
                                             {
-                                                ds.isDongBo = false;
-                                                res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                                PSResposeSync sn = cn.CutString(lst);
+                                                if (sn != null)
+                                                {
+                                                    var ds = db.PSBenhNhanNguyCoCaos.FirstOrDefault(p => p.MaKhachHang == sn.Code);
+                                                    if (ds != null)
+                                                    {
+                                                        ds.isDongBo = false;
+                                                        res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                                    }
+                                                }
                                             }
                                         }
+                                        db.SubmitChanges();
+                                        res.Result = false;
                                     }
+                                   
                                 }
-                                db.SubmitChanges();
-                                res.Result = false;
-                            }
-                            else
-                            {
-                                res.Result = true;
-                                res.StringError = "Đồng bộ phiếu bệnh nhân nguy cơ thành công!";
-                            }
-                        }
-                        else
-                        {
-                            res.Result = false;
-                            res.StringError = "Đồng bộ phiếu bệnh nhân nguy cơ - Kiểm tra kết nội mạng!\r\n";
-                        }
+                                else
+                                {
+                                    res.Result = false;
+                                    res.StringError = "Đồng bộ phiếu bệnh nhân nguy cơ - Kiểm tra kết nội mạng!\r\n";
+                                }
 
+                            }
+                            #endregion
+                        }
                     }
-                    else
-                    {
 
-                    }
+                }
+                if (String.IsNullOrEmpty(res.StringError))
+                {
+                    res.Result = true;
+                }
+                else
+                {
+                    res.Result = false;
                 }
             }
             catch (Exception ex)

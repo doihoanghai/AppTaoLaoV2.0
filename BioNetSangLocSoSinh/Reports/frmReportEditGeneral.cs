@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Reflection;
 using System.IO;
-using Excel = Microsoft.Office.Interop.Excel;
+using Excelc = Microsoft.Office.Interop.Excel;
 using DevExpress.XtraReports;
 using System.Diagnostics;
 using DevExpress.XtraPrinting;
@@ -21,9 +21,9 @@ namespace BioNetSangLocSoSinh.Reports
     {
         private DataSet dsResult = new DataSet();
         private DevExpress.XtraReports.UI.XtraReport rpt = new DevExpress.XtraReports.UI.XtraReport();   
-        private Excel.Application oxl;
-        private Excel._Workbook owb;
-        private Excel._Worksheet osheet;
+        private Excelc.Application oxl;
+        private Excelc._Workbook owb;
+        private Excelc._Worksheet osheet;
         private string fromdate = string.Empty, todate = string.Empty, sheetname = string.Empty;
         public string NameFile;
         public string NameDVCS;
@@ -62,9 +62,9 @@ namespace BioNetSangLocSoSinh.Reports
                     rpt.ExportOptions.Xls.SheetName = this.sheetname;
                    
                     rpt.ExportToXls(frmPath.pathName);
-                   oxl = new Excel.Application();
-                    owb = (Excel._Workbook)(oxl.Workbooks.Open(frmPath.pathName, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value));
-                    osheet = (Excel._Worksheet)owb.ActiveSheet;
+                   oxl = new Excelc.Application();
+                    owb = (Excelc._Workbook)(oxl.Workbooks.Open(frmPath.pathName, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value));
+                    osheet = (Excelc._Worksheet)owb.ActiveSheet;
                     oxl.ActiveWindow.DisplayGridlines = false;
                     oxl.ActiveWindow.DisplayZeros = false;
                     oxl.Visible = true;

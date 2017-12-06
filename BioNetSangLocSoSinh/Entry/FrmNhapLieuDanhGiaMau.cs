@@ -199,6 +199,7 @@ namespace BioNetSangLocSoSinh.Entry
         }
         private void LoadNew()
         {
+            this.btnBackPhieu.Enabled = false;
             this.txtMaPhieuLan1.ResetText();
             this.txtNoiSinh.ResetText();
             this.txtPARA.ResetText();
@@ -629,16 +630,16 @@ namespace BioNetSangLocSoSinh.Entry
                     this.radioGroupViTriLayMau.EditValue = phieu.idViTriLayMau.ToString();
                     this.lookupChuongTrinh.EditValue = phieu.maChuongTrinh != null ? phieu.maChuongTrinh.ToString() : "CTXH0001";
                     this.txtGioLayMau.EditValue = Convert.ToDateTime(phieu.ngayGioLayMau.ToString("HH: mm:ss"));
-                    this.txtNgayLayMau.EditValue = phieu.ngayGioLayMau.Date;
+                    this.txtNgayLayMau.EditValue = phieu.ngayGioLayMau;
                     this.txtNgayGioNhanMau.EditValue = phieu.ngayGioLayMau;
-                    this.txtNguoiLayMau.Text = phieu.tenNVLayMau;
+                    this.txtNguoiLayMau.Text = string.IsNullOrEmpty(phieu.tenNVLayMau)?this.txtNguoiLayMau.Text: phieu.tenNVLayMau;
                     this.txtDiaChiDonVi.Text = phieu.DonVi.DiaChiDVCS;
                     this.txtNoiLayMau.Text = phieu.NoiLayMau;
                     this.txtDiaChiDonVi.Text = phieu.DiaChiLayMau;
                     this.radioDanhGia.SelectedIndex = (phieu.isKhongDat ?? false) == false ? 0 : 1;
                     if (!string.IsNullOrEmpty(phieu.maPhieuLan1))
                         this.txtMaPhieuLan1.Text = phieu.maPhieuLan1;
-                    this.txtSDTNguoiLayMau.Text = phieu.SoDTNhanVienLayMau;
+                    this.txtSDTNguoiLayMau.Text = string.IsNullOrEmpty(phieu.SoDTNhanVienLayMau) ? this.txtSDTNguoiLayMau.Text : phieu.SoDTNhanVienLayMau;
                     this.ngayGioLayMau = phieu.ngayGioLayMau;
                     this.txtMaTiepNhan.Text = maTiepNhan;
                     this.txtGhiChu.Text = phieu.LuuYPhieu;
@@ -759,14 +760,14 @@ namespace BioNetSangLocSoSinh.Entry
                     this.txtGioLayMau.EditValue = Convert.ToDateTime(phieu.ngayGioLayMau.ToString("HH: mm:ss"));
                     this.txtNgayLayMau.EditValue = phieu.ngayGioLayMau.Date;
                     this.txtNgayGioNhanMau.EditValue = phieu.ngayGioLayMau;
-                    this.txtNguoiLayMau.Text = phieu.tenNVLayMau;
+                    this.txtNguoiLayMau.Text = String.IsNullOrEmpty(phieu.tenNVLayMau)?this.txtNgayLayMau.Text: phieu.tenNVLayMau;
                     this.txtDiaChiDonVi.Text = phieu.DonVi.DiaChiDVCS;
                     this.txtNoiLayMau.Text = phieu.NoiLayMau;
                     this.txtDiaChiDonVi.Text = phieu.DiaChiLayMau;
                     this.radioDanhGia.SelectedIndex = (phieu.isKhongDat ?? false) == false ? 0 : 1;
                     if (!string.IsNullOrEmpty(phieu.maPhieuLan1))
                         this.txtMaPhieuLan1.Text = phieu.maPhieuLan1;
-                    this.txtSDTNguoiLayMau.Text = phieu.SoDTNhanVienLayMau;
+                    this.txtSDTNguoiLayMau.Text = String.IsNullOrEmpty(phieu.SoDTNhanVienLayMau) ? this.txtSDTNguoiLayMau.Text : phieu.SoDTNhanVienLayMau; 
                     this.ngayGioLayMau = phieu.ngayGioLayMau;
                     this.txtMaTiepNhan.Text = maTiepNhan;
                     this.LoadDanhSachDichVu();
@@ -1027,7 +1028,7 @@ namespace BioNetSangLocSoSinh.Entry
                     }
                     else
                     {
-                        XtraMessageBox.Show("Lỗi không thể lưu thông tin phiếu và đánh giá mẫu.\r\n Lỗi chi tiết" + result.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        XtraMessageBox.Show("Lỗi không thể lưu thông tin phiếu và đánh giá mẫu.\r\n Lỗi chi tiết " + result.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -2194,6 +2195,7 @@ namespace BioNetSangLocSoSinh.Entry
         {
             try
             {
+                btnBackPhieu.Enabled = false;
                 if (this.GVDanhSachDaTracking.RowCount > 0)
                 {
                     if (this.GVDanhSachDaTracking.GetFocusedRow() != null)
@@ -2205,7 +2207,7 @@ namespace BioNetSangLocSoSinh.Entry
                         string maTiepNhan = string.Empty;
                         try
                         {
-                            _ngayTiepNhan = GVDanhSachTiepNhan.GetRowCellValue(this.GVDanhSachTiepNhan.FocusedRowHandle, this.col_NgayTiepNhan) == null ? DateTime.Now : (DateTime)GVDanhSachTiepNhan.GetRowCellValue(this.GVDanhSachTiepNhan.FocusedRowHandle, this.col_NgayTiepNhan);
+                            _ngayTiepNhan = this.GVDanhSachDaTracking.GetRowCellValue(this.GVDanhSachDaTracking.FocusedRowHandle, this.col_NgayTiepNhan_GCDaTracking) == null ? DateTime.Now : (DateTime)this.GVDanhSachDaTracking.GetRowCellValue(this.GVDanhSachDaTracking.FocusedRowHandle, this.col_NgayTiepNhan_GCDaTracking);
                             maTiepNhan = this.GVDanhSachDaTracking.GetRowCellValue(this.GVDanhSachDaTracking.FocusedRowHandle, this.col_maTiepNhan).ToString();
                         }
                         catch { };
@@ -2285,7 +2287,7 @@ namespace BioNetSangLocSoSinh.Entry
                             DateTime _ngayTiepNhan = _ngayhethong;
                             try
                             {
-                                _ngayTiepNhan = GVDanhSachDaTracking.GetRowCellValue(rowhandle, this.col_NgayTiepNhan) == null ? _ngayhethong : (DateTime)GVDanhSachDaTracking.GetRowCellValue(rowhandle, this.col_NgayTiepNhan);
+                                _ngayTiepNhan = GVDanhSachDaTracking.GetRowCellValue(rowhandle, this.col_NgayTiepNhan_GCDaTracking) == null ? _ngayhethong : (DateTime)GVDanhSachDaTracking.GetRowCellValue(rowhandle, this.col_NgayTiepNhan_GCDaTracking);
                             }
                             catch { };
                             this.ngayTiepNhan = _ngayTiepNhan;
@@ -2498,7 +2500,7 @@ namespace BioNetSangLocSoSinh.Entry
         {
             try
             {
-                this.btnBackPhieu.Enabled = true;
+                
                 GridView view = sender as GridView;
                 GridHitInfo hitInfo = view.CalcHitInfo(e.Location);
                 if (this.GVDanhSachTiepNhan.RowCount > 0)
@@ -2515,13 +2517,12 @@ namespace BioNetSangLocSoSinh.Entry
                             {
                                 maTiepNhan = this.GVDanhSachTiepNhan.GetRowCellValue(this.GVDanhSachTiepNhan.FocusedRowHandle, this.col_maTiepNhan).ToString();
                                 _ngayTiepNhan = GVDanhSachTiepNhan.GetRowCellValue(this.GVDanhSachTiepNhan.FocusedRowHandle, this.col_NgayTiepNhan) == null ? DateTime.Now : (DateTime)GVDanhSachTiepNhan.GetRowCellValue(this.GVDanhSachTiepNhan.FocusedRowHandle, this.col_NgayTiepNhan);
-
                             }
                             catch { };
-
                             this.ngayTiepNhan = _ngayTiepNhan;
                             this.txtNgayNhanMau.EditValue = _ngayTiepNhan;
                             this.HienThiThongTinPhieu(maPhieu, maDonVi, maTiepNhan, true);
+                            this.btnBackPhieu.Enabled = true;
                             this.btnDuyet.Enabled = true;
                             this.btnDuyet.Text = "Duyệt";
                             // this.SetCheckedListbox("CL");
@@ -2593,7 +2594,7 @@ namespace BioNetSangLocSoSinh.Entry
         {
             try
             {
-                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn là sẽ hủy phiếu tiếp nhân", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("Bạn có chắc chắn là sẽ hủy tiếp nhận phiếu"+ txtMaPhieu.Text.Trim().ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     var res = BioNet_Bus.HuyPhieuDaTiepNhan(txtMaPhieu.Text.Trim().ToString());
@@ -2652,7 +2653,6 @@ namespace BioNetSangLocSoSinh.Entry
                                 loi = true;
                                 break;
                             }
-
                         }
                         SplashScreenManager.CloseForm();
                         if (loi == false)
@@ -2684,115 +2684,134 @@ namespace BioNetSangLocSoSinh.Entry
             PsReponse res = new PsReponse();
             try
             {
+                string MagoiXN=(string)null;
                 PsPhieu phieu = BioNet_Bus.GetThongTinPhieu(lst.MaPhieu, lst.MaDonVi);
                 PSTiepNhan tiepnhan = BioNet_Bus.GetThongTinTiepNhanTheoMaPhieu(lst.MaPhieu);
                 var donvi = BioNet_Bus.GetThongTinDonViCoSo(lst.MaDonVi);
                 PsChiDinhvsDanhGia DotchiDinh = new PsChiDinhvsDanhGia();
-                if (phieu != null && tiepnhan != null)
+                if (this.radioGroupGoiXN.EditValue != null)
                 {
-                    phieu.ngayGioLayMau = phieu.ngayGioLayMau;
-                    phieu.isKhongDat = false;
-                    phieu.lydokhongdat = String.Empty;
-                    phieu.lstLyDoKhongDat = new List<PSChiTietDanhGiaChatLuong>();
-                    phieu.DiaChiLayMau = donvi.DiaChiDVCS;
-                    phieu.NoiLayMau = donvi.TenDVCS;
-                    phieu.maChuongTrinh = phieu.maChuongTrinh ?? "CTXH0001";
-                    phieu.TenNhanVienLayMau = phieu.TenNhanVienLayMau == null ? this.ChuyenSangChuHoa(this.txtNguoiLayMau.Text) : phieu.TenNhanVienLayMau;
-                    phieu.SoDTNhanVienLayMau = phieu.SoDTNhanVienLayMau ?? txtSDTNguoiLayMau.Text.ToString();
-                    phieu.LuuYPhieu = "";
-                    phieu.maGoiXetNghiem = phieu.maGoiXetNghiem ?? "DVGXN0005";
-                    phieu.lstChiDinhDichVu =BioNet_Bus.GetDanhSachDichVuTheoMaGoi(phieu.maGoiXetNghiem, lst.MaDonVi);
-                    if(phieu.BenhNhan.CanNang!=null)
+                    if (this.radioGroupGoiXN.EditValue.ToString() == "DVGXN0001")
                     {
-                        phieu.isNheCan = phieu.BenhNhan.CanNang < GiaTriNheCan ? true : false;
-                    }
-                    if(phieu.BenhNhan.TuanTuoiKhiSinh!=null)
-                    {
-                        phieu.isSinhNon = phieu.BenhNhan.TuanTuoiKhiSinh < GiaTriSinhNon ? true:false;
-                    }
-                    TimeSpan TimeLayMau = phieu.ngayGioLayMau - phieu.BenhNhan.NgayGioSinh??new TimeSpan();
-                   if(TimeLayMau.TotalMinutes< 5760)
-                    {
-                        phieu.isTruoc24h = true;
+                        XtraMessageBox.Show("Không chọn gói xét nghiệm lại khi duyệt phiếu nhiều phiếu","BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        res.Result=true;
+                        return res;
                     }
                     else
                     {
-                        phieu.isTruoc24h = false;
+                        MagoiXN = this.radioGroupGoiXN.EditValue.ToString();
                     }
-                    TimeSpan TimeNhanMau = phieu.ngayNhanMau - phieu.ngayGioLayMau;
-                    if(TimeNhanMau.TotalMinutes > 7200)
-                    {
-                        phieu.isGuiMauTre = true;
-                    }
-                    else
-                    {
-                        phieu.isGuiMauTre = false;
-                    }
-                    phieu.BenhNhan.DanTocID = phieu.BenhNhan.DanTocID ?? 1;
-                    phieu.BenhNhan.QuocTichID = phieu.BenhNhan.QuocTichID ?? 1;
-                    phieu.BenhNhan.PhuongPhapSinh = phieu.BenhNhan.PhuongPhapSinh ?? 1;
-                    DotchiDinh.MaNVChiDinh = this.MaNhanVienDangNhap;
-                    DotchiDinh.MaDonVi = phieu.maDonViCoSo;
-                    DotchiDinh.MaGoiDichVu = phieu.maGoiXetNghiem;
-                    DotchiDinh.MaNVChiDinh = this.MaNhanVienDangNhap;
-                    DotchiDinh.Phieu = phieu;
-                    DotchiDinh.MaTiepNhan = tiepnhan.MaTiepNhan;
-                    DotchiDinh.MaPhieu = phieu.maPhieu;
-                    DotchiDinh.MaPhieuLan1 = phieu.maPhieuLan1;
-                    DotchiDinh.NgayChiDinhHienTai = DateTime.Now;
-                    DotchiDinh.NgayChiDinhLamViec = DateTime.Now;
-                    DotchiDinh.NgayTiepNhan = tiepnhan.NgayTiepNhan ?? DateTime.Now;
-                    DotchiDinh.SoLuong = 1;
-                    DotchiDinh.lstDichVu = phieu.lstChiDinhDichVu;
-
                 }
-                else if (phieu == null && tiepnhan != null)
-                {
+                else {
+                   
+                }
+                 if (phieu != null && tiepnhan != null)
+                    {
+                        phieu.ngayGioLayMau = phieu.ngayGioLayMau;
+                        phieu.isKhongDat = false;
+                        phieu.lydokhongdat = String.Empty;
+                        phieu.lstLyDoKhongDat = new List<PSChiTietDanhGiaChatLuong>();
+                        phieu.DiaChiLayMau = donvi.DiaChiDVCS;
+                        phieu.NoiLayMau = donvi.TenDVCS;
+                        phieu.maChuongTrinh = phieu.maChuongTrinh ?? "CTXH0001";
+                        phieu.TenNhanVienLayMau = phieu.TenNhanVienLayMau == null ? this.ChuyenSangChuHoa(this.txtNguoiLayMau.Text) : phieu.TenNhanVienLayMau;
+                        phieu.SoDTNhanVienLayMau = phieu.SoDTNhanVienLayMau ?? txtSDTNguoiLayMau.Text.ToString();
+                        phieu.LuuYPhieu = "";
+                        phieu.maGoiXetNghiem = MagoiXN??(phieu.maGoiXetNghiem ?? "DVGXN0004");
+                        phieu.lstChiDinhDichVu = BioNet_Bus.GetDanhSachDichVuTheoMaGoi(phieu.maGoiXetNghiem, lst.MaDonVi);
+                        if (phieu.BenhNhan.CanNang != null)
+                        {
+                            phieu.isNheCan = phieu.BenhNhan.CanNang < GiaTriNheCan ? true : false;
+                        }
+                        if (phieu.BenhNhan.TuanTuoiKhiSinh != null)
+                        {
+                            phieu.isSinhNon = phieu.BenhNhan.TuanTuoiKhiSinh < GiaTriSinhNon ? true : false;
+                        }
+                        TimeSpan TimeLayMau = phieu.ngayGioLayMau - phieu.BenhNhan.NgayGioSinh ?? new TimeSpan();
+                        if (TimeLayMau.TotalMinutes < 5760)
+                        {
+                            phieu.isTruoc24h = true;
+                        }
+                        else
+                        {
+                            phieu.isTruoc24h = false;
+                        }
+                        TimeSpan TimeNhanMau = phieu.ngayNhanMau - phieu.ngayGioLayMau;
+                        if (TimeNhanMau.TotalMinutes > 7200)
+                        {
+                            phieu.isGuiMauTre = true;
+                        }
+                        else
+                        {
+                            phieu.isGuiMauTre = false;
+                        }
+                        phieu.BenhNhan.DanTocID = phieu.BenhNhan.DanTocID ?? 1;
+                        phieu.BenhNhan.QuocTichID = phieu.BenhNhan.QuocTichID ?? 1;
+                        phieu.BenhNhan.PhuongPhapSinh = phieu.BenhNhan.PhuongPhapSinh ?? 1;
+                        DotchiDinh.MaNVChiDinh = this.MaNhanVienDangNhap;
+                        DotchiDinh.MaDonVi = phieu.maDonViCoSo;
+                        DotchiDinh.MaGoiDichVu = phieu.maGoiXetNghiem;
+                        DotchiDinh.MaNVChiDinh = this.MaNhanVienDangNhap;
+                        DotchiDinh.Phieu = phieu;
+                        DotchiDinh.MaTiepNhan = tiepnhan.MaTiepNhan;
+                        DotchiDinh.MaPhieu = phieu.maPhieu;
+                        DotchiDinh.MaPhieuLan1 = phieu.maPhieuLan1;
+                        DotchiDinh.NgayChiDinhHienTai = DateTime.Now;
+                        DotchiDinh.NgayChiDinhLamViec = DateTime.Now;
+                        DotchiDinh.NgayTiepNhan = tiepnhan.NgayTiepNhan ?? DateTime.Now;
+                        DotchiDinh.SoLuong = 1;
+                        DotchiDinh.lstDichVu = phieu.lstChiDinhDichVu;
 
-                    PsPhieu phieuN = new PsPhieu();
+                    }
+                    else if (phieu == null && tiepnhan != null)
+                    {
 
-                    PSPatient benhNhan = new PSPatient();
-                    phieuN.isKhongDat = false;
-                    phieuN.lydokhongdat = String.Empty;
-                    phieuN.lstLyDoKhongDat = new List<PSChiTietDanhGiaChatLuong>();
-                    phieuN.BenhNhan = benhNhan;
-                    phieuN.BenhNhan.NgayGioSinh = DateTime.Now;
-                    phieuN.maNVTaoPhieu = this.MaNhanVienDangNhap;
-                    phieuN.maDonViCoSo = lst.MaDonVi;
-                    phieuN.DiaChiLayMau = donvi.DiaChiDVCS;
-                    phieuN.NoiLayMau = donvi.TenDVCS;
-                    phieuN.maGoiXetNghiem = "DVGXN0005";
-                    phieuN.lstChiDinhDichVu = BioNet_Bus.GetDanhSachDichVuTheoMaGoi("DVGXN0005", lst.MaDonVi);
+                        PsPhieu phieuN = new PsPhieu();
+
+                        PSPatient benhNhan = new PSPatient();
+                        phieuN.isKhongDat = false;
+                        phieuN.lydokhongdat = String.Empty;
+                        phieuN.lstLyDoKhongDat = new List<PSChiTietDanhGiaChatLuong>();
+                        phieuN.BenhNhan = benhNhan;
+                        phieuN.BenhNhan.NgayGioSinh = DateTime.Now;
+                        phieuN.maNVTaoPhieu = this.MaNhanVienDangNhap;
+                        phieuN.maDonViCoSo = lst.MaDonVi;
+                        phieuN.DiaChiLayMau = donvi.DiaChiDVCS;
+                        phieuN.NoiLayMau = donvi.TenDVCS;
+                        phieuN.maGoiXetNghiem = MagoiXN ?? "DVGXN0004";
+                        phieuN.lstChiDinhDichVu = BioNet_Bus.GetDanhSachDichVuTheoMaGoi(phieuN.maGoiXetNghiem, lst.MaDonVi);
                     phieuN.ngayGioLayMau = DateTime.Now;
                     phieuN.ngayNhanMau = DateTime.Now;
-                    phieuN.maPhieu = lst.MaPhieu;
-                    phieuN.BenhNhan.CanNang = 0;
-                    phieuN.BenhNhan.PhuongPhapSinh = 0;
-                    phieuN.BenhNhan.GioiTinh = 0;
-                    phieuN.BenhNhan.TuanTuoiKhiSinh = 0;
-                    phieuN.idViTriLayMau = 0;
-                    phieuN.maTinhTrangLucLayMau = 0;
-                    phieuN.maCheDoDinhDuong = 0;
-                    phieuN.BenhNhan.DanTocID = 0;
-                    phieuN.isNheCan = true;
-                    phieuN.isSinhNon = true;
-                    phieuN.isTruoc24h = true;
-                    phieuN.SoDTNhanVienLayMau = this.txtSDTNguoiLayMau.Text;
-                    phieuN.TenNhanVienLayMau = this.ChuyenSangChuHoa(this.txtNguoiLayMau.Text);
-                    phieuN.ngayTaoPhieu = DateTime.Now;
-                    DotchiDinh.MaNVChiDinh = this.MaNhanVienDangNhap;
-                    DotchiDinh.MaDonVi = phieuN.maDonViCoSo;
-                    DotchiDinh.MaGoiDichVu = phieuN.maGoiXetNghiem;
-                    DotchiDinh.MaNVChiDinh = this.MaNhanVienDangNhap;
-                    DotchiDinh.Phieu = phieuN;
-                    DotchiDinh.MaTiepNhan = tiepnhan.MaTiepNhan;
-                    DotchiDinh.MaPhieu = phieuN.maPhieu;
-                    DotchiDinh.NgayChiDinhHienTai = DateTime.Now;
-                    DotchiDinh.NgayChiDinhLamViec = DateTime.Now;
-                    DotchiDinh.NgayTiepNhan = tiepnhan.NgayTiepNhan ?? DateTime.Now;
-                    DotchiDinh.SoLuong = 1;
-                    DotchiDinh.lstDichVu = phieuN.lstChiDinhDichVu;
-                }
+                        phieuN.maPhieu = lst.MaPhieu;
+                        phieuN.BenhNhan.CanNang = 0;
+                        phieuN.BenhNhan.PhuongPhapSinh = 0;
+                        phieuN.BenhNhan.GioiTinh = 0;
+                        phieuN.BenhNhan.TuanTuoiKhiSinh = 0;
+                        phieuN.idViTriLayMau = 0;
+                        phieuN.BenhNhan.QuocTichID = 1;
+                        phieuN.maTinhTrangLucLayMau = 0;
+                        phieuN.maCheDoDinhDuong = 0;
+                        phieuN.BenhNhan.DanTocID = 1;
+                        phieuN.isNheCan = true;
+                        phieuN.isSinhNon = true;
+                        phieuN.isTruoc24h = true;
+                        phieuN.SoDTNhanVienLayMau = this.txtSDTNguoiLayMau.Text;
+                        phieuN.TenNhanVienLayMau = this.ChuyenSangChuHoa(this.txtNguoiLayMau.Text);
+                        phieuN.ngayTaoPhieu = DateTime.Now;
+                        DotchiDinh.MaNVChiDinh = this.MaNhanVienDangNhap;
+                        DotchiDinh.MaDonVi = phieuN.maDonViCoSo;
+                        DotchiDinh.MaGoiDichVu = phieuN.maGoiXetNghiem;
+                        DotchiDinh.MaNVChiDinh = this.MaNhanVienDangNhap;
+                        DotchiDinh.Phieu = phieuN;
+                        DotchiDinh.MaTiepNhan = tiepnhan.MaTiepNhan;
+                        DotchiDinh.MaPhieu = phieuN.maPhieu;
+                        DotchiDinh.NgayChiDinhHienTai = DateTime.Now;
+                        DotchiDinh.NgayChiDinhLamViec = DateTime.Now;
+                        DotchiDinh.NgayTiepNhan = tiepnhan.NgayTiepNhan ?? DateTime.Now;
+                        DotchiDinh.SoLuong = 1;
+                        DotchiDinh.lstDichVu = phieuN.lstChiDinhDichVu;
+                    }
+                
 
 
                 var result = BioNet_Bus.InsertDotChiDinhDichVu(DotchiDinh);

@@ -19,5 +19,9 @@ namespace BioNetModel
         public int? MauDat { get; set; }
         public int? MauKoDat { get; set; }
         public List<rptBaoCaoSLPhieu> slphieu { get; set; }
+        public List<PsThongKe> thongkebenh { get; set; }
+        public List<PsThongKe> thongkeDGMau { get; set; }
+        public List<PsThongKe> thongkeCTrinh { get; set; }
+
     }
 }

@@ -128,7 +128,7 @@
     <Compile Include="rptChiTietTrungTam_ChiTiet.cs" />
     <Compile Include="ServerInfo.cs" />
     <Compile Include="TraKetQua_XetNghiem.cs" />
-    <Compile Include="PsThongKeDanhGiaMau.cs" />
+    <Compile Include="PsThongKe.cs" />
     <Compile Include="TTPhieuCB.cs" />
   </ItemGroup>
   <ItemGroup>

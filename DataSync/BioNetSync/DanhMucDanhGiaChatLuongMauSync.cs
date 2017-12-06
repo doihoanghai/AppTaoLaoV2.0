@@ -88,7 +88,11 @@ namespace DataSync.BioNetSync
             catch (Exception ex)
             {
                 res.Result = false;
-                res.StringError = DateTime.Now.ToString() + "Lỗi khi get dữ liệu Danh Mục Đánh Giá Chất Lượng Mẫu từ server \r\n " + ex.Message;
+                res.StringError =  ex.Message;
+            }
+            if (res.Result == false)
+            {
+                res.StringError = "Lỗi đồng bộ danh mục chất lượng mẫu - " + res.StringError;
             }
             return res;
         }

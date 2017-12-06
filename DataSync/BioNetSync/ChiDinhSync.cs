@@ -92,63 +92,92 @@ namespace DataSync.BioNetSync
                     if(!String.IsNullOrEmpty(token))
 
                     {
-                        var datas = db.PSChiDinhDichVus.Where(x => x.isDongBo == false).ToList();
+                        var datas = db.PSChiDinhDichVus.Where(x => x.isDongBo == false).OrderBy(x=>x.RowIDChiDinh).ToList();
                         List<ChiDinhDichVuViewModel> de = new List<ChiDinhDichVuViewModel>();
-                        foreach(var data in datas)
+                        List<string> jsonstr = new List<string>();
+                        string Nhom = (string)null;
+                        foreach (var data in datas)
                         {
                             ChiDinhDichVuViewModel chidinhVM = new ChiDinhDichVuViewModel();
-                           cn.ConvertObjectToObject(data, chidinhVM);
+                            cn.ConvertObjectToObject(data, chidinhVM);
                             chidinhVM.listCDDVCTVM = new List<ChiDinhDichVuChiTietViewModel>();
-                            foreach(var cdct in data.PSChiDinhDichVuChiTiets)
+                            foreach (var cdct in data.PSChiDinhDichVuChiTiets)
                             {
                                 ChiDinhDichVuChiTietViewModel term = new ChiDinhDichVuChiTietViewModel();
                                 var t = cn.ConvertObjectToObject(cdct, term);
                                 chidinhVM.listCDDVCTVM.Add((ChiDinhDichVuChiTietViewModel)t);
-                                cdct.isDongBo = true;
                             }
                             de.Add(chidinhVM);
-                            data.isDongBo = true;
                         }
-                        string jsonstr = new JavaScriptSerializer().Serialize(de);
-                        var result = cn.PostRespone(cn.CreateLink(linkPostChiDinh), token, jsonstr);
-                        if (result.Result)
-                        {
-                            db.SubmitChanges();
-                            string json = result.ErorrResult;
-                            JavaScriptSerializer jss = new JavaScriptSerializer();
-                            List<String> psl = jss.Deserialize<List<String>>(json);
-                            if (psl != null)
-                            {
-                                if (psl.Count > 0)
-                                {
-                                    res.StringError = "Danh sách phiếu chỉ định dịch vũ lỗi: \r\n ";
-                                    foreach (var lst in psl)
-                                    {
-                                        PSResposeSync sn = cn.CutString(lst);
-                                        if (sn != null)
-                                        {
-                                            var ds = db.PSChiDinhDichVus.FirstOrDefault(p => p.MaPhieu == sn.Code);
-                                            if (ds != null)
-                                            {
-                                                var dct = db.PSChiDinhDichVuChiTiets.Where(p => p.MaPhieu == sn.Code).ToList();
-                                                foreach (var dcts in dct)
-                                                {
-                                                    dcts.isDongBo = false;
-                                                }
-                                                ds.isDongBo = false;
-                                                res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
-                                            }
 
+                        while (de.Count() > 1000)
+                        {
+                            var temp = de.Take(1000); 
+                            Nhom = new JavaScriptSerializer().Serialize(temp);
+                            de.RemoveRange(0, 1000);
+                            jsonstr.Add(Nhom);
+                        } 
+                        if (de.Count() <= 1000 && de.Count()>0)
+                        {
+                            Nhom = new JavaScriptSerializer().Serialize(de);
+                            jsonstr.Add(Nhom);
+                        }
+                        if (jsonstr.Count > 0)
+                        {
+                            foreach (var jsons in jsonstr)
+                            {
+                                var result = cn.PostRespone(cn.CreateLink(linkPostChiDinh), token, jsons);
+                                if (result.Result)
+                                {
+                                    JavaScriptSerializer js = new JavaScriptSerializer();
+                                    List<PSChiDinhDichVu> datares = js.Deserialize<List<PSChiDinhDichVu>>(jsons);
+                                    var data = db.PSChiDinhDichVus.Where(s => (from d in datares select d.MaChiDinh).Contains(s.MaChiDinh)).ToList();
+                                    var datact = db.PSChiDinhDichVuChiTiets.Where(s => (from d in datares select d.MaChiDinh).Contains(s.MaChiDinh)).ToList();
+                                    data.ToList().ForEach(c => c.isDongBo = true);
+                                    datact.ToList().ForEach(c => c.isDongBo = true);
+                                    db.SubmitChanges();
+                                
+                                    string json = result.ErorrResult;
+                                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                                    List<String> psl = jss.Deserialize<List<String>>(json);
+                                    if (psl != null)
+                                    {
+                                        if (psl.Count > 0)
+                                        {
+                                            res.StringError = "Danh sách phiếu chỉ định dịch vũ lỗi: \r\n ";
+                                            foreach (var lst in psl)
+                                            {
+                                                PSResposeSync sn = cn.CutString(lst);
+                                                if (sn != null)
+                                                {
+                                                    var ds = db.PSChiDinhDichVus.FirstOrDefault(p => p.MaPhieu == sn.Code);
+                                                    if (ds != null)
+                                                    {
+                                                        var dct = db.PSChiDinhDichVuChiTiets.Where(p => p.MaPhieu == sn.Code).ToList();
+                                                        foreach (var dcts in dct)
+                                                        {
+                                                            dcts.isDongBo = false;
+                                                        }
+                                                        ds.isDongBo = false;
+                                                        res.StringError = res.StringError + sn.Code + ": " + sn.Error + ".\r\n";
+                                                    }
+
+                                                }
+                                            }
                                         }
+                                        db.SubmitChanges();
+                                        res.Result = false;
                                     }
                                 }
-                                db.SubmitChanges();
-                                res.Result = false;
+
+                            }
+                            if (String.IsNullOrEmpty(res.StringError))
+                            {
+                                res.Result = true;
                             }
                             else
                             {
-                                res.Result = true;
-                                res.StringError = "Đồng bộ phiếu chỉ định dịch vũ thành công!";
+                                res.Result = false;
                             }
                         }
                         else

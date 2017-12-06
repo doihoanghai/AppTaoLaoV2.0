@@ -90,7 +90,11 @@ namespace DataSync.BioNetSync
             catch (Exception ex)
             {
                 res.Result = false;
-                res.StringError = DateTime.Now.ToString() + "Lỗi khi get dữ liệu Danh Mục Gói Dịch Vụ Chung từ server \r\n " + ex.Message;
+                res.StringError = ex.Message;
+            }
+            if (res.Result == false)
+            {
+                res.StringError = "Lỗi đồng bộ danh mục gói dịch vụ chung - " + res.StringError;
             }
             return res;
         }
@@ -204,7 +208,11 @@ namespace DataSync.BioNetSync
             catch (Exception ex)
             {
                 res.Result = false;
-                res.StringError = DateTime.Now.ToString() + "Lỗi khi get dữ liệu Danh Mục Chi Tiết Gói Dịch Vụ Chung từ server \r\n " + ex.Message;
+                res.StringError = ex.Message;
+            }
+            if (res.Result == false)
+            {
+                res.StringError = "Lỗi đồng bộ chi tiết gói dịch vụ chung- " + res.StringError;
             }
             return res;
         }
