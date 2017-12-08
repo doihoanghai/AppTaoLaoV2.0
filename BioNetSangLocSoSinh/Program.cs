@@ -21,12 +21,11 @@ namespace BioNetSangLocSoSinh
             UserLookAndFeel.Default.SkinName = "Office 2016 Colorful";//"Lilian";
            BonusSkins.Register();
             SkinManager.EnableFormSkins();
-       Application.Run(new FrmStartup());
-    
-        // Application.Run(new Entry.FrmNhapKho());
-         //Application.Run(new FrmReports.FrmBaoCaoDonVi_ChiTietcs());
-           // Application.Run(new FrmReports.frmReportTrungTam_ChiCuc());
-            // Application.Run(new DiaglogFrm.FrmDiaglog_ThongTinBanQuyen());
+
+            Application.Run(new FrmStartup());
+            //Application.Run(new FrmReports.FrmBaoCaoDonVi_ChiTietcs());
+            // Application.Run(new FrmReports.frmReportTrungTam_ChiCuc());
+            //Application.Run(new DiaglogFrm.FrmDiaglog_ThongTinBanQuyen());
         }
     }
 }

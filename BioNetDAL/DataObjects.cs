@@ -226,7 +226,7 @@ namespace BioNetDAL
                             phieuxoa.MaNV = maNV;
                             phieuxoa.DateDelete = DateTime.Now;
                             phieuxoa.MaPhieu = maphieu;
-                            phieuxoa.LyDoXoa = lydoXoa;
+                            phieuxoa.LydoXoa = lydoXoa;
                             db.PSChiTietXoaPhieus.InsertOnSubmit(phieuxoa);
                             db.SubmitChanges();
                         }
@@ -1445,13 +1445,14 @@ namespace BioNetDAL
                     kq.isDongBoPDF = false;
                     kq.KetLuanTongQuat = string.Empty;
                     kq.GhiChu = string.Empty;
+                    kq.isDaGuiMail = false;
                     var ctkq = db.PSXN_TraKQ_ChiTiets.Where(x => x.MaPhieu == phieu && x.isXoa != true);
                     foreach (var ct in ctkq)
                     {
                         ct.isDongBo = false;  
                     }
                     var phieuc = db.PSPhieuSangLocs.FirstOrDefault(x => x.IDPhieu == phieu && x.isXoa != true);
-                    if (phieuc.isXNLan2 ==false)
+                    if (phieuc.isXNLan2 !=true)
                     {
                         phieuc.TrangThaiMau = 3;
                     }
@@ -1610,6 +1611,8 @@ namespace BioNetDAL
                         tt.Chon = 0;
                         tt.TenChiCuc = _data.TenChiCuc;
                         tt.Email = _data.Email;
+                        bool? mail=db.PSXN_TraKetQuas.FirstOrDefault(y => y.MaPhieu == _data.IDPhieu && y.isXoa != true).isDaGuiMail;
+                        tt.isDaGuiMail = mail ?? false;
                         lst.Add(tt);
                     }
                 }
@@ -1618,7 +1621,25 @@ namespace BioNetDAL
             return lst;
         }
 
-
+        public PsReponse CapNhatGuiMail(List<String> MaPhieu)
+        {
+            PsReponse res = new PsReponse();
+            try
+            {
+               var data = db.PSXN_TraKetQuas.Where(s => (MaPhieu).Contains(s.MaPhieu)).ToList();
+                data.ToList().ForEach(c => c.isDaGuiMail = true);
+                db.SubmitChanges();
+                db.Transaction.Commit();
+                db.Connection.Close();
+                res.Result = true;
+            }
+            catch(Exception ex)
+            {
+                res.Result = false;
+                res.StringError = ex.ToString();
+            }
+            return res;
+        }
 
         public bool KiemTraBenhNhanNguyCoCaoDaVaoDotChanDoanChua(string maTiepNhan)
         {
@@ -2560,46 +2581,16 @@ namespace BioNetDAL
             }
 
         }
-        public List<PSXN_TraKetQua> GetDanhSachChoTraKetQua(DateTime tuNgay, DateTime denNgay, string maDonVi, bool isTraKQ)
+        public List<PSXN_TraKetQua> GetDanhSachChoTraKetQua(DateTime tuNgay, DateTime denNgay, string maDonVi, bool isDaDuyetKQ)
         {
             List<PSXN_TraKetQua> lst = new List<PSXN_TraKetQua>();
             try
             {
-                if (isTraKQ == false)
+               if (isDaDuyetKQ == true)
                 {
                     if (string.IsNullOrEmpty(maDonVi) || maDonVi.Equals("all"))
                     {
-
-                        var results = db.PSXN_TraKetQuas.OrderBy(p => p.MaPhieu).Where(p => p.isXoa == false && p.isTraKQ == false && p.NgayCoKQ.Value.Date >= tuNgay.Date && p.NgayCoKQ.Value.Date <= denNgay.Date).ToList();
-
-                        if (results.Count > 0)
-                        {
-                            foreach (var result in results)
-                            {
-
-                                lst.Add(result);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        var results = db.PSXN_TraKetQuas.OrderBy(p => p.MaPhieu).Where(p => p.isXoa == false && p.isTraKQ == false && p.NgayCoKQ.Value.Date >= tuNgay.Date && p.NgayCoKQ.Value.Date <= denNgay.Date && p.IDCoSo == maDonVi).ToList();
-                        if (results.Count > 0)
-                        {
-                            foreach (var result in results)
-                            {
-                                lst.Add(result);
-                            }
-
-                        }
-
-                    }
-                }
-                else if (isTraKQ == true)
-                {
-                    if (string.IsNullOrEmpty(maDonVi) || maDonVi.Equals("all"))
-                    {
-                        var results = db.PSXN_TraKetQuas.OrderBy(p => p.MaPhieu).Where(p => p.isXoa == false && p.isTraKQ == true && p.NgayTraKQ.Value.Date >= tuNgay.Date && p.NgayTraKQ.Value.Date <= denNgay.Date).ToList();
+                        var results = db.PSXN_TraKetQuas.OrderBy(p => p.MaPhieu).Where(p => p.isXoa == false && p.isDaDuyetKQ == true && p.NgayLamXetNghiem.Value.Date >= tuNgay.Date && p.NgayLamXetNghiem.Value.Date <= denNgay.Date).ToList();
                         if (results.Count > 0)
                         {
                             foreach (var result in results)
@@ -2610,7 +2601,7 @@ namespace BioNetDAL
                     }
                     else
                     {
-                        var results = db.PSXN_TraKetQuas.OrderBy(p => p.MaPhieu).Where(p => p.isXoa == false && p.isTraKQ == true && p.NgayTraKQ.Value.Date >= tuNgay.Date && p.NgayTraKQ.Value.Date <= denNgay.Date && p.IDCoSo == maDonVi).ToList();
+                        var results = db.PSXN_TraKetQuas.OrderBy(p => p.MaPhieu).Where(p => p.isXoa == false && p.isDaDuyetKQ == true && p.NgayLamXetNghiem.Value.Date >= tuNgay.Date && p.NgayLamXetNghiem.Value.Date <= denNgay.Date && p.IDCoSo == maDonVi).ToList();
                         if (results.Count > 0)
                         {
                             foreach (var result in results)
@@ -2626,19 +2617,19 @@ namespace BioNetDAL
             }
             return lst;
         }
-        public List<PSXN_TTTraKQ> GetDanhSachChoTraKetQuaAll(DateTime tuNgay, DateTime denNgay, string maDonVi, bool isTraKQ)
+        public List<PSXN_TTTraKQ> GetDanhSachChoTraKetQuaAll(DateTime tuNgay, DateTime denNgay, string maDonVi, bool isDaDuyetKQ)
         {
 
             List<PSXN_TTTraKQ> lst = new List<PSXN_TTTraKQ>();
             try
             {
-                if (isTraKQ == false)
+                if (isDaDuyetKQ == false)
                 {
 
                     if (string.IsNullOrEmpty(maDonVi) || maDonVi.Equals("all"))
                     {
 
-                        var results = db.PSXN_TraKetQuas.Where(p => p.isXoa == false && p.isTraKQ == false && p.NgayLamXetNghiem.Value.Date >= tuNgay.Date && p.NgayLamXetNghiem.Value.Date <= denNgay.Date).OrderBy(p => p.MaPhieu).ToList();
+                        var results = db.PSXN_TraKetQuas.Where(p => p.isXoa == false && p.isDaDuyetKQ == false && p.NgayLamXetNghiem.Value.Date >= tuNgay.Date && p.NgayLamXetNghiem.Value.Date <= denNgay.Date).OrderBy(p => p.MaPhieu).ToList();
                         if (results.Count > 0)
                         {
                             foreach (var result in results)
@@ -2653,7 +2644,7 @@ namespace BioNetDAL
                     }
                     else
                     {
-                        var results = db.PSXN_TraKetQuas.Where(p => p.isXoa == false && p.isTraKQ == false && p.NgayLamXetNghiem.Value.Date >= tuNgay.Date && p.NgayLamXetNghiem.Value.Date <= denNgay.Date && p.IDCoSo == maDonVi).OrderBy(p => p.MaPhieu).ToList();
+                        var results = db.PSXN_TraKetQuas.Where(p => p.isXoa == false && p.isDaDuyetKQ == false && p.NgayLamXetNghiem.Value.Date >= tuNgay.Date && p.NgayLamXetNghiem.Value.Date <= denNgay.Date && p.IDCoSo == maDonVi).OrderBy(p => p.MaPhieu).ToList();
                         if (results.Count > 0)
                         {
                             foreach (var result in results)
@@ -2773,7 +2764,7 @@ namespace BioNetDAL
             List<PSXN_TraKQ_ChiTiet> lst = new List<PSXN_TraKQ_ChiTiet>();
             try
             {
-                var results = db.PSXN_TraKQ_ChiTiets.Where(p => p.isXoa == false && p.MaTiepNhan == maTiepNhan && p.MaPhieu == maPhieu).ToList();
+                var results = db.PSXN_TraKQ_ChiTiets.Where(p => p.isXoa !=true && p.MaTiepNhan == maTiepNhan && p.MaPhieu == maPhieu).ToList();
                 if (results.Count > 0)
                 {
                     foreach (var result in results)
@@ -3011,7 +3002,7 @@ namespace BioNetDAL
                 phieuxoa.MaNV = maNV;
                 phieuxoa.DateDelete = DateTime.Now;
                 phieuxoa.MaPhieu = maPhieu;
-                phieuxoa.LyDoXoa = lydoXoa;
+                phieuxoa.LydoXoa = lydoXoa;
                 db.PSChiTietXoaPhieus.InsertOnSubmit(phieuxoa);
                 db.SubmitChanges();
                 db.Transaction.Commit();
@@ -3046,7 +3037,7 @@ namespace BioNetDAL
                     var trp = db.PSPhieuSangLocs.FirstOrDefault(p => p.isXoa == false && p.IDPhieu == dg.MaPhieu && p.IDCoSo == dg.MaDonVi);
                     if (trp != null)
                     {
-                        if ((trp.TrangThaiMau ?? 0) < 0 || (trp.TrangThaiMau ?? 0) > 3)
+                        if ((trp.TrangThaiMau??0)>5 || (trp.TrangThaiMau ?? 0) ==4|| (trp.TrangThaiMau ?? 0) <0)
                         {
                             db.Transaction.Rollback();
                             db.Connection.Close();
@@ -3233,6 +3224,7 @@ namespace BioNetDAL
                                     phieu.isSinhNon = dg.Phieu.isSinhNon;
                                     phieu.isTruoc24h = dg.Phieu.isTruoc24h;
                                     phieu.MaBenhNhan = MaBN;
+                                    phieu.Para= dg.Phieu.BenhNhan.Para ?? "0000";
                                     if (phieu.TrangThaiMau < 3)
                                         phieu.MaGoiXN = dg.Phieu.maGoiXetNghiem;
                                     if (string.IsNullOrEmpty(phieu.MaXetNghiem))
@@ -3278,6 +3270,7 @@ namespace BioNetDAL
                                         p.isLayMauLan2 = true;
                                     else p.isLayMauLan2 = false;
                                     p.isNheCan = dg.Phieu.isNheCan;
+                                    p.isXNLan2 = false;
                                     p.isSinhNon = dg.Phieu.isSinhNon;
                                     p.isTruoc24h = dg.Phieu.isTruoc24h;
                                     p.MaBenhNhan = MaBN;
@@ -3295,6 +3288,7 @@ namespace BioNetDAL
                                     p.TenNhanVienLayMau = dg.Phieu.TenNhanVienLayMau;
                                     p.TinhTrangLucLayMau = dg.Phieu.maTinhTrangLucLayMau;
                                     p.TrangThaiMau = 2;
+                                    p.Para = dg.Phieu.BenhNhan.Para ?? "0000";
                                     p.TrangThaiPhieu = true;
                                     p.isDongBo = false;
                                     p.isXoa = false;
@@ -4038,6 +4032,7 @@ namespace BioNetDAL
                     }
                     else
                     {
+
                         if (benhnhannguycocao != null)
                         {
                             if (benhnhannguycocao.isDaChanDoan == false)
@@ -4045,6 +4040,7 @@ namespace BioNetDAL
                                 benhnhannguycocao.isDaChanDoan = true;
                             }
                         }
+                        dotChanDoan.MaDotChuanDoan = "1B1" + Guid.NewGuid().ToString();
                         db.PSDotChuanDoans.InsertOnSubmit(dotChanDoan);
                         db.SubmitChanges();
                     }
@@ -4106,29 +4102,26 @@ namespace BioNetDAL
                 if (kq != null)
                 {
                     kq.isDaDuyetKQ = true;
-                    kq.isTraKQ = true;
+                    kq.isTraKQ = false;
                     kq.isDongBo = false;
                     kq.isDongBoPDF = false;
+                    kq.NgayTraKQ = null;
                     db.SubmitChanges();
                 }
-                //var reskq = db.PSXN_TraKQ_ChiTiets.Where(p => p.isXoa == false && p.MaPhieu == maPhieu && p.MaTiepNhan == maTiepNhan).ToList();
-                //if(reskq.Count>0)
-                //{
-                //    foreach(var ct in reskq)
-                //    {
-                //        ct.GiaTriCuoi = string.Empty;
-                //        ct.isDongBo = false;
-                //        db.SubmitChanges();
-                //    }                }
                 var resPhieu = db.PSPhieuSangLocs.FirstOrDefault(p => p.isXoa != true && p.IDCoSo == maDonVi && p.IDPhieu == maPhieu);
                 if (resPhieu != null)
                 {
                     resPhieu.TrangThaiMau = 5;
                     resPhieu.isXNLan2 = true;
+                    resPhieu.NgayCoKQ = null;
                     resPhieu.isDongBo = false;
                     db.SubmitChanges();
                 }
-
+                string pathpdf=Application.StartupPath + "\\PhieuKetQua\\" + maDonVi + "\\" + maPhieu + ".pdf";
+                if(File.Exists(pathpdf))
+                {
+                    File.Delete(pathpdf);
+                }
                 db.Transaction.Commit();
                 db.Connection.Close();
                 return true;
@@ -4613,21 +4606,17 @@ namespace BioNetDAL
                         {
                             Phieu.TrangThaiPhieu = true;
                             Phieu.isDongBo = false;
-
+                            if (Phieu.isXNLan2 == true)
+                            {
+                                Phieu.TrangThaiMau = 5;
+                            }
+                            else
                             Phieu.TrangThaiMau = 3;
+                            Phieu.NgayCoKQ = null;
                             if (string.IsNullOrEmpty(Phieu.MaXetNghiem))
                                 Phieu.MaXetNghiem = rowXN.MaXetNghiem;
                             db.SubmitChanges();
-                            //  UpdateMaKhachHang(Phieu.MaBenhNhan,Phieu.IDCoSo,SoBanDau());
-                            //var patient = db.PSPatients.FirstOrDefault(p => p.MaBenhNhan == Phieu.MaBenhNhan);
-                            //if( patient!=null)
-                            //{
-                            //    if(string.IsNullOrEmpty(patient.MaKhachHang))
-                            //    {
-                            //        patient.MaKhachHang = GetNewMaKhachHang(Phieu.IDCoSo, SoBanDau());
-                            //        db.SubmitChanges();
-                            //    }
-                            //}
+                           
 
                         }
 
@@ -4765,13 +4754,13 @@ namespace BioNetDAL
                         traKQ.isDongBo = false;
                         traKQ.isDaDuyetKQ = false;
                         traKQ.IDCoSo = KQ.maDonVi;
-                        traKQ.KetLuanTongQuat = String.Empty;
+                        traKQ.KetLuanTongQuat = string.Empty;
                         traKQ.GhiChu = string.Empty;
                         traKQ.UserTraKQ = KQ.maNhanVienTraKQ;
                         traKQ.GhiChuPhongXetNghiem = KQ.GhiChu;
                         traKQ.isTraKQ = false;
                         traKQ.isXoa = false;
-                        
+                        traKQ.isDaGuiMail = false;
                         var phieu = db.PSPhieuSangLocs.FirstOrDefault(p => p.isXoa == false && p.IDPhieu == KQ.maPhieu && p.IDCoSo == KQ.maDonVi);
                         if (phieu.isLayMauLan2==true)
                         {
@@ -4780,7 +4769,6 @@ namespace BioNetDAL
                         db.PSXN_TraKetQuas.InsertOnSubmit(traKQ);
                         foreach (var item in KQ.KetQuaChiTiet)
                         {
-
                             PSXN_TraKQ_ChiTiet CtTraKQ = new PSXN_TraKQ_ChiTiet();
                             CtTraKQ.GiaTri1 = item.GiaTri;
                             CtTraKQ.GiaTriMax = item.GiaTriMax;
@@ -4805,7 +4793,6 @@ namespace BioNetDAL
                                 float gt = float.Parse(item.GiaTri);
                                 if (gt >= item.GiaTriMin && gt < item.GiaTriMax)
                                 {
-
                                     CtTraKQ.isNguyCo = false;
                                     CtTraKQ.KetLuan = "Nguy cơ thấp";
                                     CtTraKQ.GiaTriCuoi = String.Format("{0:0.##}", gt);
@@ -4813,14 +4800,12 @@ namespace BioNetDAL
                                 else
                                 {
                                     isNC = true;
+                                    CtTraKQ.isNguyCo = isNC;
+                                    CtTraKQ.KetLuan = "Nghi nghờ";
                                 }
                             }
                             catch { }
-
-
                             db.PSXN_TraKQ_ChiTiets.InsertOnSubmit(CtTraKQ);
-
-
                         }
                         traKQ.isNguyCoCao = isNC;
                         db.SubmitChanges();
@@ -4833,10 +4818,11 @@ namespace BioNetDAL
                         TraKetQua.isDongBoPDF = false;
                         TraKetQua.isDaDuyetKQ = false;
                         TraKetQua.isTraKQ = false;
-                        TraKetQua.KetLuanTongQuat=null;
+                        TraKetQua.KetLuanTongQuat=string.Empty;
                         TraKetQua.GhiChu = string.Empty;
                         TraKetQua.KetLuanTongQuat = string.Empty;
                         TraKetQua.GhiChuPhongXetNghiem = KQ.GhiChu;
+                        TraKetQua.isDaGuiMail = false;
                         foreach (var item in TraKetQua.PSXN_TraKQ_ChiTiets)
                         {
                             var kqct = KQ.KetQuaChiTiet.FirstOrDefault(x => x.MaThongSo == item.IDThongSoXN);
@@ -4934,7 +4920,7 @@ namespace BioNetDAL
                 return false;
             }
         }
-        public PsReponse UpdateTraKetQua(TraKetQua_XetNghiem KQ, bool isDuyet)
+        public PsReponse UpdateTraKetQua(TraKetQua_XetNghiem KQ, bool isTraKQ)
         {
             PsReponse res = new PsReponse();
             db.Connection.Open();
@@ -4945,10 +4931,10 @@ namespace BioNetDAL
                 var result = db.PSXN_TraKetQuas.FirstOrDefault(p => p.isXoa != true && p.MaPhieu == KQ.maPhieu && p.MaTiepNhan == KQ.maTiepNhan);
                 if (result != null)
                 {
-                    if (result.isDaDuyetKQ ?? false)
+                    if (result.isTraKQ ?? false)
                     {
                         res.Result = false;
-                        res.StringError = "Kết quả đã duyệt nên không được sửa";
+                        res.StringError = "Kết quả đã được trả nên không được sửa";
                         db.Transaction.Rollback();
                         db.Connection.Close();
                         return res;
@@ -4957,15 +4943,25 @@ namespace BioNetDAL
                     {
                         result.isDongBo = false;
                         result.GhiChu = KQ.ghiChu;
-                        result.isTraKQ = KQ.isTraKQ;
-                        if (isDuyet)
-                            result.isDaDuyetKQ = true;
+                        if (isTraKQ)
+                        {
+                            result.isTraKQ = true;
+                            result.NgayTraKQ = KQ.ngayTraKQ;
+                        }
+                        else
+                        {
+                            
+                            result.isTraKQ = false;
+                        }
+                        result.isDaDuyetKQ = true;
                         result.KetLuanTongQuat = KQ.ketLuan;
-                        result.NgayTraKQ = KQ.ngayDuyetKQ;
                         result.MaPhieuCu = KQ.MaPhieuLan1;
                         result.UserTraKQ = KQ.userTraKQ;
                         result.isDongBoPDF = false;
+                        result.isDaGuiMail = false;
+                        result.isXoa = false;
                         db.SubmitChanges();
+                        #region Cập nhật chi tiết trả kết quả
                         if (KQ.chiTietKQ.Count > 0)
                         {
                             foreach (var KQCT in KQ.chiTietKQ)
@@ -4978,8 +4974,7 @@ namespace BioNetDAL
                                     ct.GiaTri2 = KQCT.GiaTri2;
                                     ct.isNguyCo = KQCT.isNguyCo;
                                     ct.KetLuan = KQCT.KetLuan;
-                                    if (isDuyet)
-                                        ct.isDaDuyetKQ = true;
+                                    ct.isDaDuyetKQ = true;
                                     ct.isDongBo = false;
                                     db.SubmitChanges();
                                     if (KQCT.isNguyCo && (KQCT.isMauXNLai ?? false)) isNguyCoCao = true;
@@ -5001,9 +4996,11 @@ namespace BioNetDAL
                             db.Connection.Close();
                             return res;
                         }
+                        #endregion
                         result.isNguyCoCao = KQ.isNguyCo;
                         db.SubmitChanges();
                     }
+                    
                 }
                 else
                 {
@@ -5013,15 +5010,15 @@ namespace BioNetDAL
                     db.Connection.Close();
                     return res;
                 }
-                if (isDuyet)
+                if (isTraKQ)
                 {
                     var phieu = db.PSPhieuSangLocs.FirstOrDefault(p => p.isXoa == false && p.IDPhieu == KQ.maPhieu && p.IDCoSo == KQ.maDonVi && p.isXoa != true);
                     if (phieu != null)
-                    {
-                        phieu.NgayCoKQ = KQ.ngayDuyetKQ;
-                        phieu.TrangThaiMau = 4;
-                        phieu.isDongBo = false;
-                        db.SubmitChanges();
+                    {   
+                            phieu.NgayCoKQ = KQ.ngayTraKQ;
+                            phieu.TrangThaiMau = 4;                     
+                            phieu.isDongBo = false;
+                            db.SubmitChanges();
                     }
                     #region Cập nhật Bệnh nhân nguy cơ cao
                     if (isNguyCoCao)
@@ -5086,9 +5083,7 @@ namespace BioNetDAL
                         }
                     }
                     #endregion
-
                 }
-
                 db.Transaction.Commit();
                 db.Connection.Close();
                 res.Result = true;

@@ -172,7 +172,7 @@ namespace DataSync.BioNetSync
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!string.IsNullOrEmpty(token))
                     {
-                        var datas = db.PSPhieuSangLocs.Where(p => p.isDongBo !=true).OrderBy(x=>x.RowIDPhieu).ToList();
+                        var datas = db.PSPhieuSangLocs.Where(p => p.isDongBo !=true ).OrderBy(x=>x.RowIDPhieu).ToList();
                         List<string> jsonstr = new List<string>();
                         string Nhom = (string)null;
                         while (datas.Count() > 1000)
@@ -200,6 +200,8 @@ namespace DataSync.BioNetSync
                                     var data = db.PSPhieuSangLocs.Where(s => (from d in datares select d.IDPhieu).Contains(s.IDPhieu));
                                     data.ToList().ForEach(c => c.isDongBo = true);
                                     db.SubmitChanges();
+                                    var map = data.Where(y => y.isXoa == true).Select(x=>x.IDPhieu).ToList();
+                                    listPhieuXoa.AddRange(map);
                                     #region Cập nhật phiếu lỗi
                                     string json = result.ErorrResult;
                                     JavaScriptSerializer jss = new JavaScriptSerializer();

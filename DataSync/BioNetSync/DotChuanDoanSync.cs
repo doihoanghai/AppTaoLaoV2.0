@@ -83,8 +83,8 @@ namespace DataSync.BioNetSync
                                 if (result.Result)
                                 {
                                     JavaScriptSerializer js = new JavaScriptSerializer();
-                                    List<PSPhieuSangLoc> datares = js.Deserialize<List<PSPhieuSangLoc>>(jsons);
-                                    var data = db.PSDotChuanDoans.Where(s => (from d in datares select d.MaBenhNhan).Contains(s.MaBenhNhan));
+                                    List<PSDotChuanDoan> datares = js.Deserialize<List<PSDotChuanDoan>>(jsons);
+                                    var data = db.PSDotChuanDoans.Where(s => (from d in datares select d.MaDotChuanDoan).Contains(s.MaDotChuanDoan));
                                     data.ToList().ForEach(c => c.isDongBo = true);
                                     db.SubmitChanges();
 
@@ -101,7 +101,7 @@ namespace DataSync.BioNetSync
                                                 PSResposeSync sn = cn.CutString(lst);
                                                 if (sn != null)
                                                 {
-                                                    var ds = db.PSDotChuanDoans.FirstOrDefault(p => p.MaKhachHang == sn.Code);
+                                                    var ds = db.PSDotChuanDoans.FirstOrDefault(p => p.MaDotChuanDoan == sn.Code);
                                                     if (ds != null)
                                                     {
                                                         ds.isDongBo = false;

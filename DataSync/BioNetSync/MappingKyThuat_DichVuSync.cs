@@ -35,7 +35,6 @@ namespace DataSync.BioNetSync
                             List<PSMapsXN_DichVu> CLuong = jss.Deserialize<List<PSMapsXN_DichVu>>(json);
                             if (CLuong.Count > 0)
                             {
-
                                 UpdateDMMap_ThongSo_KyThuat(CLuong);
                             }
                         }

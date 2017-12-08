@@ -21,6 +21,9 @@ using System.IO.Compression;
 using BioNetModel.Data;
 using DevExpress.XtraSplashScreen;
 using BioNetSangLocSoSinh.DiaglogFrm;
+using iTextSharp;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 
 namespace BioNetSangLocSoSinh.FrmReports
 {
@@ -112,6 +115,8 @@ namespace BioNetSangLocSoSinh.FrmReports
                     SplashScreenManager.ShowForm(this, typeof(WaitingformMail), true, true, false);
                     List<PsTinhTrangPhieu> dt = (List<PsTinhTrangPhieu>)GC_DSPhieuMail.DataSource;
                     List<string> MaDVCS = new List<string>();
+                  
+
                     DataTable dtselect = new DataTable();
                     int kq = 0;
                     int chon = 0;
@@ -139,10 +144,10 @@ namespace BioNetSangLocSoSinh.FrmReports
                             //Noi lưu phiếu trả kết quả                               
                             string pathpdf = Application.StartupPath + "\\PhieuKetQua\\" + maDVCS + "\\" + maPhieu + ".pdf";
                             //Kiểm tra đường dẫn tồn tại ko
-                           
-                            if (!File.Exists(pathpdf)) { LuuPDF(maPhieu, maDVCS); }//Nếu ko có phiếu thì in lại phiếu 
-                            NenGuiMail(pathpdf, maPhieu, maDVCS);
 
+                            // if (!File.Exists(pathpdf)) {
+                            LuuPDF(maPhieu, maDVCS); //}//Nếu ko có phiếu thì in lại phiếu 
+                            NenGuiMail(pathpdf, maPhieu, maDVCS);
                         }
                     }
                  
@@ -167,9 +172,19 @@ namespace BioNetSangLocSoSinh.FrmReports
                                 XtraMessageBox.Show("Dữ liệu của Email của trung tâm lỗi - Vui lòng kiểm tra lại dữ liệu ", "bionet - chương trình sàng lọc sơ sinh", MessageBoxButtons.OK);
                                 break;
                             }
+                            else
+                            {
+                                var MaPhieu = dt.Where(x => x.Chon == 1 && x.MaDonVi == madvcs).Select(x => x.IDPhieu).ToList();
+                                var res = BioNet_Bus.CapNhatGuiMail(MaPhieu);
+                                
+                            }
                         }
                         SplashScreenManager.CloseForm();
-                        if (kq == 0) { XtraMessageBox.Show("Gửi Mail thành công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK); }
+                        if (kq == 0) { XtraMessageBox.Show("Gửi Mail thành công", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK
+                            
+                            );
+
+                        }
                         //Xóa file nén đã gửi mail
                         DirectoryInfo dirInfo = new DirectoryInfo(pathMail);
                         FileInfo[] childFiles = dirInfo.GetFiles();
@@ -186,7 +201,40 @@ namespace BioNetSangLocSoSinh.FrmReports
             else if (dialogResult == DialogResult.No) { return; }
 
         }
+        public static void CombineMultiplePDFs(List<string> fileNames, string outFile)
+        {
+            Document document = new Document();
+            PdfCopy writer = new PdfCopy(document, new FileStream(outFile, FileMode.Create));
+            if (writer == null)
+            {
+                return;
+            }
+            document.Open();
+            foreach (string fileName in fileNames)
+            {
 
+                PdfReader reader = new PdfReader(fileName);
+                reader.ConsolidateNamedDestinations();
+
+
+                for (int i = 1; i <= reader.NumberOfPages; i++)
+                {
+                    PdfImportedPage page = writer.GetImportedPage(reader, i);
+                    writer.AddPage(page);
+                }
+
+                PRAcroForm form = reader.AcroForm;
+                if (form != null)
+                {
+                    writer.CopyDocumentFields(reader);
+                }
+
+                reader.Close();
+            }
+
+            writer.Close();
+            document.Close();
+        }
         private int GuiMail(string MaDVCS)
         {
             var donvi = BioNet_Bus.GetThongTinDonViCoSo(MaDVCS);
@@ -205,8 +253,8 @@ namespace BioNetSangLocSoSinh.FrmReports
                    "<p></p><p></p>" +
                    "<p style='font-size:12.8px;margin:6pt 0in;text-align:justify'><font face='times new roman,serif' size = '4' color='black'>" + "Kính thư," + "</font></p>";
                 string madvcs = MaDVCS;
-                string pathzip = pathMail + madvcs  +"(" + DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year + ")" + ".zip"; 
-
+                //string pathzip = pathMail + madvcs  +"(" + DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year + ")" + ".zip"; 
+                string pathzip = pathMail + madvcs + "(" + DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year + ")" + ".pdf";
                 string MailKH = BioNet_Bus.GetThongTinMailDonViCoSo(madvcs);
                 //string mailKh = "thanhquangqb95@gmail.com";
                 int kq = DataSync.BioNetSync.GuiMail.Send_Email_With_Attachment(MailKH, fromAddress, passEMail, pathzip, tieude, noidung);
@@ -242,8 +290,36 @@ namespace BioNetSangLocSoSinh.FrmReports
 
                 }
             }
+            string zipPathpdf = Application.StartupPath + "\\DSGuiMail\\" + MaDVCS + "(" + DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year + ")" + ".pdf";
+           
+            Document document = new Document();
+            PdfCopy writer = new PdfCopy(document, new FileStream(zipPathpdf, FileMode.Create));
+            document.Open();
+            foreach (string Maphieu in maphieu)
+            {
+                string fileName = Application.StartupPath + "\\PhieuKetQua\\" + MaDVCS + "\\" + Maphieu + ".pdf";
+                PdfReader reader = new PdfReader(fileName);
+                reader.ConsolidateNamedDestinations();
 
-           PSTKKQPhieuMail tk = new PSTKKQPhieuMail();
+
+                for (int i = 1; i <= reader.NumberOfPages; i++)
+                {
+                    PdfImportedPage page = writer.GetImportedPage(reader, i);
+                    writer.AddPage(page);
+                }
+
+                PRAcroForm form = reader.AcroForm;
+                if (form != null)
+                {
+                    writer.CopyDocumentFields(reader);
+                }
+
+                reader.Close();
+            }
+
+            writer.Close();
+            document.Close();
+            PSTKKQPhieuMail tk = new PSTKKQPhieuMail();
             tk = BioNet_Bus.GetThongKePhieuMail(maphieu);
             int chitieumaumoi = tk.benh2 * 2 + tk.benh3 * 3 + tk.benh5 * 5;
             int chitieumauxnl = tk.G6PD3 +tk.GAL3+tk.PKU3+tk.CH3+tk.CAH3;
@@ -326,7 +402,7 @@ namespace BioNetSangLocSoSinh.FrmReports
                 "<tr style='padding:5px; text-align:center;'> " +
                        "<td style='padding:5px; text-align:center;'>PKU</td>" +
                      "<td style='padding:5px; text-align:center;'>" + tk.PKU3 + "</td>" +
-                     "<td style='padding:5px; text-align:center;' rowspan='2' colspan='1'>Nghi ngờ cao</td>" +
+                     "<td style='padding:5px; text-align:center;' rowspan='2' colspan='1'>Nghi cơ cao</td>" +
                      "<td style='padding:5px; text-align:center;background-color:#87dc86;' colspan='1'>Tổng</td>" +
                      "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>G6PD</td>" +
                       "<td style='padding:5px; text-align:center;background-color:#d9e5e8;' colspan='1'>TGAL</td>" +
@@ -366,8 +442,8 @@ namespace BioNetSangLocSoSinh.FrmReports
        "<tr>" +
                 "<td rowspan=6  style='padding:5px; text-align:center;'>" + tk.MauDat + "</td>" +
                          "<td rowspan=6 style='padding:5px; text-align:center;'>Lý Do</td>"+ 
-                         "<td colspan=1 style='padding:5px; '>1. Mẫu không thấm đều 2 mặt </td>"+ 
-                         "<td colspan=1 style='padding:5px; text-align:center;'>"+tk.MauKdeu+ tk.Mauit+" </ td > " + 
+                         "<td colspan=1 style='padding:5px; '>1. Mẫu không thấm đều 2 mặt, mẫu ít </td>"+ 
+                         "<td colspan=1 style='padding:5px; text-align:center;'>"+tk.MauKdeu+", "+ tk.Mauit+" </ td > " + 
                          "<td rowspan=6 style='padding:5px; text-align:center;'>Người thu mẫu </td>" +
                          "<td colspan=1 style='padding:5px; text-align:center;'>"+ "" +" </ td > "+
 
@@ -422,20 +498,31 @@ namespace BioNetSangLocSoSinh.FrmReports
                     else
                     if (kieuTraKQ == 2)
                     {
+                        Reports.rptPhieuTraKetQua_TheoTT2 datarp = new Reports.rptPhieuTraKetQua_TheoTT2();
+                        frmReportEditGeneral.FileLuuPDF(datarp, data);
+                    }
+                    else
+                    if (kieuTraKQ == 3)
+                    {
                         Reports.rptPhieuTraKetQua_TheoDonVi datarp = new Reports.rptPhieuTraKetQua_TheoDonVi();
                         frmReportEditGeneral.FileLuuPDF(datarp, data);
                     }
                     else
+                    if (kieuTraKQ == 4)
                     {
                         Reports.rptPhieuTraKetQua_TheoDonVi2 datarp = new Reports.rptPhieuTraKetQua_TheoDonVi2();
+                        frmReportEditGeneral.FileLuuPDF(datarp, data);
+                    }
+                    else
+                    {
+                        Reports.rptPhieuTraKetQua datarp = new Reports.rptPhieuTraKetQua();
                         frmReportEditGeneral.FileLuuPDF(datarp, data);
                     }
                 }
                 else
                 {
-
-                    Reports.rptPhieuTraKetQua rp = new Reports.rptPhieuTraKetQua();
-                    frmReportEditGeneral.FileLuuPDF(rp, data);
+                    Reports.rptPhieuTraKetQua datarp = new Reports.rptPhieuTraKetQua();
+                    frmReportEditGeneral.FileLuuPDF(datarp, data);
                 }
             }
             catch (Exception ex) { XtraMessageBox.Show("Lỗi phát sinh khi lấy dữ liệu in \r\n Lỗi chi tiết :" + ex.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
@@ -454,13 +541,16 @@ namespace BioNetSangLocSoSinh.FrmReports
             {
 
             }
-            string zipPath = Application.StartupPath + "\\DSGuiMail\\" + tendvcs+"("+DateTime.Now.Day+"."+DateTime.Now.Month+"."+DateTime.Now.Year +")"+ ".zip";
+            string zipPath = Application.StartupPath + "\\DSGuiMail\\" + tendvcs + "(" + DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year + ")" + ".zip";
+           
+            
             if (Directory.Exists(zipPath))
             {
                 ZipFile.CreateFromDirectory(startPath, zipPath);
             }
             else
             {
+
                 using (ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Update))
                 {
                     try
@@ -473,6 +563,7 @@ namespace BioNetSangLocSoSinh.FrmReports
                     }
 
                 }
+
             }
         }
 
@@ -481,9 +572,18 @@ namespace BioNetSangLocSoSinh.FrmReports
             try
             {
                 GridView Viewer = sender as GridView;
-                if (e.Column.FieldName == "TinhTrangMau_Text")
+                
+                string isMail = Viewer.GetRowCellValue(e.RowHandle, this.col_isGuiMail).ToString();
+                if (isMail=="True" || isMail=="1")
+                {
+                        e.Appearance.BackColor = Color.MistyRose;
+                        e.Appearance.BackColor2 = Color.PaleGoldenrod; 
+                }
+            
+            if (e.Column.FieldName == "TinhTrangMau_Text")
                 {
                     string category = Viewer.GetRowCellValue(e.RowHandle, Viewer.Columns["TinhTrangMau"]).ToString();
+                   
                     int trangthai = 0;
                     try
                     {

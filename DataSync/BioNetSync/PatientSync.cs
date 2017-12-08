@@ -204,7 +204,7 @@ namespace DataSync.BioNetSync
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!string.IsNullOrEmpty(token))
                     {
-                        var datas = db.PSPatients.Where(p => p.isDongBo != true && p.MaKhachHang != null).ToList();
+                        var datas = db.PSPatients.Where(p => p.isDongBo != true && p.MaKhachHang != null &&  p.isXoa!=true).ToList();
                         List<string> jsonstr = new List<string>();
                         string Nhom = (string)null;
                         while (datas.Count() > 1000)

@@ -58,7 +58,7 @@ namespace DataSync.BioNetSync
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!String.IsNullOrEmpty(token))
                     {
-                        var datas = db.PSBenhNhanNguyCoCaos.Where(x => x.isDongBo != true && x.isXoa != true).ToList();
+                        var datas = db.PSBenhNhanNguyCoCaos.Where(x => x.isDongBo != true  && x.MaBenhNhan!=null && x.isXoa != true).ToList();
                         datas.ToList().ForEach(c => c.PSDotChuanDoans = null);
                         List<string> jsonstr = new List<string>();
                         string Nhom = (string)null;
@@ -83,7 +83,7 @@ namespace DataSync.BioNetSync
                                 if (result.Result)
                                 {
                                     JavaScriptSerializer js = new JavaScriptSerializer();
-                                    List<PSPhieuSangLoc> datares = js.Deserialize<List<PSPhieuSangLoc>>(jsons);
+                                    List<PSBenhNhanNguyCoCao> datares = js.Deserialize<List<PSBenhNhanNguyCoCao>>(jsons);
                                     var data = db.PSBenhNhanNguyCoCaos.Where(s => (from d in datares select d.MaBenhNhan).Contains(s.MaBenhNhan));
                                     data.ToList().ForEach(c => c.isDongBo = true);
                                     db.SubmitChanges();
@@ -124,17 +124,23 @@ namespace DataSync.BioNetSync
                             }
                             #endregion
                         }
-                    }
+                        if (String.IsNullOrEmpty(res.StringError))
+                        {
+                            res.Result = true;
+                        }
+                        else
+                        {
+                            res.Result = false;
+                        }
+                    } 
 
-                }
-                if (String.IsNullOrEmpty(res.StringError))
-                {
-                    res.Result = true;
                 }
                 else
                 {
                     res.Result = false;
+                    res.StringError = "Đồng bộ phiếu bệnh nhân nguy cơ - Kiểm tra kết nội mạng hoặc tài khoản đồng bộ!\r\n";
                 }
+
             }
             catch (Exception ex)
             {

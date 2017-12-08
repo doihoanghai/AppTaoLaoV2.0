@@ -100,7 +100,7 @@ namespace DataSync.BioNetSync
                             foreach (var chitiet in data.PSXN_TraKQ_ChiTiets)
                             {
                                 XN_TraKQ_ChiTietViewModel term = new XN_TraKQ_ChiTietViewModel();
-                                var t = cn.ConvertObjectToObject(chitiet, term);
+                                 var t = cn.ConvertObjectToObject(chitiet, term);
                                 des.lstTraKetQuaChiTiet.Add((XN_TraKQ_ChiTietViewModel)t);
                             }
                             de.Add(des);
@@ -194,6 +194,8 @@ namespace DataSync.BioNetSync
                         res.StringError = "Đồng bộ phiếu tiếp nhận - Kiểm tra kết nội mạng hoặc tài khoản đồng b!\r\n";
                     }
                 }
+                db.Transaction.Commit();
+                db.Connection.Close();
             }
             catch (Exception ex)
             {

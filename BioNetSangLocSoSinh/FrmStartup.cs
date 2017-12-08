@@ -32,7 +32,7 @@ namespace BioNetSangLocSoSinh
         //path phiếu kết quả xét nghiệm
         public static string pathkq = Application.StartupPath + "\\PhieuKetQua\\";
         //path nơi luuw file đã nén để đồng bộ
-        public static string pathdongbo = Application.StartupPath + "\\DSNenDongBo\\";
+        public static string pathdongbo = Application.StartupPath + "\\DSNenDongBo";
         public static List<string> MaPhieuPDF=new List<string>();
         public FrmStartup()
         {
@@ -642,25 +642,64 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                 var phieuchuadb = BioNet_Bus.GetDanhSachPDFChuaDongBo();
                 if(phieuchuadb != null)
                 {
-                    foreach(var phieu in phieuchuadb)
+                    if (!Directory.Exists(pathdongbo))
                     {
+                        Directory.CreateDirectory(pathdongbo);
+                    }
+                    else
+                    {
+
+                    }
+                    foreach (var phieu in phieuchuadb)
+                    {
+
                         string startPath = pathkq + phieu.IDCoSo +"\\"+ phieu.MaPhieu + ".pdf";
-                        string zipPath = pathdongbo + phieu.IDCoSo + ".zip";
-                        if (!File.Exists(startPath))
+                        string zipPath = pathdongbo+"\\" + phieu.IDCoSo + ".zip";
+                        try
                         {
                             Entry.FrmTraKetQua.LuuPDF(phieu.MaPhieu, phieu.IDCoSo, phieu.MaTiepNhan);
+                            if (!File.Exists(zipPath))
+                            {
+                                // ZipFile.CreateFromDirectory(pathdongbo, zipPath);
+                                using (ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Create))
+                                {
+                                    try
+                                    {
+                                        archive.CreateEntryFromFile(startPath, phieu.MaPhieu + ".pdf");
+                                        MaPhieuPDF.Add(phieu.MaPhieu);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                    }
+                                }
+                            }
+                            else
+                            {
+
+                                using (ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Update))
+                                {
+                                    try
+                                    {
+                                        archive.CreateEntryFromFile(startPath, phieu.MaPhieu + ".pdf");
+                                        MaPhieuPDF.Add(phieu.MaPhieu);
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                }
+                            }
                         }
-                        using (ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Update))
+                        catch (Exception ex)
                         {
-                            archive.CreateEntryFromFile(startPath, phieu.MaPhieu+".pdf");
-                        }
-                        MaPhieuPDF.Add(phieu.MaPhieu);
+                        }                       
                     }                  
                 }
                 res.Result = true;
             }
-            catch {
+            catch(Exception ex) {
                 res.Result = false;
+                res.StringError = ex.ToString();
             }
             return res; 
         }
@@ -798,9 +837,8 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             {
                 string Error = null;
                 SplashScreenManager.ShowForm(this, typeof(WaitingformLoadDongBo), true, true, false);
-                res.Add(PhieuSangLocSync.PostPhieuSangLoc());
-                res.Add(TraKetQuaSync.PostKetQua());
-                res.Add(PDFSync());
+
+
                 //Thread db1 = new Thread(() => res.Add(PatientSync.PostPatient()));
                 //Thread db2 = new Thread(() => res.Add(ChiDinhSync.PostChiDinh()));
                 //Thread db3 = new Thread(() => res.Add(KetQuaSync.PostKetQua()));
@@ -816,8 +854,17 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
                 //db5.Start();
                 //db6.Start();
                 //db7.Start();
-                //db8.Start();
-
+                //db8.Start()
+                res.Add(TiepNhanSync.PostTiepNhan());
+                res.Add(PatientSync.PostPatient());
+                res.Add(PhieuSangLocSync.PostPhieuSangLoc());
+                res.Add(ChiDinhSync.PostChiDinh());
+                res.Add(KetQuaSync.PostKetQua());
+                //res.Add(TraKetQuaSync.PostKetQua());
+                res.Add(BenhNhanNguyCoCaoSync.PostBenhNhanNguyCoCao());
+                res.Add(DotChuanDoanSync.PostDotChuanDoan());
+                res.Add(DanhGiaChatLuongMauSync.PostCTDanhGiaChatLuongMau());
+                res.Add(PDFSync());
                 foreach (var p in res)
                 {
                     if (p.Result == false && p.StringError != null)
@@ -909,6 +956,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             {
                 string Error = null;
                 SplashScreenManager.ShowForm(this, typeof(WaitingformLoadDongBo), true, true, false);
+                res.Add(TiepNhanSync.PostTiepNhan());
                 res.Add(PhieuSangLocSync.PostPhieuSangLoc());
                 res.Add(PatientSync.PostPatient());
                 res.Add(ChiDinhSync.PostChiDinh());
@@ -947,6 +995,7 @@ Vui lòng liên hệ mua bản quyền để sử dụng phần mềm không b�
             {
                 string Error = null;
                 SplashScreenManager.ShowForm(this, typeof(WaitingformLoadDongBo), true, true, false);
+                res.Add(TiepNhanSync.PostTiepNhan());
                 res.Add(PhieuSangLocSync.PostPhieuSangLoc());
                 res.Add(PatientSync.PostPatient());
                 res.Add(ChiDinhSync.PostChiDinh());

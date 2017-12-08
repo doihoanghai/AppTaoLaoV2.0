@@ -180,11 +180,12 @@ namespace DataSync.BioNetSync
                                 res.Result = false;
                             }
                         }
-                        else
-                        {
-                            res.Result = false;
-                            res.StringError = "Đồng bộ phiếu chỉ định dịch vũ - Kiểm tra kết nội mạng!\r\n";
-                        }
+                        
+                    }
+                    else
+                    {
+                        res.Result = false;
+                        res.StringError = "Đồng bộ phiếu chỉ định dịch vũ - Kiểm tra kết nội mạng!\r\n";
                     }
                 }
             }

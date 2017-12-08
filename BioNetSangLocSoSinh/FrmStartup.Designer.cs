@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStartup));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -845,9 +845,9 @@
             this.barButtonItem39.Glyph = global::BioNetSangLocSoSinh.Properties.Resources.sync;
             this.barButtonItem39.Id = 55;
             this.barButtonItem39.Name = "barButtonItem39";
-            toolTipTitleItem1.Text = "Đồng Bộ Dữ Liệu Thông Tin Trung Tâm";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            this.barButtonItem39.SuperTip = superToolTip1;
+            toolTipTitleItem5.Text = "Đồng Bộ Dữ Liệu Thông Tin Trung Tâm";
+            superToolTip5.Items.Add(toolTipTitleItem5);
+            this.barButtonItem39.SuperTip = superToolTip5;
             this.barButtonItem39.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barButtonItem39.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem39_ItemClick);
             // 
@@ -857,9 +857,9 @@
             this.barButtonItem40.Glyph = global::BioNetSangLocSoSinh.Properties.Resources.sync;
             this.barButtonItem40.Id = 56;
             this.barButtonItem40.Name = "barButtonItem40";
-            toolTipTitleItem2.Text = "Đồng Bộ Dữ Liệu Danh Mục\r\n";
-            superToolTip2.Items.Add(toolTipTitleItem2);
-            this.barButtonItem40.SuperTip = superToolTip2;
+            toolTipTitleItem6.Text = "Đồng Bộ Dữ Liệu Danh Mục\r\n";
+            superToolTip6.Items.Add(toolTipTitleItem6);
+            this.barButtonItem40.SuperTip = superToolTip6;
             this.barButtonItem40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem40_ItemClick);
             // 
             // barButtonItem41
@@ -868,9 +868,9 @@
             this.barButtonItem41.Glyph = global::BioNetSangLocSoSinh.Properties.Resources.sync;
             this.barButtonItem41.Id = 57;
             this.barButtonItem41.Name = "barButtonItem41";
-            toolTipTitleItem3.Text = "Đồng Bộ Dữ Liệu Phiếu Tiếp Nhận\r\n";
-            superToolTip3.Items.Add(toolTipTitleItem3);
-            this.barButtonItem41.SuperTip = superToolTip3;
+            toolTipTitleItem7.Text = "Đồng Bộ Dữ Liệu Phiếu Tiếp Nhận\r\n";
+            superToolTip7.Items.Add(toolTipTitleItem7);
+            this.barButtonItem41.SuperTip = superToolTip7;
             this.barButtonItem41.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barButtonItem41.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem41_ItemClick);
             // 
@@ -880,15 +880,15 @@
             this.barButtonItem42.Glyph = global::BioNetSangLocSoSinh.Properties.Resources.sync;
             this.barButtonItem42.Id = 58;
             this.barButtonItem42.Name = "barButtonItem42";
-            toolTipTitleItem4.Text = "Đồng Bộ Dữ Liệu Kết Quả Phiếu";
-            superToolTip4.Items.Add(toolTipTitleItem4);
-            this.barButtonItem42.SuperTip = superToolTip4;
+            toolTipTitleItem8.Text = "Đồng Bộ Dữ Liệu Kết Quả Phiếu";
+            superToolTip8.Items.Add(toolTipTitleItem8);
+            this.barButtonItem42.SuperTip = superToolTip8;
             this.barButtonItem42.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barButtonItem42.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem42_ItemClick);
             // 
             // barButtonItem43
             // 
-            this.barButtonItem43.Caption = "Sữa Phiếu Lỗi";
+            this.barButtonItem43.Caption = "Sửa Phiếu Lỗi";
             this.barButtonItem43.Glyph = global::BioNetSangLocSoSinh.Properties.Resources.warning;
             this.barButtonItem43.Id = 59;
             this.barButtonItem43.LargeGlyph = global::BioNetSangLocSoSinh.Properties.Resources.warning;
@@ -1079,7 +1079,7 @@
             this.ribbonPage7.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup4});
             this.ribbonPage7.Name = "ribbonPage7";
-            this.ribbonPage7.Text = "Sữa Lỗi";
+            this.ribbonPage7.Text = "Sửa lỗi";
             this.ribbonPage7.Visible = false;
             // 
             // ribbonPageGroup4

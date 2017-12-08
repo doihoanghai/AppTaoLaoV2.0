@@ -27,6 +27,7 @@ namespace BioNetModel
         public string MaChiCuc { get; set; }
         public string TenChiCuc { get; set; }
         public string Email { get; set; }
+        public bool isDaGuiMail { get; set; }
 
        
     }

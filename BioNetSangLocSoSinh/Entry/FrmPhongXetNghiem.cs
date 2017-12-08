@@ -273,6 +273,7 @@ namespace BioNetSangLocSoSinh.Entry
                 if (this.GVChuaKQ.RowCount > 0)
                 {
                     this.col_GiaTri.OptionsColumn.AllowEdit = true;
+                    this.btnSua.Visible = true;
                     if (this.GVChuaKQ.GetFocusedRow() != null)
                     {
                         string maKQ = this.GVChuaKQ.GetRowCellValue(this.GVChuaKQ.FocusedRowHandle, this.col_MaKQ_GCChuaCoKQ).ToString();
@@ -352,6 +353,7 @@ namespace BioNetSangLocSoSinh.Entry
                     if (this.GVDaCoKetQua.GetFocusedRow() != null)
                     {
                         this.col_GiaTri.OptionsColumn.AllowEdit = false;
+                        this.btnSua.Visible = false;
                         string maKQ = this.GVDaCoKetQua.GetRowCellValue(this.GVDaCoKetQua.FocusedRowHandle, this.col_MaKQ_DacoKQ).ToString();
                         string maPhieu = this.GVDaCoKetQua.GetRowCellValue(this.GVDaCoKetQua.FocusedRowHandle, this.col_maPhieu_DacoKQ).ToString();
                         this.HienThiChitietKQ(false, maKQ, maPhieu);
@@ -378,8 +380,8 @@ namespace BioNetSangLocSoSinh.Entry
                     {
                         if (MaCD.Substring(0, 2).Equals("XN"))
                         {
-                            e.Appearance.BackColor = Color.Firebrick;
-                            e.Appearance.BackColor2 = Color.SaddleBrown;
+                            e.Appearance.BackColor = Color.MistyRose;
+                            e.Appearance.BackColor2 = Color.PaleGoldenrod;
                         }
                         else
                         {

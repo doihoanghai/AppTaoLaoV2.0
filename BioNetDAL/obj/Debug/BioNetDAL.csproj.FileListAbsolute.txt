@@ -54,13 +54,6 @@ C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangL
 C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\BioNetDAL\obj\Debug\BioNetDAL.csprojResolveAssemblyReference.cache
 C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\BioNetDAL\obj\Debug\BioNetDAL.dll
 C:\Users\DEV01\Downloads\BioNetSangLocSoSinh (1)\BioNetSangLocSoSinh\BioNetSangLocSoSinh\AppTaoLaoV1.0\BioNetDAL\obj\Debug\BioNetDAL.pdb
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\bin\Debug\BioNetDAL.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\bin\Debug\BioNetDAL.pdb
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\bin\Debug\BioNetModel.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\bin\Debug\BioNetModel.pdb
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\obj\Debug\BioNetDAL.csprojResolveAssemblyReference.cache
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\obj\Debug\BioNetDAL.dll
-C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\obj\Debug\BioNetDAL.pdb
 C:\Users\LeThanhQuang\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDAL\bin\Debug\BioNetDAL.dll
 C:\Users\LeThanhQuang\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDAL\bin\Debug\BioNetDAL.pdb
 C:\Users\LeThanhQuang\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDAL\bin\Debug\BioNetModel.dll
@@ -77,3 +70,10 @@ C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDAL\bi
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDAL\obj\Debug\BioNetDAL.csprojResolveAssemblyReference.cache
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDAL\obj\Debug\BioNetDAL.dll
 C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\AppTaoLaoV2.0\BioNetDAL\obj\Debug\BioNetDAL.pdb
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\bin\Debug\BioNetDAL.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\bin\Debug\BioNetDAL.pdb
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\bin\Debug\BioNetModel.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\bin\Debug\BioNetModel.pdb
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\obj\Debug\BioNetDAL.csprojResolveAssemblyReference.cache
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\obj\Debug\BioNetDAL.dll
+C:\Users\Dev02\Documents\thanhquangqb95\AppTaoLaoV2.0\BioNetDAL\obj\Debug\BioNetDAL.pdb

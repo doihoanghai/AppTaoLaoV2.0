@@ -94,7 +94,7 @@ namespace DataSync.BioNetSync
                     string token = cn.GetToken(account.userName, account.passWord);
                     if (!String.IsNullOrEmpty(token))
                     {
-                        var datas = db.PSXN_KetQuas.Where(x => x.isDongBo != true).OrderBy(x => x.RowIDKetQua).ToList();
+                        var datas = db.PSXN_KetQuas.Where(x => x.isDongBo != true && x.isXoa!= true && x.isCoKQ==true).OrderBy(x => x.RowIDKetQua).ToList();
 
                         List<XN_KetQuaViewModel> de = new List<XN_KetQuaViewModel>();
                         List<string> jsonstr = new List<string>();
@@ -112,14 +112,14 @@ namespace DataSync.BioNetSync
                             }
                             de.Add(des);
                         }
-                       while (de.Count() > 200)
+                       while (de.Count() > 125)
                             {
-                                var temp = de.Take(200);
+                                var temp = de.Take(125);
                                 Nhom = new JavaScriptSerializer().Serialize(de);
                                 jsonstr.Add(Nhom);
-                                de.RemoveRange(0, 200);
+                                de.RemoveRange(0, 125);
                             } 
-                            if (de.Count() <= 200 && de.Count()>0)
+                            if (de.Count() <= 125 && de.Count()>0)
                             {
                                 Nhom = new JavaScriptSerializer().Serialize(de);
                                 jsonstr.Add(Nhom);

@@ -65,6 +65,8 @@
             this.repositoryItemCheckChon = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.col_MaDV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_TinhTrangMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_isGuiMail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckGuiMail = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.checkChon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -77,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GC_DSPhieuMail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DSPhieuMail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckChon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckGuiMail)).BeginInit();
             this.SuspendLayout();
             // 
             // checkChon
@@ -295,7 +298,8 @@
             this.GC_DSPhieuMail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GC_DSPhieuMail.Name = "GC_DSPhieuMail";
             this.GC_DSPhieuMail.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemCheckChon});
+            this.repositoryItemCheckChon,
+            this.repositoryItemCheckGuiMail});
             this.GC_DSPhieuMail.Size = new System.Drawing.Size(1138, 508);
             this.GC_DSPhieuMail.TabIndex = 0;
             this.GC_DSPhieuMail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -313,9 +317,11 @@
             this.col_TinhTrangMau_Text,
             this.col_Chon,
             this.col_MaDV,
-            this.col_TinhTrangMau});
+            this.col_TinhTrangMau,
+            this.col_isGuiMail});
             this.GV_DSPhieuMail.GridControl = this.GC_DSPhieuMail;
             this.GV_DSPhieuMail.Name = "GV_DSPhieuMail";
+            this.GV_DSPhieuMail.OptionsView.ShowGroupPanel = false;
             this.GV_DSPhieuMail.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.GV_DSPhieuMail_RowCellStyle);
             // 
             // col_MaChiCuc
@@ -339,7 +345,7 @@
             this.col_TenChiCuc.OptionsColumn.ReadOnly = true;
             this.col_TenChiCuc.Visible = true;
             this.col_TenChiCuc.VisibleIndex = 0;
-            this.col_TenChiCuc.Width = 180;
+            this.col_TenChiCuc.Width = 111;
             // 
             // col_TenDonVi
             // 
@@ -352,7 +358,7 @@
             this.col_TenDonVi.OptionsColumn.ReadOnly = true;
             this.col_TenDonVi.Visible = true;
             this.col_TenDonVi.VisibleIndex = 1;
-            this.col_TenDonVi.Width = 261;
+            this.col_TenDonVi.Width = 190;
             // 
             // col_Email
             // 
@@ -365,17 +371,19 @@
             this.col_Email.OptionsColumn.ReadOnly = true;
             this.col_Email.Visible = true;
             this.col_Email.VisibleIndex = 2;
-            this.col_Email.Width = 182;
+            this.col_Email.Width = 211;
             // 
             // col_NgayNhanMau
             // 
+            this.col_NgayNhanMau.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_NgayNhanMau.AppearanceHeader.Options.UseFont = true;
             this.col_NgayNhanMau.Caption = "Đợt Tiếp Nhận";
             this.col_NgayNhanMau.FieldName = "NgayNhanMau";
             this.col_NgayNhanMau.Name = "col_NgayNhanMau";
             this.col_NgayNhanMau.OptionsColumn.AllowEdit = false;
             this.col_NgayNhanMau.Visible = true;
             this.col_NgayNhanMau.VisibleIndex = 3;
-            this.col_NgayNhanMau.Width = 188;
+            this.col_NgayNhanMau.Width = 147;
             // 
             // col_IDPhieu
             // 
@@ -388,7 +396,7 @@
             this.col_IDPhieu.OptionsColumn.ReadOnly = true;
             this.col_IDPhieu.Visible = true;
             this.col_IDPhieu.VisibleIndex = 4;
-            this.col_IDPhieu.Width = 187;
+            this.col_IDPhieu.Width = 111;
             // 
             // col_TinhTrangMau_Text
             // 
@@ -401,7 +409,7 @@
             this.col_TinhTrangMau_Text.OptionsColumn.ReadOnly = true;
             this.col_TinhTrangMau_Text.Visible = true;
             this.col_TinhTrangMau_Text.VisibleIndex = 5;
-            this.col_TinhTrangMau_Text.Width = 203;
+            this.col_TinhTrangMau_Text.Width = 121;
             // 
             // col_Chon
             // 
@@ -413,7 +421,7 @@
             this.col_Chon.Name = "col_Chon";
             this.col_Chon.Visible = true;
             this.col_Chon.VisibleIndex = 6;
-            this.col_Chon.Width = 60;
+            this.col_Chon.Width = 41;
             // 
             // repositoryItemCheckChon
             // 
@@ -442,6 +450,25 @@
             this.col_TinhTrangMau.Name = "col_TinhTrangMau";
             this.col_TinhTrangMau.OptionsColumn.AllowEdit = false;
             this.col_TinhTrangMau.OptionsColumn.ReadOnly = true;
+            // 
+            // col_isGuiMail
+            // 
+            this.col_isGuiMail.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.col_isGuiMail.AppearanceHeader.Options.UseFont = true;
+            this.col_isGuiMail.Caption = "Đã Gửi Mail";
+            this.col_isGuiMail.ColumnEdit = this.repositoryItemCheckGuiMail;
+            this.col_isGuiMail.FieldName = "isDaGuiMail";
+            this.col_isGuiMail.Name = "col_isGuiMail";
+            this.col_isGuiMail.OptionsColumn.AllowEdit = false;
+            this.col_isGuiMail.OptionsColumn.ReadOnly = true;
+            this.col_isGuiMail.Visible = true;
+            this.col_isGuiMail.VisibleIndex = 7;
+            this.col_isGuiMail.Width = 83;
+            // 
+            // repositoryItemCheckGuiMail
+            // 
+            this.repositoryItemCheckGuiMail.AutoHeight = false;
+            this.repositoryItemCheckGuiMail.Name = "repositoryItemCheckGuiMail";
             // 
             // FrmGuiMail
             // 
@@ -472,6 +499,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GC_DSPhieuMail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DSPhieuMail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckChon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckGuiMail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -516,5 +544,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn col_MaDV;
         private System.Windows.Forms.Label lblDemChon;
         private DevExpress.XtraGrid.Columns.GridColumn col_TinhTrangMau;
+        private DevExpress.XtraGrid.Columns.GridColumn col_isGuiMail;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckGuiMail;
     }
 }

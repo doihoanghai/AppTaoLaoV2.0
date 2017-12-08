@@ -916,7 +916,7 @@ namespace BioNetSangLocSoSinh.Entry
                 benhNhan.FatherName = this.ChuyenSangChuHoa(this.txtTenCha.Text);
                 benhNhan.MotherName = this.ChuyenSangChuHoa(this.txtTenMe.Text);
                 benhNhan.DiaChi = this.txtDiaChiBN.Text;
-                benhNhan.Para = this.txtPARA.Text;
+                benhNhan.Para = this.txtPARA.Text.TrimEnd();
                 phieu.BenhNhan = benhNhan;
                 phieu.maNVTaoPhieu = this.MaNhanVienDangNhap;
                 phieu.maDonViCoSo = this.lookupDonVi.EditValue.ToString();
@@ -947,7 +947,7 @@ namespace BioNetSangLocSoSinh.Entry
                 phieu.TenNhanVienLayMau = this.ChuyenSangChuHoa(this.txtNguoiLayMau.Text);
                 phieu.NoiLayMau = this.txtNoiLayMau.Text;
                 phieu.DiaChiLayMau = this.txtDiaChiDonVi.Text;
-                phieu.paRa = this.txtPARA.Text;
+                phieu.paRa = this.txtPARA.Text.TrimEnd();
                 phieu.ngayTaoPhieu = DateTime.Now;
                 this.ValidateFrom();
                 foreach (var item in this.lstDanhGiaSoBo)
@@ -2780,8 +2780,8 @@ namespace BioNetSangLocSoSinh.Entry
                         phieuN.NoiLayMau = donvi.TenDVCS;
                         phieuN.maGoiXetNghiem = MagoiXN ?? "DVGXN0004";
                         phieuN.lstChiDinhDichVu = BioNet_Bus.GetDanhSachDichVuTheoMaGoi(phieuN.maGoiXetNghiem, lst.MaDonVi);
-                    phieuN.ngayGioLayMau = DateTime.Now;
-                    phieuN.ngayNhanMau = DateTime.Now;
+                        phieuN.ngayGioLayMau = DateTime.Now;
+                        phieuN.ngayNhanMau = DateTime.Now;
                         phieuN.maPhieu = lst.MaPhieu;
                         phieuN.BenhNhan.CanNang = 0;
                         phieuN.BenhNhan.PhuongPhapSinh = 0;
@@ -2792,9 +2792,13 @@ namespace BioNetSangLocSoSinh.Entry
                         phieuN.maTinhTrangLucLayMau = 0;
                         phieuN.maCheDoDinhDuong = 0;
                         phieuN.BenhNhan.DanTocID = 1;
+                        phieuN.paRa = "0000";
+                        phieuN.BenhNhan.Para = "0000";
                         phieuN.isNheCan = true;
                         phieuN.isSinhNon = true;
                         phieuN.isTruoc24h = true;
+                        phieuN.isGuiMauTre = false;
+                        phieuN.maChuongTrinh = "CTXH0001";
                         phieuN.SoDTNhanVienLayMau = this.txtSDTNguoiLayMau.Text;
                         phieuN.TenNhanVienLayMau = this.ChuyenSangChuHoa(this.txtNguoiLayMau.Text);
                         phieuN.ngayTaoPhieu = DateTime.Now;

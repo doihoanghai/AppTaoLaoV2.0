@@ -137,6 +137,8 @@
             this.col_isDuyet_GCDaCoKQ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_NguyCoCao = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.col_isDaTraKQ_GCTraKQ = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
@@ -256,6 +258,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpDonVi_GCDaTraKQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpGoiXN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -949,6 +952,7 @@
             this.btnLuu.Size = new System.Drawing.Size(88, 23);
             this.btnLuu.TabIndex = 0;
             this.btnLuu.Text = "Lưu Kết Quả";
+            this.btnLuu.Visible = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnInKQ
@@ -975,6 +979,7 @@
             this.btnSua.Size = new System.Drawing.Size(59, 23);
             this.btnSua.TabIndex = 0;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Visible = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // panelControl14
@@ -1011,7 +1016,8 @@
             this.btnLuuNhieuPDF.Name = "btnLuuNhieuPDF";
             this.btnLuuNhieuPDF.Size = new System.Drawing.Size(129, 22);
             this.btnLuuNhieuPDF.TabIndex = 1;
-            this.btnLuuNhieuPDF.Text = "Lưu Nhiều File PDF";
+            this.btnLuuNhieuPDF.Text = "Xem trước file PDF";
+            this.btnLuuNhieuPDF.Visible = false;
             this.btnLuuNhieuPDF.Click += new System.EventHandler(this.btnLuuNhieuPDF_Click);
             // 
             // btnDuyetKQ
@@ -1271,7 +1277,8 @@
             this.repositoryItemLookUpDonVi_GCDaTraKQ,
             this.LookUpGoiXN,
             this.repositoryItemCheckEdit2,
-            this.repositoryItemCheckEdit3});
+            this.repositoryItemCheckEdit3,
+            this.repositoryItemCheckEdit5});
             this.GCDaTraKetQua.Size = new System.Drawing.Size(321, 520);
             this.GCDaTraKetQua.TabIndex = 1;
             this.GCDaTraKetQua.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1286,7 +1293,8 @@
             this.col_MaXN_GCDaTraKQ,
             this.col_GoiXetNghiem_GCTraKQ,
             this.col_isDuyet_GCDaCoKQ,
-            this.col_NguyCoCao});
+            this.col_NguyCoCao,
+            this.col_isDaTraKQ_GCTraKQ});
             this.GVDaTraKetQua.GridControl = this.GCDaTraKetQua;
             this.GVDaTraKetQua.GroupCount = 2;
             this.GVDaTraKetQua.GroupPanelText = "Kéo các cột vào đây để nhóm";
@@ -1360,7 +1368,7 @@
             this.col_GoiXetNghiem_GCTraKQ.Name = "col_GoiXetNghiem_GCTraKQ";
             this.col_GoiXetNghiem_GCTraKQ.OptionsColumn.AllowEdit = false;
             this.col_GoiXetNghiem_GCTraKQ.Visible = true;
-            this.col_GoiXetNghiem_GCTraKQ.VisibleIndex = 1;
+            this.col_GoiXetNghiem_GCTraKQ.VisibleIndex = 4;
             // 
             // LookUpGoiXN
             // 
@@ -1378,8 +1386,6 @@
             this.col_isDuyet_GCDaCoKQ.FieldName = "isDaDuyetKQ";
             this.col_isDuyet_GCDaCoKQ.Name = "col_isDuyet_GCDaCoKQ";
             this.col_isDuyet_GCDaCoKQ.OptionsColumn.AllowEdit = false;
-            this.col_isDuyet_GCDaCoKQ.Visible = true;
-            this.col_isDuyet_GCDaCoKQ.VisibleIndex = 3;
             this.col_isDuyet_GCDaCoKQ.Width = 62;
             // 
             // col_NguyCoCao
@@ -1402,6 +1408,21 @@
             this.repositoryItemCheckEdit3.PictureGrayed = global::BioNetSangLocSoSinh.Properties.Resources.safety;
             this.repositoryItemCheckEdit3.PictureUnchecked = global::BioNetSangLocSoSinh.Properties.Resources.safety;
             this.repositoryItemCheckEdit3.ValueGrayed = "False";
+            // 
+            // col_isDaTraKQ_GCTraKQ
+            // 
+            this.col_isDaTraKQ_GCTraKQ.Caption = "Đã Trả KQ";
+            this.col_isDaTraKQ_GCTraKQ.ColumnEdit = this.repositoryItemCheckEdit5;
+            this.col_isDaTraKQ_GCTraKQ.FieldName = "isDaTraKQ";
+            this.col_isDaTraKQ_GCTraKQ.Name = "col_isDaTraKQ_GCTraKQ";
+            this.col_isDaTraKQ_GCTraKQ.OptionsColumn.AllowEdit = false;
+            this.col_isDaTraKQ_GCTraKQ.Visible = true;
+            this.col_isDaTraKQ_GCTraKQ.VisibleIndex = 3;
+            // 
+            // repositoryItemCheckEdit5
+            // 
+            this.repositoryItemCheckEdit5.AutoHeight = false;
+            this.repositoryItemCheckEdit5.Name = "repositoryItemCheckEdit5";
             // 
             // repositoryItemCheckEdit2
             // 
@@ -2206,6 +2227,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpDonVi_GCDaTraKQ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpGoiXN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -2439,5 +2461,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraGrid.Columns.GridColumn col_isDaNhapLieu;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit4;
+        private DevExpress.XtraGrid.Columns.GridColumn col_isDaTraKQ_GCTraKQ;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit5;
     }
 }

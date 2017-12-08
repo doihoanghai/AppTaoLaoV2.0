@@ -281,32 +281,40 @@ namespace BioNetSangLocSoSinh.Entry
         {
             try
             {
-                PSDotChuanDoan dot = new PSDotChuanDoan();
-                dot.RowIDBNCanTheoDoi = long.Parse(this.txtRowIDBenhNhanNguyCo.Text.Trim());
-                dot.MaBenhNhan = this.txtMaBenhNhan.Text.Trim() ;
-                dot.MaKhachHang = this.txtMaKhachHang.Text.Trim();
-                dot.NgayChanDoan = DateTime.Now;
-                dot.ChanDoan = this.txtChanDoan.Text;
-                dot.GhiChu = this.txtGhiChu.Text;
-                dot.KetQua = this.txtKetQua.Text;
-                dot.isDongBo = false;
-                dot.isXoa = false;
-
-                dot.rowIDDotChanDoan = string.IsNullOrEmpty(this.txtRowIDDotKham.Text) == true ? 0 : long.Parse(this.txtRowIDDotKham.Text);
-                var result = BioNet_Bus.InsertDotChanDoan(dot);
-                if (result.Result)
+                if(string.IsNullOrEmpty(this.txtKetQua.Text))
                 {
-                    MessageBox.Show("Lưu thành công!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    this.btnLuu.Enabled = false;
-                    this.Reset();
-                    this.btnMoi.Enabled = true;
-                    this.LoadGCKQChiTiet();
-                    this.LoadGCKQChiTietCu();
-                   // this.LoadListTreeView();
+                    PSDotChuanDoan dot = new PSDotChuanDoan();
+                    dot.RowIDBNCanTheoDoi = long.Parse(this.txtRowIDBenhNhanNguyCo.Text.Trim());
+                    dot.MaBenhNhan = this.txtMaBenhNhan.Text.Trim();
+                    dot.MaKhachHang = this.txtMaKhachHang.Text.Trim();
+                    dot.NgayChanDoan = DateTime.Now;
+                    dot.ChanDoan = this.txtChanDoan.Text;
+                    dot.GhiChu = this.txtGhiChu.Text;
+                    dot.KetQua = this.txtKetQua.Text;
+                    dot.isDongBo = false;
+                    dot.isXoa = false;
+                    dot.rowIDDotChanDoan = string.IsNullOrEmpty(this.txtRowIDDotKham.Text) == true ? 0 : long.Parse(this.txtRowIDDotKham.Text);
+                    var result = BioNet_Bus.InsertDotChanDoan(dot);
+                    if (result.Result)
+                    {
+                        MessageBox.Show("Lưu thành công!", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.btnLuu.Enabled = false;
+                        this.Reset();
+                        this.btnMoi.Enabled = true;
+                        this.LoadGCKQChiTiet();
+                        this.LoadGCKQChiTietCu();
+                        // this.LoadListTreeView();
 
+                    }
+                    else MessageBox.Show("Lưu không thành công! \r\n Lỗi chi tiết : " + result.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Renew(false);
                 }
-                else MessageBox.Show("Lưu không thành công! \r\n Lỗi chi tiết : " + result.StringError, "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.Renew(false);
+                else
+                {
+                    MessageBox.Show("Không được để trong kết quả", "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                   
+                }
+                
             }catch(Exception ex)
             {
                 MessageBox.Show("Lỗi khi lưu! \r\n Lỗi chi tiết : " + ex.ToString(), "BioNet - Chương trình sàng lọc sơ sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
